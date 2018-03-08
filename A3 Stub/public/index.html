@@ -26,6 +26,9 @@ Program: This will the main html source for the interface
         <!--aos snik-->
         <link rel="stylesheet" href="bower_components/aos/dist/aos.css" />
         <script src="bower_components/aos/dist/aos.js"></script>
+
+        <!--google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Bungee|Rozha+One" rel="stylesheet">
     </head>
 
     <!--html body-->
@@ -94,41 +97,17 @@ Program: This will the main html source for the interface
         </section>
 
         <!--status panel-->
-        <section class="statusPanel">
-            
-        </section>
-        
-        <!--gedcom panel-->
-        <section data-aos="fade-left" class="gedcomPanel centerContent standardPadding">
-            <div class="table-responsive table-inverse">
-                <h1 class="titlePadding">GEDCOM</h1>
-                <table class="table table-dark">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Given Name</th>
-                        <th>Surname</th>
-                        <th>Sex</th>
-                        <th>Family Size</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>William</td>
-                        <td>Shakespeare</td>
-                        <td>Male</td>
-                        <td>5</td>
-                    </tr>
-                    </tbody>
-                </table>
+        <section class="statusPanel centerContent standardPadding">
+            <div class="form-group">
+                <h1 for="exampleTextarea" class="standardPadding setBungeeFont">Status Panel</h1>
+                <textarea class="form-control thickBorder" id="exampleTextarea" rows="3"></textarea>
             </div>
         </section>
 
-        <!--gedcom panel-->
+        <!--file log panel-->
         <section data-aos="fade-right" class="fileLogPanel centerContent standardPadding">
             <div class="table-responsive">
-                <h1 class="titlePadding">FILE LOG</h1>
+                <h1 class="titlePadding setBungeeFont">FILE LOG</h1>
                 <table class="table table-dark">
                     <thead>
                     <tr>
@@ -157,9 +136,36 @@ Program: This will the main html source for the interface
                 </table>
             </div>
         </section>
+        
+        <!--gedcom panel-->
+        <section data-aos="fade-left" class="gedcomPanel centerContent standardPadding">
+            <div class="table-responsive table-inverse">
+                <h1 class="titlePadding setBungeeFont">GEDCOM</h1>
+                <table class="table table-dark">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Given Name</th>
+                        <th>Surname</th>
+                        <th>Sex</th>
+                        <th>Family Size</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>William</td>
+                        <td>Shakespeare</td>
+                        <td>Male</td>
+                        <td>5</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
         <!--a footer for the end of the page-->
-        <sectio>
+        <section>
 
         </section>
     </body>
