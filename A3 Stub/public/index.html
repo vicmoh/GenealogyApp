@@ -1,0 +1,166 @@
+<!--
+Name: Vicky Mohammad 
+Date: March 4, 2018
+Program: This will the main html source for the interface
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <!--header-->
+    <head>
+        <title>CHANGE ME</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Load jquery, bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <!-- Custom CSS -->
+        <link rel="stylesheet" type="text/css" href="/style.css">
+        <!-- Custom CSS End -->
+
+        <!--my custom header-->
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <!--aos snik-->
+        <link rel="stylesheet" href="bower_components/aos/dist/aos.css" />
+        <script src="bower_components/aos/dist/aos.js"></script>
+    </head>
+
+    <!--html body-->
+    <body>
+        <!--mathML.js libs-->
+        <script type="text/javascript" src="/d2l/common/math/MathML.js?v=10.7.10.10022-168 "></script>
+        <!--mathjax.js libs-->
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() {
+                D2LMathML.DesktopInit('https://s.brightspace.com/lib/mathjax/2.6.1/MathJax.js?config=MML_HTMLorMML',
+                'https://s.brightspace.com/lib/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'); 
+            });
+        </script>
+        <!--<h3>Download test</h3>
+        If simpleValid.ged exists in the uploads/ directory on the server, then clicking on the link below will download it from the server.<br>
+        <a href="/uploads/simpleValid.ged">simpleValid.ged</a>
+        <hr>-->
+        
+        <!-- Leave me at the bottom of body -->
+        <script src="/index.js"></script>
+
+        <!--main codes for the front end *********************************************-->
+        
+        <!--nav bar-->
+        <section class="navigationBar">
+            <!-- nav bar logo-->
+            <div class="appName">
+                <label><i><b>Genealogy App&trade;</b></i></label>
+            </div>
+            <!--nav bar button-->
+            <div class="navigationButton">
+                <a class="noUnderline" href = "" id="#statusID">STATUS</a>
+                <a class="noUnderline" href = "" id="#fileLogID">FILE LOG</a>
+                <a class="noUnderline" href = "" id="#gedcomID">GEDCOM</a>
+            </div>
+        </section>
+
+        <!--intro-->
+        <section class="introContent">
+            <div class="introInner">
+                
+            </div>
+            <div>
+                
+            </div>
+        </section>
+
+        <!--content of welmcome page-->
+        <section data-aos="fade-down" class="welcomeContent">
+            <!--pages-->
+            <div class="centerContent standardLayout">
+                <h1 class="titlePadding">Welcome to Genealogy</h1>
+                <p>
+                    "Every name you add is a branch that can lead to new 
+                    discoveries about your family—start with names you know 
+                    and watch your tree grow." - Ancestry.com
+                </p>
+            </div>
+        </section>
+
+        <!--other image pane;-->
+        <section class="shakespearePanel">
+            <div>
+                
+            </div>
+        </section>
+
+        <!--status panel-->
+        <section class="statusPanel">
+            
+        </section>
+        
+        <!--gedcom panel-->
+        <section data-aos="fade-left" class="gedcomPanel centerContent standardPadding">
+            <div class="table-responsive table-inverse">
+                <h1 class="titlePadding">GEDCOM</h1>
+                <table class="table table-dark">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Given Name</th>
+                        <th>Surname</th>
+                        <th>Sex</th>
+                        <th>Family Size</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>William</td>
+                        <td>Shakespeare</td>
+                        <td>Male</td>
+                        <td>5</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!--gedcom panel-->
+        <section data-aos="fade-right" class="fileLogPanel centerContent standardPadding">
+            <div class="table-responsive">
+                <h1 class="titlePadding">GEDCOM</h1>
+                <table class="table table-dark">
+                    <thead>
+                    <tr>
+                        <th>File Name</th>
+                        <th>Source</th>
+                        <th>GEDC Version</th>
+                        <th>Encoding</th>
+                        <th>Submitter Name</th>
+                        <th>Submitter Address</th>
+                        <th>Number of Individuals</th>
+                        <th>Number of Families</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>FileExample.ged</td>
+                        <td>PAF</td>
+                        <td>5.5</td>
+                        <td>ANSEL</td>
+                        <td>Submitter</td>
+                        <td></td>
+                        <td>3</td>
+                        <td>1</td> 
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!--a footer for the end of the page-->
+        <sectio>
+
+        </section>
+    </body>
+</html>

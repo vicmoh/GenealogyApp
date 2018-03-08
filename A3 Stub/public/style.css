@@ -1,0 +1,157 @@
+/************************************************************
+Name: Vicky Mohammad 
+Date: March 4, 2018
+Program: This will be the stylesheet for the graphic interface
+************************************************************/
+
+/*import; libs for fonts*/
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+@import url("https://fonts.googleapis.com/css?family=Cedarville+Cursive");
+
+/***********************************************************
+ * main html and the body
+ ***********************************************************/
+
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+.fillPage{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.centerContent{
+    max-width: 50em;
+    width:90%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    font-weight: 300;
+    color: #666;
+}
+.setParallax {
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/***********************************************************
+ * navigation bar
+ ***********************************************************/
+
+.navigationBar{
+    opacity: 1;
+    display: table;
+    top: 0;
+    background-color: darkred;
+    font-family: "Times New Roman";
+    width: 100%;
+    position: fixed;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    z-index: 10;
+}
+.navigationBar a{
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    padding-right: 50px;
+    padding-left: 50px;
+    border-radius: 7px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    transition: all 0.5s ease-out;
+}
+.navigationButton a:hover{
+    color: darkred;
+    background-color: white;
+    text-transform: none;
+}
+.appName{
+    top: 12px;
+    color: white;
+    position: absolute;
+    margin-left: 50px;
+    font-size: 20px;
+}
+.roundSquareButton a{
+    background-color: white;
+    border: 2px solid transparent;
+    border-radius: 5px;
+}
+
+/***********************************************************
+ * intro cover
+ ***********************************************************/
+
+.introContent{
+    background: url(assets/lastSupper.jpg) no-repeat fixed 100%;
+    background-position: center;
+    height: 75%;
+    width: 100%;
+    margin:auto;
+    display: table;
+    background-size: cover;
+    z-index: -1;
+    transition-delay: all 1.5s ease-out !important;
+}
+.introContent .introInner{
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    max-width: none;
+}
+
+/***********************************************************
+ * layouts
+ ***********************************************************/
+
+ .standardLayout{
+    top: 100;
+    position: static;
+    width: 100%;
+    background: white;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    font-size: 110%;
+    z-index: -1;
+ }
+.titlePadding{
+    padding-bottom: 0.5em;
+}
+.standardPadding{
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.noUnderline{
+    text-decoration: none !important;
+}
+
+/***********************************************************
+ * panels
+ ***********************************************************/
+
+ .welcomeContent{
+    top: 0;
+    height: 25%;
+    font-size: 100%;
+ }
+.shakespearePanel{
+    background: url(assets/greyLastSupper.jpg) no-repeat fixed 70%;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 70%;
+    z-index: 1;
+}
