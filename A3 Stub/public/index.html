@@ -92,16 +92,18 @@ Program: This will the main html source for the interface
 
         <!--other image pane;-->
         <section class="shakespearePanel">
-            <div>
-                
-            </div>
+            <div></div>
         </section>
 
         <!--status panel-->
         <section class="statusPanel centerContent standardPadding">
             <div class="form-group">
-                <h1 for="exampleTextarea" class="standardPadding setBungeeFont">Status Panel</h1>
-                <textarea class="form-control thickBorder" id="exampleTextarea" rows="3"></textarea>
+                <h1 for="" class="standardPadding setBungeeFont statusPanel">
+                    Status Panel
+                    <button type="button" class="btn btn-default setButtonDarkRed clearButton">CLEAR</button>
+                </h1>
+                <textarea class="form-control thickBorder setBold setRalewayFont statusTextArea" id="" rows="4">-> This will be you status panel. To clear the message, simply click the clear button above.
+                </textarea>
             </div>
         </section>
 
@@ -114,7 +116,7 @@ Program: This will the main html source for the interface
                     <tr>
                         <th>File Name</th>
                         <th>Source</th>
-                        <th>GEDC Version</th>
+                        <th>GEDCOM Version</th>
                         <th>Encoding</th>
                         <th>Submitter Name</th>
                         <th>Submitter Address</th>
@@ -164,12 +166,34 @@ Program: This will the main html source for the interface
                 </table>
             </div>
         </section>
-
+        
+        <!--buttons-->
         <section class="centerContent standardPadding gedcomButtons setRalewayFont">
-            <button type="button" class="horizontalButtonPaddin btn btn-default setButtonDarkRed"><b>UPDLOADS GEDCOM</b></button>
-            <button type="button" class="horizontalButtonPaddin btn btn-default setButtonDarkRed"><b>CREATE GEDCOM</b></button>
-            <button type="button" class="horizontalButtonPaddin btn btn-default setButtonDarkRed"><b>GET DESCENDANT</b></button>
-            <button type="button" class="horizontalButtonPaddin btn btn-default setButtonDarkRed"><b>GET ANCENDANTS</b></button>
+            <a class="btn btn-default setButtonDarkRed" href=""><b>UPDLOAD GEDCOM</b></a>
+            <a class="btn btn-default setButtonDarkRed" href=""><b>CREATE GEDCOM</b></a>
+            <a class="btn btn-default setButtonDarkRed" href="#addIndiID"><b>ADD INDIVIDUAL</b></a>
+            <!--<button type="button" class="btn btn-default setButtonDarkRed"><b>ADD INDIVIDUAL</b></button>-->
+        </section>
+        
+        <!--individual user input popup-->
+        <section id="addIndiID" class="overlay">
+            <div class="popupDisplay centerContent">
+                <h2><u>ADD INDIVIDUAL</u></h2>
+                <!--close button for popup-->
+                <a class="closePopup" href="#close">&times;</a>
+                <!--popup info-->
+                <div class="popupInfo">
+                    <p>First Name: <input></input></p>
+                    <p>Last Name: <input></input></p>
+                    <p>Sex: <input></input></p>
+                    <p>Family Size: <input></input></p>
+                </div>
+            </div>
+        </section>
+        
+        <!--other image pane-->
+        <section class="shakespearePanel">
+            <div></div>
         </section>
 
         <!--a footer for the end of the page-->

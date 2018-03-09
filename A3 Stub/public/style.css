@@ -44,14 +44,6 @@ html, body{
     background-repeat: no-repeat;
     background-size: cover;
 }
-.footer{
-    padding-top: 1em;
-    padding-bottom: 1em;
-    font-family: "Lato", sans-serif;
-    font-weight: bold;
-    text-align: center;
-    color: #888;
-}
 
 /***********************************************************
  * fonts
@@ -62,6 +54,7 @@ html, body{
 .setOswaldFont{font-family: 'Oswald', sans-serif;}
 .setRalewayFont{font-family: 'Raleway', sans-serif;}
 .setCedaville{font-family: 'Cedarville Cursive', cursive;}
+.setBold{font-weight: bold; }
 
 /***********************************************************
  * navigation bar
@@ -132,6 +125,68 @@ html, body{
 }
 
 /***********************************************************
+ * popups
+ ***********************************************************/
+
+.overlay {
+    z-index: 20;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+.popupInfo p{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.popupDisplay {
+    text-align: center;
+    z-index: 21;
+    right: 0;
+    left: 0;
+    margin: 10% auto;
+    max-width: 45em;
+    padding: 20px;
+    padding-bottom: 30px;
+    background: #fff;
+    border-radius: 5px;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+}
+.popupDisplay h2 {
+    margin-top: 30px;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+}
+.popupDisplay .closePopup {
+    position: absolute;
+    text-decoration: none;
+    top: 5px;
+    right: 15px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    color: darkred;
+    transition: all 0.5s ease-in-out;
+}
+.popupDisplay .closePopup:hover {
+    color: red;
+}
+.popupDisplay .content{
+    max-height: 30%;
+    overflow: auto;
+}
+
+/***********************************************************
  * layouts
  ***********************************************************/
 
@@ -169,6 +224,8 @@ html, body{
 }
 .btn{
     border-width: medium;
+    margin-right: 11px;
+    margin-left: 11px;
 }
 .setButtonDarkRed{
     color: white;
@@ -192,12 +249,26 @@ html, body{
     height: 70%;
     z-index: 1;
 }
+.clearButton{
+    margin-left: 100px;
+}
+.statusTextArea{
+    background: white;
+    color: #666;
+}
 .thickBorder{
     border-width: thick;
     border-style: solid;
-    border-color: darkred;
+    border-color: #666;
 }
 .gedcomButtons{
     padding-top: 2em;
     padding-bottom: 3em;
+}
+.footerPanel{
+    padding-top: 1em;
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color: #888;
 }
