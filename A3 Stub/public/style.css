@@ -44,18 +44,24 @@ html, body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+.footer{
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color: #888;
+}
 
 /***********************************************************
  * fonts
  ***********************************************************/
 
-.setBungeeFont{
-    font-family: 'Bungee', cursive;
-}
-
-.setRozhaFont{
-    font-family: 'Rozha One', serif;
-}
+.setBungeeFont{font-family: 'Bungee', cursive;}
+.setRozhaFont{font-family: 'Rozha One', serif;}
+.setOswaldFont{font-family: 'Oswald', sans-serif;}
+.setRalewayFont{font-family: 'Raleway', sans-serif;}
+.setCedaville{font-family: 'Cedarville Cursive', cursive;}
 
 /***********************************************************
  * navigation bar
@@ -151,6 +157,25 @@ html, body{
 }
 
 /***********************************************************
+ * buttons
+ ***********************************************************/
+
+.btn:hover{
+    background: white;
+    color: darkred;
+    border-color: darkred;
+    border-width: medium;
+    transition: all 0.5s ease-out;
+}
+.btn{
+    border-width: medium;
+}
+.setButtonDarkRed{
+    color: white;
+    background-color: darkred;
+}
+
+/***********************************************************
  * panels
  ***********************************************************/
 
@@ -171,4 +196,8 @@ html, body{
     border-width: thick;
     border-style: solid;
     border-color: darkred;
+}
+.gedcomButtons{
+    padding-top: 2em;
+    padding-bottom: 3em;
 }

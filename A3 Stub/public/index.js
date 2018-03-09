@@ -27,3 +27,44 @@ $(document).ready(function() {
         $.ajax({});
     });
 });
+
+/*******************************************************************
+ * my codes
+ *******************************************************************/
+
+var gedcomIndividual = {
+    numberOfIndividual = 0,
+    givenName: "",
+    surname: "",
+    sex: "",
+    familySize: 0
+}//end var
+
+var gedcomObject = {
+    fileName: "",
+    source: "",
+    gedcversion: 0,
+    encoding: "",
+    submitterName: "",
+    submitterAddress: "",
+    numberOfIndividuals: "",
+    numberOfFamilies: ""
+}//end var
+
+function createGedcomIndiTable(individual){
+    //dec vars for tables
+    var table = document.createElement("table");
+    var header = document.createElement("tr");
+    //dec cell vars
+    var givenNameCell = document.createElement("th");
+    var surnameCell = document.createElement("th");
+    var sexCell = document.createElement("th");
+    var familySizeCell = document.createElement("th");
+    //append all cell
+    header.appendChild(givenNameCell);
+    header.appendChild(surnameCell);
+    header.appendChild(sexCell);
+    header.appendChild(familySizeCell);
+    //create the table
+    table.appendChild(header);
+}
