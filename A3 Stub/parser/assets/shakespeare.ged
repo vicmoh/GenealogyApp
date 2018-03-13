@@ -11,9 +11,9 @@
 0 @SUB1@ SUBM
 1 NAME webTreePrint
 0 @I0001@ INDI
-1 NAME                  William /Shakespeare/
-    2 GIVN William
-    2 SURN Shakespeare
+1 NAME William /Shakespeare/
+2 GIVN William
+2 SURN Shakespeare
 1 SEX M
 1 BIRT
 2 DATE BEF 23 APR 1564
