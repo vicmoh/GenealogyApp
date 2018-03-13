@@ -170,7 +170,7 @@ Program: This will the main html source for the interface
         <!--buttons-->
         <section class="centerContent standardPadding gedcomButtons setRalewayFont">
             <a class="btn btn-default setButtonDarkRed" href=""><b>UPDLOAD GEDCOM</b></a>
-            <a class="btn btn-default setButtonDarkRed" href=""><b>CREATE GEDCOM</b></a>
+            <a class="btn btn-default setButtonDarkRed" href="#createGedcomID"><b>CREATE GEDCOM</b></a>
             <a class="btn btn-default setButtonDarkRed" href="#addIndiID"><b>ADD INDIVIDUAL</b></a>
             <!--<button type="button" class="btn btn-default setButtonDarkRed"><b>ADD INDIVIDUAL</b></button>-->
         </section>
@@ -178,15 +178,23 @@ Program: This will the main html source for the interface
         <!--individual user input popup-->
         <section id="addIndiID" class="overlay">
             <div class="popupDisplay centerContent">
-                <h2><u>ADD INDIVIDUAL</u></h2>
+                <h2 class="standardPadding setRalewayFont setBold"><u>ADD INDIVIDUAL</u></h2>
                 <!--close button for popup-->
                 <a class="closePopup" href="#close">&times;</a>
                 <!--popup info-->
-                <div class="popupInfo">
-                    <p>First Name: <input></input></p>
-                    <p>Last Name: <input></input></p>
-                    <p>Sex: <input></input></p>
-                    <p>Family Size: <input></input></p>
+                <div class="popupInfo standardPadding setBold">
+                    <p>First Name: </p>
+                    <input></input>
+                    <p>Last Name: </p>
+                    <input></input>
+                    <p>Sex: </p>
+                    <input></input>
+                    <p>Family Size: </p>
+                    <input></input>
+                    <div class="standardPadding setWhite">
+                        <a class="btn setButtonDarkRed">ADD</a>
+                        <a class="btn setButtonDarkRed">CANCEL</a>
+                    </div>
                 </div>
             </div>
         </section>

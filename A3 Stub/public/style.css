@@ -272,3 +272,22 @@ html, body{
     text-align: center;
     color: #888;
 }
+.setWhite{
+    color: white;
+}
+/***********************************************************
+ * make the web compatible with phene etc
+ ***********************************************************/
+
+ @media screen and (max-width: 900px){
+    .navigationBar{
+        font-size: 90%;
+    }
+    .navigationButton a{
+        margin-left: 5px;
+        margin-right: 5px;
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+}
+@media 
