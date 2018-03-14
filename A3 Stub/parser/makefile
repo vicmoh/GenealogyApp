@@ -1,31 +1,29 @@
 CC = gcc
-CFLAGS = -Wall -g -Iinclude
+CFLAGS = -std=c11 -wall -g
 
-UNAME := $(shell uname)
+LIB = shareLib.so
 
-ifeq ($(UNAME), Linux)
-	CCFLAGS += -std=gnu11 
-endif
-ifeq ($(UNAME), Darwin)
-	CCFLAGS += -std=c11
-endif
+SRC = ./src/
+BIN = ./bin/
+INC = ./include/
 
-all: myProgram testProgram
+all: $(BIN)LinkedListAPI.o $(BIN)GEDCOMparser.o $(BIN)GEDCOMutilities.o
+	$(CC) - shared -o $(BIN)libparser.so $(BIN)LinkedListAPI.o $(BIN)GEDCOMparser.o $(BIN)GEDCOMutilities.o
 
-myProgram:  
-	$(CC)  $(CFLAGS) src/*.c  tests/myTest.c -o bin/run
+parser: $(BIN)GEDCOMparser.o $(BIN)GEDCOMutilities.o
+	ar rcs $(BIN)libparser.a $(BIN)GEDCOMparser.o $(BIN)GEDCOMutilities.o
 
-testProgram:
-	$(CC)  $(CFLAGS) src/*.c  tests/testSuite.c -o bin/runTest
+list: $(BIN)LinkedListAPI.o
+	ar rcs $(BIN)libparser.a $(BIN)LinkedListAPI.o
 
-test:
-	./bin/run ./assets/test.ged
+clean: 
+	rm -f $(BIN)*
 
-simple:
-	./bin/run ./assets/simpleGEDCOM.ged
+$(BIN)LinkedListAPI.o: $(SRC)LinkedListAPI.c
+	$(CC) $(CLFLAGS) -c $(SRC)LinkedListAPI.c -fpic -Iinclude -o $(BIN)LinkedListAPI.o
 
-shakespeare:
-	./bin/run ./assets/shakespeare.ged
+$(BIN)GEDCOMparser.o: $(SRC)GEDCOMparser.c
+	$(CC) $(CLFLAGS) -c $(SRC)GEDCOMparser.c -fpic -Iinclude -o $(BIN)GEDCOMparser.o
 
-valgrind:
-	valgrind -v --leak-check=full ./bin/run ./assets/shakespeare.ged
+$(BIN)GEDCOMutilities.o: $(SRC)GEDCOMutilities.c
+	$(CC) $(CLFLAGS) -c $(SRC)GEDCOMutilities.c -fpic -Iinclude -o $(BIN)GEDCOMutilities.o
