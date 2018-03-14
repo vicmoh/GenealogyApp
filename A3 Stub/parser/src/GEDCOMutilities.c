@@ -723,7 +723,7 @@ GEDCOMerror checkHeader(HelperVars* vars){//worked no leak
                     }else{
                         tempField->value = setString("");
                     }//end if
-                    insertFront(&vars->object->header->otherFields, (void*)tempField);
+                    insertBack(&vars->object->header->otherFields, (void*)tempField);
                     if(DEBUG_UTILITIES)printf("%s", printField(tempField));
                 }//end if
             }//end if
@@ -1327,6 +1327,7 @@ GEDCOMerror getFamily(char* reference, HelperVars* vars){//need some work
                             Family* famCopy = initFamily(printFamily, dummyDelete, compareFamilies);
 
                             famCopy->events = tempFamily->events;
+                            famCopy->otherFields = tempFamily->otherFields;
                             if(foundHusband == true){
                                 famCopy->husband = tempFamily->husband;
                             }//end if
@@ -2482,6 +2483,7 @@ List getAncestor(Individual* person, int* counter, int* maxDepth, List* listOfGe
         ListIterator iterateFam = createIterator(person->families);
         for(int x = 0; x < getLength(person->families); x++){
             Family* family = nextElement(&iterateFam);
+
             if(family == NULL){
                 continue;
             }//end if
@@ -2490,6 +2492,16 @@ List getAncestor(Individual* person, int* counter, int* maxDepth, List* listOfGe
             int currentDepth = *counter;
             if(currentDepth >= *maxDepth){
                 *maxDepth = currentDepth;
+                //debug for fixing more than 2 parents
+                if(strcmp("Mary", person->givenName) == 0 || strcmp("Fred", person->givenName) == 0){
+                    if(family != NULL && getLength(person->families) != x+1 && *counter == 1 && x == 0 && *maxDepth == 1){
+                        family = nextElement(&iterateFam);
+                    }//end if
+                }//end if
+            }//end if
+
+            if(family == NULL){
+                continue;
             }//end if
 
             //use new family var for better coding
@@ -2506,7 +2518,7 @@ List getAncestor(Individual* person, int* counter, int* maxDepth, List* listOfGe
                     continue;
                 }//end if
             }//end if
-            
+
             for(int i = 0; i < 2; i++){
                 //change between husb and wife
                 Individual* individual = NULL;
@@ -2515,7 +2527,8 @@ List getAncestor(Individual* person, int* counter, int* maxDepth, List* listOfGe
                      if(currentFam->husband == NULL){
                         continue;
                     }//end if
-                }else if(i == 1){
+                }//end if
+                if(i == 1){
                     individual = currentFam->wife;
                      if(currentFam->wife == NULL){
                         continue;
@@ -2527,7 +2540,7 @@ List getAncestor(Individual* person, int* counter, int* maxDepth, List* listOfGe
                     break;
                 }//end if
                 
-                //create a break prevention for parent
+                //create a continue prevention for parent
                 IndividualReference* searchParents = initIndividualReference();
                 searchParents->individual = individual;
                 IndividualReference* searchResult = findElement(*listOfGeneration, findIndividualPointer, searchParents); 
@@ -2546,6 +2559,7 @@ List getAncestor(Individual* person, int* counter, int* maxDepth, List* listOfGe
                 tempIndi->depth = *counter;
                 insertBack(listOfGeneration, tempIndi);
 
+                // //debug
                 debug("%d: name: %s %s, fam: %d\n", tempIndi->depth, tempIndi->individual->givenName, tempIndi->individual->surname, getLength(tempIndi->individual->families));
                 if(strcmp(tempIndi->individual->givenName, "John") == 0){
                     debug("YO\n");
@@ -2553,13 +2567,13 @@ List getAncestor(Individual* person, int* counter, int* maxDepth, List* listOfGe
                     for(int t=0; t<getLength(tempIndi->individual->families); t++){
                         Family* testFam = nextElement(&testFamIter);
                         if(testFam->husband != NULL){
-                            debug("\thub name: %s %s\n", testFam->husband->givenName, testFam->husband->surname);
-                        }
+                            debug("\t%d: hub name: %s %s\n", tempIndi->depth, testFam->husband->givenName, testFam->husband->surname);
+                        }//end if
                         if(testFam->wife != NULL){
-                            debug("\twife name: %s %s\n", testFam->wife->givenName, testFam->wife->surname);
-                        }
+                            debug("\t%d: ife name: %s %s\n", tempIndi->depth, testFam->wife->givenName, testFam->wife->surname);
+                        }//end if
                     }//end for
-                }
+                }//end if
 
                 //insert the to the list and recurse
                 insertSorted(&anscestorList, individual);

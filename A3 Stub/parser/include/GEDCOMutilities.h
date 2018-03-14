@@ -22,7 +22,7 @@
 #include "GEDCOMparser.h"
 //macros switches for debuging
 #define BOOL_TYPE false
-#define DEBUG_TYPE true
+#define DEBUG_TYPE false
 #define CHECKER_TYPE false
 //define macros for debuging
 #define debug if(DEBUG_TYPE)printf
