@@ -28,19 +28,50 @@ $(document).ready(function() {
     });
 });
 
-/*******************************************************************
- * my codes
- *******************************************************************/
+/*******************************************************************************
+ * My jquery code 
+ *******************************************************************************/
 
-var gedcomIndividual = {
+/*for the page scrolling when click*/
+$(document).ready(function(){
+    // Add smooth scrolling to all links and .not for close
+    $("a")
+    .not('[href="#close"]')
+    .not('[href="#helpID"]').on('click', function(event) {
+  
+        // Make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+            // Prevent default anchor click behavior
+            event.preventDefault();
+  
+            // Store hash
+            var hash = this.hash;
+  
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 800, function(){
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+            });
+        } // End if
+    });
+  });
+  
+/*******************************************************************************
+ * My javacrypt code
+ *******************************************************************************/
+  
+  var gedcomIndividual = {
     numberOfIndividual = 0,
     givenName: "",
     surname: "",
     sex: "",
     familySize: 0
-}//end var
-
-var gedcomObject = {
+  }//end var
+  
+  var gedcomObject = {
     fileName: "",
     source: "",
     gedcversion: 0,
@@ -49,9 +80,9 @@ var gedcomObject = {
     submitterAddress: "",
     numberOfIndividuals: "",
     numberOfFamilies: ""
-}//end var
-
-function createGedcomIndiTable(individual){
+  }//end var
+  
+  function createGedcomIndiTable(individual){
     //dec vars for tables
     var table = document.createElement("table");
     var header = document.createElement("tr");
@@ -67,4 +98,5 @@ function createGedcomIndiTable(individual){
     header.appendChild(familySizeCell);
     //create the table
     table.appendChild(header);
-}
+  }
+

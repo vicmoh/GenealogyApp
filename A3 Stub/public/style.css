@@ -73,12 +73,18 @@ html, body{
     padding-bottom: 15px;
     z-index: 10;
 }
+.a{
+    padding-right: 10px;
+    padding-left: 10px;
+}
 .navigationBar a{
     text-transform: uppercase;
     color: white;
     text-decoration: none;
-    padding-right: 50px;
-    padding-left: 50px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 30px;
+    margin-left: 30px;
     border-radius: 7px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -286,8 +292,6 @@ html, body{
     .navigationButton a{
         margin-left: 5px;
         margin-right: 5px;
-        padding-right: 5px;
-        padding-left: 5px;
     }
 }
 @media 
