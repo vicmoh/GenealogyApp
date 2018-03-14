@@ -61,13 +61,13 @@ Program: This will the main html source for the interface
             </div>
             <!--nav bar button-->
             <div class="navigationButton">
-                <a class="noUnderline" href = "" id="#statusID">STATUS</a>
-                <a class="noUnderline" href = "" id="#fileLogID">FILE LOG</a>
-                <a class="noUnderline" href = "" id="#gedcomID">GEDCOM</a>
+                <a class="noUnderline" href ="#gedcomID">GEDCOM</a>
+                <a class="noUnderline" href ="#ancestorsID">GET ANCESTORS</a>
+                <a class="noUnderline" href ="#descendantsID">GET DESCENDANTS</a>
             </div>
         </section>
 
-        <!--intro-->
+        <!--intro for help how to use it-->
         <section class="introContent">
             <div class="introInner">
                 
@@ -193,11 +193,55 @@ Program: This will the main html source for the interface
                     <input></input>
                     <div class="standardPadding setWhite">
                         <a class="btn setButtonDarkRed">ADD</a>
-                        <a class="btn setButtonDarkRed">CANCEL</a>
+                        <a class="btn setButtonDarkRed" href="#close">CANCEL</a>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!--**************************************** for the get desc and ans ***********************************************-->
+
+        <!--input popup to search ancestors-->
+        <section id="ancestorsID" class="overlay">
+            <div class="popupDisplay centerContent">
+                <h2 class="titlePadding setRalewayFont setBold "><u>SEARCH ANCESTORS</u></h2>
+                <!--close button for popup-->
+                <a class="closePopup" href="#close">&times;</a>
+                <!--popup info-->
+                <div class="popupInfo standardPadding setBold">
+                    <p>First Name: </p>
+                    <input></input>
+                    <p>Last Name: </p>
+                    <input></input>
+                    <div class="standardPadding setWhite">
+                        <a class="btn setButtonDarkRed">SEARCH</a>
+                        <a class="btn setButtonDarkRed" href="#close">CANCEL</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--input popup to search ancestors-->
+        <section id="descendantsID" class="overlay">
+            <div class="popupDisplay centerContent">
+                <h2 class="titlePadding setRalewayFont setBold "><u>SEARCH DESCENDANTS</u></h2>
+                <!--close button for popup-->
+                <a class="closePopup" href="#close">&times;</a>
+                <!--popup info-->
+                <div class="popupInfo standardPadding setBold">
+                    <p>First Name: </p>
+                    <input></input>
+                    <p>Last Name: </p>
+                    <input></input>
+                    <div class="standardPadding setWhite">
+                        <a class="btn setButtonDarkRed">SEARCH</a>
+                        <a class="btn setButtonDarkRed" href="#close">CANCEL</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--**************************************** for the get desc and ans ***********************************************-->
         
         <!--other image pane-->
         <section class="shakespearePanel">
