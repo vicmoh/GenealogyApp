@@ -4,8 +4,8 @@ CFLAGS = -Wall -g -std=c11
 BIN = bin/
 SRC = src/
 
-all: $(BIN)LinkedListAPI.o $(BIN)GEDCOMparser.o
-	$(CC) -shared -o $(BIN)parser.so $(BIN)LinkedListAPI.o $(BIN)GEDCOMparser.o
+all: $(BIN)LinkedListAPI.o $(BIN)GEDCOMparser.o $(BIN)GEDCOMutilities.o
+	$(CC) -shared -o $(BIN)parser.so $(BIN)LinkedListAPI.o $(BIN)GEDCOMparser.o $(BIN)GEDCOMutilities.o
 
 $(BIN)LinkedListAPI.o: $(SRC)LinkedListAPI.c
 	$(CC) $(CFLAGS) -fpic -Iinclude -c $(SRC)LinkedListAPI.c -o $(BIN)LinkedListAPI.o
