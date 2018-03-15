@@ -225,6 +225,6 @@ void writeGEDCOMWrapper(char* fileName, GEDCOMobject* object);
 char* GEDCOMtoJSON(char* fileName);
 char* descToJSON(char* fileName, char* firstName, char* lastName, int numGen);
 char* anceToJSON(char* fileName, char* firstName, char* lastName, int numGen);
-char* addIndiJSON(char* fileName, char* fileName, char* lastName);
+void addIndiJSON(char* fileName, char* firstName, char* lastName);
 
 #endif

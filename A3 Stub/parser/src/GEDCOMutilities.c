@@ -2741,11 +2741,9 @@ char* anceToJSON(char* fileName, char* firstName, char* lastName, int numGen){
 char* getIndiListJSON(char* fileName){
     //create object
     GEDCOMobject* object = NULL;
-    GEDCOMerror error = createGEDCOM(fileName, &object);
-    char* originalList = iListToJSON(object->individuals);
-    if(error.type != OK){
-        return list;
-    }//end if
+    createGEDCOM(fileName, &object);
+    char* list = iListToJSON(object->individuals);
+    return list;
 }//end func
 
 void addIndiJSON(char* fileName, char* firstName, char* lastName){
