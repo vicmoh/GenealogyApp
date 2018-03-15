@@ -142,7 +142,7 @@ html, body{
     left: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.7);
-    transition: opacity 500ms;
+    transition: opacity 100ms;
     visibility: hidden;
     opacity: 0;
 }
@@ -182,7 +182,7 @@ html, body{
     font-size: 30px;
     font-weight: bold;
     color: darkred;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 .popupDisplay .closePopup:hover {
     color: red;
