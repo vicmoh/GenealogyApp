@@ -219,4 +219,10 @@ List getAncestor(Individual* person, int* counter, int* maxDepth, List* listOfGe
 // create a malloc version for the lists, can be very usefull
 List* initializeListPointer(char* (*printFunction)(void* toBePrinted),void (*deleteFunction)(void* toBeDeleted),int (*compareFunction)(const void* first,const void* second));
 
+//create a wrapper for the nodejs
+char* GEDCOMtoJSON(char* fileName);
+char* descToJSON(char* fileName, char* firstName, char* lastName, int numGen);
+char* anceToJSON(char* fileName, char* firstName, char* lastName, int numGen);
+
+
 #endif

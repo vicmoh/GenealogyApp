@@ -3,8 +3,12 @@
 // C library API
 const ffi = require('ffi');
 
-let parserOBject = ffi.Library("./parser/bin/parser.so", {
+//typedef
 
+//create the lib for c
+let parserOBject = ffi.Library("./parser/bin/parser.so", {
+    // main writer gedcom
+    "wirteGEDCOM": ["GEDCOMerror", ["string", GEDCOMobject]],
 });
 
 // Express App (Routes)

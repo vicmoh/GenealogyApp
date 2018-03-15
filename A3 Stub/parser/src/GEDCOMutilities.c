@@ -2634,3 +2634,97 @@ List getParent(Individual* person){
     //return
     return listOfAscendance;
 }//end funcs
+
+/***********************************************************
+ * writter functions for nodejs
+ ***********************************************************/
+
+char* GEDCOMtoJSON(char* fileName){
+    //creating the object
+    GEDCOMobject* object = NULL;
+    GEDCOMerror error = createGEDCOM(fileName, &object);
+    if(error.type != OK){
+        deleteGEDCOM(object);
+        return setString("{}");
+    }//end if
+
+    //dec vars
+    int memSize = 256*7;
+    char* string = calloc(memSize, sizeof(char));
+    char source[256];
+    char version[256];
+    char encoding[256];
+    char subName[256];
+    char subAddress[256];
+    char indiNum[256];
+    char famNum[256];
+
+    strcpy(source, object->header->source);
+    sprintf(version, "%.2f", object->header->gedcVersion); 
+    
+    if(object->header->encoding == ANSEL){
+        strcpy(encoding, "ANSEL");
+    }else if(object->header->encoding == UTF8){
+        strcpy(encoding, "UTF-8");
+    }else if(object->header->encoding == UNICODE){
+        strcpy(encoding, "UNICODE");
+    }else{
+        strcpy(encoding, "ASCII"); 
+    }//end if
+
+    strcpy(subName, object->submitter->submitterName);
+    strcpy(subAddress, object->submitter->address);
+    sprintf(indiNum, "%d", getLength(object->individuals));
+    sprintf(famNum, "%d", getLength(object->families));
+
+    //"{"source":"Blah","gedcVersion":"5.5","encoding":"ASCII", "subName":"Some dude”,"subAddress":"nowhere"}"
+    sprintf(string, "{\"source\":\"%s\",\"gedcVersion\":\"%s\",\"encoding\":\"%s\",\"subName\":\"%s\",\"subAddress\":\"%s\",\"indiNum\":\"%s\",\"famNum\":\"%s\"}",
+        source, version, encoding, subName, subAddress, indiNum, famNum);
+    deleteGEDCOM(object);
+    return string;
+}//end func
+
+char* descToJSON(char* fileName, char* firstName, char* lastName, int numGen){
+    //creating the object
+    GEDCOMobject* object = NULL;
+    GEDCOMerror error = createGEDCOM(fileName, &object);
+    if(error.type != OK){
+        deleteGEDCOM(object);
+        return setString("[]");
+    }//end if
+
+    //dec vars for searching
+    Individual* searching = initIndividual();
+    searching->givenName = setString(firstName);
+    searching->surname = setString(lastName);
+
+    //get the desc
+    Individual* personSearched = findPerson(object, comparePerson, searching);
+    List desc = getDescendantListN(object, personSearched, numGen);
+    char* descJSON = gListToJSON(desc);
+
+    return descJSON;
+}//end func
+
+char* anceToJSON(char* fileName, char* firstName, char* lastName, int numGen){
+    //creating the object
+    GEDCOMobject* object = NULL;
+    GEDCOMerror error = createGEDCOM(fileName, &object);
+    if(error.type != OK){
+        deleteGEDCOM(object);
+        return setString("[]");
+    }//end if
+
+    //dec vars for searching
+    Individual* searching = initIndividual();
+    searching->givenName = setString(firstName);
+    searching->surname = setString(lastName);
+
+    //get the desc
+    Individual* personSearched = findPerson(object, comparePerson, searching);
+    List desc = getAncestorListN(object, personSearched, numGen);
+    char* anceJSON = gListToJSON(desc);
+
+    return anceJSON;
+}//end func
+
