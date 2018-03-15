@@ -26,4 +26,4 @@ $(BIN)GEDCOMparser.o: $(SRC)GEDCOMparser.c
 	$(CC) $(CLFLAGS) -c $(SRC)GEDCOMparser.c -fpic -Iinclude -o $(BIN)GEDCOMparser.o
 
 $(BIN)GEDCOMutilities.o: $(SRC)GEDCOMutilities.c
-	$(CC) $(CLFLAGS) -c $(SRC)GEDCOMutilities.c -fpic -Iinclude -o $(BIN)GEDCOMutilities.o
+	$(CC) $(CLFLAGS) -c $(SRC)GEDCOMutilities.c -fpic -Iinclude -o $(BIN)GEDCOMutilities.o  
