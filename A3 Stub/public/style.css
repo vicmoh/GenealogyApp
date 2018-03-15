@@ -81,10 +81,10 @@ html, body{
     text-transform: uppercase;
     color: white;
     text-decoration: none;
-    padding-right: 10px;
-    padding-left: 10px;
-    margin-right: 30px;
-    margin-left: 30px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: 25px;
+    margin-left: 25px;
     border-radius: 5px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -178,9 +178,9 @@ html, body{
     position: absolute;
     text-decoration: none;
     top: -10px;
-    right: 15px;
+    right: 10px;
     transition: all 100ms;
-    font-size: 50px;
+    font-size: 35px;
     font-weight: bold;
     color: darkred;
     transition: all 0.3s ease-in-out;
@@ -231,8 +231,8 @@ html, body{
 }
 .btn{
     border-width: medium;
-    margin-right: 11px;
-    margin-left: 11px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 .setButtonDarkRed{
     color: white;
