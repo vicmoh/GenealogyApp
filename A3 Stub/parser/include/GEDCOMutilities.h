@@ -220,10 +220,10 @@ List getAncestor(Individual* person, int* counter, int* maxDepth, List* listOfGe
 List* initializeListPointer(char* (*printFunction)(void* toBePrinted),void (*deleteFunction)(void* toBeDeleted),int (*compareFunction)(const void* first,const void* second));
 
 //create a wrapper for the nodejs
+GEDCOMobject* createGEDCOMWrapper(char* fileName);
+void writeGEDCOMWrapper(char* fileName, GEDCOMobject* object);
 char* GEDCOMtoJSON(char* fileName);
 char* descToJSON(char* fileName, char* firstName, char* lastName, int numGen);
 char* anceToJSON(char* fileName, char* firstName, char* lastName, int numGen);
-GEDCOMobject* createGEDCOMWrapper(char* fileName);
-void writeGEDCOMWrapper(char* fileName, GEDCOMobject* obejct);
 
 #endif

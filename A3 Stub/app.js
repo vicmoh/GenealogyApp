@@ -9,10 +9,13 @@ var GEDCOMobject = ref.contentType.void;
 var GEDCOMobjectPtr = ref.refType(myobj);
 
 //create the lib for c
-let parserOBject = ffi.Library("./parser/bin/parser.so", {
+let parserLib = ffi.Library("./parser/bin/parser.so", {
     // main writer gedcom
-    "wirteGEDCOM": ["void", ["string", GEDCOMobject]],
-    
+    "createGEDCOMWrapper": [GEDCOMobjectPtr, ["string"]],
+    "writeGEDCOMWrapper": ["void", ["string", GEDCOMobject]],
+    //gen
+    "descToJSON": ["string", ["string", "string", "int"]],
+    "anceToJSON": ["string", ["string", "string", "int"]]
 });
 
 // Express App (Routes)
