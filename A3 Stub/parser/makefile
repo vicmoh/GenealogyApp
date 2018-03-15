@@ -13,5 +13,8 @@ $(BIN)LinkedListAPI.o: $(SRC)LinkedListAPI.c
 $(BIN)GEDCOMparser.o: $(SRC)GEDCOMparser.c
 	$(CC) $(CFLAGS) -fpic -Iinclude -c $(SRC)GEDCOMparser.c -o $(BIN)GEDCOMparser.o
 
+$(BIN)GEDCOMutilities.o: $(SRC)GEDCOMutilities.c
+	$(CC) $(CFLAGS) -fpic -Iinclude -c $(SRC)GEDCOMutilities.c -o $(BIN)GEDCOMutilities.o
+
 clean:
 	rm -f $(BIN)*o $(BIN)*a
