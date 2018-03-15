@@ -22,10 +22,10 @@ $(document).ready(function() {
     });
 
     // Event listener form replacement example, building a Single-Page-App, no redirects if possible
-    $('#someform').submit(function(e){
-        e.preventDefault();
-        $.ajax({});
-    });
+    // $('#someform').submit(function(e){
+    //     e.preventDefault();
+    //     $.ajax({});
+    // });
 });
 
 /*******************************************************************************
