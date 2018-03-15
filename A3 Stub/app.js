@@ -6,7 +6,7 @@ const ffi = require('ffi');
 //typedef
 const ref = require("ref");
 var GEDCOMobject = ref.types.void;
-var GEDCOMobjectPtr = ref.refType(myobj);
+var GEDCOMobjectPtr = ref.refType(GEDCCOMobject);
 
 //create the lib for c
 let parserLib = ffi.Library("./parser/bin/parser.so", {
