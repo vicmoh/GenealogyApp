@@ -85,7 +85,7 @@ app.get('/uploads/:name', function(req , res){
     });
 });
 
-//******************** Your code goes here ******************** 
+//******************** example code ******************** 
 
 //Sample endpoint
 app.get('/someendpoint', function(req , res){
@@ -96,3 +96,7 @@ app.get('/someendpoint', function(req , res){
 
 app.listen(portNum);
 console.log('Running app at localhost: ' + portNum);
+
+//******************** my code ******************** 
+
+var testObject = parserLib.createGEDCOMWrapper();

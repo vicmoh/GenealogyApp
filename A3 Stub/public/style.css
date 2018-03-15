@@ -114,21 +114,15 @@ html, body{
  ***********************************************************/
 
 .introContent{
-    background: url(assets/lastSupper.jpg) no-repeat fixed 100%;
+    /*background: url(assets/lastSupper.jpg) no-repeat fixed 100%;
     background-position: center;
     height: 75%;
     width: 100%;
     margin:auto;
-    display: table;
     background-size: cover;
-    z-index: -1;
-    transition-delay: all 1.5s ease-out !important;
-}
-.introContent .introInner{
-    display: table-cell;
-    vertical-align: middle;
-    width: 100%;
-    max-width: none;
+    z-index: -10;
+    transition-delay: all 1.5s ease-out !important;*/
+    padding-bottom: 35%;
 }
 
 /***********************************************************
@@ -206,7 +200,7 @@ html, body{
     padding-top: 2em;
     padding-bottom: 2em;
     font-size: 110%;
-    z-index: -1;
+    z-index: 0;
  }
 .titlePadding{
     padding-bottom: 0.5em;
@@ -217,6 +211,9 @@ html, body{
 }
 .noUnderline{
     text-decoration: none !important;
+}
+.setRelativePosition{
+    position: relative;
 }
 
 /***********************************************************
@@ -252,18 +249,32 @@ html, body{
 .setWhite{
     color: white;
 }
+.setWhiteBackground{
+    background: white;
+}
 
 /***********************************************************
  * panels
  ***********************************************************/
 
- .welcomeContent{
+ #video-background {
+    position: fixed;
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto;
+    z-index: -100;
+}
+.welcomeContent{
     top: 0;
     height: 14em;
     font-size: 110%;
+    background: white;
  }
-.shakespearePanel{
-    background: url(assets/greyLastSupper.jpg) no-repeat fixed 70%;
+.secondBackground{
+    background: url(assets/grampa.jpeg) no-repeat fixed 70%;
     background-position: center;
     background-size: cover;
     width: 100%;
