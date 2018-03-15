@@ -223,6 +223,7 @@ List* initializeListPointer(char* (*printFunction)(void* toBePrinted),void (*del
 char* GEDCOMtoJSON(char* fileName);
 char* descToJSON(char* fileName, char* firstName, char* lastName, int numGen);
 char* anceToJSON(char* fileName, char* firstName, char* lastName, int numGen);
-
+GEDCOMobject* createGEDCOMWrapper(char* fileName);
+void writeGEDCOMWrapper(char* fileName, GEDCOMobject* obejct);
 
 #endif

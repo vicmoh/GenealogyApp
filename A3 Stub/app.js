@@ -4,11 +4,15 @@
 const ffi = require('ffi');
 
 //typedef
+const ref = require("ref");
+var GEDCOMobject = ref.contentType.void;
+var GEDCOMobjectPtr = ref.refType(myobj);
 
 //create the lib for c
 let parserOBject = ffi.Library("./parser/bin/parser.so", {
     // main writer gedcom
-    "wirteGEDCOM": ["GEDCOMerror", ["string", GEDCOMobject]],
+    "wirteGEDCOM": ["void", ["string", GEDCOMobject]],
+    
 });
 
 // Express App (Routes)

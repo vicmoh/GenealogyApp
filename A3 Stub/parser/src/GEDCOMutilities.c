@@ -2728,3 +2728,14 @@ char* anceToJSON(char* fileName, char* firstName, char* lastName, int numGen){
     return anceJSON;
 }//end func
 
+GEDCOMobject* createGEDCOMWrapper(char* fileName){
+    GEDCOMobject* object = NULL;
+    createGEDCOM(fileName, &object);
+    return object;
+}//end func
+
+void writeGEDCOMWrapper(char* fileName, GEDCOMobject* object){
+    writeGEDCOM(fileName, object);
+}//end func
+
+
