@@ -54,6 +54,7 @@ html, body{
 .setOswaldFont{font-family: 'Oswald', sans-serif;}
 .setRalewayFont{font-family: 'Raleway', sans-serif;}
 .setCedaville{font-family: 'Cedarville Cursive', cursive;}
+.setTimesNewRomanFont{font-family: "Times New Roman";}
 .setBold{font-weight: bold; }
 
 /***********************************************************
@@ -170,7 +171,7 @@ html, body{
     transition: all 0.3s ease-in-out;
 }
 .popupDisplay h2 {
-    margin-top: 30px;
+    margin-top: 40px;
     color: #333;
     font-family: Tahoma, Arial, sans-serif;
 }
@@ -240,13 +241,26 @@ html, body{
 }
 
 /***********************************************************
+ * classes
+ ***********************************************************/
+
+thickBorder{
+    border-width: thick;
+    border-style: solid;
+    border-color: #666;
+}
+.setWhite{
+    color: white;
+}
+
+/***********************************************************
  * panels
  ***********************************************************/
 
  .welcomeContent{
     top: 0;
-    height: 30%;
-    font-size: 100%;
+    height: 14em;
+    font-size: 110%;
  }
 .shakespearePanel{
     background: url(assets/greyLastSupper.jpg) no-repeat fixed 70%;
@@ -263,11 +277,6 @@ html, body{
     background: white;
     color: #666;
 }
-.thickBorder{
-    border-width: thick;
-    border-style: solid;
-    border-color: #666;
-}
 .gedcomButtons{
     padding-top: 2em;
     padding-bottom: 3em;
@@ -279,9 +288,7 @@ html, body{
     text-align: center;
     color: #888;
 }
-.setWhite{
-    color: white;
-}
+
 /***********************************************************
  * make the web compatible with phene etc
  ***********************************************************/

@@ -53,7 +53,7 @@ Program: This will the main html source for the interface
                 <label><i><b>Genealogy App&trade;</b></i></label>
             </div>
             <!--nav bar button-->
-            <div class="navigationButton">
+            <div class="navigationButton setTimesNewRomanFont">
                 <a class="noUnderline" href ="#statusPanelID">GEDCOM</a>
                 <a class="noUnderline" href ="#ancestorsID">GET ANCESTORS</a>
                 <a class="noUnderline" href ="#descendantsID">GET DESCENDANTS</a>
@@ -73,7 +73,7 @@ Program: This will the main html source for the interface
         <!--content of welmcome page-->
         <section data-aos="fade-down" class="welcomeContent">
             <!--pages-->
-            <div class="centerContent standardLayout">
+            <div class="centerContent standardLayout setTimesNewRomanFont">
                 <h1 class="titlePadding">Welcome to Genealogy</h1>
                 <p>
                     "Every name you add is a branch that can lead to new 
@@ -91,9 +91,8 @@ Program: This will the main html source for the interface
         <!--status panel-->
         <section class="statusPanel centerContent standardPadding" id="statusPanelID">
             <div class="form-group">
-                <h1 for="" class="standardPadding setBungeeFont statusPanel">
-                    Status Panel
-                    <button type="button" class="btn btn-default setButtonDarkRed clearButton">CLEAR</button>
+                <h1 for="" class="standardPadding setTimesNewRomanFont setBold statusPanel">STATUS PANEL
+                    <button type="button" class="btn btn-default setButtonDarkRed clearButton setTimesNewRomanFont">CLEAR</button>
                 </h1>
                 <textarea class="form-control thickBorder setBold setRalewayFont statusTextArea" id="" rows="4">-> This will be you status panel. To clear the message, simply click the clear button above.
                 </textarea>
@@ -103,7 +102,7 @@ Program: This will the main html source for the interface
         <!--file log panel-->
         <section data-aos="fade-right" class="fileLogPanel centerContent standardPadding">
             <div class="table-responsive">
-                <h1 class="titlePadding setBungeeFont">FILE LOG</h1>
+                <h1 class="titlePadding setTimesNewRomanFont setBold"setBold >FILE LOG</h1>
                 <table class="table table-dark">
                     <thead>
                     <tr>
@@ -136,7 +135,7 @@ Program: This will the main html source for the interface
         <!--gedcom panel-->
         <section data-aos="fade-left" class="gedcomPanel centerContent standardPadding">
             <div class="table-responsive table-inverse">
-                <h1 class="titlePadding setBungeeFont">GEDCOM</h1>
+                <h1 class="titlePadding setTimesNewRomanFont setBold"setBold >GEDCOM</h1>
                 <table class="table table-dark">
                     <thead>
                     <tr>
@@ -162,34 +161,12 @@ Program: This will the main html source for the interface
         
         <!--buttons-->
         <section class="centerContent standardPadding gedcomButtons setRalewayFont">
-            <a class="btn btn-default setButtonDarkRed" href=""><b>UPDLOAD GEDCOM</b></a>
-            <a class="btn btn-default setButtonDarkRed" href="#createGedcomID"><b>CREATE GEDCOM</b></a>
-            <a class="btn btn-default setButtonDarkRed" href="#addIndiID"><b>ADD INDIVIDUAL</b></a>
-            <!--<button type="button" class="btn btn-default setButtonDarkRed"><b>ADD INDIVIDUAL</b></button>-->
-        </section>
-        
-        <!--individual user input popup-->
-        <section id="addIndiID" class="overlay">
-            <div class="popupDisplay centerContent">
-                <h2 class="titlePadding setRalewayFont setBold "><u>ADD INDIVIDUAL</u></h2>
-                <!--close button for popup-->
-                <a class="closePopup" href="#close">&times;</a>
-                <!--popup info-->
-                <div class="popupInfo standardPadding setBold">
-                    <p>First Name:</p>
-                    <input></input>
-                    <p>Last Name:</p>
-                    <input></input>
-                    <p>Sex:</p>
-                    <input></input>
-                    <p>Family Size:</p>
-                    <input></input>
-                </div>
-                <div class="standardPadding setWhite">
-                    <a class="btn setButtonDarkRed">ADD</a>
-                    <a class="btn setButtonDarkRed" href="#close">CANCEL</a>
-                </div>
+            <div class="mainButtons"> 
+                <a class="btn btn-default setButtonDarkRed setTimesNewRomanFont" href="">UPDLOAD GEDCOM</a>
+                <a class="btn btn-default setButtonDarkRed setTimesNewRomanFont" href="#createGedcomID">CREATE GEDCOM</a>
+                <a class="btn btn-default setButtonDarkRed setTimesNewRomanFont" href="#addIndiID">ADD INDIVIDUAL</a>
             </div>
+            <!--<button type="button" class="btn btn-default setButtonDarkRed"><b>ADD INDIVIDUAL</b></button>-->
         </section>
 
         <!--**************************************** for the get desc and ans ***********************************************-->
@@ -206,10 +183,34 @@ Program: This will the main html source for the interface
             </div>
         </div>-->
 
+        <!--individual user input popup-->
+        <section id="addIndiID" class="overlay">
+            <div class="popupDisplay centerContent">
+                <h2 class="titlePadding setBold ">ADD INDIVIDUAL</h2>
+                <!--close button for popup-->
+                <a class="closePopup" href="#close">&times;</a>
+                <!--popup info-->
+                <div class="popupInfo standardPadding setBold">
+                    <p>First Name:</p>
+                    <input></input>
+                    <p>Last Name:</p>
+                    <input></input>
+                    <p>Sex:</p>
+                    <input></input>
+                    <p>Family Size:</p>
+                    <input></input>
+                </div>
+                <div class="standardPadding setWhite setTimesNewRomanFont">
+                    <a class="btn setButtonDarkRed">ADD</a>
+                    <a class="btn setButtonDarkRed" href="#close">CANCEL</a>
+                </div>
+            </div>
+        </section>
+
         <!--input popup to search ancestors-->
         <section id="ancestorsID" class="overlay">
-            <div class="popupDisplay centerContent verticalCenter">
-                <h2 class="titlePadding setRalewayFont setBold "><u>SEARCH ANCESTORS</u></h2>
+            <div class="popupDisplay centerContent">
+                <h2 class="titlePadding setBold ">SEARCH ANCESTORS</h2>
                 <!--close button for popup-->
                 <a class="closePopup" href="#close">&times;</a>
                 <!--popup info-->
@@ -221,7 +222,7 @@ Program: This will the main html source for the interface
                     <p>Number of Generation:</p>
                     <input></input>
                 </div>
-                <div class="standardPadding setWhite">
+                <div class="standardPadding setWhite setTimesNewRomanFont">
                     <a class="btn setButtonDarkRed">SEARCH</a>
                     <a class="btn setButtonDarkRed" href="#close">CANCEL</a>
                 </div>
@@ -231,7 +232,7 @@ Program: This will the main html source for the interface
         <!--input popup to search ancestors-->
         <section id="descendantsID" class="overlay">
             <div class="popupDisplay centerContent">
-                <h2 class="titlePadding setRalewayFont setBold "><u>SEARCH DESCENDANTS</u></h2>
+                <h2 class="titlePadding setBold ">SEARCH DESCENDANTS</h2>
                 <!--close button for popup-->
                 <a class="closePopup" href="#close">&times;</a>
                 <!--popup info-->
@@ -243,7 +244,7 @@ Program: This will the main html source for the interface
                     <p>Number of Generation:</p>
                     <input></input>
                 </div>
-                <div class="standardPadding setWhite">
+                <div class="standardPadding setWhite setTimesNewRomanFont">
                     <a class="btn setButtonDarkRed">SEARCH</a>
                     <a class="btn setButtonDarkRed" href="#close">CANCEL</a>
                 </div>
