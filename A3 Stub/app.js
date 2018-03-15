@@ -3,7 +3,7 @@
 // C library API
 const ffi = require('ffi');
 
-let parserOBject = ffi.Library("./shareLib.so", {
+let parserOBject = ffi.Library("./parser/bin/shareLib.so", {
 
 });
 
