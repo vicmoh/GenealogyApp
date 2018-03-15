@@ -13,9 +13,12 @@ let parserLib = ffi.Library("./parser/bin/parser.so", {
     // main writer gedcom
     "createGEDCOMWrapper": [GEDCOMobjectPtr, ["string"]],
     "writeGEDCOMWrapper": ["void", ["string", GEDCOMobject]],
-    //gen
+    //generation
     "descToJSON": ["string", ["string", "string", "int"]],
-    "anceToJSON": ["string", ["string", "string", "int"]]
+    "anceToJSON": ["string", ["string", "string", "int"]],
+    //indivvidual
+    "getIndiListJSON":["string", ["string"]],
+    "addIndiJSON": ["void", ["string", "string", "string"]]
 });
 
 // Express App (Routes)

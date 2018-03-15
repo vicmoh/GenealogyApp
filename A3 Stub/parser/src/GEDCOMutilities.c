@@ -2738,3 +2738,28 @@ char* anceToJSON(char* fileName, char* firstName, char* lastName, int numGen){
     return anceJSON;
 }//end func
 
+char* getIndiListJSON(char* fileName){
+    //create object
+    GEDCOMobject* object = NULL;
+    GEDCOMerror error = createGEDCOM(fileName, &object);
+    char* originalList = iListToJSON(object->individuals);
+    if(error.type != OK){
+        return list;
+    }//end if
+}//end func
+
+void addIndiJSON(char* fileName, char* firstName, char* lastName){
+    //create object
+    GEDCOMobject* object = NULL;
+    GEDCOMerror error = createGEDCOM(fileName, &object);
+    if(error.type != OK){
+        return;
+    }//end if
+    //adding a new indi to the object
+    Individual* newIndi = initIndividual();
+    newIndi->givenName = firstName;
+    newIndi->surname = lastName;
+    addIndividual(object, newIndi);
+    writeGEDCOM(fileName, object);
+}//end func
+
