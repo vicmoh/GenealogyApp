@@ -244,7 +244,7 @@ html, body{
  * classes
  ***********************************************************/
 
-thickBorder{
+.thickBorder{
     border-width: thick;
     border-style: solid;
     border-color: #666;
