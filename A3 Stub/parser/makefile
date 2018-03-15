@@ -8,7 +8,7 @@ BIN = ./bin/
 INC = ./include/
 
 all: $(BIN)LinkedListAPI.o $(BIN)GEDCOMparser.o $(BIN)GEDCOMutilities.o
-	$(CC) - shared -o $(BIN)libparser.so $(BIN)LinkedListAPI.o $(BIN)GEDCOMparser.o $(BIN)GEDCOMutilities.o
+	$(CC) -shared -o $(BIN)libparser.so $(BIN)LinkedListAPI.o $(BIN)GEDCOMparser.o $(BIN)GEDCOMutilities.o
 
 parser: $(BIN)GEDCOMparser.o $(BIN)GEDCOMutilities.o
 	ar rcs $(BIN)libparser.a $(BIN)GEDCOMparser.o $(BIN)GEDCOMutilities.o
