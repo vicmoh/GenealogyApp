@@ -5,7 +5,7 @@ const ffi = require('ffi');
 
 //typedef
 const ref = require("ref");
-var GEDCOMobject = ref.contentType.void;
+var GEDCOMobject = ref.types.void;
 var GEDCOMobjectPtr = ref.refType(myobj);
 
 //create the lib for c
