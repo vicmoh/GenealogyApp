@@ -11,6 +11,7 @@ $(document).ready(function() {
                 so we do not need to parse it on the server.
                 JavaScript really does handle JSONs seamlessly
             */
+           // // Add smooth scrolling on all links inside the navbar
 
             //We write the object to the console to show that the request was successful
             console.log(data); 
