@@ -98,5 +98,3 @@ app.listen(portNum);
 console.log('Running app at localhost: ' + portNum);
 
 //******************** my code ******************** 
-
-var testObject = parserLib.createGEDCOMWrapper();
