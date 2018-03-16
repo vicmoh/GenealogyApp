@@ -97,4 +97,35 @@ app.get('/someendpoint', function(req , res){
 app.listen(portNum);
 console.log('Running app at localhost: ' + portNum);
 
-//******************** my code ******************** 
+/**********************************************************************
+ * my custom codes
+ **********************************************************************/
+
+//Respond to POST requests that upload files to uploads/ directory
+app.post('/assets', function(req, res) {
+    if(!req.files) {
+        return res.status(400).send('No files were uploaded.');
+    }
+ 
+    let uploadFile = req.files.uploadFile;
+ 
+    // Use the mv() method to place the file somewhere on your server
+    uploadFile.mv('assets/' + uploadFile.name, function(err) {
+    if(err) {
+        return res.status(500).send(err);
+    }
+        res.redirect('/');
+    });
+});
+
+//Respond to GET requests for files in the uploads/ directory
+app.get('/assets/:name', function(req , res){
+    fs.stat('assets/' + req.params.name, function(err, stat) {
+        console.log(err);
+        if(err == null) {
+            res.sendFile(path.join(__dirname+'/assets/' + req.params.name));
+        } else {
+            res.send('');
+        }
+    });
+});
