@@ -203,7 +203,7 @@ html, body{
     z-index: 0;
  }
 .titlePadding{
-    padding-bottom: 0.5em;
+    padding-bottom: 0.9em;
 }
 .standardPadding{
     padding-top: 1em;
@@ -272,6 +272,9 @@ html, body{
 .setWhiteBackground{
     background: white;
 }
+.setDarkGrey{
+    color: rgb(25, 25, 25);
+}
 
 /***********************************************************
  * panels
@@ -301,6 +304,17 @@ html, body{
     height: 70%;
     z-index: 1;
 }
+.thirdBackground{
+    background: url(assets/greyGrampa.jpeg) no-repeat fixed 70%;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 70%;
+    z-index: 1;
+}
+.outputTable{
+    padding-top: 5em;
+}
 .clearButton{
     margin-left: 100px;
 }
@@ -308,16 +322,23 @@ html, body{
     background: white;
     color: #666;
 }
+.GEDCOMTittle{
+    padding-bottom: 1px;
+}
+.selectedGEDCOM{
+    padding-bottom: 2em;
+}
 .gedcomButtons{
     padding-top: 2em;
     padding-bottom: 3em;
 }
 .footerPanel{
     padding-top: 1em;
+    padding-bottom: 0.1em;
     font-family: "Lato", sans-serif;
     font-weight: bold;
     text-align: center;
-    color: #888;
+    color: black;
 }
 
 /***********************************************************

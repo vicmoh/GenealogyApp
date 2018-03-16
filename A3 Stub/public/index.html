@@ -89,6 +89,7 @@ Program: This will the main html source for the interface
             <div></div>
         </section>
         
+        <!--main panels-->
         <div class="setWhiteBackground">
             <!--status panel-->
             <section class="statusPanel centerContent standardPadding" id="statusPanelID">
@@ -103,8 +104,8 @@ Program: This will the main html source for the interface
 
             <!--file log panel-->
             <section data-aos="fade-right" class="fileLogPanel centerContent standardPadding">
+                <h1 class="titlePadding setTimesNewRomanFont setBold">FILE LOG</h1>
                 <div class="table-responsive">
-                    <h1 class="titlePadding setTimesNewRomanFont setBold"setBold >FILE LOG</h1>
                     <table class="table table-dark">
                         <thead>
                         <tr>
@@ -136,8 +137,16 @@ Program: This will the main html source for the interface
             
             <!--gedcom panel-->
             <section data-aos="fade-left" class="gedcomPanel centerContent standardPadding">
+                <h1 class="setTimesNewRomanFont setBold GEDCOMTitle">GEDCOM</h1>
+                <div class="selectedGEDCOM">
+                    <select>
+                            <option value="file1">file1.ged</option>
+                            <option value="file2">file2.ged</option>
+                            <option value="file3">file3.ged</option>
+                            <option value="file4">file4.ged</option>
+                    </select>
+                </div>
                 <div class="table-responsive table-inverse">
-                    <h1 class="titlePadding setTimesNewRomanFont setBold"setBold >GEDCOM</h1>
                     <table class="table table-dark">
                         <thead>
                         <tr>
@@ -189,7 +198,7 @@ Program: This will the main html source for the interface
         <!--individual user input popup-->
         <section id="addIndiID" class="overlay">
             <div class="popupDisplay centerContent">
-                <h2 class="titlePadding setBold ">ADD INDIVIDUAL</h2>
+                <h2 class="titlePadding setBold">ADD INDIVIDUAL</h2>
                 <!--close button for popup-->
                 <a class="closePopup" href="#close">&times;</a>
                 <!-- select file drop down menu-->
@@ -280,21 +289,43 @@ Program: This will the main html source for the interface
 
         <!--**************************************** for the get desc and ans ***********************************************-->
         
-        <!--other image pane-->
-        <section class="">
-            <!-- The video
-            <video class="welcomeVideo" autoplay muted loop id="myVideo">
-                <source src="assets/peopleWalking.mp4" type="video/mp4">
-            </video>
-        </section>-->
+        <!-- for the output of the table-->
+        <section class="thirdBackground">
+            <!--output panel-->
+            <div data-aos="fade-left" class="centerContent standardPadding">
+                <div class="outputTable table-responsive table-inverse">
+                    <table class="table table-dark">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Given Name</th>
+                            <th>Surname</th>
+                            <th>Sex</th>
+                            <th>Family Size</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>William</td>
+                            <td>Shakespeare</td>
+                            <td>Male</td>
+                            <td>5</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
 
         <!--a footer for the end of the page-->
-        <footer class="footerPanel centerContent">
-            <div>
-                <p class="setWhite">&copy; Vicky Mohammad 2018</p>
+        <footer class="setWhiteBackground">
+            <div class="footerPanel centerContent">
+                <p>&copy; Vicky Mohammad 2018</p>
             </div>
         </footer>
 
+        <section class="standardPadding"></section> 
         <!-- Leave me at the bottom of body -->
         <script src="index.js"></script>
     </body>

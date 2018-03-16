@@ -46,7 +46,7 @@ $(document).ready(function() {
         } // End if
     });
 
-    var testObject = parserLib.createGEDCOMWrapper();
+    
 });
 
 /*******************************************************************************
