@@ -256,6 +256,10 @@ html, body{
     transition: all 0.75s ease-out;
     z-index: 10;
 }
+.select{
+    color: rgb(25, 25, 25);
+    background: white;    
+}
 
 /***********************************************************
  * classes
@@ -322,11 +326,8 @@ html, body{
     background: white;
     color: #666;
 }
-.GEDCOMTittle{
-    padding-bottom: 1px;
-}
-.selectedGEDCOM{
-    padding-bottom: 2em;
+.selectGEDCOM{
+    min-width: 100%;
 }
 .gedcomButtons{
     padding-top: 2em;
