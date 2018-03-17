@@ -1,25 +1,25 @@
-//'use strict'
+// //'use strict'
 
-// C library API
-const ffi = require('ffi');
+// // C library API
+// const ffi = require('ffi');
 
-//typedef
-const ref = require("ref");
-var GEDCOMobject = ref.types.void;
-var GEDCOMobjectPtr = ref.refType(GEDCOMobject);
+// //typedef
+// const ref = require("ref");
+// var GEDCOMobject = ref.types.void;
+// var GEDCOMobjectPtr = ref.refType(GEDCOMobject);
 
-//create the lib for c
-let parserLib = ffi.Library("./parser/bin/parser.so", {
-    // main writer gedcom
-    "createGEDCOMWrapper": [GEDCOMobjectPtr, ["string"]],
-    "writeGEDCOMWrapper": ["void", ["string", GEDCOMobjectPtr]],
-    //generation
-    "descToJSON": ["string", ["string", "string", "string", "int"]],
-    "anceToJSON": ["string", ["string", "string", "string", "int"]],
-    //indivvidual
-    "getIndiListJSON":["string", ["string"]],
-    "addIndiJSON": ["void", ["string", "string", "string"]]
-});
+// //create the lib for c
+// let parserLib = ffi.Library("./parser/bin/parser.so", {
+//     // main writer gedcom
+//     "createGEDCOMWrapper": [GEDCOMobjectPtr, ["string"]],
+//     "writeGEDCOMWrapper": ["void", ["string", GEDCOMobjectPtr]],
+//     //generation
+//     "descToJSON": ["string", ["string", "string", "string", "int"]],
+//     "anceToJSON": ["string", ["string", "string", "string", "int"]],
+//     //indivvidual
+//     "getIndiListJSON":["string", ["string"]],
+//     "addIndiJSON": ["void", ["string", "string", "string"]]
+// });
 
 // Express App (Routes)
 const express = require("express");
@@ -159,45 +159,21 @@ app.get('/assets/:name', function(req , res){
 // console.log(stringTest2);
 // console.log("calling the parser PASSED");
 
-function addIndividual(){
-    var uploadNameTest = "./uploads/writeTest.ged";
+// function addIndividual(){
+//     var uploadNameTest = "./uploads/writeTest.ged";
 
-    console.log("before calling parser lib");
-    var fileNameTest = "./uploads/shakespeare.ged";
-    var objectTest = parserLib.createGEDCOMWrapper(fileNameTest);
-    console.log("middle calling parser lib");
-    var stringTest = parserLib.descToJSON(fileNameTest, "William", "Shakespeare", 3);
-    console.log(stringTest);
-    parserLib.writeGEDCOMWrapper(uploadNameTest, objectTest);
-    console.log("after calling parser lib");
+//     console.log("before calling parser lib");
+//     var fileNameTest = "./uploads/shakespeare.ged";
+//     var objectTest = parserLib.createGEDCOMWrapper(fileNameTest);
+//     console.log("middle calling parser lib");
+//     var stringTest = parserLib.descToJSON(fileNameTest, "William", "Shakespeare", 3);
+//     console.log(stringTest);
+//     parserLib.writeGEDCOMWrapper(uploadNameTest, objectTest);
+//     console.log("after calling parser lib");
 
-    console.log("calling the create gedcom part 2");
-    console.log("testing to read the uploaded file");
-    var stringTest2 = parserLib.descToJSON(uploadNameTest, "William", "Shakespeare", 3);
-    console.log(stringTest2);
-    console.log("calling the parser PASSED");
-}//end func
-
-// Put all onload AJAX calls here, and event listeners
-$(document).ready(function() {
-    //jquery for adding individual
-    $('.addIndividual').on('click', function(event){
-        //dec vars
-        var emptyString = "";
-        var firstName = $('#addIndiFirstName').val();
-        var lastName = $('#addIndiLastname').val();
-        var sex = $('#addIndiSex').val();
-        var famSize = $('#addIndiFamSize').val();
-        console.log("firstName = " + firstName);
-        console.log("lastName = " + lastName);
-        console.log("sex = " + sex);
-        console.log("famSize = " + famSize);
-        //parse the file to test
-        addIndividual();
-        //clear text
-        $('#addIndiFirstName').val(emptyString);
-        $('#addIndiLastname').val(emptyString);
-        $('#addIndiSex').val(emptyString);
-        $('#addIndiFamSize').val(emptyString);
-    });
-});
+//     console.log("calling the create gedcom part 2");
+//     console.log("testing to read the uploaded file");
+//     var stringTest2 = parserLib.descToJSON(uploadNameTest, "William", "Shakespeare", 3);
+//     console.log(stringTest2);
+//     console.log("calling the parser PASSED");
+// }//end func
