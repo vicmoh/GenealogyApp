@@ -129,3 +129,19 @@ app.get('/assets/:name', function(req , res){
         }
     });
 });
+
+//ourRequest.open('GET', 'url') or 'POST'
+
+//for reference of the fucntion i created when coding
+    // // main writer gedcom
+    // "createGEDCOMWrapper": [GEDCOMobjectPtr, ["string"]],
+    // "writeGEDCOMWrapper": ["void", ["string", GEDCOMobject]],
+    // //generation
+    // "descToJSON": ["string", ["string", "string", "int"]],
+    // "anceToJSON": ["string", ["string", "string", "int"]],
+    // //indivvidual
+    // "getIndiListJSON":["string", ["string"]],
+    // "addIndiJSON": ["void", ["string", "string", "string"]]
+
+var object = parserLib.createGEDCOMWrapper('./uploads/bronte.ged');
+parserLib.writeGEDCOMWrapper('./uploads/writeTest.ged', object);
