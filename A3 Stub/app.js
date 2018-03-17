@@ -97,11 +97,12 @@ app.post('/upload', function(req, res) {
  
     // Use the mv() method to place the file somewhere on your server
     uploadFile.mv('uploads/' + uploadFile.name, function(err) {
+        console.log(uploadFile.name);
+        console.log("uploading file");
     if(err) {
         return res.status(500).send(err);
     }
         res.redirect('/');
-        console.log(uploadFile.name);
     });
 });
 
