@@ -118,7 +118,7 @@ app.post('/assets', function(req, res) {
     });
 });
 
-//get request for the web
+//get request for the web assets just incase
 app.get('/assets/:name', function(req , res){
     fs.stat('assets/' + req.params.name, function(err, stat) {
         console.log(err);
