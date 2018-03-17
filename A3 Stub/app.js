@@ -142,7 +142,7 @@ app.get('/assets/:name', function(req , res){
     // "getIndiListJSON":["string", ["string"]],
     // "addIndiJSON": ["void", ["string", "string", "string"]]
 
-// var uploadNameTest = "./uploads/writeTest.ged";
+var uploadNameTest = "./uploads/writeTest.ged";
 
 console.log("before calling parser lib");
 var fileNameTest = "./uploads/shakespeare.ged";
