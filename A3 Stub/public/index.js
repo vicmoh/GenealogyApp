@@ -90,6 +90,12 @@ $(document).ready(function(){
         var stringTest = parserLib.descToJSON(fileNameTest, "William", "Shakespeare", 3);
         console.log(stringTest);
         parserLib.writeGEDCOMWrapper(uploadNameTest, objectTest);
+        console.log("after calling parser lib");
+    
+        console.log("calling the create gedcom part 2");
+        console.log("testing to read the uploaded file");
+        var stringTest2 = parserLib.descToJSON(uploadNameTest, "William", "Shakespeare", 3);
+        console.log(stringTest2);
         console.log("calling the parser PASSED");
     }//end func
 
