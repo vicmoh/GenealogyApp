@@ -73,7 +73,7 @@ $(document).ready(function() {
         $.ajax({
             type: 'get',
             dataType: 'ged',
-            url: '/uploads',   
+            url: '/uploads/shakespeare.ged',   
             success: function (data) {
                 console.log("ajax fileName = " + data);
             },
