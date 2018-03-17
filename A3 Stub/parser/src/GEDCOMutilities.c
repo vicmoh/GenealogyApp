@@ -2650,7 +2650,6 @@ void writeGEDCOMWrapper(char* fileName, GEDCOMobject* object){
     if(error.type != OK){
         fprintf(stderr, "failed to write the gedcom file\n");
     }//end if
-    fprintf(stderr, "returned OK when writing gedcom file\n");
 }//end func
 
 char* GEDCOMtoJSON(char* fileName){
@@ -2659,6 +2658,7 @@ char* GEDCOMtoJSON(char* fileName){
     GEDCOMerror error = createGEDCOM(fileName, &object);
     if(error.type != OK){
         deleteGEDCOM(object);
+        fprintf(stderr, "failed to create object for GEDCOMtoJSON\n");
         return setString("{}");
     }//end if
 
@@ -2704,6 +2704,7 @@ char* descToJSON(char* fileName, char* firstName, char* lastName, int numGen){
     GEDCOMerror error = createGEDCOM(fileName, &object);
     if(error.type != OK){
         deleteGEDCOM(object);
+        fprintf(stderr, "failed to create obejct for descToJSON\n");
         return setString("[]");
     }//end if
 
@@ -2726,6 +2727,8 @@ char* anceToJSON(char* fileName, char* firstName, char* lastName, int numGen){
     GEDCOMerror error = createGEDCOM(fileName, &object);
     if(error.type != OK){
         deleteGEDCOM(object);
+                fprintf(stderr, "failed to create obejct for anceToJSON\n");
+
         return setString("[]");
     }//end if
 
@@ -2745,7 +2748,10 @@ char* anceToJSON(char* fileName, char* firstName, char* lastName, int numGen){
 char* getIndiListJSON(char* fileName){
     //create object
     GEDCOMobject* object = NULL;
-    createGEDCOM(fileName, &object);
+    GEDCOMerror error = createGEDCOM(fileName, &object);
+    if(error.type != OK){
+        fprintf(stderr, "failed to create obejct for getIndiListJSON\n");
+    }//end if
     char* list = iListToJSON(object->individuals);
     return list;
 }//end func
@@ -2755,6 +2761,7 @@ void addIndiJSON(char* fileName, char* firstName, char* lastName){
     GEDCOMobject* object = NULL;
     GEDCOMerror error = createGEDCOM(fileName, &object);
     if(error.type != OK){
+        fprintf(stderr, "failed to create obejct for addIndiJSON\n");
         return;
     }//end if
     //adding a new indi to the object
