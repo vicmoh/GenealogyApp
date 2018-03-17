@@ -284,6 +284,7 @@ html, body{
  * panels
  ***********************************************************/
 
+ /*main panel*/
  #video-background {
     position: fixed;
     right: 0; 
@@ -308,6 +309,29 @@ html, body{
     height: 70%;
     z-index: 1;
 }
+
+/*status panel*/
+.clearButton{
+    margin-left: 100px;
+}
+.statusTextArea{
+    background: white;
+    color: #666;
+}
+.selectGEDCOM{
+    color: rgb(25, 25, 25);
+    background: white;
+    min-width: 100%;
+}
+.gedcomButtons{
+    padding-top: 2em;
+    padding-bottom: 3em;
+}
+.fileUploadButton{
+    padding-bottom: 4em;
+}
+
+/*output panel*/
 .thirdBackground{
     background: url(assets/greyGrampa.jpeg) no-repeat fixed 70%;
     background-position: center;
@@ -319,20 +343,8 @@ html, body{
 .outputTable{
     padding-top: 5em;
 }
-.clearButton{
-    margin-left: 100px;
-}
-.statusTextArea{
-    background: white;
-    color: #666;
-}
-.selectGEDCOM{
-    min-width: 100%;
-}
-.gedcomButtons{
-    padding-top: 2em;
-    padding-bottom: 3em;
-}
+
+/*footer*/
 .footerPanel{
     padding-top: 1em;
     padding-bottom: 0.1em;

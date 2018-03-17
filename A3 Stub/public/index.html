@@ -19,7 +19,7 @@ Program: This will the main html source for the interface
 
         <!--my custom header-->
         <link rel="stylesheet" type="text/css" href="style.css">
-        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
         <!--aos snik-->
         <link rel="stylesheet" href="bower_components/aos/dist/aos.css" />
@@ -167,10 +167,26 @@ Program: This will the main html source for the interface
                     </table>
                 </div>
             </section>
-            
+
+            <!-- <div class="file-loading"> 
+                    <input id="input-b6" name="input-b6[]" type="file" multiple>
+            </div>
+            <script>
+            $(document).on('ready', function() {
+                $("#input-b6").fileinput({
+                    showUpload: false,
+                    maxFileCount: 10,
+                    mainClass: "input-group-lg"
+                });
+            });
+            </script> -->
+        
             <!--buttons-->
             <section class="centerContent standardPadding gedcomButtons setRalewayFont">
-                <div class="mainButtons"> 
+                <div class="file-loading">
+                    <input class="fileUploadButton" id="" name="fileUpload" type="file"></input>
+                </div>
+                <div class="mainButtons">
                     <a class="btn btn-default setButtonDarkRed setTimesNewRomanFont" href="">UPDLOAD GEDCOM</a>
                     <a class="btn btn-default setButtonDarkRed setTimesNewRomanFont" href="#createGedcomID">CREATE GEDCOM</a>
                     <a class="btn btn-default setButtonDarkRed setTimesNewRomanFont" href="#addIndiID">ADD INDIVIDUAL</a>
