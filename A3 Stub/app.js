@@ -54,8 +54,6 @@ function addIndividual(){
     parserLib.writeString(JSONFileName, desc);
 }//end func
 
-addIndividual();
-
 /**********************************************************************
  * stubs
  **********************************************************************/
