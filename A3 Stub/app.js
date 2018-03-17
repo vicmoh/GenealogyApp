@@ -14,8 +14,8 @@ let parserLib = ffi.Library("./parser/bin/parser.so", {
     "createGEDCOMWrapper": [GEDCOMobjectPtr, ["string"]],
     "writeGEDCOMWrapper": ["void", ["string", GEDCOMobject]],
     //generation
-    "descToJSON": ["string", ["string", "string", "int"]],
-    "anceToJSON": ["string", ["string", "string", "int"]],
+    "descToJSON": ["string", ["string", "string", "string", "int"]],
+    "anceToJSON": ["string", ["string", "string", "string", "int"]],
     //indivvidual
     "getIndiListJSON":["string", ["string"]],
     "addIndiJSON": ["void", ["string", "string", "string"]]
@@ -144,9 +144,10 @@ app.get('/assets/:name', function(req , res){
     // "addIndiJSON": ["void", ["string", "string", "string"]]
 
 console.log("before calling parser lib");
-var object = parserLib.createGEDCOMWrapper("./uploads/shakespeare.ged");
+var fileNameTest = "./uploads/shakespeare.ged";
+var object = parserLib.createGEDCOMWrapper(fileNameTest);
 console.log("middle calling parser lib");
-var string = parserLib.descToJSON("William", "Shakespeare", 3);
+var string = parserLib.descToJSON(fileNameTest, "William", "Shakespeare", 3);
 console.log(string);
 parserLib.writeGEDCOMWrapper("./uploads/writeTest.ged", object);
 console.log("after calling parser lib");
