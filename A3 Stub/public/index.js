@@ -36,4 +36,66 @@ $(document).ready(function() {
 /*******************************************************************************
  * My jquery code 
  *******************************************************************************/
+// C library API
+const ffi = require('ffi');
 
+//typedef
+const ref = require("ref");
+var GEDCOMobject = ref.types.void;
+var GEDCOMobjectPtr = ref.refType(GEDCOMobject);
+
+//create the lib for c
+let parserLib = ffi.Library("./parser/bin/parser.so", {
+    // main writer gedcom
+    "createGEDCOMWrapper": [GEDCOMobjectPtr, ["string"]],
+    "writeGEDCOMWrapper": ["void", ["string", GEDCOMobjectPtr]],
+    //generation
+    "descToJSON": ["string", ["string", "string", "string", "int"]],
+    "anceToJSON": ["string", ["string", "string", "string", "int"]],
+    //indivvidual
+    "getIndiListJSON":["string", ["string"]],
+    "addIndiJSON": ["void", ["string", "string", "string"]]
+});
+
+$(document).ready(function(){
+    //smooth scrolling to setAnimateScroll
+    $('.setAnimateScroll').on('click', function(event) {
+        //make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+            //prevent deafult anchor click behavior
+            event.preventDefault();
+
+            //store the hash
+            var hash = this.hash;
+
+            //using the jquery to call and animate the scroll by 800
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 1000, function(){
+                // when done scrolling (default click behavior) add hash (#)
+                window.location.hash = hash;
+                console.log("calling animate scroll");
+            });
+        } // End if
+    });
+
+    //jquery for adding individual
+    $('.addIndividual').on('click', function(event){
+        //dec vars
+        var emptyString = "";
+        var firstName = $('#addIndiFirstName').val();
+        var lastName = $('#addIndiLastname').val();
+        var sex = $('#addIndiSex').val();
+        var famSize = $('#addIndiFamSize').val();
+        console.log("firstName = " + firstName);
+        console.log("lastName = " + lastName);
+        console.log("sex = " + sex);
+        console.log("famSize = " + famSize);
+        //parse the file to test
+        //clear text
+        $('#addIndiFirstName').val(emptyString);
+        $('#addIndiLastname').val(emptyString);
+        $('#addIndiSex').val(emptyString);
+        $('#addIndiFamSize').val(emptyString);
+    });
+});
