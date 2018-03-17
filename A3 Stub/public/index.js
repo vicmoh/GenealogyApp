@@ -57,6 +57,27 @@ $(document).ready(function() {
         } // End if
     });
 
+    // C library API
+    const ffi = require('ffi');
+
+    //typedef
+    const ref = require("ref");
+    var GEDCOMobject = ref.types.void;
+    var GEDCOMobjectPtr = ref.refType(GEDCOMobject);
+
+    //create the lib for c
+    let parserLib = ffi.Library("./parser/bin/parser.so", {
+        // main writer gedcom
+        "createGEDCOMWrapper": [GEDCOMobjectPtr, ["string"]],
+        "writeGEDCOMWrapper": ["void", ["string", GEDCOMobjectPtr]],
+        //generation
+        "descToJSON": ["string", ["string", "string", "string", "int"]],
+        "anceToJSON": ["string", ["string", "string", "string", "int"]],
+        //indivvidual
+        "getIndiListJSON":["string", ["string"]],
+        "addIndiJSON": ["void", ["string", "string", "string"]]
+    });
+
     function addIndividual(){
         var uploadNameTest = "./uploads/writeTest.ged";
 
