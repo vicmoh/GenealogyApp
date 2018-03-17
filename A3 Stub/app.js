@@ -142,20 +142,19 @@ app.get('/assets/:name', function(req , res){
     // "addIndiJSON": ["void", ["string", "string", "string"]]
 //for reference of the fucntion i created when coding
 
-var uploadName = "./uploads/writeTest.ged";
+var uploadNameTest = "./uploads/writeTest.ged";
 
 console.log("before calling parser lib");
 var fileNameTest = "./uploads/shakespeare.ged";
-var object = parserLib.createGEDCOMWrapper(fileNameTest);
+var objectTest = parserLib.createGEDCOMWrapper(fileNameTest);
 console.log("middle calling parser lib");
-var string = parserLib.descToJSON(fileNameTest, "William", "Shakespeare", 3);
-console.log(string);
-parserLib.writeGEDCOMWrapper(uploadName, object);
+var stringTest = parserLib.descToJSON(fileNameTest, "William", "Shakespeare", 3);
+console.log(stringTest);
+parserLib.writeGEDCOMWrapper(uploadNameTest, objectTest);
 console.log("after calling parser lib");
 
 console.log("calling the create gedcom part 2");
-var object2 = parserLib.createGEDCOMWrapper(uploadName);
 console.log("testing to read the uploaded file");
-var string2 = parserLib.descToJSON(uploadName, "William", "Shakespeare", 3);
-console.log(string2);
+var stringTest2 = parserLib.descToJSON(uploadNameTest, "William", "Shakespeare", 3);
+console.log(stringTest2);
 console.log("calling the parser PASSED");
