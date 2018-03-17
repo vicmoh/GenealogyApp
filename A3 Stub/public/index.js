@@ -59,8 +59,10 @@ $(document).ready(function(){
             });
         } // End if
     });
+});
 
-    //jquery for adding a individual
+$(document).ready(function(){
+     //jquery for adding a individual
     // //Get
     // var bla = $('#txt_name').val();
     // //Set
@@ -71,6 +73,6 @@ $(document).ready(function(){
         var sex = $('.addIndiSex').val;
         var famSize = $('.addIndiFamSize').val;
         console.log(firstName);
-        console.log(lastName);
+        console.log(lastNames);
     });
 });
