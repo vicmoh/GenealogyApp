@@ -144,7 +144,9 @@ app.get('/assets/:name', function(req , res){
     // "addIndiJSON": ["void", ["string", "string", "string"]]
 
 console.log("before calling parser lib");
-var object = parserLib.createGEDCOMWrapper("./uploads/bronte.ged");
+var object = parserLib.createGEDCOMWrapper("./uploads/shakespeare.ged");
 console.log("middle calling parser lib");
+var string = parserLib.descToJSON("William", "Shakespeare", 3);
+console.log(string);
 parserLib.writeGEDCOMWrapper("./uploads/writeTest.ged", object);
 console.log("after calling parser lib");
