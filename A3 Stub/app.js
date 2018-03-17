@@ -145,5 +145,6 @@ app.get('/assets/:name', function(req , res){
 
 console.log("before calling parser lib");
 var object = parserLib.createGEDCOMWrapper("./uploads/bronte.ged");
+console.log("middle calling parser lib");
 parserLib.writeGEDCOMWrapper("./uploads/writeTest.ged", object);
 console.log("after calling parser lib");
