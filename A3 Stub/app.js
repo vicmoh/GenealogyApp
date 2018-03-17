@@ -113,6 +113,7 @@ app.post('/upload', function(req, res) {
 
 //Respond to GET requests for files in the uploads/ directory
 app.get('/uploads/:name', function(req , res){
+    addIndividual();
     fs.stat('uploads/' + req.params.name, function(err, stat) {
         console.log(err);
         if(err == null) {
@@ -138,8 +139,6 @@ console.log('Running app at localhost: ' + portNum);
 /**********************************************************************
  * my custom codes
  **********************************************************************/
-
-addIndividual();
 
 //for the web assets
 app.post('/assets', function(req, res) {
