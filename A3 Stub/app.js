@@ -157,4 +157,5 @@ console.log("calling the create gedcom part 2");
 var object2 = parserLib.createGEDCOMWrapper(uploadName);
 console.log("testing to read the uploaded file");
 var string2 = parserLib.descToJSON(uploadName, "William", "Shakespeare", 3);
+console.log(string2);
 console.log("calling the parser PASSED");
