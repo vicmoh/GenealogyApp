@@ -2646,7 +2646,11 @@ GEDCOMobject* createGEDCOMWrapper(char* fileName){
 }//end func
 
 void writeGEDCOMWrapper(char* fileName, GEDCOMobject* object){
-    writeGEDCOM(fileName, object);
+    GEDCOMerror error = writeGEDCOM(fileName, object);
+    if(error.type != OK){
+        fprintf(stderr, "failed to write the gedcom file\n");
+    }//end if
+    fprintf(stderr, "returned OK when writing gedcom file\n");
 }//end func
 
 char* GEDCOMtoJSON(char* fileName){

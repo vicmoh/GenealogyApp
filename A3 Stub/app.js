@@ -149,5 +149,5 @@ var object = parserLib.createGEDCOMWrapper(fileNameTest);
 console.log("middle calling parser lib");
 var string = parserLib.descToJSON(fileNameTest, "William", "Shakespeare", 3);
 console.log(string);
-parserLib.writeGEDCOMWrapper("./uploads/writeTest.ged", object);
+parserLib.writeGEDCOMWrapper(fileNameTest, object);
 console.log("after calling parser lib");
