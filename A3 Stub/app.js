@@ -173,8 +173,6 @@ app.post('/objects', function(req, res) {
         return res.status(400).send('No files were uploaded.');
     }
     let uploadFile = req.files.uploadFile;
-    addIndividual();
-    console.log("app post object called");
     uploadFile.mv('objects/' + uploadFile.name, function(err) {
     if(err) {
         return res.status(500).send(err);
