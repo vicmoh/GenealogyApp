@@ -73,7 +73,7 @@ $(document).ready(function() {
         $.ajax({
             type: 'get',
             dataType: 'json',
-            url: '/uploads/addIndiTest.JSON',   
+            url: '/uploads/addIndiTest.json',   
             success: function (data) {
                 console.log("ajax fileName = " + data);
             },

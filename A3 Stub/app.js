@@ -47,7 +47,7 @@ console.log(stringTest2);
 console.log("calling the parser PASSED");
 
 function addIndividual(){
-    var JSONFileName = ".uploads/addIndiTest.JSON"
+    var JSONFileName = ".uploads/addIndiTest.json"
     var GEDFileName = "./uploads/shakespeare.ged"
     var desc = parerLib.descToJSON(GEDFileName, "William", "Shakespeare", 0);
     parserLib.writeString(JSONFileName, desc);
