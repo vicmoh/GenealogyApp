@@ -113,7 +113,7 @@ $(document).ready(function(){
         console.log("sex = " + sex);
         console.log("famSize = " + famSize);
         //parse the file to test
-
+        addIndividual();
         //clear text
         $('#addIndiFirstName').val(emptyString);
         $('#addIndiLastname').val(emptyString);
