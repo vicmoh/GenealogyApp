@@ -12,7 +12,7 @@ var GEDCOMobjectPtr = ref.refType(GEDCOMobject);
 let parserLib = ffi.Library("./parser/bin/parser.so", {
     // main writer gedcom
     "createGEDCOMWrapper": [GEDCOMobjectPtr, ["string"]],
-    "writeGEDCOMWrapper": ["void", ["string", GEDCOMobject]],
+    "writeGEDCOMWrapper": ["void", ["string", GEDCOMobjectPtr]],
     //generation
     "descToJSON": ["string", ["string", "string", "string", "int"]],
     "anceToJSON": ["string", ["string", "string", "string", "int"]],
@@ -131,17 +131,17 @@ app.get('/assets/:name', function(req , res){
 });
 
 //ourRequest.open('GET', 'url') or 'POST'
-
-//for reference of the fucntion i created when coding
     // // main writer gedcom
     // "createGEDCOMWrapper": [GEDCOMobjectPtr, ["string"]],
-    // "writeGEDCOMWrapper": ["void", ["string", GEDCOMobject]],
+    // "writeGEDCOMWrapper": ["void", ["string", GEDCOMobjectPtr]],
     // //generation
-    // "descToJSON": ["string", ["string", "string", "int"]],
-    // "anceToJSON": ["string", ["string", "string", "int"]],
+    // "descToJSON": ["string", ["string", "string", "string", "int"]],
+    // "anceToJSON": ["string", ["string", "string", "string", "int"]],
     // //indivvidual
     // "getIndiListJSON":["string", ["string"]],
     // "addIndiJSON": ["void", ["string", "string", "string"]]
+//for reference of the fucntion i created when coding
+
 
 console.log("before calling parser lib");
 var fileNameTest = "./uploads/shakespeare.ged";
