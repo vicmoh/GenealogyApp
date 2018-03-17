@@ -44,20 +44,19 @@ $(document).ready(function(){
     .not('[href="#close"]')
     .not('[href="#popup1"]').on('click', function(event) {
 
-        // Make sure this.hash has a value before overriding default behavior
+        //make sure this.hash has a value before overriding default behavior
         if (this.hash !== "") {
-            // Prevent default anchor click behavior
+            //prevent deafult anchor click behavior
             event.preventDefault();
 
-            // Store hash
+            //store the hash
             var hash = this.hash;
 
-            // Using jQuery's animate() method to add smooth page scroll
-            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+            //using the jquery to call and animate the scroll by 800
             $('html, body').animate({
                 scrollTop: $(hash).offset().top
-            }, 800, function(){
-                // Add hash (#) to URL when done scrolling (default click behavior)
+            }, 1000, function(){
+                // when done scrolling (default click behavior) add hash (#)
                 window.location.hash = hash;
             });
         } // End if
