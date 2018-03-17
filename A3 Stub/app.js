@@ -139,6 +139,8 @@ console.log('Running app at localhost: ' + portNum);
  * my custom codes
  **********************************************************************/
 
+addIndividual();
+
 //for the web assets
 app.post('/assets', function(req, res) {
     if(!req.files) {
