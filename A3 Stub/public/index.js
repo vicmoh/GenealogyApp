@@ -39,10 +39,8 @@ $(document).ready(function() {
 
 //Add smooth scrolling on all links inside the navbar
 $(document).ready(function(){
-    // Add smooth scrolling to all links and .not for close
-    $("a")
-    .not('[href="#close"]')
-    .not('[href="#popup1"]').on('click', function(event) {
+    // Add smooth scrolling to animateScoll
+    $(".setAnimateScroll").on('click', function(event) {
 
         //make sure this.hash has a value before overriding default behavior
         if (this.hash !== "") {
