@@ -41,7 +41,6 @@ $(document).ready(function() {
 $(document).ready(function(){
     // Add smooth scrolling to animateScoll
     $('.setAnimateScroll').on('click', function(event) {
-        console.log("calling animate scroll");
         //make sure this.hash has a value before overriding default behavior
         if (this.hash !== "") {
             //prevent deafult anchor click behavior
@@ -56,6 +55,7 @@ $(document).ready(function(){
             }, 1000, function(){
                 // when done scrolling (default click behavior) add hash (#)
                 window.location.hash = hash;
+                console.log("calling animate scroll");
             });
         } // End if
     });
