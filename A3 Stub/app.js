@@ -20,7 +20,7 @@ let parserLib = ffi.Library("./parser/bin/parser.so", {
     "getIndiListJSON":["string", ["string"]],
     "addIndiJSON": ["void", ["string", "string", "string"]],
     //writer
-    "writeJSON": ["void", ["string", "string"]]
+    "writeString": ["void", ["string", "string"]]
 });
 
 //my global vars'

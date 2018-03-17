@@ -2773,6 +2773,6 @@ void addIndiJSON(char* fileName, char* firstName, char* lastName){
 }//end func
 
 void writeJSON(char* fileName, char* outputString){
-    writeFile(fileName, outputString);
+    writeString(fileName, outputString);
 }//end func
 
