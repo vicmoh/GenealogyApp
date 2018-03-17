@@ -47,13 +47,13 @@ console.log(stringTest2);
 console.log("calling the parser PASSED");
 
 function addIndividual(){
+    console.log("calling addIndividual()");
     var JSONFileName = ".uploads/addIndiTest.json"
     var GEDFileName = "./uploads/shakespeare.ged"
     var desc = parserLib.descToJSON(GEDFileName, "William", "Shakespeare", 0);
     parserLib.writeString(JSONFileName, desc);
 }//end func
 
-console.log("calling addIndividual()");
 addIndividual();
 
 /**********************************************************************
