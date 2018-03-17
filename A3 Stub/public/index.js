@@ -67,10 +67,10 @@ $(document).ready(function(){
         var lastName = $('#addIndiLastname').val();
         var sex = $('#addIndiSex').val();
         var famSize = $('#addIndiFamSize').val();
-        console.log(firstName);
-        console.log(lastName);
-        console.log(sex);
-        console.log(famSize);
+        console.log("firstName = " + firstName);
+        console.log("lastName = " + lastName);
+        console.log("sex = " + sex);
+        console.log("famSize = " + famSize);
         //clear text
         $('#addIndiFirstName').val(emptyString);
         $('#addIndiLastname').val(emptyString);
