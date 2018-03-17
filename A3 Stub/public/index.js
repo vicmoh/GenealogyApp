@@ -37,9 +37,8 @@ $(document).ready(function() {
  * My jquery code 
  *******************************************************************************/
 
-//Add smooth scrolling on all links inside the navbar
 $(document).ready(function(){
-    // Add smooth scrolling to animateScoll
+    //smooth scrolling to setAnimateScroll
     $('.setAnimateScroll').on('click', function(event) {
         //make sure this.hash has a value before overriding default behavior
         if (this.hash !== "") {
@@ -59,20 +58,23 @@ $(document).ready(function(){
             });
         } // End if
     });
-});
 
-$(document).ready(function(){
-     //jquery for adding a individual
-    // //Get
-    // var bla = $('#txt_name').val();
-    // //Set
-    // $('#txt_name').val(bla);
+    //jquery for adding individual
     $('.addIndividual').on('click', function(event){
+        //dec vars
+        var emptyString = "";
         var firstName = $('#addIndiFirstName').val();
         var lastName = $('#addIndiLastname').val();
         var sex = $('#addIndiSex').val();
         var famSize = $('#addIndiFamSize').val();
         console.log(firstName);
         console.log(lastName);
+        console.log(sex);
+        console.log(famSize);
+        //clear text
+        $('#addIndiFirstName').val(emptyString);
+        $('#addIndiLastname').val(emptyString);
+        $('#addIndiSex').val(emptyString);
+        $('#addIndiFamSize').val(emptyString);
     });
 });
