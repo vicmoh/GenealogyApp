@@ -21,6 +21,17 @@ let parserLib = ffi.Library("./parser/bin/parser.so", {
     "addIndiJSON": ["void", ["string", "string", "string"]]
 });
 
+//my global vars'
+var listOfFileName = [
+    "minValid.ged",
+    "shakespeare.ged",
+    "simpleValid.ged"
+];
+
+/**********************************************************************
+ * stubs
+ **********************************************************************/
+
 // Express App (Routes)
 const express = require("express");
 const app     = express();
@@ -130,7 +141,11 @@ app.get('/assets/:name', function(req , res){
     });
 });
 
-//for reference of the fucntion i created when coding
+/**********************************************************************
+ * test codes
+ **********************************************************************/
+
+ //for reference of the fucntion i created when coding
 //ourRequest.open('GET', 'url') or 'POST'
     // // main writer gedcom
     // "createGEDCOMWrapper": [GEDCOMobjectPtr, ["string"]],
