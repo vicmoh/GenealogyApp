@@ -39,6 +39,21 @@ $(document).ready(function() {
 
 //Add smooth scrolling on all links inside the navbar
 $(document).ready(function(){
+
+    //jquery for adding a individual
+    // //Get
+    // var bla = $('#txt_name').val();
+    // //Set
+    // $('#txt_name').val(bla);
+    $('.addIndividual').on('click', function(event){
+        var firstName = $('#addIndiFirstName').val;
+        var lastName = $('#addIndiLastname').val;
+        var sex = $('#addIndiSex').val;
+        var famSize = $('#addIndiFamSize').val;
+        console.log(firstName);
+        console.log(lastName);
+    });
+
     // Add smooth scrolling to animateScoll
     $('.setAnimateScroll').on('click', function(event) {
 
@@ -58,21 +73,5 @@ $(document).ready(function(){
                 window.location.hash = hash;
             });
         } // End if
-    });
-});
-
-$(document).ready(function(){
-     //jquery for adding a individual
-    // //Get
-    // var bla = $('#txt_name').val();
-    // //Set
-    // $('#txt_name').val(bla);
-    $('.addIndividual').on('click', function(event){
-        var firstName = $('.addIndiFirstName').val;
-        var lastName = $('.addIndiLastname').val;
-        var sex = $('.addIndiSex').val;
-        var famSize = $('.addIndiFamSize').val;
-        console.log(firstName);
-        console.log(lastNames);
     });
 });
