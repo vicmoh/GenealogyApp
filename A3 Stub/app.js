@@ -53,6 +53,7 @@ function addIndividual(){
     parserLib.writeString(JSONFileName, desc);
 }//end func
 
+console.log("calling addIndividual()");
 addIndividual();
 
 /**********************************************************************
