@@ -158,3 +158,46 @@ console.log("testing to read the uploaded file");
 var stringTest2 = parserLib.descToJSON(uploadNameTest, "William", "Shakespeare", 3);
 console.log(stringTest2);
 console.log("calling the parser PASSED");
+
+$(document).ready(function(){
+    //smooth scrolling to setAnimateScroll
+    $('.setAnimateScroll').on('click', function(event) {
+        //make sure this.hash has a value before overriding default behavior
+        if (this.hash !== "") {
+            //prevent deafult anchor click behavior
+            event.preventDefault();
+
+            //store the hash
+            var hash = this.hash;
+
+            //using the jquery to call and animate the scroll by 800
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+            }, 1000, function(){
+                // when done scrolling (default click behavior) add hash (#)
+                window.location.hash = hash;
+                console.log("calling animate scroll");
+            });
+        } // End if
+    });
+
+    //jquery for adding individual
+    $('.addIndividual').on('click', function(event){
+        //dec vars
+        var emptyString = "";
+        var firstName = $('#addIndiFirstName').val();
+        var lastName = $('#addIndiLastname').val();
+        var sex = $('#addIndiSex').val();
+        var famSize = $('#addIndiFamSize').val();
+        console.log("firstName = " + firstName);
+        console.log("lastName = " + lastName);
+        console.log("sex = " + sex);
+        console.log("famSize = " + famSize);
+        //parse the file to test
+        //clear text
+        $('#addIndiFirstName').val(emptyString);
+        $('#addIndiLastname').val(emptyString);
+        $('#addIndiSex').val(emptyString);
+        $('#addIndiFamSize').val(emptyString);
+    });
+});
