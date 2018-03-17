@@ -67,11 +67,12 @@ $(document).ready(function(){
     // var bla = $('#txt_name').val();
     // //Set
     // $('#txt_name').val(bla);
+    var firstName = $('#addIndiFirstName').val;
+    var lastName = $('#addIndiLastname').val;
+    var sex = $('#addIndiSex').val;
+    var famSize = $('#addIndiFamSize').val;
+
     $('.addIndividual').on('click', function(event){
-        var firstName = $('#addIndiFirstName').val;
-        var lastName = $('#addIndiLastname').val;
-        var sex = $('#addIndiSex').val;
-        var famSize = $('#addIndiFamSize').val;
         console.log(firstName);
         console.log(lastName);
     });
