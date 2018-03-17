@@ -101,6 +101,7 @@ app.post('/upload', function(req, res) {
         return res.status(500).send(err);
     }
         res.redirect('/');
+        console.log(uploadFile.name);
     });
 });
 
