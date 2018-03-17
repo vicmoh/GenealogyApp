@@ -226,5 +226,6 @@ char* GEDCOMtoJSON(char* fileName);
 char* descToJSON(char* fileName, char* firstName, char* lastName, int numGen);
 char* anceToJSON(char* fileName, char* firstName, char* lastName, int numGen);
 void addIndiJSON(char* fileName, char* firstName, char* lastName);
+void writeJSON(char* fileName, char* outputString);
 
 #endif

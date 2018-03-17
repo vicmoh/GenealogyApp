@@ -72,8 +72,8 @@ $(document).ready(function() {
         //parse the file to test
         $.ajax({
             type: 'get',
-            dataType: 'ged',
-            url: '/uploads/shakespeare.ged',   
+            dataType: 'json',
+            url: '/objects/',   
             success: function (data) {
                 console.log("ajax fileName = " + data);
             },

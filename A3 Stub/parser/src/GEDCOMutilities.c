@@ -2772,3 +2772,7 @@ void addIndiJSON(char* fileName, char* firstName, char* lastName){
     writeGEDCOM(fileName, object);
 }//end func
 
+void writeJSON(char* fileName, char* outputString){
+    writeFile(fileName, outputString);
+}//end func
+

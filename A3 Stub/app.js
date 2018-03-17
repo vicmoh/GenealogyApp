@@ -18,7 +18,9 @@ let parserLib = ffi.Library("./parser/bin/parser.so", {
     "anceToJSON": ["string", ["string", "string", "string", "int"]],
     //indivvidual
     "getIndiListJSON":["string", ["string"]],
-    "addIndiJSON": ["void", ["string", "string", "string"]]
+    "addIndiJSON": ["void", ["string", "string", "string"]],
+    //writer
+    "writeJSON": ["void", ["string", "string"]]
 });
 
 //my global vars'
@@ -27,6 +29,25 @@ var listOfFileName = [
     "shakespeare.ged",
     "simpleValid.ged"
 ];
+
+function addIndividual(){
+    var uploadNameTest = "./uploads/writeTest.ged";
+
+    console.log("before calling parser lib");
+    var fileNameTest = "./uploads/shakespeare.ged";
+    var objectTest = parserLib.createGEDCOMWrapper(fileNameTest);
+    console.log("middle calling parser lib");
+    var stringTest = parserLib.descToJSON(fileNameTest, "William", "Shakespeare", 3);
+    console.log(stringTest);
+    parserLib.writeGEDCOMWrapper(uploadNameTest, objectTest);
+    console.log("after calling parser lib");
+
+    console.log("calling the create gedcom part 2");
+    console.log("testing to read the uploaded file");
+    var stringTest2 = parserLib.descToJSON(uploadNameTest, "William", "Shakespeare", 3);
+    console.log(stringTest2);
+    console.log("calling the parser PASSED");
+}//end func
 
 /**********************************************************************
  * stubs
@@ -117,10 +138,7 @@ app.post('/assets', function(req, res) {
     if(!req.files) {
         return res.status(400).send('No files were uploaded.');
     }
-
     let uploadFile = req.files.uploadFile;
- 
-    // Use the mv() method to place the file somewhere on your server
     uploadFile.mv('assets/' + uploadFile.name, function(err) {
     if(err) {
         return res.status(500).send(err);
@@ -135,6 +153,32 @@ app.get('/assets/:name', function(req , res){
         console.log(err);
         if(err == null) {
             res.sendFile(path.join(__dirname+'/assets/' + req.params.name));
+        } else {
+            res.send('');
+        }
+    });
+});
+
+//for the web assets
+app.post('/objects', function(req, res) {
+    if(!req.files) {
+        return res.status(400).send('No files were uploaded.');
+    }
+    let uploadFile = req.files.uploadFile;
+    uploadFile.mv('objects/' + uploadFile.name, function(err) {
+    if(err) {
+        return res.status(500).send(err);
+    }
+        res.redirect('/');
+    });
+});
+
+//get request for the web assets just incase
+app.get('/objects/:name', function(req , res){
+    fs.stat('objects/' + req.params.name, function(err, stat) {
+        console.log(err);
+        if(err == null) {
+            res.sendFile(path.join(__dirname+'/objects/' + req.params.name));
         } else {
             res.send('');
         }
@@ -157,22 +201,22 @@ app.get('/assets/:name', function(req , res){
     // "getIndiListJSON":["string", ["string"]],
     // "addIndiJSON": ["void", ["string", "string", "string"]]
 
-var uploadNameTest = "./uploads/writeTest.ged";
+// var uploadNameTest = "./uploads/writeTest.ged";
 
-console.log("before calling parser lib");
-var fileNameTest = "./uploads/shakespeare.ged";
-var objectTest = parserLib.createGEDCOMWrapper(fileNameTest);
-console.log("middle calling parser lib");
-var stringTest = parserLib.descToJSON(fileNameTest, "William", "Shakespeare", 3);
-console.log(stringTest);
-parserLib.writeGEDCOMWrapper(uploadNameTest, objectTest);
-console.log("after calling parser lib");
+// console.log("before calling parser lib");
+// var fileNameTest = "./uploads/shakespeare.ged";
+// var objectTest = parserLib.createGEDCOMWrapper(fileNameTest);
+// console.log("middle calling parser lib");
+// var stringTest = parserLib.descToJSON(fileNameTest, "William", "Shakespeare", 3);
+// console.log(stringTest);
+// parserLib.writeGEDCOMWrapper(uploadNameTest, objectTest);
+// console.log("after calling parser lib");
 
-console.log("calling the create gedcom part 2");
-console.log("testing to read the uploaded file");
-var stringTest2 = parserLib.descToJSON(uploadNameTest, "William", "Shakespeare", 3);
-console.log(stringTest2);
-console.log("calling the parser PASSED");
+// console.log("calling the create gedcom part 2");
+// console.log("testing to read the uploaded file");
+// var stringTest2 = parserLib.descToJSON(uploadNameTest, "William", "Shakespeare", 3);
+// console.log(stringTest2);
+// console.log("calling the parser PASSED");
 
 // function addIndividual(){
 //     var uploadNameTest = "./uploads/writeTest.ged";
