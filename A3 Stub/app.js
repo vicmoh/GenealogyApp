@@ -167,6 +167,8 @@ app.post('/objects', function(req, res) {
     //write json of file objects
     for(var x = 0; x<ListOfFileNames; x++){
         var currentFile = "./objects/log-" + listOfFileName[x];
+        console.log("writing:");
+        console.log(currentFile);
         var jsonString = parserLib.GEDCOMtoJSON(currentFile);
         writeJSONObjects(currentFile, jsonString);
     }//end for
