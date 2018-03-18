@@ -1,8 +1,4 @@
-// Put all onload AJAX calls here, and event listeners
-$(document).ready(function() {
-    console.log("page has been loaded");
-    var listOfFileNames = getListFileName();
-    const fs = require('fs');
+const fs = require('fs');
     function getListFileName(){
         //dec vars
         var dir = './uploads'
@@ -18,6 +14,11 @@ $(document).ready(function() {
         }//end for
         return fileList;
     }//end func
+
+// Put all onload AJAX calls here, and event listeners
+$(document).ready(function() {
+    console.log("page has been loaded");
+    var listOfFileNames = getListFileName();
 
      //add file names to the selected
      for(x = 0; x<listOfFileNames.length; x++){
