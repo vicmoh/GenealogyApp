@@ -25,19 +25,26 @@ $(document).ready(function() {
      * My ajax code 
      *******************************************************************************/
 
-    //jquery for adding individual
+    var listOfFileNames = [];
+
+    //ajax get the list of file names
     $.ajax({
         type: 'get',
         dataType: 'json',
         url: '/objects/listOfFileNames.json',   
         success: function (data) {
             console.log("ajax fileName are " + data);
+            listOfFileNames = JSON.parse(data);
         },
         fail: function(error) {
             // Non-200 return, do something with error
             console.log(error); 
         }
     });
+
+    for(x = 0; x<listOfFileNames.length; x++){
+        $('<select>').appendTo("input");
+    }//end for
 
     /*******************************************************************************
      * My jquery code 
