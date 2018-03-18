@@ -22,9 +22,6 @@ let parserLib = ffi.Library("./parser/bin/parser.so", {
     "writeString": ["void", ["string", "string"]]
 });
 
-//my global vars
-const JSONListOfFileNamePath = "./objects/listOfFileNames.json"
-
 //testing the parser lib
 var uploadNameTest = "./uploads/writeTest.ged";
 console.log("before calling parser lib");
@@ -185,7 +182,9 @@ app.get('/objects/:name', function(req , res){
  * functions
  **********************************************************************/
 
+ //my global vars
 var listOfFileName = getListFileName();
+const JSONListOfFileNamePath = "./objects/listOfFileNames.json";
 writeJSONObjects(JSONListOfFileNamePath, listOfFileName);
 
 function getListFileName(){
@@ -199,7 +198,7 @@ function getListFileName(){
 
     var arrayOfFileNames;
 
-    fs.readdirSync('./objects/').forEach(file => {
+    fs.readdirSync('./uploads/').forEach(file => {
         console.log(file);
         arrayOfFileNames.push(file);
     });
