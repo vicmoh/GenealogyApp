@@ -192,7 +192,7 @@ function getListFileName(){
     var files = fs.readdirSync(dir);
     for(var i in files){
         if (!files.hasOwnProperty(i)) continue;
-        var name = dir+'/'+files[i];
+        var name = files[i];
         if (!fs.statSync(name).isDirectory()){
             fileList.push(name);
         }//end if
