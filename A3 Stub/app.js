@@ -167,17 +167,10 @@ app.post('/objects', function(req, res) {
 
 //get request for the web assets just incase
 app.get('/objects/:name', function(req , res){
-
-
     fs.stat('objects/' + req.params.name, function(err, stat) {
         console.log(err);
         if(err == null) {
             res.sendFile(path.join(__dirname+'/objects/' + req.params.name));
-            
-            //where the event listener caller will be
-            var listOfFileName = getListFileName();
-            res.sendfile(listOfFileName);
-
         } else {
             res.send('');
         }
