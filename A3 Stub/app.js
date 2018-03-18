@@ -226,5 +226,5 @@ function addIndividual(){
 
 var JSONListOfFileNamePath = "./objects/listOfFileNames.json";
 var listOfFileName = getListFileName();
-var listOfFileNameJSON = JSON.stringify(listOfFileNameJSON);
+var listOfFileNameJSON = JSON.stringify(listOfFileName);
 parserLib.writeString(JSONListOfFileNamePath, listOfFileNameJSON);
