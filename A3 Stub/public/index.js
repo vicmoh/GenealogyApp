@@ -89,4 +89,18 @@ $(document).ready(function() {
         $('#addIndiSex').val(emptyString);
         $('#addIndiFamSize').val(emptyString);
     });
+
+    //jquery for adding individual
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/objects/listOfFileNames.json',   
+        success: function (data) {
+            console.log("ajax fileName are " + data);
+        },
+        fail: function(error) {
+            // Non-200 return, do something with error
+            console.log(error); 
+        }
+    });
 });
