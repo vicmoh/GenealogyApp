@@ -25,8 +25,6 @@ $(document).ready(function() {
      * My ajax code 
      *******************************************************************************/
 
-    var listOfFileNames = [];
-
     //ajax get the list of file names
     $.ajax({
         type: 'get',
@@ -34,11 +32,11 @@ $(document).ready(function() {
         url: '/objects/listOfFileNames.json',   
         success: function (data) {
             console.log("ajax fileName are " + data);
-            listOfFileNames = data;
+            var listOfFileNames = data;
             //add file names to the selected
             for(x = 0; x<listOfFileNames.length; x++){
                 currentFileName = "<input>"+listOfFileNames[x]+"</input>";
-                $('<select>').append(currentFileName);
+                $('.getListOfFiles').append(currentFileName);
                 console.log("listing all the file:");
                 console.log(currentFileName);
             }//end for
