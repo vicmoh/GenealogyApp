@@ -167,7 +167,7 @@ app.post('/objects', function(req, res) {
 app.get('/objects/:name', function(req , res){
     //where the event listener caller will be
     var listOfFileName = getListFileName();
-    JSONListOfFileNamePath = "./objects/listOfFileNames.json";
+    var JSONListOfFileNamePath = "./objects/listOfFileNames.json";
     writeJSONObjects(JSONListOfFileNamePath, listOfFileName);
 
     fs.stat('objects/' + req.params.name, function(err, stat) {
