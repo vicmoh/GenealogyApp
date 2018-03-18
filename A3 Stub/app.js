@@ -153,35 +153,11 @@ app.get('/assets/:name', function(req , res){
     });
 });
 
-//post for the web objects
-app.post('/postFileList', function(req, res) {
-    //file uploading
-    if(!req.files) {
-        return res.status(400).send('No files were uploaded.');
-    }
-    let uploadFile = req.files.uploadFile;
-    uploadFile.mv('/postGetFileList' + uploadFile.name, function(err) {
-    if(err) {
-        return res.status(500).send(err);
-    }
-        res.redirect('/');
-    });
-});
-
 //get request for the web objects
 app.get('/getFileList', function(req , res){
     //dec vars
     var tempListOfFileNames = getListFileNames();
     res.send(tempListOfFileNames);
-
-    fs.stat('/getFileList' + req.params.name, function(err, stat) {
-        console.log(err);
-        if(err == null) {
-            res.sendFile(path.join(__dirname+'/getFileList' + req.params.name));
-        } else {
-            res.send('');
-        }
-    });
 });
 
 //get request for the web objects
@@ -196,15 +172,6 @@ app.get('/getFileLogs', function(req , res){
     }//end for
     res.send(listOfFileLogObjects);
     console.log(listOfFileLogObjects);
-    
-    fs.stat('/getFileLog' + req.params.name, function(err, stat) {
-        console.log(err);
-        if(err == null) {
-            res.sendFile(path.join(__dirname+'/getFileLog' + req.params.name));
-        } else {
-            res.send('');
-        }
-    });
 });
 
 //get request for the web objects
