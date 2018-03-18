@@ -42,7 +42,7 @@ function testParserLib(){
     console.log("calling the parser PASSED");
 }//end func
 
-var listOfFileName = [];
+var listOfFileNames = [];
 // var fileNamesInJsonString = parserLib.getJSONString("./objects/listOfFileNames.json");
 // console.log("reading json list of file names: " + fileNamesInJsonString);
 // var listOfFileNames = JSON.parse(fileNamesInJsonString);
