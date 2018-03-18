@@ -202,7 +202,7 @@ function getListFileName(){
 
 function writeJSONObjects(fileName, object){
     console.log("calling writeJSONObjects");
-    fs.writeFile(JSONListOfFileNamePath, JSON.stringify(object), (err) =>{
+    fs.writeFile(fileaName, JSON.stringify(object), (err) =>{
         if(err){
             console.log(err);
             console.log("error writing JSON objects");
