@@ -38,10 +38,6 @@ var stringTest2 = parserLib.descToJSON(uploadNameTest, "William", "Shakespeare",
 console.log(stringTest2);
 console.log("calling the parser PASSED");
 
-var listOfFileName = getListFileName();
-const JSONListOfFileNamePath = "./objects/listOfFileNames.json";
-writeJSONObjects(listOfFileName);
-
 /**********************************************************************
  * stubs
  **********************************************************************/
@@ -189,29 +185,20 @@ app.get('/objects/:name', function(req , res){
  **********************************************************************/
 
 function getListFileName(){
-    // var fileNames = fs.readdirSync('./uploads/');
-    // for (var i in fileNames) {
-    //     var definition = require('./uploads/' + fileNames[i]).Model;
-    //     console.log('Model Loaded: ' + fileNames[i]);
-    // }//end for
-    // console.log(fileNames);
-    // return fileNames;
-    
+    //dec vars
     var dir = './uploads'
     var fileList = [];
-    
+    //loop through and get the list of file names
     var files = fs.readdirSync(dir);
     for(var i in files){
         if (!files.hasOwnProperty(i)) continue;
         var name = dir+'/'+files[i];
         if (!fs.statSync(name).isDirectory()){
             fileList.push(name);
-        }
-    }
+        }//end if
+    }//end for
     return fileList;
-
 }//end func
-
 
 function writeJSONObjects(object){
     console.log("calling writeJSONObjects");
@@ -236,3 +223,7 @@ function addIndividual(){
     var desc = parserLib.descToJSON(GEDFileName, "William", "Shakespeare", 0);
     parserLib.writeString(JSONFileName, desc);
 }//end func
+
+var listOfFileName = getListFileName();
+const JSONListOfFileNamePath = "./objects/listOfFileNames.json";
+writeJSONObjects(listOfFileName);
