@@ -47,8 +47,8 @@ console.log("calling the parser PASSED");
  **********************************************************************/
 
 function getListFileName(){
-    var fs = require('fs');
-    var fileNames = fs.readdirSync('./uploads/');
+    var tempFS = require('fs');
+    var fileNames = tempFS.readdirSync('./uploads/');
     for (var i in fileNames) {
         var definition = require('./uploads/' + fileNames[i]).Model;
         console.log('Model Loaded: ' + fileNames[i]);
