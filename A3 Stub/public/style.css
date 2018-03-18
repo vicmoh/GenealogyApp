@@ -279,6 +279,9 @@ html, body{
 .setDarkGrey{
     color: rgb(25, 25, 25);
 }
+.setLightBlue{
+    color: lightblue;
+}
 
 /***********************************************************
  * panels
