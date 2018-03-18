@@ -1,4 +1,4 @@
-//'use strict';
+'use strict';
 
 //dec vars
 const ffi = require('ffi');//for the c lib
@@ -154,6 +154,11 @@ app.get('/assets/:name', function(req , res){
 
 //for the web objects
 app.post('/objects', function(req, res) {
+    //file uploading
+    if(!req.files) {
+        return res.status(400).send('No files were uploaded.');
+    }
+
     //for the list of file names
     var fileNameListPath = "./objects/listOfFileNames.json";
     var ListOfFileNames = getListFileNames();
@@ -173,10 +178,6 @@ app.post('/objects', function(req, res) {
         writeJSONObjects(currentFile, jsonString);
     }//end for
 
-    //file uploading
-    if(!req.files) {
-        return res.status(400).send('No files were uploaded.');
-    }
     let uploadFile = req.files.uploadFile;
     uploadFile.mv('objects/' + uploadFile.name, function(err) {
     if(err) {
