@@ -166,26 +166,6 @@ app.post('/objects', function(req, res) {
     });
 });
 
-//get request for the web assets just incase
-app.get('/objects/:name', function(req , res){
-    //where the event listener caller will be
-    //addIndividual();
-    var listOfFileName = getListFileName();
-    writeJSONObjects(JSONListOfFileNamePath, listOfFileName);
-    fs.stat('objects/' + req.params.name, function(err, stat) {
-        console.log(err);
-        if(err == null) {
-            res.sendFile(path.join(__dirname+'/objects/' + req.params.name));
-        } else {
-            res.send('');
-        }
-    });
-});
-
-/**********************************************************************
- * functions
- **********************************************************************/
-
 function getListFileName(){
     var fileNames = fs.readdirSync('./uploads/');
     for (var i in fileNames) {
@@ -205,6 +185,26 @@ function writeJSONObjects(JSONfileName, object){
         }//end if
     });
 }//end func
+
+//get request for the web assets just incase
+app.get('/objects/:name', function(req , res){
+    //where the event listener caller will be
+    //addIndividual();
+    var listOfFileName = getListFileName();
+    writeJSONObjects(JSONListOfFileNamePath, listOfFileName);
+    fs.stat('objects/' + req.params.name, function(err, stat) {
+        console.log(err);
+        if(err == null) {
+            res.sendFile(path.join(__dirname+'/objects/' + req.params.name));
+        } else {
+            res.send('');
+        }
+    });
+});
+
+/**********************************************************************
+ * functions
+ **********************************************************************/
 
 function addFileNameToList(fileaName){
     console.log("calling addFileName = " + fileName);
