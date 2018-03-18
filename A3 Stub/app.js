@@ -42,9 +42,9 @@ function testParserLib(){
     console.log("calling the parser PASSED");
 }//end func
 
-// var fileNamesInJsonString = parserLib.getJSONString("./objects/listOfFileNames.json");
-// var listOfFileNames = JSON.parse(fileNamesInJsonString);
-// console.log("JSON.parse the file names: " + listOfFileNames);
+var fileNamesInJsonString = parserLib.getJSONString("./objects/listOfFileNames.json");
+var listOfFileNames = JSON.parse(fileNamesInJsonString);
+console.log("JSON.parse the file names: " + listOfFileNames);
 
 /**********************************************************************
  * stubs
@@ -161,26 +161,8 @@ app.get('/assets/:name', function(req , res){
 app.post('/objects', function(req, res) {
     //for the list of file names
     var fileNameListPath = "./objects/listOfFileNames.json";
-    var listOfFileNames = getListFileNames();
-    writeJSONObjects(fileNameListPath, listOfFileNames);
-
-    //write json of file objects
-    for(var x = 0; x<listOfFileNames.length; x++){
-        var currentFile = "./objects/log-" + listOfFileNames[x];
-        var currentGEDCOMFile = "./uploads/" + listOfFileNames[x];
-        console.log("writing:" + currentFile + "...");
-        var jsonString = parserLib.GEDCOMtoJSON(currentGEDCOMFile);
-        parserLib.writeString(currentFile, jsonString);
-    }//end for
-
-    //write json of list of indi
-    for(var x = 0; x<listOfFileNames.length; x++){
-        var currentFile = "./objects/indi-" + listOfFileNames[x];
-        var currentGEDCOMFile = "./uploads/" + listOfFileNames[x];
-        console.log("writing:" + currentFile + "...");
-        var jsonString = parserLib.getIndiListJSON(currentGEDCOMFile);
-        parserLib.writeString(currentFile, jsonString);
-    }//end for
+    var tempListOfFileNames = getListFileNames();
+    writeJSONObjects(fileNameListPath, tempListOfFileNames);
 
     //file uploading
     if(!req.files) {
@@ -250,3 +232,21 @@ function addIndividual(){
     var desc = parserLib.descToJSON(GEDFileName, "William", "Shakespeare", 0);
     parserLib.writeString(JSONFileName, desc);
 }//end func
+
+//write json of file objects
+for(var x = 0; x<listOfFileNames.length; x++){
+    var currentFile = "./objects/log-" + listOfFileNames[x];
+    var currentGEDCOMFile = "./uploads/" + listOfFileNames[x];
+    console.log("writing:" + currentFile + "...");
+    var jsonString = parserLib.GEDCOMtoJSON(currentGEDCOMFile);
+    parserLib.writeString(currentFile, jsonString);
+}//end for
+
+//write json of list of indi
+for(var x = 0; x<listOfFileNames.length; x++){
+    var currentFile = "./objects/indi-" + listOfFileNames[x];
+    var currentGEDCOMFile = "./uploads/" + listOfFileNames[x];
+    console.log("writing:" + currentFile + "...");
+    var jsonString = parserLib.getIndiListJSON(currentGEDCOMFile);
+    parserLib.writeString(currentFile, jsonString);
+}//end for
