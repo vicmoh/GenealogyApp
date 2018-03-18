@@ -41,7 +41,7 @@ $(document).ready(function() {
             console.log(error); 
         }
     });
-
+    //add file names to the selected
     for(x = 0; x<listOfFileNames.length; x++){
         $('<select>').appendTo("input");
     }//end for
