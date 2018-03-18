@@ -26,28 +26,28 @@ $(document).ready(function() {
      * My ajax code 
      *******************************************************************************/
 
-    //ajax get the list of file names
-    $.ajax({
-        type: 'get',
-        dataType: 'json',
-        url: '/objects/listOfFileNames.json',   
-        success: function (data) {
-            console.log("ajax fileName are " + data);
-            var listOfFileNames = data;
-            //add file names to the selected
-            for(x = 0; x<listOfFileNames.length; x++){
-                currentFileName = "<option>"+listOfFileNames[x]+"</option>";
-                $("select").append(currentFileName);
-                console.log("listing all the file:");
-                console.log(currentFileName);
-            }//end for
-            location.reload();
-        },
-        fail: function(error) {
-            // Non-200 return, do something with error
-            console.log(error); 
-        }
-    });
+    // //ajax get the list of file names
+    // $.ajax({
+    //     type: 'get',
+    //     dataType: 'json',
+    //     url: '/objects/listOfFileNames.json',   
+    //     success: function (data) {
+    //         console.log("ajax fileName are " + data);
+    //         var listOfFileNames = data;
+    //         //add file names to the selected
+    //         for(x = 0; x<listOfFileNames.length; x++){
+    //             currentFileName = "<option>"+listOfFileNames[x]+"</option>";
+    //             $("select").append(currentFileName);
+    //             console.log("listing all the file:");
+    //             console.log(currentFileName);
+    //         }//end for
+    //         location.reload();
+    //     },
+    //     fail: function(error) {
+    //         // Non-200 return, do something with error
+    //         console.log(error); 
+    //     }
+    // });
 
     /*******************************************************************************
      * My jquery code 
@@ -93,5 +93,31 @@ $(document).ready(function() {
         $('#addIndiLastname').val(emptyString);
         $('#addIndiSex').val(emptyString);
         $('#addIndiFamSize').val(emptyString);
+    });
+});
+
+$(document).ready(function() {
+    console.log("ajax loaded");
+     //ajax get the list of file names
+     $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/objects/listOfFileNames.json',   
+        success: function (data) {
+            console.log("ajax fileName are " + data);
+            var listOfFileNames = data;
+            //add file names to the selected
+            for(x = 0; x<listOfFileNames.length; x++){
+                currentFileName = "<option>"+listOfFileNames[x]+"</option>";
+                $("select").append(currentFileName);
+                console.log("listing all the file:");
+                console.log(currentFileName);
+            }//end for
+            location.reload();
+        },
+        fail: function(error) {
+            // Non-200 return, do something with error
+            console.log(error); 
+        }
     });
 });
