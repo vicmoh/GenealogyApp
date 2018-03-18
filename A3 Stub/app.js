@@ -164,23 +164,23 @@ app.post('/objects', function(req, res) {
     var listOfFileNames = getListFileNames();
     writeJSONObjects(fileNameListPath, listOfFileNames);
 
-    //write json of file objects
-    for(var x = 0; x<listOfFileNames.length; x++){
-        var currentFile = "./objects/log-" + listOfFileNames[x];
-        var currentGEDCOMFile = "./uploads/" + listOfFileNames[x];
-        console.log("writing:" + currentFile + "...");
-        var jsonString = parserLib.GEDCOMtoJSON(currentGEDCOMFile);
-        parserLib.writeString(currentFile, jsonString);
-    }//end for
+    // //write json of file objects
+    // for(var x = 0; x<listOfFileNames.length; x++){
+    //     var currentFile = "./objects/log-" + listOfFileNames[x];
+    //     var currentGEDCOMFile = "./uploads/" + listOfFileNames[x];
+    //     console.log("writing:" + currentFile + "...");
+    //     var jsonString = parserLib.GEDCOMtoJSON(currentGEDCOMFile);
+    //     parserLib.writeString(currentFile, jsonString);
+    // }//end for
 
-    //write json of list of indi
-    for(var x = 0; x<listOfFileNames.length; x++){
-        var currentFile = "./objects/indi-" + listOfFileNames[x];
-        var currentGEDCOMFile = "./uploads/" + listOfFileNames[x];
-        console.log("writing:" + currentFile + "...");
-        var jsonString = parserLib.getIndiListJSON(currentGEDCOMFile);
-        parserLib.writeString(currentFile, jsonString);
-    }//end for
+    // //write json of list of indi
+    // for(var x = 0; x<listOfFileNames.length; x++){
+    //     var currentFile = "./objects/indi-" + listOfFileNames[x];
+    //     var currentGEDCOMFile = "./uploads/" + listOfFileNames[x];
+    //     console.log("writing:" + currentFile + "...");
+    //     var jsonString = parserLib.getIndiListJSON(currentGEDCOMFile);
+    //     parserLib.writeString(currentFile, jsonString);
+    // }//end for
 
     //file uploading
     if(!req.files) {
