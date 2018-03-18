@@ -80,10 +80,26 @@ $(document).ready(function() {
         console.log("famSize = " + famSize);
         //parse the file to test
 
+        event.preventDefault();
+        // var formData = new FormData();
+        // formData.append('file', $('#creationOptionsForm').get(0).files);
+        $.ajax({
+            type:'POST',
+            url:'/object',
+            processData: false,
+            contentType: false,
+            data:{
+                firstName:$(firstName).val(),
+                secondName:$(lastName).val(),
+                //logo:formData,
+            },
+        });
+        
         //clear text
         $('#addIndiFirstName').val(emptyString);
         $('#addIndiLastname').val(emptyString);
         $('#addIndiSex').val(emptyString);
         $('#addIndiFamSize').val(emptyString);
     });
+
 });
