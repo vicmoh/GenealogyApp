@@ -42,6 +42,12 @@ function testParserLib(){
     console.log("calling the parser PASSED");
 }//end func
 
+var listOfFileName = [];
+// var fileNamesInJsonString = parserLib.getJSONString("./objects/listOfFileNames.json");
+// console.log("reading json list of file names: " + fileNamesInJsonString);
+// var listOfFileNames = JSON.parse(fileNamesInJsonString);
+// console.log("JSON.parse the file names: " + listOfFileNames);
+
 /**********************************************************************
  * stubs
  **********************************************************************/
@@ -228,12 +234,6 @@ function addIndividual(){
     var desc = parserLib.descToJSON(GEDFileName, "William", "Shakespeare", 0);
     parserLib.writeString(JSONFileName, desc);
 }//end func
-
-//var fileNamesInJsonString = parserLib.getJSONString("./objects/listOfFileNames.json");
-var fileNamesInJsonString = require('./objects/listOfFileNames.json');
-console.log("reading json list of file names: " + fileNamesInJsonString);
-var listOfFileNames = JSON.parse(fileNamesInJsonString);
-console.log("JSON.parse the file names: " + listOfFileNames);
 
 //write json of file objects
 for(var x = 0; x<listOfFileNames.length; x++){
