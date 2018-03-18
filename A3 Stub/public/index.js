@@ -11,12 +11,12 @@ $(document).ready(function() {
     //ajax get the list of file names
     $.ajax({
         type: 'get',
-        dataType: 'json',
-        url: '/objects/listOfFileNames.json',   
+        //dataType: 'json',
+        //url: '/objects/listOfFileNames.json',
+        data: listOfFileNames,
         success: function (data) {
             console.log("ajax fileName are " + data);
             listOfFileNames = data;
-            location.reload();
         },
         fail: function(error) {
             // Non-200 return, do something with error

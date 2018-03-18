@@ -3,7 +3,6 @@
 //dec vars
 const ffi = require('ffi');//for the c lib
 const ref = require("ref");//for the c pointer
-const fs = require('fs');
 
 var GEDCOMobject = ref.types.void;
 var GEDCOMobjectPtr = ref.refType(GEDCOMobject);
@@ -23,26 +22,23 @@ let parserLib = ffi.Library("./parser/bin/parser.so", {
     "writeString": ["void", ["string", "string"]]
 });
 
-// //testing the parser lib
-// var uploadNameTest = "./uploads/writeTest.ged";
-// console.log("before calling parser lib");
-// var fileNameTest = "./uploads/shakespeare.ged";
-// var objectTest = parserLib.createGEDCOMWrapper(fileNameTest);
-// console.log("middle calling parser lib");
-// var stringTest = parserLib.descToJSON(fileNameTest, "William", "Shakespeare", 3);
-// console.log(stringTest);
-// parserLib.writeGEDCOMWrapper(uploadNameTest, objectTest);
-// console.log("after calling parser lib");
-// console.log("calling the create gedcom part 2");
-// console.log("testing to read the uploaded file");
-// var stringTest2 = parserLib.descToJSON(uploadNameTest, "William", "Shakespeare", 3);
-// console.log(stringTest2);
-// console.log("calling the parser PASSED");
-
-var JSONListOfFileNamePath = "./objects/listOfFileNames.json";
-var listOfFileName = getListFileName();
-var listOfFileNameJSON = JSON.stringify(listOfFileName);
-parserLib.writeString(JSONListOfFileNamePath, listOfFileNameJSON);
+//testing the parser lib
+function testParserLib(){
+    var uploadNameTest = "./uploads/writeTest.ged";
+    console.log("before calling parser lib");
+    var fileNameTest = "./uploads/shakespeare.ged";
+    var objectTest = parserLib.createGEDCOMWrapper(fileNameTest);
+    console.log("middle calling parser lib");
+    var stringTest = parserLib.descToJSON(fileNameTest, "William", "Shakespeare", 3);
+    console.log(stringTest);
+    parserLib.writeGEDCOMWrapper(uploadNameTest, objectTest);
+    console.log("after calling parser lib");
+    console.log("calling the create gedcom part 2");
+    console.log("testing to read the uploaded file");
+    var stringTest2 = parserLib.descToJSON(uploadNameTest, "William", "Shakespeare", 3);
+    console.log(stringTest2);
+    console.log("calling the parser PASSED");
+}//end func
 
 /**********************************************************************
  * stubs
@@ -57,7 +53,7 @@ const fileUpload = require('express-fileupload');
 app.use(fileUpload());
 
 // Minimization
-//const fs = require('fs');
+const fs = require('fs');
 const JavaScriptObfuscator = require('javascript-obfuscator');
 
 // Important, pass in port as in `npm run dev 1234`, do not change
@@ -171,15 +167,17 @@ app.post('/objects', function(req, res) {
 
 //get request for the web assets just incase
 app.get('/objects/:name', function(req , res){
-    //where the event listener caller will be
-    // var listOfFileName = getListFileName();
-    // var JSONListOfFileNamePath = "./objects/listOfFileNames.json";
-    // writeJSONObjects(JSONListOfFileNamePath, listOfFileName);
+
 
     fs.stat('objects/' + req.params.name, function(err, stat) {
         console.log(err);
         if(err == null) {
             res.sendFile(path.join(__dirname+'/objects/' + req.params.name));
+            
+            //where the event listener caller will be
+            var listOfFileName = getListFileName();
+            res.sendfile(listOfFileName);
+
         } else {
             res.send('');
         }
