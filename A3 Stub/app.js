@@ -166,7 +166,7 @@ app.post('/objects', function(req, res) {
     //for the list of file names
     var fileNameListPath = "./objects/listOfFileNames.json";
     var tempListOfFileNames = getListFileNames();
-    writeJSONObjects(fileNameListPath, tempListOfFileNames);
+    parserLib.writeString(fileNameListPath, tempListOfFileNames);
 
     //file uploading
     if(!req.files) {
