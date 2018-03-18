@@ -159,18 +159,21 @@ app.post('/objects', function(req, res) {
     var ListOfFileNames = getListFileNames();
     writeJSONObjects(fileNameListPath, ListOfFileNames);
 
+    //write json of file objects
     for(x = 0; x<ListOfFileNames; x++){
         var currentFile = "./objects/log-" + listOfFileName[x];
         var jsonString = parserLib.GEDCOMtoJSON(currentFile);
         writeJSONObjects(currentFile, jsonString);
     }//end for
 
+    //write json of list of indi
     for(x = 0; x<ListOfFileNames; x++){
         var currentFile = "./objects/indi-" + listOfFileName[x];
         var jsonString = parserLib.getIndiListJSON(currentFile);
         writeJSONObjects(currentFile, jsonString);
     }//end for
 
+    //file uploading
     if(!req.files) {
         return res.status(400).send('No files were uploaded.');
     }
