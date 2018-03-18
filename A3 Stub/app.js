@@ -10,6 +10,7 @@ var GEDCOMobjectPtr = ref.refType(GEDCOMobject);
 //create the lib for c
 let parserLib = ffi.Library("./parser/bin/parser.so", {
     // main writer gedcom
+    "GEDCOMtoJSON": ["string", ["string"]],
     "createGEDCOMWrapper": [GEDCOMobjectPtr, ["string"]],
     "writeGEDCOMWrapper": ["void", ["string", GEDCOMobjectPtr]],
     //generation
@@ -151,11 +152,24 @@ app.get('/assets/:name', function(req , res){
     });
 });
 
-//for the web assets
+//for the web objects
 app.post('/objects', function(req, res) {
+    //for the list of file names
     var fileNameListPath = "./objects/listOfFileNames.json";
     var ListOfFileNames = getListFileNames();
     writeJSONObjects(fileNameListPath, ListOfFileNames);
+
+    for(x = 0; x<ListOfFileNames; x++){
+        var currentFile = "./objects/log-" + listOfFileName[x];
+        var jsonString = parserLib.GEDCOMtoJSON(currentFile);
+        writeJSONObjects(currentFile, jsonString);
+    }//end for
+
+    for(x = 0; x<ListOfFileNames; x++){
+        var currentFile = "./objects/indi-" + listOfFileName[x];
+        var jsonString = parserLib.getIndiListJSON(currentFile);
+        writeJSONObjects(currentFile, jsonString);
+    }//end for
 
     if(!req.files) {
         return res.status(400).send('No files were uploaded.');
@@ -169,7 +183,7 @@ app.post('/objects', function(req, res) {
     });
 });
 
-//get request for the web assets just incase
+//get request for the web objects
 app.get('/objects/:name', function(req , res){
     fs.stat('objects/' + req.params.name, function(err, stat) {
         console.log(err);
