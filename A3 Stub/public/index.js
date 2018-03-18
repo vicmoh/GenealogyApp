@@ -36,6 +36,20 @@ $(document).ready(function() {
     //     $('html,body').animate({scrollTop:$(this.hash).offset().top}, "slow");
     // });
 
+    //jquery for adding individual
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/objects/listOfFileNames.json',   
+        success: function (data) {
+            console.log("ajax fileName are " + data);
+        },
+        fail: function(error) {
+            // Non-200 return, do something with error
+            console.log(error); 
+        }
+    });
+
     //smooth scrolling to setAnimateScroll
     $('.setAnimateScroll').on('click', function(event) {
         //make sure this.hash has a value before overriding default behavior
@@ -76,19 +90,5 @@ $(document).ready(function() {
         $('#addIndiLastname').val(emptyString);
         $('#addIndiSex').val(emptyString);
         $('#addIndiFamSize').val(emptyString);
-    });
-
-    //jquery for adding individual
-    $.ajax({
-        type: 'get',
-        dataType: 'json',
-        url: '/objects/listOfFileNames.json',   
-        success: function (data) {
-            console.log("ajax fileName are " + data);
-        },
-        fail: function(error) {
-            // Non-200 return, do something with error
-            console.log(error); 
-        }
     });
 });
