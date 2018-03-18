@@ -175,21 +175,6 @@ app.get('/objects/:name', function(req , res){
     var jsonFileNames = JSON.stringify(ListOfFileNames);
     parserLib.writeString(fileNameListPath, jsonFileNames);
 
-    //write json of file objects
-    for(var x = 0; x<ListOfFileNames; x++){
-        var currentFile = "./objects/log-" + listOfFileName[x];
-        console.log("writing:");
-        console.log(currentFile);
-        var jsonString = parserLib.GEDCOMtoJSON(currentFile);
-        parserLib.writeString(currentFile, jsonString);
-    }//end for
-
-    //write json of list of indi
-    for(var x = 0; x<ListOfFileNames; x++){
-        var currentFile = "./objects/indi-" + listOfFileName[x];
-        var jsonString = parserLib.getIndiListJSON(currentFile);
-        parserLib.writeString(currentFile, jsonString);
-    }//end for
     fs.stat('objects/' + req.params.name, function(err, stat) {
         console.log(err);
         if(err == null) {
@@ -243,3 +228,19 @@ function addIndividual(){
     var desc = parserLib.descToJSON(GEDFileName, "William", "Shakespeare", 0);
     parserLib.writeString(JSONFileName, desc);
 }//end func
+
+//write json of file objects
+for(var x = 0; x<ListOfFileNames; x++){
+    var currentFile = "./objects/log-" + listOfFileName[x];
+    console.log("writing:");
+    console.log(currentFile);
+    var jsonString = parserLib.GEDCOMtoJSON(currentFile);
+    parserLib.writeString(currentFile, jsonString);
+}//end for
+
+//write json of list of indi
+for(var x = 0; x<ListOfFileNames; x++){
+    var currentFile = "./objects/indi-" + listOfFileName[x];
+    var jsonString = parserLib.getIndiListJSON(currentFile);
+    parserLib.writeString(currentFile, jsonString);
+}//end for
