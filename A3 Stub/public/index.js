@@ -97,27 +97,30 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
+    //dec vars
     console.log("ajax loaded");
-     //ajax get the list of file names
-     $.ajax({
+    var listOfFileNames = [];
+    
+    //ajax get the list of file names
+    $.ajax({
         type: 'get',
         dataType: 'json',
         url: '/objects/listOfFileNames.json',   
         success: function (data) {
             console.log("ajax fileName are " + data);
-            var listOfFileNames = data;
-            //add file names to the selected
-            for(x = 0; x<listOfFileNames.length; x++){
-                currentFileName = "<option>"+listOfFileNames[x]+"</option>";
-                $("select").append(currentFileName);
-                console.log("listing all the file:");
-                console.log(currentFileName);
-            }//end for
-            location.reload();
+            listOfFileNames = data;
         },
         fail: function(error) {
             // Non-200 return, do something with error
             console.log(error); 
         }
     });
+    
+    //add file names to the selected
+    for(x = 0; x<listOfFileNames.length; x++){
+        currentFileName = "<option>"+listOfFileNames[x]+"</option>";
+        $("select").append(currentFileName);
+        console.log("listing all the file:");
+        console.log(currentFileName);
+    }//end for
 });
