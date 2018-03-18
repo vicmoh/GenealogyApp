@@ -42,45 +42,6 @@ console.log(stringTest2);
 console.log("calling the parser PASSED");
 
 /**********************************************************************
- * functions
- **********************************************************************/
-var tempFS = require('fs');
-
-function getListFileName(){
-    var fileNames = tempFS.readdirSync('./uploads/');
-    for (var i in fileNames) {
-        var definition = require('./uploads/' + fileNames[i]).Model;
-        console.log('Model Loaded: ' + fileNames[i]);
-    }//end for
-    console.log(fileNames);
-    return fileNames;
-}//end func
-
-function writeJSONObjects(JSONfileName, object){
-    tempFS.writeFile(JSONFileName, JSON.stringify(object), (err) =>{
-        if(err){
-            console.log(err);
-            console.log("error writing JSON objects");
-            return;
-        }//end if
-    });
-}//end func
-
-function addFileNameToList(fileaName){
-    console.log("calling addFileName = " + fileName);
-    listOfFileName.push(fileName);
-    writeJSONObjects(JSONfileName, listOfFileName);
-}//end func
-
-function addIndividual(){
-    console.log("calling addIndividual()");
-    var JSONFileName = "./objects/addIndiObject.json"
-    var GEDFileName = "./uploads/shakespeare.ged"
-    var desc = parserLib.descToJSON(GEDFileName, "William", "Shakespeare", 0);
-    parserLib.writeString(JSONFileName, desc);
-}//end func
-
-/**********************************************************************
  * stubs
  **********************************************************************/
 
@@ -220,3 +181,41 @@ app.get('/objects/:name', function(req , res){
         }
     });
 });
+
+/**********************************************************************
+ * functions
+ **********************************************************************/
+
+function getListFileName(){
+    var fileNames = fs.readdirSync('./uploads/');
+    for (var i in fileNames) {
+        var definition = require('./uploads/' + fileNames[i]).Model;
+        console.log('Model Loaded: ' + fileNames[i]);
+    }//end for
+    console.log(fileNames);
+    return fileNames;
+}//end func
+
+function writeJSONObjects(JSONfileName, object){
+    fs.writeFile(JSONFileName, JSON.stringify(object), (err) =>{
+        if(err){
+            console.log(err);
+            console.log("error writing JSON objects");
+            return;
+        }//end if
+    });
+}//end func
+
+function addFileNameToList(fileaName){
+    console.log("calling addFileName = " + fileName);
+    listOfFileName.push(fileName);
+    writeJSONObjects(JSONfileName, listOfFileName);
+}//end func
+
+function addIndividual(){
+    console.log("calling addIndividual()");
+    var JSONFileName = "./objects/addIndiObject.json"
+    var GEDFileName = "./uploads/shakespeare.ged"
+    var desc = parserLib.descToJSON(GEDFileName, "William", "Shakespeare", 0);
+    parserLib.writeString(JSONFileName, desc);
+}//end func
