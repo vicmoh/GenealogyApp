@@ -160,14 +160,14 @@ app.post('/objects', function(req, res) {
     writeJSONObjects(fileNameListPath, ListOfFileNames);
 
     //write json of file objects
-    for(x = 0; x<ListOfFileNames; x++){
+    for(var x = 0; x<ListOfFileNames; x++){
         var currentFile = "./objects/log-" + listOfFileName[x];
         var jsonString = parserLib.GEDCOMtoJSON(currentFile);
         writeJSONObjects(currentFile, jsonString);
     }//end for
 
     //write json of list of indi
-    for(x = 0; x<ListOfFileNames; x++){
+    for(var x = 0; x<ListOfFileNames; x++){
         var currentFile = "./objects/indi-" + listOfFileName[x];
         var jsonString = parserLib.getIndiListJSON(currentFile);
         writeJSONObjects(currentFile, jsonString);
