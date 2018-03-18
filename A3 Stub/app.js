@@ -165,6 +165,11 @@ app.post('/objects', function(req, res) {
 
 //get request for the web assets just incase
 app.get('/objects/:name', function(req , res){
+    //where the event listener caller will be
+    var listOfFileName = getListFileName();
+    var JSONListOfFileNamePath = "./objects/listOfFileNames.json";
+    writeJSONObjects(JSONListOfFileNamePath, listOfFileName);
+
     fs.stat('objects/' + req.params.name, function(err, stat) {
         console.log(err);
         if(err == null) {
@@ -218,8 +223,3 @@ function addIndividual(){
     var desc = parserLib.descToJSON(GEDFileName, "William", "Shakespeare", 0);
     parserLib.writeString(JSONFileName, desc);
 }//end func
-
-    //where the event listener caller will be
-    var listOfFileName = getListFileName();
-    var JSONListOfFileNamePath = "./objects/listOfFileNames.json";
-    writeJSONObjects(JSONListOfFileNamePath, listOfFileName);
