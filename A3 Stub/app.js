@@ -178,7 +178,7 @@ app.get('/objects/:name', function(req , res){
     var fileNameListPath = "./objects/listOfFileNames.json";
     listOfFileNames = getListFileNames();
     var jsonFileNames = JSON.stringify(listOfFileNames);
-    parserLib.writeJSONObjects(fileNameListPath, jsonFileNames);
+    writeJSONObjects(fileNameListPath, jsonFileNames);
 
     //write json of file objects
     for(var x = 0; x<listOfFileNames.length; x++){
@@ -186,7 +186,7 @@ app.get('/objects/:name', function(req , res){
         var currentGEDCOMFile = "./uploads/" + listOfFileNames[x];
         console.log("writing:" + currentFile + "...");
         var jsonString = parserLib.GEDCOMtoJSON(currentGEDCOMFile);
-        parserLib.writeJSONObjects(currentFile, jsonString);
+        writeJSONObjects(currentFile, jsonString);
     }//end for
 
     //write json of list of indi
@@ -195,7 +195,7 @@ app.get('/objects/:name', function(req , res){
         var currentGEDCOMFile = "./uploads/" + listOfFileNames[x];
         console.log("writing:" + currentFile + "...");
         var jsonString = parserLib.getIndiListJSON(currentGEDCOMFile);
-        parserLib.writeJSONObjects(currentFile, jsonString);
+        writeJSONObjects(currentFile, jsonString);
     }//end for
 
     fs.stat('objects/' + req.params.name, function(err, stat) {
