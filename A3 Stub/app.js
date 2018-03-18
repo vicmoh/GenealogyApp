@@ -3,6 +3,7 @@
 //dec vars
 const ffi = require('ffi');//for the c lib
 const ref = require("ref");//for the c pointer
+const fs = require('fs');
 
 var GEDCOMobject = ref.types.void;
 var GEDCOMobjectPtr = ref.refType(GEDCOMobject);
@@ -56,7 +57,7 @@ const fileUpload = require('express-fileupload');
 app.use(fileUpload());
 
 // Minimization
-const fs = require('fs');
+//const fs = require('fs');
 const JavaScriptObfuscator = require('javascript-obfuscator');
 
 // Important, pass in port as in `npm run dev 1234`, do not change
