@@ -38,6 +38,11 @@ let parserLib = ffi.Library("./parser/bin/parser.so", {
 // console.log(stringTest2);
 // console.log("calling the parser PASSED");
 
+var JSONListOfFileNamePath = "./objects/listOfFileNames.json";
+var listOfFileName = getListFileName();
+var listOfFileNameJSON = JSON.stringify(listOfFileName);
+parserLib.writeString(JSONListOfFileNamePath, listOfFileNameJSON);
+
 /**********************************************************************
  * stubs
  **********************************************************************/
@@ -223,8 +228,3 @@ function addIndividual(){
     var desc = parserLib.descToJSON(GEDFileName, "William", "Shakespeare", 0);
     parserLib.writeString(JSONFileName, desc);
 }//end func
-
-var JSONListOfFileNamePath = "./objects/listOfFileNames.json";
-var listOfFileName = getListFileName();
-var listOfFileNameJSON = JSON.stringify(listOfFileName);
-parserLib.writeString(JSONListOfFileNamePath, listOfFileNameJSON);
