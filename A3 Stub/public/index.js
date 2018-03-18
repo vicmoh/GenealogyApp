@@ -70,18 +70,6 @@ $(document).ready(function() {
         console.log("sex = " + sex);
         console.log("famSize = " + famSize);
         //parse the file to test
-        $.ajax({
-            type: 'get',
-            dataType: 'json',
-            url: '/assets/listOfFileNames.json',   
-            success: function (data) {
-                console.log("ajax fileName are " + data);
-            },
-            fail: function(error) {
-                // Non-200 return, do something with error
-                console.log(error); 
-            }
-        });
 
         //clear text
         $('#addIndiFirstName').val(emptyString);
