@@ -2692,8 +2692,8 @@ char* GEDCOMtoJSON(char* fileName){
     sprintf(famNum, "%d", getLength(object->families));
 
     //"{"source":"Blah","gedcVersion":"5.5","encoding":"ASCII", "subName":"Some dude”,"subAddress":"nowhere"}"
-    sprintf(string, "{\"source\":\"%s\",\"gedcVersion\":\"%s\",\"encoding\":\"%s\",\"subName\":\"%s\",\"subAddress\":\"%s\",\"indiNum\":\"%s\",\"famNum\":\"%s\"}",
-        source, version, encoding, subName, subAddress, indiNum, famNum);
+    sprintf(string, "{\"fileName\":\"%s\",\"source\":\"%s\",\"gedcVersion\":\"%s\",\"encoding\":\"%s\",\"subName\":\"%s\",\"subAddress\":\"%s\",\"indiNum\":\"%s\",\"famNum\":\"%s\"}",
+        fileName, source, version, encoding, subName, subAddress, indiNum, famNum);
     deleteGEDCOM(object);
     return string;
 }//end func

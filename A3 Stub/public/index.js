@@ -36,6 +36,7 @@ $(document).ready(function() {
         url: '/getFileLogs',
         success: function (data) {
             console.log("ajax file logs are " + data);
+            
         },
         fail: function(error) {
             // Non-200 return, do something with error
