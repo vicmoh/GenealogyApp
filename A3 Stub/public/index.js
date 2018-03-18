@@ -21,6 +21,21 @@ $(document).ready(function() {
         }
     });
 
+    $.ajax({
+        type: 'get',            //Request type
+        dataType: 'json',       //Data type - we will use JSON for almost everything 
+        url: '/objects',   //The server endpoint we are connecting to
+        success: function (data) {
+            
+            //We write the object to the console to show that the request was successful
+            console.log(data); 
+        },
+        fail: function(error) {
+            // Non-200 return, do something with error
+            console.log(error); 
+        }
+    });
+
     // Event listener form replacement example, building a Single-Page-App, no redirects if possible
     // $('#someform').submit(function(e){
     //     e.preventDefault();
@@ -88,5 +103,9 @@ $(document).ready(function() {
         $('#addIndiLastname').val(emptyString);
         $('#addIndiSex').val(emptyString);
         $('#addIndiFamSize').val(emptyString);
+    });
+
+    $.ajax({
+        
     });
 });
