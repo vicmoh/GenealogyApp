@@ -33,9 +33,9 @@ $(document).ready(function() {
         url: '/getFileLogs',
         success: function (data) {
             console.log("file logs = " + data);
-            for(x = 0; x<data.length; x++){
+            for(var x = 0; x<data.length; x++){
                 var gedFileNameStringOnly = data[x].fileName.substring(10, data[x].fileName.length);
-                var tableSections  = "<tbody><tr>"
+                var tableSections  = "<tr><tbody>"
                     +"<td><a class=\"setLightBlue\" href=\"" + data[x].fileName +"\">" + gedFileNameStringOnly + "</a></td>"
                     +"<td>" + data[x].source + "</td>"
                     +"<td>" + data[x].gedcVersion + "</td>"
@@ -44,7 +44,7 @@ $(document).ready(function() {
                     +"<td>" + data[x].subAddress + "</td>"
                     +"<td>" + data[x].indiNum + "</td>"
                     +"<td>" + data[x].famNum + "</td>"
-                    +"</tbody></tr>"
+                    +"</tr></tbody>"
                 $(".fileLogTable").append(tableSections);
             }//end for
         },
@@ -95,7 +95,7 @@ $(document).ready(function() {
         
         $.ajax({
             type:'POST',
-            url:'/object/addIndi',
+            url:'/addIndiToList',
             processData: false,
             contentType: false,
             data:{

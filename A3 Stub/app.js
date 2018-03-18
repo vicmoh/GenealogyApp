@@ -178,7 +178,7 @@ app.get('/getFileLogs', function(req , res){
 });
 
 //get request for the web objects
-app.get('/addIndi', function(req , res){
+app.get('/addIndiToList', function(req , res){
   
 });
 
