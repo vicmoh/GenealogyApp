@@ -45,9 +45,9 @@ console.log("calling the parser PASSED");
 /**********************************************************************
  * functions
  **********************************************************************/
+var tempFS = require('fs');
 
 function getListFileName(){
-    var tempFS = require('fs');
     var fileNames = tempFS.readdirSync('./uploads/');
     for (var i in fileNames) {
         var definition = require('./uploads/' + fileNames[i]).Model;
@@ -58,7 +58,7 @@ function getListFileName(){
 }//end func
 
 function writeJSONObjects(JSONfileName, object){
-    fs.writeFile(JSONFileName, JSON.stringify(object), (err) =>{
+    tempFS.writeFile(JSONFileName, JSON.stringify(object), (err) =>{
         if(err){
             console.log(err);
             console.log("error writing JSON objects");
