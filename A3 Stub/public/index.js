@@ -82,7 +82,7 @@ $(document).ready(function() {
         
         $.ajax({
             type:'POST',
-            url:'/object/addIndi.json',
+            url:'/object/addIndi',
             processData: false,
             contentType: false,
             data:{
@@ -97,5 +97,4 @@ $(document).ready(function() {
         $('#addIndiSex').val(emptyString);
         $('#addIndiFamSize').val(emptyString);
     });
-
 });
