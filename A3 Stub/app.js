@@ -154,6 +154,21 @@ app.get('/assets/:name', function(req , res){
 
 //for the web objects
 app.post('/objects', function(req, res) {
+    //file uploading
+    if(!req.files) {
+        return res.status(400).send('No files were uploaded.');
+    }
+    let uploadFile = req.files.uploadFile;
+    uploadFile.mv('objects/' + uploadFile.name, function(err) {
+    if(err) {
+        return res.status(500).send(err);
+    }
+        res.redirect('/');
+    });
+});
+
+//get request for the web objects
+app.get('/objects/:name', function(req , res){
     //for the list of file names
     var fileNameListPath = "./objects/listOfFileNames.json";
     var ListOfFileNames = getListFileNames();
@@ -175,22 +190,6 @@ app.post('/objects', function(req, res) {
         var jsonString = parserLib.getIndiListJSON(currentFile);
         parserLib.writeString(currentFile, jsonString);
     }//end for
-
-    //file uploading
-    if(!req.files) {
-        return res.status(1000).send('No files were uploaded.');
-    }
-    let uploadFile = req.files.uploadFile;
-    uploadFile.mv('objects/' + uploadFile.name, function(err) {
-    if(err) {
-        return res.status(500).send(err);
-    }
-        res.redirect('/');
-    });
-});
-
-//get request for the web objects
-app.get('/objects/:name', function(req , res){
     fs.stat('objects/' + req.params.name, function(err, stat) {
         console.log(err);
         if(err == null) {
