@@ -322,8 +322,8 @@ html, body{
     color: #666;
 }
 .selectGEDCOM{
-    color: rgb(25, 25, 25);
-    background: white;
+    /*color: rgb(25, 25, 25);
+    background: white;*/
     min-width: 100%;
 }
 .gedcomButtons{

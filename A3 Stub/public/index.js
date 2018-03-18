@@ -94,14 +94,16 @@ $(document).ready(function() {
         //parse the file to test
         
         $.ajax({
-            type:'POST',
-            url:'/addIndiToList',
-            processData: false,
-            contentType: false,
-            data:{
-                firstName:$(firstName).val(),
-                secondName:$(lastName).val(),
+            type: 'get',
+            dataType: 'json',
+            url: '/addIndiToList',
+            success: function (data) {
+                
             },
+            fail: function(error) {
+                // Non-200 return, do something with error
+                console.log(error); 
+            }
         });
         
         //clear text
