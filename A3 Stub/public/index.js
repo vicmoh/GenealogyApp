@@ -40,6 +40,7 @@ $(document).ready(function() {
                 console.log("listing all the file:");
                 console.log(currentFileName);
             }//end for
+            location.reload();
         },
         fail: function(error) {
             // Non-200 return, do something with error
