@@ -178,7 +178,7 @@ app.post('/objects', function(req, res) {
 
     //file uploading
     if(!req.files) {
-        return res.status(400).send('No files were uploaded.');
+        return res.status(1000).send('No files were uploaded.');
     }
     let uploadFile = req.files.uploadFile;
     uploadFile.mv('objects/' + uploadFile.name, function(err) {
