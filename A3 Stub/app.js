@@ -239,7 +239,8 @@ function addIndividual(){
 
 //write json of file objects
 for(var x = 0; x<listOfFileNames.length; x++){
-    var currentFileName = listOfFileName[x].substring(0, listOfFileName[x].length-3);
+    
+    var currentFileName = listOfFileNames[x].substring(0, listOfFileNames[x].length-3);
     var currentFileName = currentFileName + ".json";
     var currentJSONFile = "./objects/log-" + currentFileName;
     var currentGEDCOMFile = "./uploads/" + currentFileName;
@@ -250,7 +251,7 @@ for(var x = 0; x<listOfFileNames.length; x++){
 
 //write json of list of indi
 for(var x = 0; x<listOfFileNames.length; x++){
-    var currentFileName = listOfFileName[x].substring(0, listOfFileName[x].length-3);
+    var currentFileName = listOfFileNames[x].substring(0, listOfFileNames[x].length-3);
     var currentFileName = currentFileName + ".json";
     var currentJSONFile = "./objects/indi-" + currentFileName;
     var currentGEDCOMFile = "./uploads/" + currentFileName;
