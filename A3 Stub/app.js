@@ -1,4 +1,4 @@
-'use strict';
+//'use strict';
 
 //dec vars
 const ffi = require('ffi');//for the c lib
