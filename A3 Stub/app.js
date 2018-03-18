@@ -42,9 +42,9 @@ function testParserLib(){
     console.log("calling the parser PASSED");
 }//end func
 
-var fileNamesInJsonString = parserLib.getJSONString("./objects/listOfFileNames.json");
-var listOfFileNames = JSON.parse(fileNamesInJsonString);
-console.log("JSON.parse the file names: " + listOfFileNames);
+// var fileNamesInJsonString = parserLib.getJSONString("./objects/listOfFileNames.json");
+// var listOfFileNames = JSON.parse(fileNamesInJsonString);
+// console.log("JSON.parse the file names: " + listOfFileNames);
 
 /**********************************************************************
  * stubs
@@ -176,7 +176,7 @@ app.post('/objects', function(req, res) {
 app.get('/objects/:name', function(req , res){
     //for the list of file names
     var fileNameListPath = "./objects/listOfFileNames.json";
-    listOfFileNames = getListFileNames();
+    var listOfFileNames = getListFileNames();
     var jsonFileNames = JSON.stringify(listOfFileNames);
     writeJSONObjects(fileNameListPath, jsonFileNames);
 
