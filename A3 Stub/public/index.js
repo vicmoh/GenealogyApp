@@ -37,7 +37,7 @@ $(document).ready(function() {
             listOfFileNames = data;
             //add file names to the selected
             for(x = 0; x<listOfFileNames.length; x++){
-                $('<select>').appendTo("<input>"+listOfFileNames[x]+"</input>");
+                $('select').appendTo("<input>"+listOfFileNames[x]+"</input>");
             }//end for
         },
         fail: function(error) {
