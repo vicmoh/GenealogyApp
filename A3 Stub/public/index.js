@@ -34,7 +34,7 @@ $(document).ready(function() {
         url: '/objects/listOfFileNames.json',   
         success: function (data) {
             console.log("ajax fileName are " + data);
-            listOfFileNames = JSON.parse(data);
+            listOfFileNames = data;
         },
         fail: function(error) {
             // Non-200 return, do something with error
