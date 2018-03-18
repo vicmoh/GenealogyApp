@@ -25,6 +25,9 @@ let parserLib = ffi.Library("./parser/bin/parser.so", {
 //my global vars
 const JSONListOfFileNamePath = "./objects/listOfFileNames.json"
 
+var listOfFileName = getListFileName();
+writeJSONObjects(JSONListOfFileNamePath, listOfFileName);
+
 //testing the parser lib
 var uploadNameTest = "./uploads/writeTest.ged";
 console.log("before calling parser lib");
@@ -166,31 +169,11 @@ app.post('/objects', function(req, res) {
     });
 });
 
-function getListFileName(){
-    var fileNames = fs.readdirSync('./uploads/');
-    for (var i in fileNames) {
-        var definition = require('./uploads/' + fileNames[i]).Model;
-        console.log('Model Loaded: ' + fileNames[i]);
-    }//end for
-    console.log(fileNames);
-    return fileNames;
-}//end func
-
-function writeJSONObjects(JSONfileName, object){
-    fs.writeFile(JSONFileName, JSON.stringify(object), (err) =>{
-        if(err){
-            console.log(err);
-            console.log("error writing JSON objects");
-            return;
-        }//end if
-    });
-}//end func
-
 //get request for the web assets just incase
 app.get('/objects/:name', function(req , res){
     //where the event listener caller will be
     //addIndividual();
-    var listOfFileName = getListFileName();
+    listOfFileName = getListFileName();
     writeJSONObjects(JSONListOfFileNamePath, listOfFileName);
     fs.stat('objects/' + req.params.name, function(err, stat) {
         console.log(err);
@@ -205,6 +188,33 @@ app.get('/objects/:name', function(req , res){
 /**********************************************************************
  * functions
  **********************************************************************/
+
+function getListFileName(){
+    var fileNames = fs.readdirSync('./uploads/');
+    for (var i in fileNames) {
+        var definition = require('./uploads/' + fileNames[i]).Model;
+        console.log('Model Loaded: ' + fileNames[i]);
+    }//end for
+    console.log(fileNames);
+    return fileNames;
+
+    var arrayOfFileNames;
+
+    fs.readdirSync('./objects/').forEach(file => {
+        console.log(file);
+        arrayOfFileNames.push(file);
+    });
+}//end func
+
+function writeJSONObjects(JSONfileName, object){
+    fs.writeFile(JSONFileName, JSON.stringify(object), (err) =>{
+        if(err){
+            console.log(err);
+            console.log("error writing JSON objects");
+            return;
+        }//end if
+    });
+}//end func
 
 function addFileNameToList(fileaName){
     console.log("calling addFileName = " + fileName);
