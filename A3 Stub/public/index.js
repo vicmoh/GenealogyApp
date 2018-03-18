@@ -21,20 +21,9 @@ $(document).ready(function() {
         }
     });
 
-    // Event listener form replacement example, building a Single-Page-App, no redirects if possible
-    // $('#someform').submit(function(e){
-    //     e.preventDefault();
-    //     $.ajax({});
-    // });
-
     /*******************************************************************************
-     * My jquery code 
+     * My ajax code 
      *******************************************************************************/
-
-    // $("statusPanelID").click(function(e){       
-    //     e.preventDefault();
-    //     $('html,body').animate({scrollTop:$(this.hash).offset().top}, "slow");
-    // });
 
     //jquery for adding individual
     $.ajax({
@@ -49,6 +38,10 @@ $(document).ready(function() {
             console.log(error); 
         }
     });
+
+    /*******************************************************************************
+     * My jquery code 
+     *******************************************************************************/
 
     //smooth scrolling to setAnimateScroll
     $('.setAnimateScroll').on('click', function(event) {
