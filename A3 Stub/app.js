@@ -237,22 +237,22 @@ function addIndividual(){
     parserLib.writeString(JSONFileName, desc);
 }//end func
 
-//write json of file objects
-for(var x = 0; x<listOfFileNames.length; x++){
-    var currentFileName = listOfFileNames[x].substring(0, listOfFileNames[x].length-4);
-    var currentJSONFile = "./objects/log-" + currentFileName + ".json";
-    var currentGEDCOMFile = "./uploads/" + currentFileName + ".ged";
-    console.log("writing:" + currentJSONFile + "...");
-    var jsonString = parserLib.GEDCOMtoJSON(currentGEDCOMFile);
-    writeJSONObjects(currentJSONFile, jsonString);
-}//end for
+// //write json of file objects
+// for(var x = 0; x<listOfFileNames.length; x++){
+//     var currentFileName = listOfFileNames[x].substring(0, listOfFileNames[x].length-4);
+//     var currentJSONFile = "./objects/log-" + currentFileName + ".json";
+//     var currentGEDCOMFile = "./uploads/" + currentFileName + ".ged";
+//     console.log("writing:" + currentJSONFile + "...");
+//     var jsonString = parserLib.GEDCOMtoJSON(currentGEDCOMFile);
+//     writeJSONObjects(currentJSONFile, jsonString);
+// }//end for
 
-//write json of list of indi
-for(var x = 0; x<listOfFileNames.length; x++){
-    var currentFileName = listOfFileNames[x].substring(0, listOfFileNames[x].length-4);
-    var currentJSONFile = "./objects/indi-" + currentFileName + ".json";
-    var currentGEDCOMFile = "./uploads/" + currentFileName + ".ged";
-    console.log("writing:" + currentJSONFile + "...");
-    var jsonString = parserLib.getIndiListJSON(currentGEDCOMFile);
-    writeJSONObjects(currentJSONFile, jsonString);
-}//end for
+// //write json of list of indi
+// for(var x = 0; x<listOfFileNames.length; x++){
+//     var currentFileName = listOfFileNames[x].substring(0, listOfFileNames[x].length-4);
+//     var currentJSONFile = "./objects/indi-" + currentFileName + ".json";
+//     var currentGEDCOMFile = "./uploads/" + currentFileName + ".ged";
+//     console.log("writing:" + currentJSONFile + "...");
+//     var jsonString = parserLib.getIndiListJSON(currentGEDCOMFile);
+//     writeJSONObjects(currentJSONFile, jsonString);
+// }//end for
