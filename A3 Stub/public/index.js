@@ -9,21 +9,9 @@ $(document).ready(function() {
 
     //ajax get the list of file names
     $.ajax({
-        type: 'post',
-        dataType: 'json',
-        url: '/objects',
-        success: function (data) {
-            console.log("calling post ajax " + data);
-        },
-        fail: function(error) {
-            // Non-200 return, do something with error
-            console.log(error); 
-        }
-    });
-    $.ajax({
         type: 'get',
         dataType: 'json',
-        url: '/objects',
+        url: '/getFileList',
         success: function (data) {
             console.log("ajax fileName are " + data);
             listOfFileNames = data;

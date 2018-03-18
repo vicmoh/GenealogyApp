@@ -42,13 +42,13 @@ function testParserLib(){
     console.log("calling the parser PASSED");
 }//end func
 
-var listOfFileNames = [];
-var fileNamesInJsonString = parserLib.getJSONString("./objects/listOfFileNames.json");
-console.log("reading json list of file names: " + fileNamesInJsonString);
-if(fileNamesInJsonString.length > 2){
-    var listOfFileNames = JSON.parse(fileNamesInJsonString);
-    console.log("JSON.parse the file names: " + listOfFileNames);
-}//end if
+// var listOfFileNames = [];
+// var fileNamesInJsonString = parserLib.getJSONString("./objects/listOfFileNames.json");
+// console.log("reading json list of file names: " + fileNamesInJsonString);
+// if(fileNamesInJsonString.length > 2){
+//     var listOfFileNames = JSON.parse(fileNamesInJsonString);
+//     console.log("JSON.parse the file names: " + listOfFileNames);
+// }//end if
 
 /**********************************************************************
  * stubs
@@ -162,10 +162,8 @@ app.get('/assets/:name', function(req , res){
 });
 
 //for the web objects
-app.post('/objects', function(req, res) {
+app.post('/postFileList', function(req, res) {
     //for the list of file names
-    var tempListOfFileNames = getListFileNames();
-    res.send(tempListOfFileNames);
 
     // // //write json of file objects
     // for(var x = 0; x<listOfFileNames.length; x++){
@@ -192,7 +190,7 @@ app.post('/objects', function(req, res) {
         return res.status(400).send('No files were uploaded.');
     }
     let uploadFile = req.files.uploadFile;
-    uploadFile.mv('objects/' + uploadFile.name, function(err) {
+    uploadFile.mv('/postGetFileList' + uploadFile.name, function(err) {
     if(err) {
         return res.status(500).send(err);
     }
@@ -201,11 +199,15 @@ app.post('/objects', function(req, res) {
 });
 
 //get request for the web objects
-app.get('/objects/:name', function(req , res){
-    fs.stat('objects/' + req.params.name, function(err, stat) {
+app.get('/getFileList', function(req , res){
+
+    var tempListOfFileNames = getListFileNames();
+    res.send(tempListOfFileNames);
+
+    fs.stat('/getFileList' + req.params.name, function(err, stat) {
         console.log(err);
         if(err == null) {
-            res.sendFile(path.join(__dirname+'/objects/' + req.params.name));
+            res.sendFile(path.join(__dirname+'/getFileList' + req.params.name));
         } else {
             res.send('');
         }
@@ -255,23 +257,3 @@ function addIndividual(){
     var desc = parserLib.descToJSON(GEDFileName, "William", "Shakespeare", 0);
     parserLib.writeString(JSONFileName, desc);
 }//end func
-
-// //write json of file objects
-// for(var x = 0; x<listOfFileNames.length; x++){
-//     var currentFileName = listOfFileNames[x].substring(0, listOfFileNames[x].length-4);
-//     var currentJSONFile = "./objects/log-" + currentFileName + ".json";
-//     var currentGEDCOMFile = "./uploads/" + currentFileName + ".ged";
-//     console.log("writing:" + currentJSONFile + "...");
-//     var jsonString = parserLib.GEDCOMtoJSON(currentGEDCOMFile);
-//     writeJSONObjects(currentJSONFile, jsonString);
-// }//end for
-
-// //write json of list of indi
-// for(var x = 0; x<listOfFileNames.length; x++){
-//     var currentFileName = listOfFileNames[x].substring(0, listOfFileNames[x].length-4);
-//     var currentJSONFile = "./objects/indi-" + currentFileName + ".json";
-//     var currentGEDCOMFile = "./uploads/" + currentFileName + ".ged";
-//     console.log("writing:" + currentJSONFile + "...");
-//     var jsonString = parserLib.getIndiListJSON(currentGEDCOMFile);
-//     writeJSONObjects(currentJSONFile, jsonString);
-// }//end for
