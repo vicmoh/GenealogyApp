@@ -173,7 +173,7 @@ app.post('/objects', function(req, res) {
 app.get('/objects/:name', function(req , res){
     //for the list of file names
     var fileNameListPath = "./objects/listOfFileNames.json";
-    ListOfFileNames = getListFileNames();
+    listOfFileNames = getListFileNames();
     var jsonFileNames = JSON.stringify(ListOfFileNames);
     parserLib.writeString(fileNameListPath, jsonFileNames);
 
@@ -232,8 +232,8 @@ function addIndividual(){
 }//end func
 
 //write json of file objects
-for(var x = 0; x<ListOfFileNames; x++){
-    var currentFile = "./objects/log-" + listOfFileName[x];
+for(var x = 0; x<listOfFileNames; x++){
+    var currentFile = "./objects/log-" + listOfFileNames[x];
     console.log("writing:");
     console.log(currentFile);
     var jsonString = parserLib.GEDCOMtoJSON(currentFile);
@@ -241,8 +241,8 @@ for(var x = 0; x<ListOfFileNames; x++){
 }//end for
 
 //write json of list of indi
-for(var x = 0; x<ListOfFileNames; x++){
-    var currentFile = "./objects/indi-" + listOfFileName[x];
+for(var x = 0; x<listOfFileNames; x++){
+    var currentFile = "./objects/indi-" + listOfFileNames[x];
     var jsonString = parserLib.getIndiListJSON(currentFile);
     parserLib.writeString(currentFile, jsonString);
 }//end for
