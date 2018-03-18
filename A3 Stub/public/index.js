@@ -13,7 +13,7 @@ $(document).ready(function() {
         dataType: 'json',
         url: '/getFileList',
         success: function (data) {
-            console.log("ajax fi leName are " + data);
+            console.log("ajax fileName are " + data);
             listOfFileNames = data;
             //add file names to the selected
             for(x = 0; x<listOfFileNames.length; x++){
@@ -23,6 +23,19 @@ $(document).ready(function() {
                 console.log(currentFileName);
             }//end for
             console.log(data);
+        },
+        fail: function(error) {
+            // Non-200 return, do something with error
+            console.log(error); 
+        }
+    });
+    //ajax get file logs
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/getFileLogs',
+        success: function (data) {
+            console.log("ajax file logs are " + data);
         },
         fail: function(error) {
             // Non-200 return, do something with error

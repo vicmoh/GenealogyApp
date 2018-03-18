@@ -185,7 +185,7 @@ app.get('/getFileList', function(req , res){
 });
 
 //get request for the web objects
-app.get('/getFileLog', function(req , res){
+app.get('/getFileLogs', function(req , res){
     var fileNames = getListFileNames();
     var jsonString;
     var listOfFileLogObjects = [];
