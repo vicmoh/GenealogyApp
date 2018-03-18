@@ -2779,6 +2779,9 @@ void writeString(char* fileName, char* outputString){
 char* getJSONString(char* fileName){
     //dec vars
     FILE* filePointer = fopen(fileName, "r");
+    if(filePointer == NULL){
+        return setString("[]");
+    }//end if
     char* stringBuffer = calloc(1, sizeof(stringBuffer));
     int charBuffer;
     int stringSize = 0;
@@ -2794,5 +2797,8 @@ char* getJSONString(char* fileName){
         stringBuffer[stringSize] = '\0';
     }//end if*/
     fclose(filePointer);
+    if(strlen(stringBuffer) < 2){
+        return setString("[]");
+    }//end if
     return stringBuffer;
 }//end func

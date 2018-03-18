@@ -42,11 +42,13 @@ function testParserLib(){
     console.log("calling the parser PASSED");
 }//end func
 
-var listOfFileNames = [];
-// var fileNamesInJsonString = parserLib.getJSONString("./objects/listOfFileNames.json");
-// console.log("reading json list of file names: " + fileNamesInJsonString);
-// var listOfFileNames = JSON.parse(fileNamesInJsonString);
-// console.log("JSON.parse the file names: " + listOfFileNames);
+var listOfFileName = [];
+var fileNamesInJsonString = parserLib.getJSONString("./objects/listOfFileNames.json");
+console.log("reading json list of file names: " + fileNamesInJsonString);
+if(fileNamesInJsonString.length > 2){
+    var listOfFileNames = JSON.parse(fileNamesInJsonString);
+    console.log("JSON.parse the file names: " + listOfFileNames);
+}//end if
 
 /**********************************************************************
  * stubs
