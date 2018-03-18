@@ -42,7 +42,24 @@ function testParserLib(){
     console.log("calling the parser PASSED");
 }//end func
 
-var listOfFileNames = [];
+var fileNamesInJsonStrng = parserLib.getJSONString("./objects/listOfFileNames.json");
+var listOfFileNames = JSON.parse(fileNamesInJsonStrng);
+
+//write json of file objects
+for(var x = 0; x<listOfFileNames; x++){
+    var currentFile = "./objects/log-" + listOfFileNames[x];
+    console.log("writing:");
+    console.log(currentFile);
+    var jsonString = parserLib.GEDCOMtoJSON(currentFile);
+    parserLib.writeString(currentFile, jsonString);
+}//end for
+
+//write json of list of indi
+for(var x = 0; x<listOfFileNames; x++){
+    var currentFile = "./objects/indi-" + listOfFileNames[x];
+    var jsonString = parserLib.getIndiListJSON(currentFile);
+    parserLib.writeString(currentFile, jsonString);
+}//end for
 
 /**********************************************************************
  * stubs
@@ -231,22 +248,3 @@ function addIndividual(){
     var desc = parserLib.descToJSON(GEDFileName, "William", "Shakespeare", 0);
     parserLib.writeString(JSONFileName, desc);
 }//end func
-
-var fileNamesInJsonStrng = parserLib.getJSONString("./objects/listOfFileNames.json");
-listOfFileNames = JSON.parse(fileNamesInJsonStrng);
-
-//write json of file objects
-for(var x = 0; x<listOfFileNames; x++){
-    var currentFile = "./objects/log-" + listOfFileNames[x];
-    console.log("writing:");
-    console.log(currentFile);
-    var jsonString = parserLib.GEDCOMtoJSON(currentFile);
-    parserLib.writeString(currentFile, jsonString);
-}//end for
-
-//write json of list of indi
-for(var x = 0; x<listOfFileNames; x++){
-    var currentFile = "./objects/indi-" + listOfFileNames[x];
-    var jsonString = parserLib.getIndiListJSON(currentFile);
-    parserLib.writeString(currentFile, jsonString);
-}//end for
