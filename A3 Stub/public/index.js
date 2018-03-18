@@ -13,7 +13,7 @@ $(document).ready(function() {
         dataType: 'json',
         url: '/getFileList',
         success: function (data) {
-            console.log("ajax fileName are " + data);
+            console.log("ajax fi leName are " + data);
             listOfFileNames = data;
             //add file names to the selected
             for(x = 0; x<listOfFileNames.length; x++){
