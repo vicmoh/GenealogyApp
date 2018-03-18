@@ -9,26 +9,37 @@ $(document).ready(function() {
 
     //ajax get the list of file names
     $.ajax({
-        type: 'get',
+        type: 'post',
         dataType: 'json',
-        url: '/objects/listOfFileNames.json',
+        url: '/objects',
         success: function (data) {
-            console.log("ajax fileName are " + data);
-            listOfFileNames = data;
+            console.log("calling post ajax " + data);
         },
         fail: function(error) {
             // Non-200 return, do something with error
             console.log(error); 
         }
     });
-    
-    //add file names to the selected
-    for(x = 0; x<listOfFileNames.length; x++){
-        currentFileName = "<option>"+listOfFileNames[x]+"</option>";
-        $("select").append(currentFileName);
-        console.log("listing all the file:");
-        console.log(currentFileName);
-    }//end for
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/objects/listOfFileNames.json',
+        success: function (data) {
+            console.log("ajax fileName are " + data);
+            listOfFileNames = data;
+            //add file names to the selected
+            for(x = 0; x<listOfFileNames.length; x++){
+                currentFileName = "<option>"+listOfFileNames[x]+"</option>";
+                $("select").append(currentFileName);
+                console.log("listing all the file:");
+                console.log(currentFileName);
+            }//end for
+        },
+        fail: function(error) {
+            // Non-200 return, do something with error
+            console.log(error); 
+        }
+    });
 
     /*******************************************************************************
      * My jquery code 
