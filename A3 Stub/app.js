@@ -185,7 +185,7 @@ app.get('/objects/:name', function(req , res){
  //my global vars
 var listOfFileName = getListFileName();
 const JSONListOfFileNamePath = "./objects/listOfFileNames.json";
-writeJSONObjects(JSONListOfFileNamePath, listOfFileName);
+writeJSONObjects(listOfFileName);
 
 function getListFileName(){
     // var fileNames = fs.readdirSync('./uploads/');
@@ -212,8 +212,8 @@ function getListFileName(){
 }//end func
 
 
-function writeJSONObjects(JSONfileName, object){
-    fs.writeFile(JSONFileName, JSON.stringify(object), (err) =>{
+function writeJSONObjects(object){
+    fs.writeFile(JSONListOfFileNamePath, JSON.stringify(object), (err) =>{
         if(err){
             console.log(err);
             console.log("error writing JSON objects");
