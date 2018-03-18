@@ -23,7 +23,7 @@ let parserLib = ffi.Library("./parser/bin/parser.so", {
 });
 
 //my global vars
-const JSONListOfFileNamePath = "./objects/listOfFileName.json"
+const JSONListOfFileNamePath = "./objects/listOfFileNames.json"
 
 //testing the parser lib
 var uploadNameTest = "./uploads/writeTest.ged";
