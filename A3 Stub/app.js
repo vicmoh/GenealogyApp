@@ -178,27 +178,18 @@ app.get('/getFileLogs', function(req , res){
 });
 
 //get request for the web objects
+app.get('/addIndi', function(req , res){
+  
+});
+
+//get request for the web objects
 app.get('/getDescList', function(req , res){
-    fs.stat('/getFileList' + req.params.name, function(err, stat) {
-        console.log(err);
-        if(err == null) {
-            res.sendFile(path.join(__dirname+'/getFileList' + req.params.name));
-        } else {
-            res.send('');
-        }
-    });
+
 });
 
 //get request for the web objects
 app.get('/getAnceList', function(req , res){
-    fs.stat('/getFileList' + req.params.name, function(err, stat) {
-        console.log(err);
-        if(err == null) {
-            res.sendFile(path.join(__dirname+'/getFileList' + req.params.name));
-        } else {
-            res.send('');
-        }
-    });
+
 });
 
 /**********************************************************************
