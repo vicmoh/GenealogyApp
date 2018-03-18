@@ -184,7 +184,7 @@ app.get('/objects/:name', function(req , res){
 
  //my global vars
 var listOfFileName = getListFileName();
-const JSONListOfFileNamePath = "./objects/listOfFileNames.json";
+const JSONListOfFileNamePath = "./assets/listOfFileNames.json";
 writeJSONObjects(listOfFileName);
 
 function getListFileName(){
@@ -230,7 +230,6 @@ function addFileNameToList(fileaName){
 
 function addIndividual(){
     console.log("calling addIndividual()");
-    var JSONFileName = "./objects/addIndiObject.json"
     var GEDFileName = "./uploads/shakespeare.ged"
     var desc = parserLib.descToJSON(GEDFileName, "William", "Shakespeare", 0);
     parserLib.writeString(JSONFileName, desc);
