@@ -157,7 +157,8 @@ app.post('/objects', function(req, res) {
     //for the list of file names
     var fileNameListPath = "./objects/listOfFileNames.json";
     var ListOfFileNames = getListFileNames();
-    parserLib.writeString(fileNameListPath, ListOfFileNames);
+    var jsonFileNames = JSON.stringify(ListOfFileNames);
+    parserLib.writeString(fileNameListPath, jsonFileNames);
 
     //write json of file objects
     for(var x = 0; x<ListOfFileNames; x++){
