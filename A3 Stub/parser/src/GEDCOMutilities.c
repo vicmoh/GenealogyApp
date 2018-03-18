@@ -2776,3 +2776,23 @@ void writeString(char* fileName, char* outputString){
     writeFile(fileName, outputString);
 }//end func
 
+char* getJSONString(char* fileName){
+    //dec vars
+    FILE* filePointer = fopen(fileName, "r");
+    char* stringBuffer = calloc(1, sizeof(stringBuffer));
+    int charBuffer;
+    int stringSize = 0;
+    //read the entire file to the string
+    while(true){
+        charBuffer = getc(filePointer);
+        if(charBuffer == EOF){
+            break;
+        }//end if
+        stringBuffer[stringSize] = (char)charBuffer;
+        stringSize++;
+        stringBuffer = realloc(stringBuffer, sizeof(stringBuffer)*(stringSize+1));
+        stringBuffer[stringSize] = '\0';
+    }//end if*/
+    fclose(filePointer);
+    return stringBuffer;
+}//end func

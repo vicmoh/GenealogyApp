@@ -20,7 +20,8 @@ let parserLib = ffi.Library("./parser/bin/parser.so", {
     "getIndiListJSON":["string", ["string"]],
     "addIndiJSON": ["void", ["string", "string", "string"]],
     //writer
-    "writeString": ["void", ["string", "string"]]
+    "writeString": ["void", ["string", "string"]],
+    "getJSONString": ["string", ["string"]]
 });
 
 //testing the parser lib
@@ -231,7 +232,8 @@ function addIndividual(){
     parserLib.writeString(JSONFileName, desc);
 }//end func
 
-listOfFileNames = getListFileNames();
+var fileNamesInJsonStrng = parserLib.getJSONString("./objects/listOfFileNames.json");
+listOfFileNames = JSON.parse(fileNamesInJsonStrng);
 
 //write json of file objects
 for(var x = 0; x<listOfFileNames; x++){
