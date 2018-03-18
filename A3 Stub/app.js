@@ -174,7 +174,7 @@ app.get('/objects/:name', function(req , res){
     //for the list of file names
     var fileNameListPath = "./objects/listOfFileNames.json";
     listOfFileNames = getListFileNames();
-    var jsonFileNames = JSON.stringify(ListOfFileNames);
+    var jsonFileNames = JSON.stringify(listOfFileNames);
     parserLib.writeString(fileNameListPath, jsonFileNames);
 
     fs.stat('objects/' + req.params.name, function(err, stat) {
