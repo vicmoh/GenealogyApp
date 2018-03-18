@@ -41,6 +41,8 @@ function testParserLib(){
     console.log("calling the parser PASSED");
 }//end func
 
+var listOfFileNames = [];
+
 /**********************************************************************
  * stubs
  **********************************************************************/
@@ -171,7 +173,7 @@ app.post('/objects', function(req, res) {
 app.get('/objects/:name', function(req , res){
     //for the list of file names
     var fileNameListPath = "./objects/listOfFileNames.json";
-    var ListOfFileNames = getListFileNames();
+    ListOfFileNames = getListFileNames();
     var jsonFileNames = JSON.stringify(ListOfFileNames);
     parserLib.writeString(fileNameListPath, jsonFileNames);
 
