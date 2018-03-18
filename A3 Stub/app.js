@@ -230,7 +230,7 @@ function addIndividual(){
 }//end func
 
 //var fileNamesInJsonString = parserLib.getJSONString("./objects/listOfFileNames.json");
-var fileNamesInJsonString = require('/objects/listOfFileNames.json');
+var fileNamesInJsonString = require('./objects/listOfFileNames.json');
 console.log("reading json list of file names: " + fileNamesInJsonString);
 var listOfFileNames = JSON.parse(fileNamesInJsonString);
 console.log("JSON.parse the file names: " + listOfFileNames);
