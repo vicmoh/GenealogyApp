@@ -188,20 +188,13 @@ const JSONListOfFileNamePath = "./objects/listOfFileNames.json";
 writeJSONObjects(JSONListOfFileNamePath, listOfFileName);
 
 function getListFileName(){
-    // var fileNames = fs.readdirSync('./uploads/');
-    // for (var i in fileNames) {
-    //     var definition = require('./uploads/' + fileNames[i]).Model;
-    //     console.log('Model Loaded: ' + fileNames[i]);
-    // }//end for
-    // console.log(fileNames);
-    // return fileNames;
-
-    var arrayOfFileNames;
-
-    fs.readdirSync('./uploads/').forEach(file => {
-        console.log(file);
-        arrayOfFileNames.push(file);
-    });
+    var fileNames = fs.readdirSync('./uploads/');
+    for (var i in fileNames) {
+        var definition = require('./uploads/' + fileNames[i]).Model;
+        console.log('Model Loaded: ' + fileNames[i]);
+    }//end for
+    console.log(fileNames);
+    return fileNames;
 }//end func
 
 function writeJSONObjects(JSONfileName, object){
