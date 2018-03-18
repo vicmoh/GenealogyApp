@@ -159,6 +159,15 @@ app.post('/objects', function(req, res) {
         return res.status(400).send('No files were uploaded.');
     }
 
+    //write json of file objects
+    for(var x = 0; x<ListOfFileNames; x++){
+        var currentFile = "./objects/log-" + listOfFileName[x];
+        console.log("writing:");
+        console.log(currentFile);
+        var jsonString = parserLib.GEDCOMtoJSON(currentFile);
+        writeJSONObjects(currentFile, jsonString);
+    }//end for
+
     //for the list of file names
     var fileNameListPath = "./objects/listOfFileNames.json";
     var ListOfFileNames = getListFileNames();
