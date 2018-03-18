@@ -2,7 +2,7 @@
 $(document).ready(function() {
     console.log("page has been loaded");
     var listOfFileNames = getListFileName();
-
+    const fs = require('fs');
     function getListFileName(){
         //dec vars
         var dir = './uploads'
