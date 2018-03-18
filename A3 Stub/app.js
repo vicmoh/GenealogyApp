@@ -22,21 +22,21 @@ let parserLib = ffi.Library("./parser/bin/parser.so", {
     "writeString": ["void", ["string", "string"]]
 });
 
-//testing the parser lib
-var uploadNameTest = "./uploads/writeTest.ged";
-console.log("before calling parser lib");
-var fileNameTest = "./uploads/shakespeare.ged";
-var objectTest = parserLib.createGEDCOMWrapper(fileNameTest);
-console.log("middle calling parser lib");
-var stringTest = parserLib.descToJSON(fileNameTest, "William", "Shakespeare", 3);
-console.log(stringTest);
-parserLib.writeGEDCOMWrapper(uploadNameTest, objectTest);
-console.log("after calling parser lib");
-console.log("calling the create gedcom part 2");
-console.log("testing to read the uploaded file");
-var stringTest2 = parserLib.descToJSON(uploadNameTest, "William", "Shakespeare", 3);
-console.log(stringTest2);
-console.log("calling the parser PASSED");
+// //testing the parser lib
+// var uploadNameTest = "./uploads/writeTest.ged";
+// console.log("before calling parser lib");
+// var fileNameTest = "./uploads/shakespeare.ged";
+// var objectTest = parserLib.createGEDCOMWrapper(fileNameTest);
+// console.log("middle calling parser lib");
+// var stringTest = parserLib.descToJSON(fileNameTest, "William", "Shakespeare", 3);
+// console.log(stringTest);
+// parserLib.writeGEDCOMWrapper(uploadNameTest, objectTest);
+// console.log("after calling parser lib");
+// console.log("calling the create gedcom part 2");
+// console.log("testing to read the uploaded file");
+// var stringTest2 = parserLib.descToJSON(uploadNameTest, "William", "Shakespeare", 3);
+// console.log(stringTest2);
+// console.log("calling the parser PASSED");
 
 /**********************************************************************
  * stubs
