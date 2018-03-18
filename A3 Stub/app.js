@@ -177,9 +177,17 @@ app.get('/getFileLogs', function(req , res){
     console.log(listOfFileLogObjects);
 });
 
+//post for the web objects
+app.post('/addIndiToList', function(req, res) {
+    var selectedString = req.query.fileSelected;
+    res.send(selectedString);
+});
+
 //get request for the web objects
 app.get('/addIndiToList', function(req , res){
-  
+    var selectedString = req.query.fileSelected;
+    res.send(selectedString);
+    console.log(selectedString);
 });
 
 //get request for the web objects

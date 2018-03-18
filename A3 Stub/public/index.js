@@ -98,7 +98,7 @@ $(document).ready(function() {
             dataType: 'json',
             url: '/addIndiToList',
             success: function (data) {
-                
+                console.log("addIndiToList = " + data);
             },
             fail: function(error) {
                 // Non-200 return, do something with error
