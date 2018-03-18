@@ -38,6 +38,10 @@ var stringTest2 = parserLib.descToJSON(uploadNameTest, "William", "Shakespeare",
 console.log(stringTest2);
 console.log("calling the parser PASSED");
 
+var listOfFileName = getListFileName();
+const JSONListOfFileNamePath = "./objects/listOfFileNames.json";
+writeJSONObjects(listOfFileName);
+
 /**********************************************************************
  * stubs
  **********************************************************************/
@@ -148,10 +152,6 @@ app.get('/assets/:name', function(req , res){
         }
     });
 });
-
-var listOfFileName = getListFileName();
-const JSONListOfFileNamePath = "./objects/listOfFileNames.json";
-writeJSONObjects(listOfFileName);
 
 //for the web assets
 app.post('/objects', function(req, res) {
