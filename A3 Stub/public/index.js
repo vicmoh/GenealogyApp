@@ -35,7 +35,7 @@ $(document).ready(function() {
             var listOfFileNames = data;
             //add file names to the selected
             for(x = 0; x<listOfFileNames.length; x++){
-                currentFileName = "<input>"+listOfFileNames[x]+"</input>";
+                currentFileName = "<option>"+listOfFileNames[x]+"</option>";
                 $("select").append(currentFileName);
                 console.log("listing all the file:");
                 console.log(currentFileName);
