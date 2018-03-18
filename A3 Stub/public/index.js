@@ -109,18 +109,17 @@ $(document).ready(function() {
         success: function (data) {
             console.log("ajax fileName are " + data);
             listOfFileNames = data;
+            //add file names to the selected
+            for(x = 0; x<listOfFileNames.length; x++){
+                currentFileName = "<option>"+listOfFileNames[x]+"</option>";
+                $("select").append(currentFileName);
+                console.log("listing all the file:");
+                console.log(currentFileName);
+            }//end for
         },
         fail: function(error) {
             // Non-200 return, do something with error
             console.log(error); 
         }
     });
-    
-    //add file names to the selected
-    for(x = 0; x<listOfFileNames.length; x++){
-        currentFileName = "<option>"+listOfFileNames[x]+"</option>";
-        $("select").append(currentFileName);
-        console.log("listing all the file:");
-        console.log(currentFileName);
-    }//end for
 });
