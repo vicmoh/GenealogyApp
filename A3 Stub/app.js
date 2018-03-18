@@ -25,9 +25,6 @@ let parserLib = ffi.Library("./parser/bin/parser.so", {
 //my global vars
 const JSONListOfFileNamePath = "./objects/listOfFileNames.json"
 
-var listOfFileName = getListFileName();
-writeJSONObjects(JSONListOfFileNamePath, listOfFileName);
-
 //testing the parser lib
 var uploadNameTest = "./uploads/writeTest.ged";
 console.log("before calling parser lib");
@@ -173,8 +170,7 @@ app.post('/objects', function(req, res) {
 app.get('/objects/:name', function(req , res){
     //where the event listener caller will be
     //addIndividual();
-    listOfFileName = getListFileName();
-    writeJSONObjects(JSONListOfFileNamePath, listOfFileName);
+    writeJSONObjects(JSONListOfFileNamePath, getListFileName());
     fs.stat('objects/' + req.params.name, function(err, stat) {
         console.log(err);
         if(err == null) {
@@ -189,14 +185,17 @@ app.get('/objects/:name', function(req , res){
  * functions
  **********************************************************************/
 
+var listOfFileName = getListFileName();
+writeJSONObjects(JSONListOfFileNamePath, listOfFileName);
+
 function getListFileName(){
-    var fileNames = fs.readdirSync('./uploads/');
-    for (var i in fileNames) {
-        var definition = require('./uploads/' + fileNames[i]).Model;
-        console.log('Model Loaded: ' + fileNames[i]);
-    }//end for
-    console.log(fileNames);
-    return fileNames;
+    // var fileNames = fs.readdirSync('./uploads/');
+    // for (var i in fileNames) {
+    //     var definition = require('./uploads/' + fileNames[i]).Model;
+    //     console.log('Model Loaded: ' + fileNames[i]);
+    // }//end for
+    // console.log(fileNames);
+    // return fileNames;
 
     var arrayOfFileNames;
 
