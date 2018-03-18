@@ -42,7 +42,7 @@ function testParserLib(){
     console.log("calling the parser PASSED");
 }//end func
 
-var listOfFileName = [];
+var listOfFileName = ["shakespeare.ged"];
 var fileNamesInJsonString = parserLib.getJSONString("./objects/listOfFileNames.json");
 console.log("reading json list of file names: " + fileNamesInJsonString);
 if(fileNamesInJsonString.length > 2){
