@@ -13,16 +13,13 @@ $(document).ready(function() {
         dataType: 'json',
         url: '/getFileList',
         success: function (data) {
-            console.log("ajax fileName are " + data);
+            console.log("file name = " + data);
             listOfFileNames = data;
             //add file names to the selected
             for(x = 0; x<listOfFileNames.length; x++){
                 currentFileName = "<option>"+listOfFileNames[x]+"</option>";
                 $("select").append(currentFileName);
-                console.log("listing all the file:");
-                console.log(currentFileName);
             }//end for
-            console.log(data);
         },
         fail: function(error) {
             // Non-200 return, do something with error
@@ -35,8 +32,20 @@ $(document).ready(function() {
         dataType: 'json',
         url: '/getFileLogs',
         success: function (data) {
-            console.log("ajax file logs are " + data);
-            
+            console.log("file logs = " + data);
+            for(x = 0; x<data.length; x++){
+                tableSections  = "<tbody><tr>"
+                    +"<td><a>" + data[x].fileName + "</a></td>"
+                    +"<td>" + data[x].source + "</td>"
+                    +"<td>" + data[x].gedcVersion + "</td>"
+                    +"<td>" + data[x].encoding + "</td>"
+                    +"<td>" + data[x].subName + "</td>"
+                    +"<td>" + data[x].subAddress + "</td>"
+                    +"<td>" + data[x].indiNum + "</td>"
+                    +"<td>" + data[x].famNum + "</td>"
+                    +"</tbody></tr>"
+                $(".fileLogTable").append(tableSections);
+            }//end for
         },
         fail: function(error) {
             // Non-200 return, do something with error
