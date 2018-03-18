@@ -159,36 +159,6 @@ app.post('/objects', function(req, res) {
         return res.status(400).send('No files were uploaded.');
     }
 
-    //write json of file objects
-    for(var x = 0; x<ListOfFileNames; x++){
-        var currentFile = "./objects/log-" + listOfFileName[x];
-        console.log("writing:");
-        console.log(currentFile);
-        var jsonString = parserLib.GEDCOMtoJSON(currentFile);
-        writeJSONObjects(currentFile, jsonString);
-    }//end for
-
-    //for the list of file names
-    var fileNameListPath = "./objects/listOfFileNames.json";
-    var ListOfFileNames = getListFileNames();
-    writeJSONObjects(fileNameListPath, ListOfFileNames);
-
-    //write json of file objects
-    for(var x = 0; x<ListOfFileNames; x++){
-        var currentFile = "./objects/log-" + listOfFileName[x];
-        console.log("writing:");
-        console.log(currentFile);
-        var jsonString = parserLib.GEDCOMtoJSON(currentFile);
-        writeJSONObjects(currentFile, jsonString);
-    }//end for
-
-    //write json of list of indi
-    for(var x = 0; x<ListOfFileNames; x++){
-        var currentFile = "./objects/indi-" + listOfFileName[x];
-        var jsonString = parserLib.getIndiListJSON(currentFile);
-        writeJSONObjects(currentFile, jsonString);
-    }//end for
-
     let uploadFile = req.files.uploadFile;
     uploadFile.mv('objects/' + uploadFile.name, function(err) {
     if(err) {
@@ -200,6 +170,27 @@ app.post('/objects', function(req, res) {
 
 //get request for the web objects
 app.get('/objects/:name', function(req , res){
+    //for the list of file names
+    var fileNameListPath = "./objects/listOfFileNames.json";
+    var ListOfFileNames = getListFileNames();
+    parserLib.writeString(fileNameListPath, ListOfFileNames);
+
+    //write json of file objects
+    for(var x = 0; x<ListOfFileNames; x++){
+        var currentFile = "./objects/log-" + listOfFileName[x];
+        console.log("writing:");
+        console.log(currentFile);
+        var jsonString = parserLib.GEDCOMtoJSON(currentFile);
+        parserLib.writeString(currentFile, jsonString);
+    }//end for
+
+    //write json of list of indi
+    for(var x = 0; x<ListOfFileNames; x++){
+        var currentFile = "./objects/indi-" + listOfFileName[x];
+        var jsonString = parserLib.getIndiListJSON(currentFile);
+        parserLib.writeString(currentFile, jsonString);
+    }//end for
+
     fs.stat('objects/' + req.params.name, function(err, stat) {
         console.log(err);
         if(err == null) {
