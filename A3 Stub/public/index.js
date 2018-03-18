@@ -23,7 +23,7 @@ $(document).ready(function() {
     $.ajax({
         type: 'get',
         dataType: 'json',
-        url: '/objects/',
+        url: '/objects',
         success: function (data) {
             console.log("ajax fileName are " + data);
             listOfFileNames = data;

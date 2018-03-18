@@ -164,10 +164,7 @@ app.get('/assets/:name', function(req , res){
 //for the web objects
 app.post('/objects', function(req, res) {
     //for the list of file names
-    var fileNameListPath = "./objects/listOfFileNames.json";
     var tempListOfFileNames = getListFileNames();
-    writeJSONObjects(fileNameListPath, tempListOfFileNames);
-
     res.send(tempListOfFileNames);
 
     // // //write json of file objects
@@ -189,8 +186,6 @@ app.post('/objects', function(req, res) {
     //     var jsonString = parserLib.getIndiListJSON(currentGEDCOMFile);
     //     writeJSONObjects(currentJSONFile, jsonString);
     // }//end for
-
-    
 
     //file uploading
     if(!req.files) {
