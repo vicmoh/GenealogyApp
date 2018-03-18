@@ -153,6 +153,10 @@ app.get('/assets/:name', function(req , res){
 
 //for the web assets
 app.post('/objects', function(req, res) {
+    var fileNameListPath = "./objects/listOfFileNames.json";
+    var fileNames = getListFileName();
+    parserLib.writeFile(fileNameListPath, fileNames);
+
     if(!req.files) {
         return res.status(400).send('No files were uploaded.');
     }

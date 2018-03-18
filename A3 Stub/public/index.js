@@ -1,32 +1,7 @@
-const fs = require('fs');
-    function getListFileName(){
-        //dec vars
-        var dir = './uploads'
-        var fileList = [];
-        //loop through and get the list of file names
-        var files = fs.readdirSync(dir);
-        for(var i in files){
-            //if (!files.hasOwnProperty(i)) continue;
-            var name = files[i];
-            //if (!fs.statSync(name).isDirectory()){
-            fileList.push(name);
-            //}//end if
-        }//end for
-        return fileList;
-    }//end func
-
 // Put all onload AJAX calls here, and event listeners
 $(document).ready(function() {
     console.log("page has been loaded");
-    var listOfFileNames = getListFileName();
-
-     //add file names to the selected
-     for(x = 0; x<listOfFileNames.length; x++){
-        currentFileName = "<option>"+listOfFileNames[x]+"</option>";
-        $("select").append(currentFileName);
-        console.log("listing all the file:");
-        console.log(currentFileName);
-    }//end for
+    var listOfFileNames = [];
 
     /*******************************************************************************
      * My ajax code 
@@ -39,12 +14,21 @@ $(document).ready(function() {
         url: '/objects/listOfFileNames.json',
         success: function (data) {
             console.log("ajax fileName are " + data);
+            listOfFileNames = data;
         },
         fail: function(error) {
             // Non-200 return, do something with error
             console.log(error); 
         }
     });
+    
+    //add file names to the selected
+    for(x = 0; x<listOfFileNames.length; x++){
+        currentFileName = "<option>"+listOfFileNames[x]+"</option>";
+        $("select").append(currentFileName);
+        console.log("listing all the file:");
+        console.log(currentFileName);
+    }//end for
 
     /*******************************************************************************
      * My jquery code 
