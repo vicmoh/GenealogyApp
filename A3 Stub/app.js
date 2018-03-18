@@ -167,8 +167,8 @@ app.post('/objects', function(req, res) {
 app.get('/objects/:name', function(req , res){
     //where the event listener caller will be
     var listOfFileName = getListFileName();
-    const JSONListOfFileNamePath = "./objects/listOfFileNames.json";
-    writeJSONObjects(listOfFileName);
+    JSONListOfFileNamePath = "./objects/listOfFileNames.json";
+    writeJSONObjects(JSONListOfFileNamePath, listOfFileName);
 
     fs.stat('objects/' + req.params.name, function(err, stat) {
         console.log(err);
@@ -200,7 +200,7 @@ function getListFileName(){
     return fileList;
 }//end func
 
-function writeJSONObjects(object){
+function writeJSONObjects(fileName, object){
     console.log("calling writeJSONObjects");
     fs.writeFile(JSONListOfFileNamePath, JSON.stringify(object), (err) =>{
         if(err){
