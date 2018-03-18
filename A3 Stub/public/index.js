@@ -6,14 +6,14 @@ $(document).ready(function() {
      * My ajax code 
      *******************************************************************************/
     
-     var listOfFileNames;
+    var listOfFileNames;
 
     //ajax get the list of file names
     $.ajax({
         type: 'get',
-        //dataType: 'json',
+        //dataType: 'string',
         //url: '/objects/listOfFileNames.json',
-        data: listOfFileNames,
+        data: data,
         success: function (data) {
             console.log("ajax fileName are " + data);
             listOfFileNames = data;
