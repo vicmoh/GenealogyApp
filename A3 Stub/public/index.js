@@ -5,6 +5,8 @@ $(document).ready(function() {
     /*******************************************************************************
      * My ajax code 
      *******************************************************************************/
+    
+     var listOfFileNames;
 
     //ajax get the list of file names
     $.ajax({
@@ -13,14 +15,7 @@ $(document).ready(function() {
         url: '/objects/listOfFileNames.json',   
         success: function (data) {
             console.log("ajax fileName are " + data);
-            var listOfFileNames = data;
-            //add file names to the selected
-            for(x = 0; x<listOfFileNames.length; x++){
-                currentFileName = "<option>"+listOfFileNames[x]+"</option>";
-                $("select").append(currentFileName);
-                console.log("listing all the file:");
-                console.log(currentFileName);
-            }//end for
+            listOfFileNames = data;
             location.reload();
         },
         fail: function(error) {
@@ -29,10 +24,18 @@ $(document).ready(function() {
         }
     });
 
+    //add file names to the selected
+    for(x = 0; x<listOfFileNames.length; x++){
+        currentFileName = "<option>"+listOfFileNames[x]+"</option>";
+        $("select").append(currentFileName);
+        console.log("listing all the file:");
+        console.log(currentFileName);
+    }//end for
+
     /*******************************************************************************
      * My jquery code 
      *******************************************************************************/
-    
+
     //smooth scrolling to setAnimateScroll
     $('.setAnimateScroll').on('click', function(event) {
         //make sure this.hash has a value before overriding default behavior
