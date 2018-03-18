@@ -218,9 +218,9 @@ function writeJSONObjects(fileName, object){
     });
 }//end func
 
-function addFileNameToList(fileaName){
+function addFileNameToList(fileaName, list){
     console.log("calling addFileName = " + fileName);
-    listOfFileName.push(fileName);
+    lsit.push(fileName);
     writeJSONObjects(JSONfileName, listOfFileName);
 }//end func
 
@@ -230,6 +230,8 @@ function addIndividual(){
     var desc = parserLib.descToJSON(GEDFileName, "William", "Shakespeare", 0);
     parserLib.writeString(JSONFileName, desc);
 }//end func
+
+listOfFileNames = getListFileNames();
 
 //write json of file objects
 for(var x = 0; x<listOfFileNames; x++){
