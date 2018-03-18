@@ -3,7 +3,6 @@
 //dec vars
 const ffi = require('ffi');//for the c lib
 const ref = require("ref");//for the c pointer
-var fs = require("fs");//for the json writer
 
 var GEDCOMobject = ref.types.void;
 var GEDCOMobjectPtr = ref.refType(GEDCOMobject);
