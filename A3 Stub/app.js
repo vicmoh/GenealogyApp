@@ -1,4 +1,4 @@
-// //'use strict'
+'use strict';
 
 //dec vars
 const ffi = require('ffi');//for the c lib
@@ -188,14 +188,28 @@ const JSONListOfFileNamePath = "./objects/listOfFileNames.json";
 writeJSONObjects(JSONListOfFileNamePath, listOfFileName);
 
 function getListFileName(){
-    var fileNames = fs.readdirSync('./uploads/');
-    for (var i in fileNames) {
-        var definition = require('./uploads/' + fileNames[i]).Model;
-        console.log('Model Loaded: ' + fileNames[i]);
-    }//end for
-    console.log(fileNames);
-    return fileNames;
+    // var fileNames = fs.readdirSync('./uploads/');
+    // for (var i in fileNames) {
+    //     var definition = require('./uploads/' + fileNames[i]).Model;
+    //     console.log('Model Loaded: ' + fileNames[i]);
+    // }//end for
+    // console.log(fileNames);
+    // return fileNames;
+ 
+    fileList = [];
+    
+    var files = fs.readdirSync(dir);
+    for(var i in files){
+        if (!files.hasOwnProperty(i)) continue;
+        var name = dir+'/'+files[i];
+        if (!fs.statSync(name).isDirectory()){
+            fileList.push(name);
+        }
+    }
+    return fileList;
+
 }//end func
+
 
 function writeJSONObjects(JSONfileName, object){
     fs.writeFile(JSONFileName, JSON.stringify(object), (err) =>{
