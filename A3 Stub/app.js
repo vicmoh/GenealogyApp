@@ -184,8 +184,7 @@ app.get('/objects/:name', function(req , res){
     for(var x = 0; x<listOfFileNames.length; x++){
         var currentFile = "./objects/log-" + listOfFileNames[x];
         var currentGEDCOMFile = "./uploads/" + listOfFileNames[x];
-        console.log("writing:");
-        console.log(currentFile);
+        console.log("writing:" + currentFile + "...");
         var jsonString = parserLib.GEDCOMtoJSON(currentGEDCOMFile);
         parserLib.writeString(currentFile, jsonString);
     }//end for
@@ -194,6 +193,7 @@ app.get('/objects/:name', function(req , res){
     for(var x = 0; x<listOfFileNames.length; x++){
         var currentFile = "./objects/indi-" + listOfFileNames[x];
         var currentGEDCOMFile = "./uploads/" + listOfFileNames[x];
+        console.log("writing:" + currentFile + "...");
         var jsonString = parserLib.getIndiListJSON(currentGEDCOMFile);
         parserLib.writeString(currentFile, jsonString);
     }//end for
