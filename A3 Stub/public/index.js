@@ -79,18 +79,15 @@ $(document).ready(function() {
         console.log("sex = " + sex);
         console.log("famSize = " + famSize);
         //parse the file to test
-
-        // var formData = new FormData();
-        // formData.append('file', $('#creationOptionsForm').get(0).files);
+        
         $.ajax({
             type:'POST',
-            url:'/object',
+            url:'/object/addIndi.json',
             processData: false,
             contentType: false,
             data:{
                 firstName:$(firstName).val(),
                 secondName:$(lastName).val(),
-                //logo:formData,
             },
         });
         
