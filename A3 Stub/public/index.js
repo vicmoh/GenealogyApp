@@ -35,7 +35,7 @@ $(document).ready(function() {
             console.log("file logs = " + data);
             for(x = 0; x<data.length; x++){
                 tableSections  = "<tbody><tr>"
-                    +"<td><a>" + data[x].fileName + "</a></td>"
+                    +"<td><a href=\"\">" + data[x].fileName + "</a></td>"
                     +"<td>" + data[x].source + "</td>"
                     +"<td>" + data[x].gedcVersion + "</td>"
                     +"<td>" + data[x].encoding + "</td>"
