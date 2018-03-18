@@ -73,18 +73,6 @@ $(document).ready(function() {
         $.ajax({
             type: 'get',
             dataType: 'json',
-            url: '/uploads/addIndiTest.json',   
-            success: function (data) {
-                console.log("ajax fileName = " + data);
-            },
-            fail: function(error) {
-                // Non-200 return, do something with error
-                console.log(error); 
-            }
-        });
-        $.ajax({
-            type: 'get',
-            dataType: 'json',
             url: '/objects/listOfFileNames.json',   
             success: function (data) {
                 console.log("ajax fileName are " + data);
