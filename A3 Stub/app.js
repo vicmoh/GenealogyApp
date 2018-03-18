@@ -195,8 +195,9 @@ function getListFileName(){
     // }//end for
     // console.log(fileNames);
     // return fileNames;
- 
-    fileList = [];
+    
+    var dir = './uploads'
+    var fileList = [];
     
     var files = fs.readdirSync(dir);
     for(var i in files){
