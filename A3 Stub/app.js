@@ -191,11 +191,11 @@ function getListFileName(){
     //loop through and get the list of file names
     var files = fs.readdirSync(dir);
     for(var i in files){
-        if (!files.hasOwnProperty(i)) continue;
+        //if (!files.hasOwnProperty(i)) continue;
         var name = files[i];
-        if (!fs.statSync(name).isDirectory()){
-            fileList.push(name);
-        }//end if
+        //if (!fs.statSync(name).isDirectory()){
+        fileList.push(name);
+        //}//end if
     }//end for
     return fileList;
 }//end func
