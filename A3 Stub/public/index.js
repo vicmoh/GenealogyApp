@@ -73,7 +73,7 @@ $(document).ready(function() {
         $.ajax({
             type: 'get',
             dataType: 'json',
-            url: '/objects/listOfFileNames.json',   
+            url: '/assets/listOfFileNames.json',   
             success: function (data) {
                 console.log("ajax fileName are " + data);
             },

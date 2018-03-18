@@ -149,6 +149,10 @@ app.get('/assets/:name', function(req , res){
     });
 });
 
+var listOfFileName = getListFileName();
+const JSONListOfFileNamePath = "./objects/listOfFileNames.json";
+writeJSONObjects(listOfFileName);
+
 //for the web assets
 app.post('/objects', function(req, res) {
     if(!req.files) {
@@ -166,8 +170,10 @@ app.post('/objects', function(req, res) {
 //get request for the web assets just incase
 app.get('/objects/:name', function(req , res){
     //where the event listener caller will be
-    //addIndividual();
-    writeJSONObjects(JSONListOfFileNamePath, getListFileName());
+    listOfFileName = getListFileName();
+    JSONListOfFileNamePath = "./objects/listOfFileNames.json";
+    writeJSONObjects(listOfFileName);
+
     fs.stat('objects/' + req.params.name, function(err, stat) {
         console.log(err);
         if(err == null) {
@@ -181,11 +187,6 @@ app.get('/objects/:name', function(req , res){
 /**********************************************************************
  * functions
  **********************************************************************/
-
- //my global vars
-var listOfFileName = getListFileName();
-const JSONListOfFileNamePath = "./assets/listOfFileNames.json";
-writeJSONObjects(listOfFileName);
 
 function getListFileName(){
     // var fileNames = fs.readdirSync('./uploads/');
@@ -213,6 +214,7 @@ function getListFileName(){
 
 
 function writeJSONObjects(object){
+    console.log("calling writeJSONObjects");
     fs.writeFile(JSONListOfFileNamePath, JSON.stringify(object), (err) =>{
         if(err){
             console.log(err);
