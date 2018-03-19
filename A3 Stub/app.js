@@ -189,7 +189,15 @@ app.get('/getIndiList', function(req , res){
 
 //get request for the web objects
 app.get('/addIndiToList', function(req , res){
-
+    console.log("calling addIndiToList");
+    var file = req.query.fileSelected;
+    var filePath = "./uploads/" + file;
+    console.log("file path = " + filePath);
+    var givenName = req.query.givenName;
+    var surname = req.query.surname;
+    console.log("given name: " + givenName + ", surname: " + surname);
+    parserLib.addIndiJSON(filePath, givenName, surname);
+    //using app.get instead of post just in case i might need something
 });
 
 //get request for the web objects

@@ -25,7 +25,8 @@ $(document).ready(function() {
             // Non-200 return, do something with error
             console.log(error); 
         }
-    });
+    });//end jquery
+
     //ajax get file logs
     $.ajax({
         type: 'get',
@@ -52,7 +53,7 @@ $(document).ready(function() {
             // Non-200 return, do something with error
             console.log(error); 
         }
-    });
+    });//end jquery
 
     /*******************************************************************************
      * My jquery code 
@@ -77,41 +78,45 @@ $(document).ready(function() {
                 console.log("calling animate scroll");
             });
         } // End if
-    });
+    });//end jquery
 
     //jquery for adding individual
     $('.addIndividual').on('click', function(event){
+        //get element for the selected file menu
+        console.log("calling ajax selection menu");
+        var element = document.getElementById('indiFileSelection');
+        var fileSelected = element.options[element.selectedIndex].text;
+        console.log("file selected: " + fileSelected);
         //dec vars
         var emptyString = "";
         var firstName = $('#addIndiFirstName').val();
         var lastName = $('#addIndiLastname').val();
-        var sex = $('#addIndiSex').val();
-        var famSize = $('#addIndiFamSize').val();
+        // var sex = $('#addIndiSex').val();
+        // var famSize = $('#addIndiFamSize').val();
         console.log("firstName = " + firstName);
         console.log("lastName = " + lastName);
-        console.log("sex = " + sex);
-        console.log("famSize = " + famSize);
-        //parse the file to test
-        
+        //parse the file and send the data
         $.ajax({
             type: 'get',
             dataType: 'json',
             url: '/addIndiToList',
+            data: {fileSelected: fileSelected, givenName: firstName, surname: lastName},
             success: function (data) {
-                console.log("addIndiToList = " + data);
+                console.log("addIndiToList = (void?) " + data);
+                //not getting data right now but i may needed
             },
             fail: function(error) {
                 // Non-200 return, do something with error
                 console.log(error); 
             }
-        });
+        });//end ajax
         
         //clear text
         $('#addIndiFirstName').val(emptyString);
         $('#addIndiLastname').val(emptyString);
-        $('#addIndiSex').val(emptyString);
-        $('#addIndiFamSize').val(emptyString);
-    });
+        // $('#addIndiSex').val(emptyString);
+        // $('#addIndiFamSize').val(emptyString);
+    });//end jqeary
 
     //jquery for showing the indi
     $('.gedcomFileSelection').change('click', function(event){
@@ -140,8 +145,8 @@ $(document).ready(function() {
                 // Non-200 return, do something with error
                 console.log(error); 
             }
-        });
-    });
+        });//end ajax
+    });//end jquery
 
     //jquery for showing the indi
     $('.searchDesc').on('click', function(event){
@@ -150,12 +155,13 @@ $(document).ready(function() {
         var element = document.getElementById('descFileSelection');
         var fileSelected = element.options[element.selectedIndex].text;
         console.log("file selected: " + fileSelected);
-        //get username value
+        //get value
         var givenName = $(".firstNameInputDesc").val();
         var surname = $(".lastNameInputDesc").val();
         var numGen = $(".numGenInputDesc").val();
-        //get last name value
+        //remove the html body
         $(".genTable tbody").remove();
+        //insert the new html body
         $.ajax({
             type: 'get',
             dataType: 'json',
@@ -188,8 +194,13 @@ $(document).ready(function() {
                 // Non-200 return, do something with error
                 console.log(error); 
             }
-        });
-    });
+        });//end ajax
+        //empty the form ones added
+        var emptyString = "";
+        $(".firstNameInputDesc").val(emptyString);
+        $(".lastNameInputDesc").val(emptyString);
+        $(".numGenInputDesc").val(emptyString);
+    });//end jquery
 
     //jquery for showing the indi
     $('.searchAnce').on('click', function(event){
@@ -198,12 +209,13 @@ $(document).ready(function() {
         var element = document.getElementById('anceFileSelection');
         var fileSelected = element.options[element.selectedIndex].text;
         console.log("file selected: " + fileSelected);
-        //get username value
+        //get value
         var givenName = $(".firstNameInputAnce").val();
         var surname = $(".lastNameInputAnce").val();
         var numGen = $(".numGenInputAnce").val();
-        //get last name value
+        //remove the html body
         $(".genTable tbody").remove();
+        //add new html body
         $.ajax({
             type: 'get',
             dataType: 'json',
@@ -236,6 +248,11 @@ $(document).ready(function() {
                 // Non-200 return, do something with error
                 console.log(error); 
             }
-        });
-    });
-});
+        });//end ajax
+        //reset the form to empty string
+        var emptyString = "";
+        $(".firstNameInputAnce").val(emptyString);
+        $(".lastNameInputAnce").val(emptyString);
+        $(".numGenInputAnce").val(emptyString);
+    });//end jquery
+});//end doc ready jq

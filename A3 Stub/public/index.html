@@ -126,7 +126,7 @@ Program: This will the main html source for the interface
             <section class="centerContent standardPadding gedcomButtons setRalewayFont">
                 <form ref='uploadForm' id='uploadForm' action='/upload' method='post' encType="multipart/form-data">
                     <input type="file" name="uploadFile" id="myFile"></input>
-                    <input type="submit" class="btn btn-default setButtonDarkRed setTimesNewRomanFont" href="#statusPanelID"></input>
+                    <input type="submit" class="btn btn-default setButtonDarkRed setTimesNewRomanFont" onclick="location.href='#statusPanelID';" ></input>
                     <a class="btn btn-default setButtonDarkRed setTimesNewRomanFont" href="#createGedcomID">Create GEDCOM</a>
                 </form>
             </section>
@@ -177,7 +177,7 @@ Program: This will the main html source for the interface
                         <input id="addIndiSex"></input>
                     </div>
                     <div class="standardPadding setWhite setTimesNewRomanFont">
-                        <a class="btn setButtonDarkRed addIndividual" href="#close">Add</a>
+                        <a class="btn setButtonDarkRed createGedcom" href="#close">Add</a>
                         <a class="btn setButtonDarkRed" href="#close">Cancel</a>
                     </div>
                 </div>
@@ -197,10 +197,10 @@ Program: This will the main html source for the interface
                     <input id="addIndiFirstName"></input>
                     <p>Last Name:</p>
                     <input id="addIndiLastname"></input>
-                    <p>Sex:</p>
+                    <!-- <p>Sex:</p>
                     <input id="addIndiSex"></input>
                     <p>Family Size:</p>
-                    <input id="addIndiFamSize"></input>
+                    <input id="addIndiFamSize"></input> -->
                 </div>
                 <div class="standardPadding setWhite setTimesNewRomanFont">
                     <a class="btn setButtonDarkRed addIndividual" href="#close">Add</a>
