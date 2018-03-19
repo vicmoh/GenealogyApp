@@ -151,9 +151,9 @@ $(document).ready(function() {
         var fileSelected = element.options[element.selectedIndex].text;
         console.log("file selected: " + fileSelected);
         //get username value
-        var givenName = $(".firstNameInput").val();
-        var surname = $(".lastNameInput").val();
-        var numGen = $(".numGenInput").val();
+        var givenName = $(".firstNameInputDesc").val();
+        var surname = $(".lastNameInputDesc").val();
+        var numGen = $(".numGenInputDesc").val();
         //get last name value
         $(".genTable tbody").remove();
         $.ajax({
