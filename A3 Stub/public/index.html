@@ -161,6 +161,28 @@ Program: This will the main html source for the interface
 
         <!--**************************************** for the get desc and ans ***********************************************-->
 
+        <!-- creeate a gedcom input popup-->
+        <section id="craeteGedcomID" class="overlay">
+                <div class="popupDisplay centerContent">
+                    <h2 class="titlePadding setBold">ADD INDIVIDUAL</h2>
+                    <!--close button for popup-->
+                    <a class="closePopup" href="#close">&times;</a>
+                    <!--popup info-->
+                    <div class="popupInfo standardPadding setBold">
+                        <p>File Name:</p>
+                        <input id="addIndiFirstName"></input>
+                        <p>Submitter Name:</p>
+                        <input id="addIndiLastname"></input>
+                        <p>Submitter Address:</p>
+                        <input id="addIndiSex"></input>
+                    </div>
+                    <div class="standardPadding setWhite setTimesNewRomanFont">
+                        <a class="btn setButtonDarkRed addIndividual" href="#close">ADD</a>
+                        <a class="btn setButtonDarkRed" href="#close">CANCEL</a>
+                    </div>
+                </div>
+            </section>
+
         <!--individual user input popup-->
         <section id="addIndiID" class="overlay">
             <div class="popupDisplay centerContent">
