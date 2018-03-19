@@ -200,6 +200,8 @@ app.get('/addIndiToList', function(req , res){
     console.log("given name: " + givenName + ", surname: " + surname);
     parserLib.addIndiJSON(filePath, givenName, surname);
     //using app.get instead of post just in case i might need something
+    var dummy = [];
+    res.send(dummy);
 });
 
 //get request for the web objects
@@ -252,6 +254,8 @@ app.get('/createGedcom', function(req , res){
     // console.log("json string of new gedcom: " + jsonString);
     // var jsonObject = JSON.parse(jsonString);
     // res.send(jsonObject);
+    var dummy = [];
+    res.send(dummy);
 });
 
 
