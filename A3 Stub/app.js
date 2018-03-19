@@ -201,7 +201,7 @@ app.get('/addIndiToList', function(req , res){
     parserLib.addIndiJSON(filePath, givenName, surname);
     //using app.get instead of post just in case i might need something
     var dummy = [];
-    res.send(dummy);
+    res.send(dummy);    
 });
 
 //get request for the web objects
