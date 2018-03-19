@@ -134,7 +134,7 @@ $(document).ready(function() {
                         +"<td>" + data[x].givenName + "</td>"
                         +"<td>" + data[x].surname + "</td>"
                         +"</tr></tbody>"
-                    $(".fileLogTable").append(tableSections);
+                    $(".indiTable").append(tableSections);
 
                     // <!-- <tbody>
                     // <tr>
