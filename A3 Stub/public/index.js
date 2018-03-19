@@ -118,6 +118,7 @@ $(document).ready(function() {
         $(".fileNameCreateGed").val(emptyString);
         $(".subNameCreateGed").val(emptyString);
         $(".subAddressCreateGed").val(emptyString);
+        location.reload();
     });//end jquery
 
     //jquery for adding individual
