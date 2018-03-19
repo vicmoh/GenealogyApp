@@ -130,55 +130,59 @@ $(document).ready(function() {
         // var famSize = $('#addIndiFamSize').val();
         console.log("firstName = " + firstName);
         console.log("lastName = " + lastName);
-        //parse the file and send the data
-        $.ajax({
-            type: 'get',
-            dataType: 'json',
-            url: '/addIndiToList',
-            data: {fileSelected: fileSelected, givenName: firstName, surname: lastName},
-            success: function (data) {
-                console.log("addIndiToList = (void?) " + data);
-                //not getting data right now but i may needed
-            },
-            fail: function(error) {
-                // Non-200 return, do something with error
-                console.log(error); 
-            }
-        });//end ajax
-        
-        //clear text
-        $(".addIndiFirstName").val(emptyString);
-        $(".addIndiLastname").val(emptyString);
-        // $('#addIndiSex').val(emptyString);
-        // $('#addIndiFamSize').val(emptyString);
 
-        //refresh the indi table
-        console.log("calling ajax selection menu");
-        var element = document.getElementById('gedcomFileSelection');
-        var fileSelected = element.options[element.selectedIndex].text;
-        console.log("file selected: " + fileSelected);
-        $(".indiTable tbody").remove();
-        $.ajax({
-            type: 'get',
-            dataType: 'json',
-            url: '/getIndiList',
-            data: {fileSelected: fileSelected},
-            success: function (data) {
-                console.log("getIndiList object = " + data);
-                for(var x = 0; x<data.length; x++){
-                    var tableSections  = "<tbody><tr>"
-                        +"<td>" + x + "</td>"
-                        +"<td>" + data[x].givenName + "</td>"
-                        +"<td>" + data[x].surname + "</td>"
-                        +"</tr></tbody>"
-                    $(".indiTable").append(tableSections);
-                }//end for
-            },
-            fail: function(error) {
-                // Non-200 return, do something with error
-                console.log(error); 
-            }
-        });//end ajax
+        //error check of first name or last name is empty
+        if(isEmptyObject(firstName) == true && isEmptyObject(lastName) == true){
+            //parse the file and send the data
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                url: '/addIndiToList',
+                data: {fileSelected: fileSelected, givenName: firstName, surname: lastName},
+                success: function (data) {
+                    console.log("addIndiToList = (void?) " + data);
+                    //not getting data right now but i may needed
+                },
+                fail: function(error) {
+                    // Non-200 return, do something with error
+                    console.log(error); 
+                }
+            });//end ajax
+            
+            //clear text
+            $(".addIndiFirstName").val(emptyString);
+            $(".addIndiLastname").val(emptyString);
+            // $('#addIndiSex').val(emptyString);
+            // $('#addIndiFamSize').val(emptyString);
+
+            //refresh the indi table
+            console.log("calling ajax selection menu");
+            var element = document.getElementById('gedcomFileSelection');
+            var fileSelected = element.options[element.selectedIndex].text;
+            console.log("file selected: " + fileSelected);
+            $(".indiTable tbody").remove();
+            $.ajax({
+                type: 'get',
+                dataType: 'json',
+                url: '/getIndiList',
+                data: {fileSelected: fileSelected},
+                success: function (data) {
+                    console.log("getIndiList object = " + data);
+                    for(var x = 0; x<data.length; x++){
+                        var tableSections  = "<tbody><tr>"
+                            +"<td>" + x + "</td>"
+                            +"<td>" + data[x].givenName + "</td>"
+                            +"<td>" + data[x].surname + "</td>"
+                            +"</tr></tbody>"
+                        $(".indiTable").append(tableSections);
+                    }//end for
+                },
+                fail: function(error) {
+                    // Non-200 return, do something with error
+                    console.log(error); 
+                }
+            });//end ajax
+        }//end if
     });//end jqeary
 
     //jquery for showing the indi
