@@ -211,7 +211,7 @@ app.get('/getDescList', function(req , res){
 
 //get request for the web objects
 app.get('/getAnceList', function(req , res){
-    console.log("calling getAcneList");
+    console.log("calling getAnceList");
     var file = req.query.fileSelected;
     var filePath = "./uploads/" + file;
     console.log("filePath = " + filePath);
@@ -219,10 +219,10 @@ app.get('/getAnceList', function(req , res){
     var surname = req.query.surname;
     var numGen = req.query.numGen;
     console.log("given name: " + givenName + ", surname: " + surname + ", numGen: " + numGen);
-    var jsonString = parserLib.acneToJSON(filePath, givenName, surname, numGen);
+    var jsonString = parserLib.anceToJSON(filePath, givenName, surname, numGen);
     console.log("jsonString = " + jsonString);
     var jsonObject = JSON.parse(jsonString);
-    console.log("acne object:" + jsonObject);
+    console.log("ance object:" + jsonObject);
     res.send(jsonObject);
 });
 
