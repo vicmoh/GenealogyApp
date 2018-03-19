@@ -85,7 +85,7 @@ $(document).ready(function() {
         //get value
         console.log("createGedcom");
         var fileName = $(".fileNameCreateGed").val();
-        var subNameGed = $(".subNameGedCreateGed").val();
+        var subNameGed = $(".subNameCreateGed").val();
         var subAddress = $(".subAddressCreateGed").val();
         console.log("create ged form: " + fileName + subNameGed + subAddress);
         //ajax get file logs
