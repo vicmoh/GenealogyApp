@@ -506,14 +506,14 @@ char* indToJSON(const Individual* ind){
     for(int x=0; x<getLength(ind->otherFields) ;x++){
         Field* curField = nextElement(&fieldIter);
         if(strcmp(curField->tag, "SEX") == 0){
-            if(strcmp(curField, "F") == 0){
+            if(strcmp(curField->value, "F") == 0){
                 strcpy(sex, "F");
             }else{
                 strcpy(sex, "M");
             }//end if
         }//end if
     }//end for
-    int famNum = getLength(indi->families);
+    int famNum = getLength(ind->families);
 
     //assign the string
     int memSize = 256*2;
