@@ -113,6 +113,11 @@ $(document).ready(function() {
                 console.log(error); 
             }
         });//end jquery
+        //clear the form
+        var emptyString = "";
+        $(".fileNameCreateGed").val(emptyString);
+        $(".subNameCreateGed").val(emptyString);
+        $(".subAddressCreateGed").val(emptyString);
     });//end jquery
 
     //jquery for adding individual
