@@ -172,12 +172,12 @@ $(document).ready(function() {
                         }else{
                             commaOrPeriod = ", "
                         }//end if
-                        indiListString = indiListString + data[x][y] + commaOrPeriod;
+                        indiListString = indiListString + data[x][y].givenName + " " + data[x][y].lastName + commaOrPeriod;
                     }//end for
                     console.log("indi list = " + indiListString);
                     //append to the table
                     var tableSections  = "<tbody><tr>"
-                        +"<td>" + x + "</td>"
+                        +"<td>" + x+1 + "</td>"
                         +"<td>" + indiListString + "</td>"
                         +"</tr></tbody>"
                     $(".genTable").append(tableSections);
