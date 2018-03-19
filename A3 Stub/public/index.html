@@ -108,30 +108,17 @@ Program: This will the main html source for the interface
                 <div class="table-responsive">
                     <table class="table table-dark fileLogTable">
                         <thead>
-                        <tr>
-                            <th>File Name</th>
-                            <th>Source</th>
-                            <th>GEDCOM Version</th>
-                            <th>Encoding</th>
-                            <th>Submitter Name</th>
-                            <th>Submitter Address</th>
-                            <th>Number of Individuals</th>
-                            <th>Number of Families</th>
-                        </tr>
+                            <tr>
+                                <th>File Name</th>
+                                <th>Source</th>
+                                <th>GEDCOM Version</th>
+                                <th>Encoding</th>
+                                <th>Submitter Name</th>
+                                <th>Submitter Address</th>
+                                <th>Number of Individuals</th>
+                                <th>Number of Families</th>
+                            </tr>
                         </thead>
-
-                        <!-- <tbody>
-                        <tr>
-                            <td>FileExample.ged</td>
-                            <td>PAF</td>
-                            <td>5.5</td>
-                            <td>ANSEL</td>
-                            <td>Submitter</td>
-                            <td></td>
-                            <td>3</td>
-                            <td>1</td> 
-                        </tr>
-                        </tbody> -->
                     </table>
                 </div>
             </section>
@@ -140,43 +127,21 @@ Program: This will the main html source for the interface
             <section data-aos="fade-left" class="gedcomPanel centerContent standardPadding">
                 <h1 class="setTimesNewRomanFont setBold standardPadding">GEDCOM</h1>
                 <div><select class="setWidthToMax" id="fileSelection"></select></div>
-                <div class="table-responsive table-inverse">
-                    <table class="table table-dark indiTable" id="indiTable">
+                <div class="table-responsive">
+                    <table class="table table-dark centerContent indiTable">
                         <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Given Name</th>
-                            <th>Surname</th>
-                            <th>Sex</th>
-                            <th>Family Size</th>
-                        </tr>
+                            <tr>
+                                <th>#</th>
+                                <th>Given Name</th>
+                                <th>Surname</th>
+                                <th>Sex</th>
+                                <th>Family Size</th>
+                            </tr>
                         </thead>
-                        <!-- <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>William</td>
-                            <td>Shakespeare</td>
-                            <td>Male</td>
-                            <td>5</td>
-                        </tr>
-                        </tbody> -->
                     </table>
                 </div>
             </section>
 
-            <!-- <div class="file-loading"> 
-                    <input id="input-b6" name="input-b6[]" type="file" multiple>
-            </div>
-            <script>
-            $(document).on('ready', function() {
-                $("#input-b6").fileinput({
-                    showUpload: false,
-                    maxFileCount: 10,
-                    mainClass: "input-group-lg"
-                });
-            });
-            </script> -->
-        
             <!--buttons-->
             <section class="centerContent standardPadding gedcomButtons setRalewayFont">
                 <div class="file-loading">
@@ -192,18 +157,6 @@ Program: This will the main html source for the interface
         </div>
 
         <!--**************************************** for the get desc and ans ***********************************************-->
-
-        <!--drop down menu (going to be used for the mobile version?)
-        <div class="dropdown show">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown link
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-        </div>-->
 
         <!--individual user input popup-->
         <section id="addIndiID" class="overlay">
@@ -288,22 +241,22 @@ Program: This will the main html source for the interface
                 <div class="outputTable table-responsive table-inverse">
                     <table class="table table-dark">
                         <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Given Name</th>
-                            <th>Surname</th>
-                            <th>Sex</th>
-                            <th>Family Size</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>William</td>
-                            <td>Shakespeare</td>
-                            <td>Male</td>
-                            <td>5</td>
-                        </tr>
+                            <tr>
+                                <th>#</th>
+                                <th>Given Name</th>
+                                <th>Surname</th>
+                                <th>Sex</th>
+                                <th>Family Size</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>William</td>
+                                <td>Shakespeare</td>
+                                <td>Male</td>
+                                <td>5</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
