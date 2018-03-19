@@ -123,12 +123,12 @@ Program: This will the main html source for the interface
                 </div>
             </section>
 
-            <section>
+            <section class="centerContent standardPadding gedcomButtons setRalewayFont">
                 <form ref='uploadForm' id='uploadForm' action='/upload' method='post' encType="multipart/form-data">
-                    <label>Select a GEDCOM File</label>
                     <input type="file" name="uploadFile" id="myFile">
-                    <input type="submit" class="btn btn-primary">
+                    <input type="submit" class="btn btn-danger">
                 </form>
+                <a class="btn btn-default setButtonDarkRed setTimesNewRomanFont" href="#createGedcomID">CREATE GEDCOM</a>
             </section>
             
             <!--gedcom panel-->
@@ -156,8 +156,7 @@ Program: This will the main html source for the interface
                     <input class="fileUploadButton" id="" name="fileUpload" type="file"></input>
                 </div>
                 <div class="mainButtons">
-                    <a class="btn btn-default setButtonDarkRed setTimesNewRomanFont fileUploadButton" href="">UPDLOAD GEDCOM</a>
-                    <a class="btn btn-default setButtonDarkRed setTimesNewRomanFont" href="#createGedcomID">CREATE GEDCOM</a>
+                    <a class="btn btn-default setButtonDarkRed setTimesNewRomanFont" href="">UPDLOAD GEDCOM</a>
                     <a class="btn btn-default setButtonDarkRed setTimesNewRomanFont" href="#addIndiID">ADD INDIVIDUAL</a>
                 </div>
                 <!--<button type="button" class="btn btn-default setButtonDarkRed"><b>ADD INDIVIDUAL</b></button>-->
