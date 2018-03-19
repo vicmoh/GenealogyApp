@@ -85,15 +85,15 @@ $(document).ready(function() {
         //get value
         console.log("createGedcom");
         var fileName = $(".fileNameCreateGed").val();
-        var subNameGed = $(".subNameCreateGed").val();
+        var subName = $(".subNameCreateGed").val();
         var subAddress = $(".subAddressCreateGed").val();
-        console.log("create ged form: " + fileName + subNameGed + subAddress);
+        console.log("create ged form: " + fileName + subName + subAddress);
         //ajax get file logs
         $.ajax({
             type: 'get',
             dataType: 'json',
             url: '/createGedcom',
-            data: {fileName: fileName, subNameGed: subNameGed, subAddress: subAddress},
+            data: {fileName: fileName, subName: subName, subAddress: subAddress},
             success: function (data) {
                 console.log("file logs = " + data);
                 var tableSections  = "<tbody><tr>"
@@ -101,7 +101,7 @@ $(document).ready(function() {
                     +"<td>" + "Ancestry.com" + "</td>"
                     +"<td>" + "5.5" + "</td>"
                     +"<td>" + "ASCII" + "</td>"
-                    +"<td>" + subNameGed + "</td>"
+                    +"<td>" + subName + "</td>"
                     +"<td>" + subAddress + "</td>"
                     +"<td>" + "0" + "</td>"
                     +"<td>" + "0" + "</td>"
