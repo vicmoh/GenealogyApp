@@ -194,6 +194,7 @@ app.get('/addIndiToList', function(req , res){
 
 //get request for the web objects
 app.get('/getDescList', function(req , res){
+    console.log("calling getDescList");
     var file = req.query.fileSelected;
     var fielPath = "./uploads" + file;
     var givenName = req.query.givenName;
@@ -201,6 +202,7 @@ app.get('/getDescList', function(req , res){
     var numGen = req.query.numGen;
     var jsonString = parserLib.descToJSON(filePath, givenName, surname, numGen);
     var jsonObject = JSON.parse(jsonString);
+    console.log("desc object" + jsonObject);
     res.send(jsonObject);
 });
 

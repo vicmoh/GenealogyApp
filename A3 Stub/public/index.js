@@ -173,6 +173,7 @@ $(document).ready(function() {
                         }//end if
                         indiListString = indiListString + data[x][y] + commaOrPeriod;
                     }//end for
+                    console.log("indi list = " + indiListString);
                     //append to the table
                     var tableSections  = "<tbody><tr>"
                         +"<td>" + x + "</td>"
