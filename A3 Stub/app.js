@@ -201,9 +201,11 @@ app.get('/getDescList', function(req , res){
     var givenName = req.query.givenName;
     var surname = req.query.surname;
     var numGen = req.query.numGen;
+    console.log("given name: " + givenName + ", surname: " + surname + ", numGen" + numGen);
     var jsonString = parserLib.descToJSON(filePath, givenName, surname, numGen);
+    console.log("jsonString = " + jsonString);
     var jsonObject = JSON.parse(jsonString);
-    console.log("desc object" + jsonObject);
+    console.log("desc object:" + jsonObject);
     res.send(jsonObject);
 });
 
