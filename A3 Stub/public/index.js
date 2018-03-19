@@ -163,25 +163,25 @@ $(document).ready(function() {
             data: {fileSelected: fileSelected, givenName: givenName, surname: surname, numGen: numGen},
             success: function (data) {
                 console.log("get gen list object = " + data);
-                // for(var x = 0; x<data.length; x++){
-                //     var indiListString;
-                //     for(y = 0; y<data[x].length; y++){
-                //         var commaOrPeriod;
-                //         if(y==data[x].length-1){
-                //             commaOrPeriod = "."
-                //         }else{
-                //             commaOrPeriod = ", "
-                //         }//end if
-                //         indiListString = indiListString + data[x][y] + commaOrPeriod;
-                //     }//end for
-                //     console.log("indi list = " + indiListString);
-                //     //append to the table
-                //     var tableSections  = "<tbody><tr>"
-                //         +"<td>" + x + "</td>"
-                //         +"<td>" + indiListString + "</td>"
-                //         +"</tr></tbody>"
-                //     $(".genTable").append(tableSections);
-                // }//end for
+                for(var x = 0; x<data.length; x++){
+                    var indiListString;
+                    for(y = 0; y<data[x].length; y++){
+                        var commaOrPeriod;
+                        if(y==data[x].length-1){
+                            commaOrPeriod = "."
+                        }else{
+                            commaOrPeriod = ", "
+                        }//end if
+                        indiListString = indiListString + data[x][y] + commaOrPeriod;
+                    }//end for
+                    console.log("indi list = " + indiListString);
+                    //append to the table
+                    var tableSections  = "<tbody><tr>"
+                        +"<td>" + x + "</td>"
+                        +"<td>" + indiListString + "</td>"
+                        +"</tr></tbody>"
+                    $(".genTable").append(tableSections);
+                }//end for
             },
             fail: function(error) {
                 // Non-200 return, do something with error
