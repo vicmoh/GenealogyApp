@@ -118,7 +118,7 @@ $(document).ready(function() {
         // $('#addIndiFamSize').val(emptyString);
 
         //once added refresh the indi panel
-        onsole.log("calling ajax selection menu");
+        console.log("calling ajax selection menu");
         var element = document.getElementById('gedcomFileSelection');
         var fileSelected = element.options[element.selectedIndex].text;
         console.log("file selected: " + fileSelected);
