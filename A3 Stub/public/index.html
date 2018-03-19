@@ -166,17 +166,23 @@ Program: This will the main html source for the interface
         <!-- creeate a gedcom input popup-->
         <section id="createGedcomID" class="overlay">
                 <div class="popupDisplay centerContent">
-                    <h2 class="titlePadding setBold">ADD INDIVIDUAL</h2>
+                    <h2 class="titlePadding setBold">CREATE GEDCOM</h2>
                     <!--close button for popup-->
                     <a class="closePopup" href="#close">&times;</a>
                     <!--popup info-->
                     <div class="popupInfo standardPadding setBold">
                         <p>File Name:</p>
-                        <input id="addIndiFirstName"></input>
+                        <input class="fileNameCreatGed"></input>
+                        <p>Soure:</p>
+                        <input disabled class="">Ancestry.com</input>
+                        <p>Version:</p>
+                        <input disabled class="">5.5</input>
+                        <p>Encoding:</p>
+                        <input disabled class="">ASCII</input>
                         <p>Submitter Name:</p>
-                        <input id="addIndiLastname"></input>
+                        <input class="subNameCreateGed"></input>
                         <p>Submitter Address:</p>
-                        <input id="addIndiSex"></input>
+                        <input class="subAddessCreateGed"></input>
                     </div>
                     <div class="standardPadding setWhite setTimesNewRomanFont">
                         <a class="btn setButtonDarkRed createGedcom" href="#close">Add</a>

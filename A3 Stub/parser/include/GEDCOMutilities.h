@@ -228,5 +228,6 @@ char* anceToJSON(char* fileName, char* firstName, char* lastName, int numGen);
 void addIndiJSON(char* fileName, char* firstName, char* lastName);
 void writeString(char* fileName, char* outputString);
 char* getJSONString(char* fileName);
+GEDCOMobject* newGEDCOM(char* source, char* subName, char* subAddress);
 
 #endif

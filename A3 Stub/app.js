@@ -10,6 +10,8 @@ var GEDCOMobjectPtr = ref.refType(GEDCOMobject);
 //create the lib for c
 let parserLib = ffi.Library("./parser/bin/parser.so", {
     // main writer gedcom
+    //GEDCOMobject* newGEDCOM(char* fileName, char* source, char* subName, char* subAddress);
+    "newGEDCOOM": [GEDCOMobjectPtr, ["string", "string", "string"]],
     "GEDCOMtoJSON": ["string", ["string"]],
     "createGEDCOMWrapper": [GEDCOMobjectPtr, ["string"]],
     "writeGEDCOMWrapper": ["void", ["string", GEDCOMobjectPtr]],
@@ -234,6 +236,26 @@ app.get('/getAnceList', function(req , res){
     console.log("ance object:" + jsonObject);
     res.send(jsonObject);
 });
+
+//get request for the web objects
+app.get('/createGedcom', function(req , res){
+    console.log("calling createGEDCOM");
+    var file = req.query.fileSelected;
+    var filePath = "./uploads/" + file + ".ged";
+    console.log("filePath = " + filePath);
+    var subName = req.quary.subName;
+    var subAddress = req.quary.subAddress;
+    var source = "Ancestry.com"
+    console.log("sub name: " + subName + ", sub address: " + subAddress);
+    var gedcomObject = parserLib.newGEDCOM(source, subName, subAddress);
+    parserLib.writeGEDCOMWrapper(filePath, gedcomObject);
+    // var jsonString = parseLib.GEDCOMtoJSON(filePath);
+    // console.log("json string of new gedcom: " + jsonString);
+    // var jsonObject = JSON.parse(jsonString);
+    // res.send(jsonObject);
+});
+
+
 
 /**********************************************************************
  * functions

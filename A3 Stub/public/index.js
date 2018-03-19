@@ -80,6 +80,40 @@ $(document).ready(function() {
         } // End if
     });//end jquery
 
+    //creat a gedcom
+    $('.createGedcom').on('click', function(event) {
+        //get value
+        console.log("createGedcom");
+        var fileName = $(".fileNameCreateGed").val();
+        var subName = $(".subNameCreateGed").val();
+        var subAddress = $(".subAddressCreateGed").val();
+        console.log("create ged form: " + fileName + subName + subAddress);
+        //ajax get file logs
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: '/createGedcom',
+            success: function (data) {
+                console.log("file logs = " + data);
+                var tableSections  = "<tbody><tr>"
+                    +"<td><a class=\"setLightBlue\" href=\"./uploads/" + fileName +".ged\">" + fileName + ".ged</a></td>"
+                    +"<td>" + "Ancestry.com" + "</td>"
+                    +"<td>" + "5.5" + "</td>"
+                    +"<td>" + "ASCII" + "</td>"
+                    +"<td>" + subName + "</td>"
+                    +"<td>" + subAddress + "</td>"
+                    +"<td>" + "0" + "</td>"
+                    +"<td>" + "0" + "</td>"
+                    +"</tr></tbody>"
+                $(".fileLogTable").append(tableSections);
+            },
+            fail: function(error) {
+                // Non-200 return, do something with error
+                console.log(error); 
+            }
+        });//end jquery
+    });//end jquery
+
     //jquery for adding individual
     $('.addIndividual').on('click', function(event){
         //get element for the selected file menu

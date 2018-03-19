@@ -2802,3 +2802,29 @@ char* getJSONString(char* fileName){
     }//end if
     return stringBuffer;
 }//end func
+
+GEDCOMobject* newGEDCOM(char* source, char* subName, char* subAddress){
+    // char* file[999] = {
+    //         "0 HEAD
+    //         1 SOUR PAF
+    //         2 NAME Personal Ancestral File
+    //         2 VERS 5.0
+    //         1 GEDC
+    //         2 VERS 5.5
+    //         2 FORM LINEAGE-LINKED
+    //         1 CHAR ASCII
+    //         1 SUBM @U1@
+    //         0 @U1@ SUBM
+    //         1 NAME Submitter
+    //         0 TRLR"
+    // };
+    GEDCOMobject* ged = initObject();
+    Submitter* sub = initSubmitter();
+    strcpy(sub->submitterName, subName);
+    strcpy(sub->address, subAddress);
+    ged->header->submitter = sub;
+    ged->submitter = sub;
+    strcpy(ged->header->source, source);
+    ged->header->gedcVersion = 5.5;
+    return ged;
+}//edn func
