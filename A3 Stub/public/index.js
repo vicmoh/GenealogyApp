@@ -118,7 +118,6 @@ $(document).ready(function() {
         $(".fileNameCreateGed").val(emptyString);
         $(".subNameCreateGed").val(emptyString);
         $(".subAddressCreateGed").val(emptyString);
-        location.reload();
     });//end jquery
 
     //jquery for adding individual
@@ -193,7 +192,6 @@ $(document).ready(function() {
                 }
             });//end ajax
         }//end if
-        location.reload();
     });//end jqeary
 
     //jquery for showing the indi
