@@ -17,9 +17,9 @@ $(document).ready(function() {
             listOfFileNames = data;
             //add file names to the selected
             for(x = 0; x<listOfFileNames.length; x++){
-                var selectedtag = "";
+                var selectedTag = "";
                 if(x == 0){
-                    selectedtag = "selected=\"selected\""";
+                    selectedTag = "selected=\"selected\""";
                 }else{
                     selectedTag = "";
                 }//end if
