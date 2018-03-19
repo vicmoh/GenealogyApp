@@ -164,7 +164,7 @@ $(document).ready(function() {
             success: function (data) {
                 console.log("get gen list object = " + data);
                 for(var x = 0; x<data.length; x++){
-                    var indiListString;
+                    var indiListString = "";
                     for(y = 0; y<data[x].length; y++){
                         var commaOrPeriod;
                         if(y==data[x].length-1){
@@ -172,12 +172,13 @@ $(document).ready(function() {
                         }else{
                             commaOrPeriod = ", "
                         }//end if
-                        indiListString = indiListString + data[x][y].givenName + " " + data[x][y].lastName + commaOrPeriod;
+                        indiListString = indiListString + data[x][y].givenName + " " + data[x][y].surname + commaOrPeriod;
                     }//end for
                     console.log("indi list = " + indiListString);
                     //append to the table
+                    var genNum = x + 1;
                     var tableSections  = "<tbody><tr>"
-                        +"<td>" + x+1 + "</td>"
+                        +"<td>" + genNum + "</td>"
                         +"<td>" + indiListString + "</td>"
                         +"</tr></tbody>"
                     $(".genTable").append(tableSections);
