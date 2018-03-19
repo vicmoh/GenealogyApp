@@ -142,6 +142,7 @@ $(document).ready(function() {
             }
         });
     });
+    
     //jquery for showing the indi
     $('.descFileSelection').change('click', function(event){
         //selection menu
