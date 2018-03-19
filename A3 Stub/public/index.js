@@ -113,7 +113,7 @@ $(document).ready(function() {
         $('#addIndiFamSize').val(emptyString);
     });
 
-    //jquery for adding individual
+    //jquery for showing the indi
     $('select').change('click', function(event){
         console.log("calling ajax selection menu");
         var element = document.getElementById('fileSelection');
@@ -127,6 +127,25 @@ $(document).ready(function() {
             data: {fileSelected: fileSelected},
             success: function (data) {
                 console.log("getIndiList object = " + data);
+                $('.indiTable tBody').remove();
+                for(var x = 0; x<data.length; x++){
+                    var tableSections  = "<tr><tbody>"
+                        +"<td>" + x + "</td>"
+                        +"<td>" + data[x].givenName + "</td>"
+                        +"<td>" + data[x].surname + "</td>"
+                        +"</tr></tbody>"
+                    $(".fileLogTable").append(tableSections);
+
+                    // <!-- <tbody>
+                    // <tr>
+                    //     <td>1</td>
+                    //     <td>William</td>
+                    //     <td>Shakespeare</td>
+                    //     <td>Male</td>
+                    //     <td>5</td>
+                    // </tr>
+                    // </tbody> -->
+                }//end for
             },
             fail: function(error) {
                 // Non-200 return, do something with error
