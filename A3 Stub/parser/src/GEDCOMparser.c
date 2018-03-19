@@ -501,7 +501,7 @@ char* indToJSON(const Individual* ind){
     // if(ind->surname == NULL){
     //     ind->surname = setString("");
     // }//end if
-    char sex[256] = {"N\\A"};
+    char sex[256] = {"NA"};
     ListIterator fieldIter = createIterator(ind->otherFields);
     for(int x=0; x<getLength(ind->otherFields) ;x++){
         Field* curField = nextElement(&fieldIter);
