@@ -17,7 +17,13 @@ $(document).ready(function() {
             listOfFileNames = data;
             //add file names to the selected
             for(x = 0; x<listOfFileNames.length; x++){
-                currentFileName = "<option>"+listOfFileNames[x]+"</option>";
+                var selectedtag = "";
+                if(x == 0){
+                    selectedtag = "selected=\"selected\""";
+                }else{
+                    selectedTag = "";
+                }//end if
+                var currentFileName = "<option "+ selectedTag +" >"+listOfFileNames[x]+"</option>";
                 $("select").append(currentFileName);
             }//end for
         },
