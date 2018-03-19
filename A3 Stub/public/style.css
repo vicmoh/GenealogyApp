@@ -315,7 +315,11 @@ html, body{
     height: 70%;
     z-index: 1;
 }
-
+.table-responsive{
+    overflow-y:scroll;
+    height:100px;
+    display:block;
+}
 /*status panel*/
 .clearButton{
     margin-left: 100px;

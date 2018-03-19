@@ -134,16 +134,6 @@ $(document).ready(function() {
                         +"<td>" + data[x].surname + "</td>"
                         +"</tr></tbody>"
                     $(".indiTable").append(tableSections);
-
-                    // <!-- <tbody>
-                    // <tr>
-                    //     <td>1</td>
-                    //     <td>William</td>
-                    //     <td>Shakespeare</td>
-                    //     <td>Male</td>
-                    //     <td>5</td>
-                    // </tr>
-                    // </tbody> -->
                 }//end for
             },
             fail: function(error) {
