@@ -117,7 +117,7 @@ $(document).ready(function() {
         // $('#addIndiSex').val(emptyString);
         // $('#addIndiFamSize').val(emptyString);
 
-        //once added refresh the indi panel
+        //once added, refresh the indi panel
         console.log("calling ajax selection menu");
         var element = document.getElementById('gedcomFileSelection');
         var fileSelected = element.options[element.selectedIndex].text;
