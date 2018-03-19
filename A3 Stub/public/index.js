@@ -116,7 +116,7 @@ $(document).ready(function() {
     //jquery for adding individual
     $('select').change('click', function(event){
         console.log("calling ajax selection menu");
-        var element = document.getElementById('select');
+        var element = document.getElementById('fileSelection');
         var fielSelected = element.option[element.selectionIndex].text;
         console.log("file selected: " + fielSelected);
 
