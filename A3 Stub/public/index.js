@@ -119,7 +119,7 @@ $(document).ready(function() {
         var element = document.getElementById('fileSelection');
         var fileSelected = element.options[element.selectedIndex].text;
         console.log("file selected: " + fileSelected);
-
+        $('.indiTable tBody').remove();
         $.ajax({
             type: 'get',
             dataType: 'json',
@@ -127,7 +127,6 @@ $(document).ready(function() {
             data: {fileSelected: fileSelected},
             success: function (data) {
                 console.log("getIndiList object = " + data);
-                $('.indiTable tBody').remove();
                 for(var x = 0; x<data.length; x++){
                     var tableSections  = "<tr><tbody>"
                         +"<td>" + x + "</td>"
