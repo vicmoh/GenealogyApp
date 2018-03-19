@@ -303,7 +303,7 @@ html, body{
 }
 .welcomeContent{
     top: 0;
-    height: 14em;
+    height: 400px;
     font-size: 110%;
     background: white;
  }
