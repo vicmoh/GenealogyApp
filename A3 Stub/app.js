@@ -242,11 +242,11 @@ app.get('/createGedcom', function(req , res){
     var file = req.query.fileName;
     var filePath = "./uploads/" + file + ".ged";
     console.log("filePath = " + filePath);
-    var subName = req.quary.subName;
+    var subNameGed = req.quary.subNameGed;
     var subAddress = req.quary.subAddress;
     var source = "Ancestry.com"
-    console.log("sub name: " + subName + ", sub address: " + subAddress);
-    var gedcomObject = parserLib.newGEDCOM(source, subName, subAddress);
+    console.log("sub name: " + subNameGed + ", sub address: " + subAddress);
+    var gedcomObject = parserLib.newGEDCOM(source, subNameGed, subAddress);
     parserLib.writeGEDCOMWrapper(filePath, gedcomObject);
     // var jsonString = parseLib.GEDCOMtoJSON(filePath);
     // console.log("json string of new gedcom: " + jsonString);
