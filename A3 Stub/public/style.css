@@ -330,7 +330,7 @@ html, body{
 }
 .gedcomScroll{
     overflow-y:scroll;
-    height:310px;
+    height:280px;
     display: block;
 }
 .gedcomButtons{
