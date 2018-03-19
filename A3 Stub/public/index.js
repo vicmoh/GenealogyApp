@@ -190,4 +190,52 @@ $(document).ready(function() {
             }
         });
     });
+
+    //jquery for showing the indi
+    $('.searchAnce').on('click', function(event){
+        //selection menu
+        console.log("calling ajax selection menu");
+        var element = document.getElementById('anceFileSelection');
+        var fileSelected = element.options[element.selectedIndex].text;
+        console.log("file selected: " + fileSelected);
+        //get username value
+        var givenName = $(".firstNameInputAnce").val();
+        var surname = $(".lastNameInputAnce").val();
+        var numGen = $(".numGenInputAnce").val();
+        //get last name value
+        $(".genTable tbody").remove();
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: '/getAnceList',
+            data: {fileSelected: fileSelected, givenName: givenName, surname: surname, numGen: numGen},
+            success: function (data) {
+                console.log("get gen list object = " + data);
+                for(var x = 0; x<data.length; x++){
+                    var indiListString = "";
+                    for(y = 0; y<data[x].length; y++){
+                        var commaOrPeriod;
+                        if(y==data[x].length-1){
+                            commaOrPeriod = "."
+                        }else{
+                            commaOrPeriod = ", "
+                        }//end if
+                        indiListString = indiListString + data[x][y].givenName + " " + data[x][y].surname + commaOrPeriod;
+                    }//end for
+                    console.log("indi list = " + indiListString);
+                    //append to the table
+                    var genNum = x + 1;
+                    var tableSections  = "<tbody><tr>"
+                        +"<td>" + genNum + "</td>"
+                        +"<td>" + indiListString + "</td>"
+                        +"</tr></tbody>"
+                    $(".genTable").append(tableSections);
+                }//end for
+            },
+            fail: function(error) {
+                // Non-200 return, do something with error
+                console.log(error); 
+            }
+        });
+    });
 });
