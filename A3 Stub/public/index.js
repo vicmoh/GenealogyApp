@@ -144,7 +144,7 @@ $(document).ready(function() {
     });
 
     //jquery for showing the indi
-    $('.searchDesc').change('click', function(event){
+    $('.searchDesc').on('click', function(event){
         //selection menu
         console.log("calling ajax selection menu");
         var element = document.getElementById('descFileSelection');
