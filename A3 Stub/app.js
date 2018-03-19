@@ -169,6 +169,7 @@ app.get('/getFileLogs', function(req , res){
         var currentFileName = "./uploads/" + fileNames[x];
         console.log("getFileLogs = " + currentFileName);
         var jsonString = parserLib.GEDCOMtoJSON(currentFileName);
+        console.log("GEDCOMtoJSON did not crash");
         var tempFileLogObject = JSON.parse(jsonString);
         console.log(tempFileLogObject);
         listOfFileLogObjects.push(tempFileLogObject);
