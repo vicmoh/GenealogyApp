@@ -128,7 +128,6 @@ $(document).ready(function() {
         var lastName = $(".addIndiLastname").val();
         // var sex = $('#addIndiSex').val();
         // var famSize = $('#addIndiFamSize').val();
-        
         console.log("firstName = " + firstName);
         console.log("lastName = " + lastName);
         //parse the file and send the data
