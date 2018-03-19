@@ -181,6 +181,8 @@ $(document).ready(function() {
                             +"<td>" + x + "</td>"
                             +"<td>" + data[x].givenName + "</td>"
                             +"<td>" + data[x].surname + "</td>"
+                            +"<td>" + data[x].sex + "</td>"
+                            +"<td>" + data[x].famNum + "</td>"
                             +"</tr></tbody>"
                         $(".indiTable").append(tableSections);
                     }//end for

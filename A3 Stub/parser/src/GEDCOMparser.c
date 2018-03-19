@@ -501,11 +501,24 @@ char* indToJSON(const Individual* ind){
     // if(ind->surname == NULL){
     //     ind->surname = setString("");
     // }//end if
+    char sex[256] = {"N\\A"};
+    ListIterator fieldIter = createIterator(ind->otherFields);
+    for(int x=0; x<getLength(ind->otherFields) ;x++){
+        Field* curField = nextElement(&fieldIter);
+        if(strcmp(curField->tag, "SEX") == 0){
+            if(strcmp(curField, "F") == 0){
+                strcpy(sex, "F");
+            }else{
+                strcpy(sex, "M");
+            }//end if
+        }//end if
+    }//end for
+    int famNum = getLength(indi->families);
 
     //assign the string
     int memSize = 256*2;
     char* string = calloc(1, sizeof(char)*memSize);
-    sprintf(string, "{\"givenName\":\"%s\",\"surname\":\"%s\"}", ind->givenName, ind->surname);
+    sprintf(string, "{\"givenName\":\"%s\",\"surname\":\"%s\",\"sex\":\"%s\",\"famNum\":\"%d\"}", ind->givenName, ind->surname, sex, famNum);
     return string;
 }//end func
 
