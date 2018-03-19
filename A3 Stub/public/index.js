@@ -191,6 +191,7 @@ $(document).ready(function() {
                 }
             });//end ajax
         }//end if
+        location.reload();
     });//end jqeary
 
     //jquery for showing the indi
