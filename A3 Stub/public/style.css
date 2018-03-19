@@ -325,12 +325,12 @@ html, body{
 }
 .fileLogTable{
     overflow-y:scroll;
-    height: 500px;
+    height: 270px;
     display:block;
 }
 .indiTable{
     overflow-y:scroll;
-    height:500px;
+    height:200px;
     display:block;
 }
 .gedcomButtons{
