@@ -215,6 +215,10 @@ html, body{
 .setRelativePosition{
     position: relative;
 }
+.setWidthToMax{
+    min-width: 100%;
+    max-width: 100%;
+}
 
 /***********************************************************
  * buttons
@@ -320,11 +324,6 @@ html, body{
 .statusTextArea{
     background: white;
     color: #666;
-}
-.selectGEDCOM{
-    /*color: rgb(25, 25, 25);
-    background: white;*/
-    min-width: 100%;
 }
 .gedcomButtons{
     padding-top: 2em;
