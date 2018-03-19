@@ -112,4 +112,26 @@ $(document).ready(function() {
         $('#addIndiSex').val(emptyString);
         $('#addIndiFamSize').val(emptyString);
     });
+
+    //jquery for adding individual
+    $('select').change('click', function(event){
+        var element = document.getElementById('select');
+        var fielSelected = element.option[element.selectionIndex].text;
+        console.log("file selected: " + fielSelected);
+
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: '/getIndiList',
+            data: {fielSelected: fielSelected},
+            success: function (data) {
+                console.log("getIndiList object = " + data);
+            },
+            fail: function(error) {
+                // Non-200 return, do something with error
+                console.log(error); 
+            }
+        });
+
+    });
 });

@@ -177,17 +177,19 @@ app.get('/getFileLogs', function(req , res){
     console.log(listOfFileLogObjects);
 });
 
-//post for the web objects
-app.post('/addIndiToList', function(req, res) {
+//get request for the web objects
+app.get('/getIndiList', function(req , res){
     var selectedString = req.query.fileSelected;
-    res.send(selectedString);
+    var filePath = "./uploads/" + selectedString;
+    console.log("getIndiList file path = " + filePath);
+    var jsonString = parserLib.getIndiListJSON(filePath);
+    var jsonObject = JSON.parse(jsonString);
+    res.send(jsonObject);
 });
 
 //get request for the web objects
 app.get('/addIndiToList', function(req , res){
-    var selectedString = req.query.fileSelected;
-    res.send(selectedString);
-    console.log(selectedString);
+
 });
 
 //get request for the web objects
