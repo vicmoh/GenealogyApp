@@ -117,14 +117,14 @@ $(document).ready(function() {
     $('select').change('click', function(event){
         console.log("calling ajax selection menu");
         var element = document.getElementById('fileSelection');
-        var fielSelected = element.option[element.selectionIndex].text;
-        console.log("file selected: " + fielSelected);
+        var fileSelected = element.option[element.selectionIndex].text;
+        console.log("file selected: " + fileSelected);
 
         $.ajax({
             type: 'get',
             dataType: 'json',
             url: '/getIndiList',
-            data: {fielSelected: fielSelected},
+            data: {fileSelected: fileSelected},
             success: function (data) {
                 console.log("getIndiList object = " + data);
             },
