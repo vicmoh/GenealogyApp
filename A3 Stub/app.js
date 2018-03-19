@@ -196,7 +196,7 @@ app.get('/addIndiToList', function(req , res){
 app.get('/getDescList', function(req , res){
     console.log("calling getDescList");
     var file = req.query.fileSelected;
-    var filePath = "./uploads" + file;
+    var filePath = "./uploads/" + file;
     console.log("filePath = " + filePath);
     var givenName = req.query.givenName;
     var surname = req.query.surname;
