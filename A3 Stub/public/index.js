@@ -89,8 +89,8 @@ $(document).ready(function() {
         console.log("file selected: " + fileSelected);
         //dec vars
         var emptyString = "";
-        var firstName = $('#addIndiFirstName').val();
-        var lastName = $('#addIndiLastname').val();
+        var firstName = $(".addIndiFirstName").val();
+        var lastName = $(".addIndiLastname").val();
         // var sex = $('#addIndiSex').val();
         // var famSize = $('#addIndiFamSize').val();
         console.log("firstName = " + firstName);
@@ -112,8 +112,8 @@ $(document).ready(function() {
         });//end ajax
         
         //clear text
-        $('#addIndiFirstName').val(emptyString);
-        $('#addIndiLastname').val(emptyString);
+        $(".addIndiFirstName").val(emptyString);
+        $(".addIndiLastname").val(emptyString);
         // $('#addIndiSex').val(emptyString);
         // $('#addIndiFamSize').val(emptyString);
     });//end jqeary
