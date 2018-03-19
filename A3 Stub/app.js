@@ -189,12 +189,19 @@ app.get('/getIndiList', function(req , res){
 
 //get request for the web objects
 app.get('/addIndiToList', function(req , res){
-    
+
 });
 
 //get request for the web objects
 app.get('/getDescList', function(req , res){
-
+    var file = req.query.fileSelected;
+    var fielPath = "./uploads" + file;
+    var givenName = req.query.givenName;
+    var surname = req.query.surname;
+    var numGen = req.query.numGen;
+    var jsonString = parserLib.descToJSON(filePath, givenName, surname, numGen);
+    var jsonObject = JSON.parse(jsonString);
+    res.send(jsonObject);
 });
 
 //get request for the web objects

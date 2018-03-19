@@ -141,7 +141,50 @@ $(document).ready(function() {
                 console.log(error); 
             }
         });
-
-
+    });
+    //jquery for showing the indi
+    $('.descFileSelection').change('click', function(event){
+        //selection menu
+        console.log("calling ajax selection menu");
+        var element = document.getElementById('descFileSelection');
+        var fileSelected = element.options[element.selectedIndex].text;
+        console.log("file selected: " + fileSelected);
+        //get username value
+        var givenName = $(".firstNameInput").val();
+        var surname = $(".lastNameInput").val();
+        var numGen = $(".numGenInput").val();
+        //get last name value
+        $(".genTable tbody").remove();
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: '/getDescList',
+            data: {fileSelected: fileSelected, givenName: givenName, surname: surname, numGen: numGen},
+            success: function (data) {
+                console.log("get gen list object = " + data);
+                for(var x = 0; x<data.length; x++){
+                    var indiListString;
+                    for(y = 0; y<data[x].length; y++){
+                        var commaOrPeriod;
+                        if(y==data[x].length-1){
+                            commaOrPeriod = "."
+                        }else{
+                            commaOrPeriod = ", "
+                        }//end if
+                        indiListString = indiListString + data[x][y] + commaOrPeriod;
+                    }//end for
+                    //append to the table
+                    var tableSections  = "<tbody><tr>"
+                        +"<td>" + x + "</td>"
+                        +"<td>" + indiListString + "</td>"
+                        +"</tr></tbody>"
+                    $(".genTable").append(tableSections);
+                }//end for
+            },
+            fail: function(error) {
+                // Non-200 return, do something with error
+                console.log(error); 
+            }
+        });
     });
 });

@@ -165,7 +165,7 @@ Program: This will the main html source for the interface
                 <!--close button for popup-->
                 <a class="closePopup" href="#close">&times;</a>
                 <!-- select file drop down menu-->
-                <p>Choose file: <select class="indiFileSelection"></select></p>
+                <p>Choose file: <select class="indiFileSelection" id="indiFileSelection"></select></p>
                 <!--popup info-->
                 <div class="popupInfo standardPadding setBold">
                     <p>First Name:</p>
@@ -191,15 +191,15 @@ Program: This will the main html source for the interface
                 <!--close button for popup-->
                 <a class="closePopup" href="#close">&times;</a>
                 <!-- select file drop down menu-->
-                <p>Choose file: <select class="anceFileSelection"></select></p>
+                <p>Choose file: <select class="anceFileSelection" id="anceFileSelection"></select></p>
                 <!--popup info-->
                 <div class="popupInfo standardPadding setBold">
                     <p>First Name:</p>
-                    <input></input>
+                    <input class="firstNameInput"></input>
                     <p>Last Name:</p>
-                    <input></input>
+                    <input class="lastNameInput"></input>
                     <p>Number of Generation:</p>
-                    <input></input>
+                    <inputclass="numGenInput"></input>
                 </div>
                 <div class="standardPadding setWhite setTimesNewRomanFont">
                     <a class="btn setButtonDarkRed" href="#close">SEARCH</a>
@@ -215,7 +215,7 @@ Program: This will the main html source for the interface
                 <!--close button for popup-->
                 <a class="closePopup" href="#close">&times;</a>
                 <!-- select file drop down menu-->
-                <p>Choose file: <select class="descFileSelection"></select></p>
+                <p>Choose file: <select class="descFileSelection" id="descFileSelection"></select></p>
                 <!--popup info-->
                 <div class="popupInfo standardPadding setBold">
                     <p>First Name:</p>
@@ -239,23 +239,17 @@ Program: This will the main html source for the interface
             <!--output panel-->
             <div data-aos="fade-left" class="centerContent standardPadding">
                 <div class="outputTable table-responsive table-inverse">
-                    <table class="table table-dark">
+                    <table class="table table-dark genTable">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Given Name</th>
-                                <th>Surname</th>
-                                <th>Sex</th>
-                                <th>Family Size</th>
+                                <th>List of Genereation</th>
                             </tr>
                             </thead>
                             <tbody>
                             <tr>
                                 <td>1</td>
                                 <td>William</td>
-                                <td>Shakespeare</td>
-                                <td>Male</td>
-                                <td>5</td>
                             </tr>
                         </tbody>
                     </table>
