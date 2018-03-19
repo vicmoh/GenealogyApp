@@ -185,6 +185,7 @@ app.get('/getIndiList', function(req , res){
     var filePath = "./uploads/" + selectedString;
     console.log("getIndiList file path = " + filePath);
     var jsonString = parserLib.getIndiListJSON(filePath);
+    console.log("bonus string = " + jsonString);
     var jsonObject = JSON.parse(jsonString);
     res.send(jsonObject);
 });
