@@ -317,7 +317,7 @@ html, body{
 }
 .table-responsive{
     overflow-y:scroll;
-    height:100px;
+    height: 15em;
     display:block;
 }
 /*status panel*/
