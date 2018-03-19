@@ -242,7 +242,7 @@ app.get('/createGedcom', function(req , res){
     var file = req.query.fileName;
     var filePath = "./uploads/" + file + ".ged";
     console.log("filePath = " + filePath);
-    var tempSubName = req.quary.subName;
+    var tempSubName = req.quary.tempSubName;
     var subAddress = req.quary.subAddress;
     var source = "Ancestry.com"
     console.log("sub name: " + tempSubName + ", sub address: " + subAddress);
