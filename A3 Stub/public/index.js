@@ -117,7 +117,7 @@ $(document).ready(function() {
     $('select').change('click', function(event){
         console.log("calling ajax selection menu");
         var element = document.getElementById('fileSelection');
-        var fileSelected = element.option[element.selectedIndex].text;
+        var fileSelected = element.options[element.selectedIndex].text;
         console.log("file selected: " + fileSelected);
 
         $.ajax({
