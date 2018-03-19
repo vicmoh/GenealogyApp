@@ -114,7 +114,7 @@ $(document).ready(function() {
     });
 
     //jquery for showing the indi
-    $('select').on('#close').change('click', function(event){
+    $('#gedcomFileSelection').change('click', function(event){
         console.log("calling ajax selection menu");
         var element = document.getElementById('fileSelection');
         var fileSelected = element.options[element.selectedIndex].text;
