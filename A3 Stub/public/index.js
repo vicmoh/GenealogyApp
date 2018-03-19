@@ -189,6 +189,16 @@ $(document).ready(function() {
                         +"</tr></tbody>"
                     $(".genTable").append(tableSections);
                 }//end for
+
+                //check if data has value
+                if(isEmptyObject(data) == true){
+                    var info = "N/A";
+                    var tableSections  = "<tbody><tr>"
+                        +"<td>" + genNum + "</td>"
+                        +"<td>" + info + "</td>"
+                        +"</tr></tbody>"
+                    $(".genTable").append(tableSections);
+                }//end if
             },
             fail: function(error) {
                 // Non-200 return, do something with error
@@ -243,6 +253,16 @@ $(document).ready(function() {
                         +"</tr></tbody>"
                     $(".genTable").append(tableSections);
                 }//end for
+
+                //check if data has value
+                if(isEmptyObject(data) == true){
+                    var info = "N/A";
+                    var tableSections  = "<tbody><tr>"
+                        +"<td>" + genNum + "</td>"
+                        +"<td>" + info + "</td>"
+                        +"</tr></tbody>"
+                    $(".genTable").append(tableSections);
+                }//end if
             },
             fail: function(error) {
                 // Non-200 return, do something with error
@@ -256,3 +276,16 @@ $(document).ready(function() {
         $(".numGenInputAnce").val(emptyString);
     });//end jquery
 });//end doc ready jq
+
+/*******************************************************************************
+ * functions
+ *******************************************************************************/
+
+function isEmptyObject(obj) {
+    for(var prop in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, prop)) {
+            return false;
+        }//end if
+    }//end for
+    return true;
+}//end func
