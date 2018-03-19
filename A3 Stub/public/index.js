@@ -129,15 +129,17 @@ $(document).ready(function() {
         console.log("file selected: " + fileSelected);
         //dec vars
         var emptyString = "";
-        var firstName = $(".addIndiFirstName").val();
-        var lastName = $(".addIndiLastname").val();
+        var firstName = "";
+        var lastName = "";
+        firstName = $(".addIndiFirstName").val();
+        lastName = $(".addIndiLastname").val();
         // var sex = $('#addIndiSex').val();
         // var famSize = $('#addIndiFamSize').val();
         console.log("firstName = " + firstName);
         console.log("lastName = " + lastName);
 
         //error check of first name or last name is empty
-        if(isEmptyObject(firstName) == true && isEmptyObject(lastName) == true){
+        if(firstName.length > 0 && lastName.length > 0){
             //parse the file and send the data
             $.ajax({
                 type: 'get',
