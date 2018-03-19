@@ -315,9 +315,9 @@ html, body{
     height: 70%;
     z-index: 1;
 }
-.table-responsive{
+.GEDCOMTable{
     overflow-y:scroll;
-    height: 15em;
+    height: 16em;
     display:block;
 }
 /*status panel*/
