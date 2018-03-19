@@ -240,7 +240,7 @@ app.get('/getAnceList', function(req , res){
 //get request for the web objects
 app.get('/createGedcom', function(req , res){
     console.log("calling createGEDCOM");
-    var file = req.query.fileSelected;
+    var file = req.query.fileName;
     var filePath = "./uploads/" + file + ".ged";
     console.log("filePath = " + filePath);
     var subName = req.quary.subName;

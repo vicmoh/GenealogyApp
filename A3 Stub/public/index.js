@@ -93,6 +93,7 @@ $(document).ready(function() {
             type: 'get',
             dataType: 'json',
             url: '/createGedcom',
+            data: {fileName: fileName, subName: subName, subAddress: subAddress},
             success: function (data) {
                 console.log("file logs = " + data);
                 var tableSections  = "<tbody><tr>"
