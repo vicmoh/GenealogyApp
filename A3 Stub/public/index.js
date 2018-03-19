@@ -35,7 +35,7 @@ $(document).ready(function() {
             console.log("file logs = " + data);
             for(var x = 0; x<data.length; x++){
                 var gedFileNameStringOnly = data[x].fileName.substring(10, data[x].fileName.length);
-                var tableSections  = "<tr><tbody>"
+                var tableSections  = "<tbody><tr>"
                     +"<td><a class=\"setLightBlue\" href=\"" + data[x].fileName +"\">" + gedFileNameStringOnly + "</a></td>"
                     +"<td>" + data[x].source + "</td>"
                     +"<td>" + data[x].gedcVersion + "</td>"
