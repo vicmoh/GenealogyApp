@@ -323,13 +323,13 @@ html, body{
     background: white;
     color: #666;
 }
-.fileLogTable{
+.fileLogScroll{
     overflow:hidden;
     overflow-y:scroll;
     height: 310px;
     display: block;
 }
-.indiTable{
+.gedcomScroll{
     overflow:hidden;
     overflow-y:scroll;
     height:310px;
