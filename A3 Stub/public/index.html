@@ -146,6 +146,11 @@ Program: This will the main html source for the interface
             <section class="centerContent standardPadding gedcomButtons setRalewayFont">
                 <div class="file-loading">
                     <input class="fileUploadButton" id="" name="fileUpload" type="file"></input>
+                    <form ref='uploadForm' id='uploadForm' action='/upload' method='post' encType="multipart/form-data">
+                        <label>Select a GEDCOM File</label>
+                        <input type="file" name="uploadFile" id="myFile">
+                        <input type="submit" class="btn btn-primary">
+                    </form>
                 </div>
                 <div class="mainButtons">
                     <a class="btn btn-default setButtonDarkRed setTimesNewRomanFont" href="">UPDLOAD GEDCOM</a>
