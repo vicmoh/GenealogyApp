@@ -11,7 +11,7 @@ var GEDCOMobjectPtr = ref.refType(GEDCOMobject);
 let parserLib = ffi.Library("./parser/bin/parser.so", {
     // main writer gedcom
     //GEDCOMobject* newGEDCOM(char* fileName, char* source, char* subName, char* subAddress);
-    "newGEDCOOM": [GEDCOMobjectPtr, ["string", "string", "string"]],
+    "newGEDCOM": [GEDCOMobjectPtr, ["string", "string", "string"]],
     "GEDCOMtoJSON": ["string", ["string"]],
     "createGEDCOMWrapper": [GEDCOMobjectPtr, ["string"]],
     "writeGEDCOMWrapper": ["void", ["string", GEDCOMobjectPtr]],
