@@ -119,7 +119,7 @@ $(document).ready(function() {
         var element = document.getElementById('fileSelection');
         var fileSelected = element.options[element.selectedIndex].text;
         console.log("file selected: " + fileSelected);
-        $('.indiTable tbody').remove();
+        $(".indiTable tbody").remove();
         $.ajax({
             type: 'get',
             dataType: 'json',
