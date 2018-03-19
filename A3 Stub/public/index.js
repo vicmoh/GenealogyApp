@@ -19,7 +19,7 @@ $(document).ready(function() {
             for(x = 0; x<listOfFileNames.length; x++){
                 var selectedTag = "";
                 if(x == 0){
-                    selectedTag = "selected=\"selected\""";
+                    selectedTag = " selected=\"selected\" ";
                 }else{
                     selectedTag = "";
                 }//end if
