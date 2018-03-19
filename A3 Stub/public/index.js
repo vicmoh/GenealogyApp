@@ -17,9 +17,8 @@ $(document).ready(function() {
             listOfFileNames = data;
             //add file names to the selected
             for(x = 0; x<listOfFileNames.length; x++){
-                //<!-- <a class="dropdown-item" href="#">Action</a> -->
-                currentFileName = "<a class =\"dropdown-item\" href=\"#"+listOfFileNames[x]+"ID\">"+listOfFileNames[x]+"</a>";
-                $(".dropdown-menu").append(currentFileName);
+                currentFileName = "<option>"+listOfFileNames[x]+"</option>";
+                $("select").append(currentFileName);
             }//end for
         },
         fail: function(error) {
