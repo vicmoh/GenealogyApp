@@ -106,7 +106,7 @@ Program: This will the main html source for the interface
             <section data-aos="fade-right" class="fileLogPanel centerContent standardPadding">
                 <h1 class="titlePadding setTimesNewRomanFont setBold">FILE LOG</h1>
                 <div class="table-responsive">
-                    <table class="table table-dark">
+                    <table class="table table-dark fileLogTable">
                         <thead>
                         <tr>
                             <th>File Name</th>
@@ -119,7 +119,19 @@ Program: This will the main html source for the interface
                             <th>Number of Families</th>
                         </tr>
                         </thead>
-                        <div class="fileLogTable"></div>
+
+                        <!-- <tbody>
+                        <tr>
+                            <td>FileExample.ged</td>
+                            <td>PAF</td>
+                            <td>5.5</td>
+                            <td>ANSEL</td>
+                            <td>Submitter</td>
+                            <td></td>
+                            <td>3</td>
+                            <td>1</td> 
+                        </tr>
+                        </tbody> -->
                     </table>
                 </div>
             </section>
@@ -129,7 +141,7 @@ Program: This will the main html source for the interface
                 <h1 class="setTimesNewRomanFont setBold standardPadding">GEDCOM</h1>
                 <div><select class="setWidthToMax" id="fileSelection"></select></div>
                 <div class="table-responsive">
-                    <table class="table table-dark" id="indiTable">
+                    <table class="table table-dark indiTable" id="indiTable">
                         <thead>
                         <tr>
                             <th>#</th>
@@ -139,10 +151,31 @@ Program: This will the main html source for the interface
                             <th>Family Size</th>
                         </tr>
                         </thead>
-                        <div class="indiTable"></div>
+                        <!-- <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>William</td>
+                            <td>Shakespeare</td>
+                            <td>Male</td>
+                            <td>5</td>
+                        </tr>
+                        </tbody> -->
                     </table>
                 </div>
             </section>
+
+            <!-- <div class="file-loading"> 
+                    <input id="input-b6" name="input-b6[]" type="file" multiple>
+            </div>
+            <script>
+            $(document).on('ready', function() {
+                $("#input-b6").fileinput({
+                    showUpload: false,
+                    maxFileCount: 10,
+                    mainClass: "input-group-lg"
+                });
+            });
+            </script> -->
         
             <!--buttons-->
             <section class="centerContent standardPadding gedcomButtons setRalewayFont">
@@ -159,6 +192,18 @@ Program: This will the main html source for the interface
         </div>
 
         <!--**************************************** for the get desc and ans ***********************************************-->
+
+        <!--drop down menu (going to be used for the mobile version?)
+        <div class="dropdown show">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown link
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </div>-->
 
         <!--individual user input popup-->
         <section id="addIndiID" class="overlay">
