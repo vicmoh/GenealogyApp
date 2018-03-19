@@ -324,14 +324,16 @@ html, body{
     color: #666;
 }
 .fileLogTable{
+    overflow:hidden;
     overflow-y:scroll;
     height: 310px;
-    display:block;
+    /*display: block;*/
 }
 .indiTable{
+    overflow:hidden;
     overflow-y:scroll;
     height:310px;
-    display:block;
+    /*display: block;*/
 }
 .gedcomButtons{
     padding-top: 2em;
