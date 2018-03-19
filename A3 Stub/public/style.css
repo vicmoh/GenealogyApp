@@ -315,16 +315,6 @@ html, body{
     height: 70%;
     z-index: 1;
 }
-.GEDCOMTable{
-    overflow-y:scroll;
-    height: 15em;
-    display:block;
-}
-.fileTable{
-    overflow-y:scroll;
-    height: 13em;
-    display:block;
-}
 /*status panel*/
 .clearButton{
     margin-left: 100px;
@@ -332,6 +322,16 @@ html, body{
 .statusTextArea{
     background: white;
     color: #666;
+}
+.fileLogTable{
+    overflow-y:scroll;
+    height: 500px;
+    display:block;
+}
+.indiTable{
+    overflow-y:scroll;
+    height:500px;
+    display:block;
 }
 .gedcomButtons{
     padding-top: 2em;
