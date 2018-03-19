@@ -324,13 +324,11 @@ html, body{
     color: #666;
 }
 .fileLogScroll{
-
     overflow-y:scroll;
     height: 310px;
     display: block;
 }
 .gedcomScroll{
-
     overflow-y:scroll;
     height:310px;
     display: block;

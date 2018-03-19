@@ -35,7 +35,7 @@ $(document).ready(function() {
             console.log("file logs = " + data);
             for(var x = 0; x<data.length; x++){
                 var gedFileNameStringOnly = data[x].fileName.substring(10, data[x].fileName.length);
-                var tableSections  = "<tbody>"
+                var tableSections  = "<tbody><tr>"
                     +"<td><a class=\"setLightBlue\" href=\"" + data[x].fileName +"\">" + gedFileNameStringOnly + "</a></td>"
                     +"<td>" + data[x].source + "</td>"
                     +"<td>" + data[x].gedcVersion + "</td>"
@@ -44,7 +44,7 @@ $(document).ready(function() {
                     +"<td>" + data[x].subAddress + "</td>"
                     +"<td>" + data[x].indiNum + "</td>"
                     +"<td>" + data[x].famNum + "</td>"
-                    +"</tbody>"
+                    +"</tr></tbody>"
                 $(".fileLogTable").append(tableSections);
             }//end for
         },
@@ -128,11 +128,11 @@ $(document).ready(function() {
             success: function (data) {
                 console.log("getIndiList object = " + data);
                 for(var x = 0; x<data.length; x++){
-                    var tableSections  = "<tbody>"
+                    var tableSections  = "<tbody><tr>"
                         +"<td>" + x + "</td>"
                         +"<td>" + data[x].givenName + "</td>"
                         +"<td>" + data[x].surname + "</td>"
-                        +"</tbody>"
+                        +"</tr></tbody>"
                     $(".indiTable").append(tableSections);
                 }//end for
             },
