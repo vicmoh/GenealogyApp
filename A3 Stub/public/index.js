@@ -116,6 +116,34 @@ $(document).ready(function() {
         $(".addIndiLastname").val(emptyString);
         // $('#addIndiSex').val(emptyString);
         // $('#addIndiFamSize').val(emptyString);
+
+        //refresh the indi table
+        console.log("calling ajax selection menu");
+        var element = document.getElementById('gedcomFileSelection');
+        var fileSelected = element.options[element.selectedIndex].text;
+        console.log("file selected: " + fileSelected);
+        $(".indiTable tbody").remove();
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: '/getIndiList',
+            data: {fileSelected: fileSelected},
+            success: function (data) {
+                console.log("getIndiList object = " + data);
+                for(var x = 0; x<data.length; x++){
+                    var tableSections  = "<tbody><tr>"
+                        +"<td>" + x + "</td>"
+                        +"<td>" + data[x].givenName + "</td>"
+                        +"<td>" + data[x].surname + "</td>"
+                        +"</tr></tbody>"
+                    $(".indiTable").append(tableSections);
+                }//end for
+            },
+            fail: function(error) {
+                // Non-200 return, do something with error
+                console.log(error); 
+            }
+        });//end ajax
     });//end jqeary
 
     //jquery for showing the indi
@@ -256,6 +284,7 @@ $(document).ready(function() {
 
                 //check if data has value
                 if(isEmptyObject(data) == true){
+                    var genNum = 1;
                     var info = "N/A";
                     var tableSections  = "<tbody><tr>"
                         +"<td>" + genNum + "</td>"
