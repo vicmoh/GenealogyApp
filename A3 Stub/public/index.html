@@ -86,7 +86,7 @@ Program: This will the main html source for the interface
 
         <!--other image pane;-->
         <section class="secondBackground">
-            <div class="helpContent centerContent">
+            <div class="helpContent centerContent setTimesNewRomanFont">
                 <p>To get started, you can search ancestors or descendants of your choosing by clicking the button on the navigation bar.
                 You can also look through file logs and individual list by scrolling down or clicking the GEDCOM button on the navigation bar.
                 Please ensure that the page is fully loaded and that all file is loaded. Hope you have fun!</p> 
@@ -99,7 +99,7 @@ Program: This will the main html source for the interface
             <section class="statusPanel centerContent standardPadding" id="statusPanelID">
                 <div class="form-group">
                     <h1 for="" class="standardPadding setTimesNewRomanFont setBold statusPanel">STATUS PANEL
-                        <button type="button" class="btn btn-default setButtonDarkRed clearButton setTimesNewRomanFont">CLEAR</button>
+                        <!-- <button type="button" class="btn btn-default setButtonDarkRed clearButton setTimesNewRomanFont">CLEAR</button> -->
                     </h1>
                     <textarea class="form-control setBold setRalewayFont statusTextArea thickBorder" id="statusTextAreaID" rows="4">-> This will be you status panel. To clear the message, simply click the clear button above.</textarea>
                 </div>
@@ -122,6 +122,11 @@ Program: This will the main html source for the interface
                                 <th>Number of Families</th>
                             </tr>
                         </thead>
+                        <tbody>
+                            <tr class="">
+                                <th>NA</th>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </section>

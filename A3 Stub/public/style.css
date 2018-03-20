@@ -315,6 +315,20 @@ html, body{
     height: 70%;
     z-index: 1;
 }
+.helpContent{
+    color:black;
+    background: white;
+    border-radius: 10px;
+    padding-top: 3em;
+    padding-bottom: 3em;
+    padding-right: 3em;
+    padding-left: 3em;
+
+    position: relative;
+    top: 150px;
+    bottom: 100px;
+    opacity: 0.8;
+}
 /*status panel*/
 .clearButton{
     margin-left: 100px;
