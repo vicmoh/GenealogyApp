@@ -180,6 +180,7 @@ $(document).ready(function() {
             $(".addIndiLastname").val(emptyString);
             // $('#addIndiSex').val(emptyString);
             // $('#addIndiFamSize').val(emptyString);
+            appendStringToStatus("Adding " + givenName + " " + surname + " to the list of individual in " + fileSelected.substring(10, fileSelected.length) + ".");
 
             //refresh the indi table
             console.log("calling ajax selection menu");
@@ -210,7 +211,10 @@ $(document).ready(function() {
                     console.log(error); 
                 }
             });//end ajax
-        }//end if
+        }else{
+            appendStringToStatus("Failed Adding to the list of individual in " + fileSelected.substring(10, fileSelected.length) + ".");
+            appendStringToStatus("First name and last name must be entered to add individual.");
+        }    
     });//end jqeary
 
     //jquery for showing the indi
@@ -302,6 +306,7 @@ $(document).ready(function() {
                 console.log(error); 
             }
         });//end ajax
+        appendStringToStatus("Searching " + numGen +" generation of " + givenName + " " + surname + "'s descendants.");
         //empty the form ones added
         var emptyString = "";
         $(".firstNameInputDesc").val(emptyString);
@@ -368,6 +373,7 @@ $(document).ready(function() {
             }
         });//end ajax
         //reset the form to empty string
+        appendStringToStatus("Searching " + numGen +" generation of " + givenName + " " + surname + "'s ancestors.");
         var emptyString = "";
         $(".firstNameInputAnce").val(emptyString);
         $(".lastNameInputAnce").val(emptyString);
@@ -378,6 +384,12 @@ $(document).ready(function() {
 /*******************************************************************************
  * functions
  *******************************************************************************/
+
+function appendStringToStatus(string){
+    var statusString = "-> " + string;
+    var myTextArea = $('#statusTextAreaID');
+    myTextArea.val(myTextArea.val() + '\n' + statusString);
+}//edn func
 
 function isEmptyObject(obj) {
     for(var prop in obj) {
