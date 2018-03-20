@@ -184,7 +184,7 @@ $(document).ready(function() {
             $(".addIndiLastname").val(emptyString);
             // $('#addIndiSex').val(emptyString);
             // $('#addIndiFamSize').val(emptyString);
-            appendStringToStatus("Adding " + givenName + " " + surname + " to the list of individual in " + fileSelected.length + ".");
+            appendStringToStatus("Adding " + givenName + " " + surname + " to the list of individual in " + fileSelected + ".");
 
             //refresh the indi table
             console.log("calling ajax selection menu");
