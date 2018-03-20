@@ -118,6 +118,25 @@ $(document).ready(function() {
         $(".fileNameCreateGed").val(emptyString);
         $(".subNameCreateGed").val(emptyString);
         $(".subAddressCreateGed").val(emptyString);
+        //ajax get the list of file names
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: '/getFileList',
+            success: function (data) {
+                console.log("file name = " + data);
+                listOfFileNames = data;
+                //add file names to the selected
+                for(x = 0; x<listOfFileNames.length; x++){
+                    var currentFileName = "<option >"+listOfFileNames[x]+"</option>";
+                    $("select").append(currentFileName);
+                }//end for
+            },
+            fail: function(error) {
+                // Non-200 return, do something with error
+                console.log(error); 
+            }
+        });//end jquery
     });//end jquery
 
     //jquery for adding individual
