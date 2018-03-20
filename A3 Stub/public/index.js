@@ -298,7 +298,7 @@ $(document).ready(function() {
 
                 //check if data has value
                 if(isEmptyObject(data) == true){
-                    var info = "N/A";
+                    var info = "NA";
                     var tableSections  = "<tbody><tr>"
                         +"<td>" + genNum + "</td>"
                         +"<td>" + info + "</td>"
@@ -334,6 +334,13 @@ $(document).ready(function() {
         $(".genTable tbody").remove();
         if(numGen < 0){
             appendStringToStatus("Failed Searching for ancestors, number of generation must be greater than 0.");
+            var genNum = 1;
+            var info = "Invalid input, please re-enter or continue...";
+            var tableSections  = "<tbody><tr>"
+                +"<td>" + genNum + "</td>"
+                +"<td>" + info + "</td>"
+                +"</tr></tbody>"
+            $(".genTable").append(tableSections);
             return;
         }//end if
         //add new html body
@@ -368,7 +375,7 @@ $(document).ready(function() {
                 //check if data has value
                 if(isEmptyObject(data) == true){
                     var genNum = 1;
-                    var info = "N/A";
+                    var info = "NA";
                     var tableSections  = "<tbody><tr>"
                         +"<td>" + genNum + "</td>"
                         +"<td>" + info + "</td>"
