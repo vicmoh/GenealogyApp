@@ -118,7 +118,7 @@ $(document).ready(function() {
         $(".fileNameCreateGed").val(emptyString);
         $(".subNameCreateGed").val(emptyString);
         $(".subAddressCreateGed").val(emptyString);
-        $(".select option").remove();
+        $("select option").remove();
         //ajax get the list of file names
         $.ajax({
             type: 'get',
