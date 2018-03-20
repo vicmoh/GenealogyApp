@@ -88,6 +88,7 @@ $(document).ready(function() {
         var subName = $(".subNameCreateGed").val();
         var subAddress = $(".subAddressCreateGed").val();
         console.log("create ged form: " + fileName + subName + subAddress);
+        appendStringToStatus("Creating a GEDCOM file...");
         //ajax get file logs
         $.ajax({
             type: 'get',
@@ -138,6 +139,7 @@ $(document).ready(function() {
                 console.log(error); 
             }
         });//end jquery
+        appendStringToStatus("GEDCOM \"" + fileName +"\" has been created.");
     });//end jquery
 
     //jquery for adding individual
@@ -265,6 +267,13 @@ $(document).ready(function() {
         $(".genTable tbody").remove();
         if(numGen < 0){
             appendStringToStatus("Failed Searching for descendants, number of generation must be greater than 0.");
+            var genNum = 1;
+            var info = "Invalid input, please re-enter or continue...";
+            var tableSections  = "<tbody><tr>"
+                +"<td>" + genNum + "</td>"
+                +"<td>" + info + "</td>"
+                +"</tr></tbody>"
+            $(".genTable").append(tableSections);
             return;
         }//end if
         //insert the new html body
