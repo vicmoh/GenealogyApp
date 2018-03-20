@@ -118,6 +118,7 @@ $(document).ready(function() {
         $(".fileNameCreateGed").val(emptyString);
         $(".subNameCreateGed").val(emptyString);
         $(".subAddressCreateGed").val(emptyString);
+        $(".select option").remove();
         //ajax get the list of file names
         $.ajax({
             type: 'get',
@@ -262,6 +263,10 @@ $(document).ready(function() {
         var numGen = $(".numGenInputDesc").val();
         //remove the html body
         $(".genTable tbody").remove();
+        if(numGen < 0){
+            appendStringToStatus("Failed Searching for descendants, number of generation must be greater than 0.");
+            return;
+        }//end if
         //insert the new html body
         $.ajax({
             type: 'get',
@@ -327,6 +332,10 @@ $(document).ready(function() {
         var numGen = $(".numGenInputAnce").val();
         //remove the html body
         $(".genTable tbody").remove();
+        if(numGen < 0){
+            appendStringToStatus("Failed Searching for ancestors, number of generation must be greater than 0.");
+            return;
+        }//end if
         //add new html body
         $.ajax({
             type: 'get',
@@ -386,9 +395,9 @@ $(document).ready(function() {
  *******************************************************************************/
 
 function appendStringToStatus(string){
-    var statusString = "-> " + string;
+    var statusString = "-> " + string + '\n';
     var myTextArea = $('#statusTextAreaID');
-    myTextArea.val(myTextArea.val() + '\n' + statusString);
+    myTextArea.val(myTextArea.val() + statusString);
 }//edn func
 
 function isEmptyObject(obj) {
