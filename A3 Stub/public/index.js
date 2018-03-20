@@ -1,3 +1,9 @@
+/************************************************************
+Name: Vicky Mohammad 
+Date: March 4, 2018
+Program: ajax and jquery
+************************************************************/
+
 // Put all onload AJAX calls here, and event listeners
 $(document).ready(function() {
     console.log("page has been loaded");
