@@ -34,6 +34,7 @@ $(document).ready(function() {
         url: '/getFileLogs',
         success: function (data) {
             console.log("file logs = " + data);
+            $(".fileLogTable tbody").remove();
             for(var x = 0; x<data.length; x++){
                 var gedFileNameStringOnly = data[x].fileName.substring(10, data[x].fileName.length);
                 var tableSections  = "<tbody><tr>"
