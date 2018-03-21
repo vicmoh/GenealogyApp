@@ -55,6 +55,10 @@ $(document).ready(function() {
                     +"</tr></tbody>"
                 $(".fileLogTable").append(tableSections);
             }//end for
+            if(data.length == 0 || isEmptyObject(data) == true){
+                var tableSections  = "<tbody><th>NA</th></tr></tbody>"
+                $(".fileLogTable").append(tableSections);
+            }//end if
         },
         fail: function(error) {
             // Non-200 return, do something with error
@@ -314,6 +318,7 @@ $(document).ready(function() {
 
                 //check if data has value
                 if(isEmptyObject(data) == true){
+                    var genNum = 1;
                     var info = "NA";
                     var tableSections  = "<tbody><tr>"
                         +"<td>" + genNum + "</td>"
