@@ -44,6 +44,10 @@ html, body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+.queryTextarea{
+    padding-left: 9em;
+    padding-right: 9em;
+}
 
 /***********************************************************
  * fonts
@@ -382,12 +386,21 @@ html, body{
  * make the web compatible with phene etc
  ***********************************************************/
 
- @media screen and (max-width: 900px){
+ @media screen and (max-width: 1280px){
     .navigationBar{
         font-size: 90%;
     }
     .navigationButton a{
-        margin-left: 5px;
-        margin-right: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+@media screen and (max-width: 800px){
+    .navigationBar{
+        font-size: 90%;
+    }
+    .navigationButton a{
+        margin-left: 1px;
+        margin-right: 1px;
     }
 }

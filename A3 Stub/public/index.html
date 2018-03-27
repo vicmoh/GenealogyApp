@@ -22,8 +22,8 @@ Program: This will the main html source for the interface
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
         <!--aos snik-->
-        <!-- <link rel="stylesheet" href="bower_components/aos/dist/aos.css" />
-        <script src="bower_components/aos/dist/aos.js"></script> -->
+        <link rel="stylesheet" href="../assets/aos/dist/aos.css">
+        <script src="../assets/aos/dist/aos.js"></script>
 
         <!--google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Bungee|Rozha+One" rel="stylesheet">
@@ -32,6 +32,12 @@ Program: This will the main html source for the interface
 
     <!--html body-->
     <body>
+        <!-- need to this for the animation -->
+        <script>
+            AOS.init({
+                duration: 1200,
+            })
+        </script>
         <!--mathML.js libs
         <script type="text/javascript" src="/d2l/common/math/MathML.js?v=10.7.10.10022-168 "></script>-->
         <!--mathjax.js libs
@@ -54,9 +60,10 @@ Program: This will the main html source for the interface
             </div>
             <!--nav bar button-->
             <div class="navigationButton setTimesNewRomanFont">
-                <a class="noUnderline setAnimateScroll" href ="#statusPanelID">GEDCOM</a>
-                <a class="noUnderline" href ="#ancestorsID">GET ANCESTORS</a>
-                <a class="noUnderline" href ="#descendantsID">GET DESCENDANTS</a>
+                <a data-aos="fade-left" class="noUnderline setAnimateScroll" href ="#statusPanelID">GEDCOM</a>
+                <a data-aos="fade-down" class="noUnderline" href ="#ancestorsID">GET ANCESTORS</a>
+                <a data-aos="fade-down" class="noUnderline" href ="#descendantsID">GET DESCENDANTS</a>
+                <a data-aos="fade-right"  class="noUnderline" href ="#queryID">QUERY</a> 
             </div>
         </section>
 
@@ -86,7 +93,7 @@ Program: This will the main html source for the interface
 
         <!--other image pane;-->
         <section class="secondBackground">
-            <div class="helpContent centerContent setTimesNewRomanFont">
+            <div data-aos="fade-down" class="helpContent centerContent setTimesNewRomanFont">
                 <p>To get started, you can search ancestors or descendants of your choosing by clicking the button on the navigation bar.
                 You can also look through file logs and individual list by scrolling down or clicking the GEDCOM button on the navigation bar.
                 Please ensure that the page is fully loaded and that all file is loaded. Hope you have fun!</p> 
@@ -95,6 +102,7 @@ Program: This will the main html source for the interface
         
         <!--main panels-->
         <div class="setWhiteBackground">
+
             <!--status panel-->
             <section class="statusPanel centerContent standardPadding" id="statusPanelID">
                 <div class="form-group">
@@ -178,31 +186,31 @@ Program: This will the main html source for the interface
 
         <!-- creeate a gedcom input popup-->
         <section id="createGedcomID" class="overlay">
-                <div class="popupDisplay centerContent">
-                    <h2 class="titlePadding setBold">CREATE GEDCOM</h2>
-                    <!--close button for popup-->
-                    <a class="closePopup" href="#close">&times;</a>
-                    <!--popup info-->
-                    <div class="popupInfo standardPadding setBold">
-                        <p>File Name:</p>
-                        <input class="fileNameCreateGed"></input>
-                        <!-- <p>Soure:</p>
-                        <input disabled class="">Ancestry.com</input>
-                        <p>Version:</p>
-                        <input disabled class="">5.5</input>
-                        <p>Encoding:</p>
-                        <input disabled class="">ASCII</input> -->
-                        <p>Submitter Name:</p>
-                        <input class="subNameCreateGed"></input>
-                        <p>Submitter Address:</p>
-                        <input class="subAddressCreateGed"></input>
-                    </div>
-                    <div class="standardPadding setWhite setTimesNewRomanFont">
-                        <a class="btn setButtonDarkRed createGedcom" href="#close">Add</a>
-                        <a class="btn setButtonDarkRed" href="#close">Cancel</a>
-                    </div>
+            <div class="popupDisplay centerContent">
+                <h2 class="titlePadding setBold">CREATE GEDCOM</h2>
+                <!--close button for popup-->
+                <a class="closePopup" href="#close">&times;</a>
+                <!--popup info-->
+                <div class="popupInfo standardPadding setBold">
+                    <p>File Name:</p>
+                    <input class="fileNameCreateGed"></input>
+                    <!-- <p>Soure:</p>
+                    <input disabled class="">Ancestry.com</input>
+                    <p>Version:</p>
+                    <input disabled class="">5.5</input>
+                    <p>Encoding:</p>
+                    <input disabled class="">ASCII</input> -->
+                    <p>Submitter Name:</p>
+                    <input class="subNameCreateGed"></input>
+                    <p>Submitter Address:</p>
+                    <input class="subAddressCreateGed"></input>
                 </div>
-            </section>
+                <div class="standardPadding setWhite setTimesNewRomanFont">
+                    <a class="btn setButtonDarkRed createGedcom" href="#close">Add</a>
+                    <a class="btn setButtonDarkRed" href="#close">Cancel</a>
+                </div>
+            </div>
+        </section>
 
         <!--individual user input popup-->
         <section id="addIndiID" class="overlay">
@@ -276,6 +284,26 @@ Program: This will the main html source for the interface
                     <input class="lastNameInputDesc"></input>
                     <p>Number of Generation:</p>
                     <input class="numGenInputDesc"></input>
+                </div>
+                <div class="standardPadding setWhite setTimesNewRomanFont">
+                    <a class="btn setButtonDarkRed searchDesc" href="#genTableID">Search</a>
+                    <a class="btn setButtonDarkRed" href="#close">Cancel</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="queryID" class="overlay queryPopup">
+            <div class="popupDisplay queryPopup">
+                <!-- <h2 class="titlePadding setBold ">QUERY</h2> -->
+                <!--close button for popup-->
+                <a class="closePopup" href="#close">&times;</a>
+                <!-- select file drop down menu-->
+                <p>Choose file: <select class="" id="">
+                    <option disabled selected>Select File</option>
+                </select></p>
+                <!--popup info-->
+                <div class="popupInfo standardPadding setBold">
+                    <textarea class="queryTextarea" id="textAreaQuery" rows="4"></textarea>
                 </div>
                 <div class="standardPadding setWhite setTimesNewRomanFont">
                     <a class="btn setButtonDarkRed searchDesc" href="#genTableID">Search</a>
