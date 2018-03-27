@@ -296,6 +296,7 @@ Program: This will the main html source for the interface
             </div>
         </section>
 
+        <!-- query popup -->
         <section id="queryID" class="overlay">
             <div class="popupDisplay centerContent">
                 <h2 class="titlePadding setBold ">QUERY</h2>
@@ -314,7 +315,7 @@ Program: This will the main html source for the interface
             </div>
         </section>
 
-        <!--input popup to search ancestors-->
+        <!--input popup to search login-->
         <section id="loginID" class="overlay">
             <div class="popupDisplay centerContent">
                 <h2 class="titlePadding setBold ">LOGIN</h2>
@@ -323,14 +324,14 @@ Program: This will the main html source for the interface
                 <!--popup info-->
                 <div class="popupInfo standardPadding setBold">
                     <p>User Name:</p>
-                    <input class=""></input>
+                    <input id="userID"></input>
                     <p>Password:</p>
-                    <input type="password" class=""></input>
+                    <input type="password" id="passID"></input>
                     <p>Data base</p>
-                    <input cllass""></input>
+                    <input id="dbaseID"></input>
                 </div>
                 <div class="standardPadding setWhite setTimesNewRomanFont">
-                    <a class="btn setButtonDarkRed searchDesc" href="#genTableID">Search</a>
+                    <a class="btn setButtonDarkRed searchDesc" href="#genTableID" id="loginID">Login</a>
                     <a class="btn setButtonDarkRed" href="#close">Cancel</a>
                 </div>
             </div>

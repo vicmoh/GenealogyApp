@@ -418,12 +418,27 @@ $(document).ready(function() {
     });//end jquery
 
     //login
-    $('.').click(function(){
+    $('#loginID').click(function(){
+        console.log("calling loginID jquery");
+        var user = $('userID').val();
+        var pass = $('passID').val();
+        var dbase = $('dbaseID').val();
+        console.log("user = " + user + ", passID = " + pass + ", dbase = " + dbase);
         
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: '/login',
+            data: {user: user, pass: pass, dbase: dbase},
+            success: function (data) {
+                
+            },
+            fail: function(error) {
+                // Non-200 return, do something with error
+                console.log(error); 
+            }
+        });//end ajax
     });
-
-    
-    
 });//end doc ready jq
 
 /*******************************************************************************
@@ -449,10 +464,11 @@ function printDBstatus(numData, numIndi){
     return "Database has " + numData + " files and " + numIndi + "individuals"
 }//end func
 
-$(document).on('mousemove keyup keypress', function(){
-    var time;
-    clearTimeout(time);
-    time=setTimeout(function(){
-        alert("Timed out, user has logged out");
-    }, 50000);//10 sec is 4 zeros
-});
+//logout when idle
+// var time;
+// $(document).on('mousemove keyup keypress', function(){
+//     clearTimeout(time);
+//     time=setTimeout(function(){
+//         alert("Timed out, user has logged out");
+//     }, 100000);//10 sec is 4 zeros
+// });

@@ -9,6 +9,7 @@ Program: node and server
 //dec vars
 const ffi = require('ffi');//for the c lib
 const ref = require("ref");//for the c pointer
+const mysql = require('mysql');
 
 var GEDCOMobject = ref.types.void;
 var GEDCOMobjectPtr = ref.refType(GEDCOMobject);
@@ -284,14 +285,24 @@ app.get('/login', function (req, res){
     user = req.query.user;
     pass = req.query.pass;
     dbase = req.query.pass;
-    const mysql = require('mysql');
     const connection = mysql.createConnection({
        host     : 'dursley.socs.uoguelph.ca',
        user     :  user,
        password :  pass,
        database :  dbase
     });
-    connection.connect();
+    connection.connect(function(err) {
+        if (err) {
+            console.log("login error");
+            throw err;
+            var result = "fail";
+            res.send(result);
+        }else{
+            connection.connect();
+            console.log("login successfully!");
+            res.send(result);
+        }//end if 
+    });
 });
 
 
