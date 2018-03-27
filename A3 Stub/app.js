@@ -295,15 +295,15 @@ app.get('/login', function (req, res){
         if (err) {
             console.log("login error");
             throw err;
-            var result = "fail";
-            res.send(result);
+            var fail = "fail";
+            res.send(fail);
         }else{
-            var result = "pass";
-            connection.connect();
-            console.log("login successfully!");
-            res.send(result);
         }//end if 
     });
+    var result = "pass";
+    connection.connect();
+    console.log("login successfully!");
+    res.send(result);
 });
 
 
