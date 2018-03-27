@@ -282,9 +282,9 @@ app.get('/createGedcom', function(req , res){
 
 app.get('/login', function (req, res){
     console.log("calling login");
-    user = req.query.user;
-    pass = req.query.pass;
-    dbase = req.query.pass;
+    var user = req.query.user;
+    var pass = req.query.pass;
+    var dbase = req.query.pass;
     const connection = mysql.createConnection({
        host     : 'dursley.socs.uoguelph.ca',
        user     :  user,
