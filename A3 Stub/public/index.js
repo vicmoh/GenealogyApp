@@ -66,6 +66,31 @@ $(document).ready(function() {
         }
     });//end jquery
 
+    $(".indiTable tbody").remove();
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/getIndiList',
+        data: {fileSelected: fileSelected},
+        success: function (data) {
+            console.log("getIndiList object = " + data);
+            for(var x = 1; x<data.length; x++){
+                var tableSections  = "<tbody><tr>"
+                    +"<td>" + x + "</td>"
+                    +"<td>" + data[x].givenName + "</td>"
+                    +"<td>" + data[x].surname + "</td>"
+                    +"<td>" + data[x].sex + "</td>"
+                    +"<td>" + data[x].famNum + "</td>"
+                    +"</tr></tbody>"
+                $(".indiTable").append(tableSections);
+            }//end for
+        },
+        fail: function(error) {
+            // Non-200 return, do something with error
+            console.log(error); 
+        }
+    });//end ajax
+
     /*******************************************************************************
      * My jquery code 
      *******************************************************************************/
@@ -209,7 +234,7 @@ $(document).ready(function() {
                 data: {fileSelected: fileSelected},
                 success: function (data) {
                     console.log("getIndiList object = " + data);
-                    for(var x = 0; x<data.length; x++){
+                    for(var x = 1; x<data.length; x++){
                         var tableSections  = "<tbody><tr>"
                             +"<td>" + x + "</td>"
                             +"<td>" + data[x].givenName + "</td>"
