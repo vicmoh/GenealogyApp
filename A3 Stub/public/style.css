@@ -316,7 +316,7 @@ html, body{
     background-position: center;
     background-size: cover;
     width: 100%;
-    height: 70%;
+    height: 500px;
     z-index: 1;
 }
 .helpContent{
