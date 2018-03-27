@@ -293,6 +293,11 @@ app.get('/login', function (req, res){
        database :  dbase
     });
     var result = "pass";
+    connection.on('error', function(err) {
+        console.log('Query error: ' + err);
+        result = "fail"
+        res.send(result);
+    });
     connection.connect();
     console.log("login successfully!");
     res.send(result);

@@ -432,12 +432,19 @@ $(document).ready(function() {
             data: {user: user, pass: pass, dbase: dbase},
             success: function (data) {
                 console.log(data);
+                
             },
             fail: function(error) {
                 // Non-200 return, do something with error
                 console.log(error); 
+                
             }
         });//end ajax
+
+        var empty = "";
+        $('#userID').val(empty);
+        $('#passID').val(empty);
+        $('#dbaseID').val(empty);
     });
 });//end doc ready jq
 
