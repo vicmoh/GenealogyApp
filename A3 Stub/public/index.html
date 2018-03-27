@@ -58,6 +58,10 @@ Program: This will the main html source for the interface
             <div class="appName">
                 <label><i><b>Genealogy App&trade;</b></i></label>
             </div>
+            <!-- nav bar logo-->
+            <div class="login">
+                <a class="noUnderline loginButton" href="#loginID">Login</a>
+            </div>
             <!--nav bar button-->
             <div class="navigationButton setTimesNewRomanFont">
                 <a data-aos="fade-left" class="noUnderline setAnimateScroll" href ="#statusPanelID">GEDCOM</a>
@@ -292,9 +296,9 @@ Program: This will the main html source for the interface
             </div>
         </section>
 
-        <section id="queryID" class="overlay queryPopup">
-            <div class="popupDisplay queryPopup">
-                <!-- <h2 class="titlePadding setBold ">QUERY</h2> -->
+        <section id="queryID" class="overlay">
+            <div class="popupDisplay centerContent">
+                <h2 class="titlePadding setBold ">QUERY</h2>
                 <!--close button for popup-->
                 <a class="closePopup" href="#close">&times;</a>
                 <!-- select file drop down menu-->
@@ -302,8 +306,26 @@ Program: This will the main html source for the interface
                     <option disabled selected>Select File</option>
                 </select></p>
                 <!--popup info-->
+                <textarea class="queryTextarea" id="textAreaQuery" rows="5"></textarea>
+                <div class="standardPadding setWhite setTimesNewRomanFont">
+                    <a class="btn setButtonDarkRed " href="#">Query</a>
+                    <a class="btn setButtonDarkRed" href="#close">Cancel</a>
+                </div>
+            </div>
+        </section>
+
+        <!--input popup to search ancestors-->
+        <section id="loginID" class="overlay">
+            <div class="popupDisplay centerContent">
+                <h2 class="titlePadding setBold ">LOGIN</h2>
+                <!--close button for popup-->
+                <a id="closeID" class="closePopup" href="#close">&times;</a>
+                <!--popup info-->
                 <div class="popupInfo standardPadding setBold">
-                    <textarea class="queryTextarea" id="textAreaQuery" rows="4"></textarea>
+                    <p>User Name:</p>
+                    <input class=""></input>
+                    <p>Password:</p>
+                    <input type="password" class=""></input>
                 </div>
                 <div class="standardPadding setWhite setTimesNewRomanFont">
                     <a class="btn setButtonDarkRed searchDesc" href="#genTableID">Search</a>

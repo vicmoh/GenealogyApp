@@ -50,6 +50,19 @@ function testParserLib(){
 }//end func
 
 /**********************************************************************
+ * sql
+ **********************************************************************/
+
+const mysql = require('mysql');
+const connection = mysql.createConnection({
+    host     : 'dursley.socs.uoguelph.ca',
+    user     : 'mohammav',
+    password : '0895381',
+    database : 'mohammav'
+});
+connection.connect();
+
+/**********************************************************************
  * stubs
  **********************************************************************/
 

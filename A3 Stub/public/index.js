@@ -416,6 +416,10 @@ $(document).ready(function() {
         $(".lastNameInputAnce").val(emptyString);
         $(".numGenInputAnce").val(emptyString);
     });//end jquery
+
+    $('.overlay').click(function(){
+        document.getElementById('closeID');
+    });
 });//end doc ready jq
 
 /*******************************************************************************

@@ -45,8 +45,22 @@ html, body{
     background-size: cover;
 }
 .queryTextarea{
-    padding-left: 9em;
-    padding-right: 9em;
+    max-width: 100% !important;
+    width: 95%;
+}
+.queryPopup{
+    top: -10%;
+    z-index: 21;
+    right: 0;
+    left: 0;
+    margin: 10% auto;
+    max-width: 50em !important;
+    padding: 20px;
+    padding-bottom: 10px;
+    background: #fff;
+    border-radius: 5px;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
 }
 
 /***********************************************************
@@ -107,6 +121,23 @@ html, body{
     margin-left: 50px;
     font-size: 20px;
 }
+.login{
+    top: 12px;
+    right: 20px;
+    position: absolute;
+    margin-left: 50px;
+    font-size: 20px;
+    color:darkred;
+}
+.loginButton{
+    color: darkred !important;
+    background: white;
+}
+.login a:hover{
+    color: white !important;
+    background: rgb(50, 0, 0);
+    border-color: white;
+}
 .roundSquareButton a{
     background-color: white;
     border: 2px solid transparent;
@@ -161,7 +192,7 @@ html, body{
     left: 0;
     margin: 10% auto;
     max-width: 30em;
-    padding: 20px;
+    padding: 50px;
     padding-bottom: 10px;
     background: #fff;
     border-radius: 5px;
@@ -169,7 +200,6 @@ html, body{
     transition: all 0.3s ease-in-out;
 }
 .popupDisplay h2 {
-    margin-top: 40px;
     color: #333;
     font-family: Tahoma, Arial, sans-serif;
 }
