@@ -295,7 +295,6 @@ app.get('/login', function (req, res){
     });
     connection.connect(function(err) {
         if (err) {
-            alert("login failed!");
             console.log("login failed!");
         }else{
             console.log("login successfully!");
