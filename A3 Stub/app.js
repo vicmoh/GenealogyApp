@@ -297,9 +297,10 @@ app.get('/login', function (req, res){
         if (err) {
             result = "fail";
             console.log("login failed!");
+        }else{
+            console.log("login successfully!");
         }
     });
-    console.log("login successfully!");
     res.send(result);
 });
 

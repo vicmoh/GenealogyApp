@@ -431,12 +431,11 @@ $(document).ready(function() {
             url: '/login',
             data: {user: user, pass: pass, dbase: dbase},
             success: function (data) {
-                console.log("ajax data returned = " + data);
+                console.log("ajax pass returned = " + data);
             },
             fail: function(error) {
                 // Non-200 return, do something with error
-                console.log(error); 
-                
+                console.log("ajax error returned = " + error); 
             }
         });//end ajax
 
