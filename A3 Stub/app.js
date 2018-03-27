@@ -53,14 +53,14 @@ function testParserLib(){
  * sql
  **********************************************************************/
 
-const mysql = require('mysql');
-const connection = mysql.createConnection({
-    host     : 'dursley.socs.uoguelph.ca',
-    user     : 'mohammav',
-    password : '0895381',
-    database : 'mohammav'
-});
-connection.connect();
+// const mysql = require('mysql');
+// const connection = mysql.createConnection({
+//     host     : 'dursley.socs.uoguelph.ca',
+//     user     : 'mohammav',
+//     password : '0895381',
+//     database : 'mohammav'
+// });
+// connection.connect();
 
 /**********************************************************************
  * stubs
@@ -278,6 +278,21 @@ app.get('/createGedcom', function(req , res){
     res.send(dummy);
 });
 
+
+app.get('/login', function (req, res){
+    console.log("calling login");
+    user = req.query.user;
+    pass = req.query.pass;
+    dbase = req.query.pass;
+    const mysql = require('mysql');
+    const connection = mysql.createConnection({
+       host     : 'dursley.socs.uoguelph.ca',
+       user     :  user,
+       password :  pass,
+       database :  dbase
+    });
+    connection.connect();
+});
 
 
 /**********************************************************************
