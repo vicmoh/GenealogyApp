@@ -420,9 +420,9 @@ $(document).ready(function() {
     //login
     $('#loginID').click(function(){
         console.log("calling loginID jquery");
-        var user = $('userID').val();
-        var pass = $('passID').val();
-        var dbase = $('dbaseID').val();
+        var user = $('#userID').val();
+        var pass = $('#passID').val();
+        var dbase = $('#dbaseID').val();
         console.log("user = " + user + ", passID = " + pass + ", dbase = " + dbase);
         
         $.ajax({
