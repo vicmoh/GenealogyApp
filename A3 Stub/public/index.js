@@ -182,6 +182,7 @@ $(document).ready(function() {
                 success: function (data) {
                     console.log("addIndiToList = (void?) " + data);
                     //not getting data right now but i may needed
+                    appendStringToStatus("Adding " + givenName + " " + surname + " to the list of individual in " + fileSelected + ".");
                 },
                 fail: function(error) {
                     // Non-200 return, do something with error
@@ -194,7 +195,6 @@ $(document).ready(function() {
             $(".addIndiLastname").val(emptyString);
             // $('#addIndiSex').val(emptyString);
             // $('#addIndiFamSize').val(emptyString);
-            appendStringToStatus("Adding " + givenName + " " + surname + " to the list of individual in " + fileSelected + ".");
 
             //refresh the indi table
             console.log("calling ajax selection menu");
