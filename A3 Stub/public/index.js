@@ -433,19 +433,17 @@ $(document).ready(function() {
             success: function (data) {
                 console.log("ajax pass returned = " + data);
                 connectionFail = data;
+                if(connectionFail == true){
+                    alert("Login failed");
+                }else{
+                    alert("Login successfull");
+                }//end if
             },
             fail: function(error) {
                 // Non-200 return, do something with error
                 console.log("ajax error returned = " + error); 
-                connectionFail = error;
             }
         });//end ajax
-
-        if(connectionFail == true){
-            console.log("error handle here");
-        }else{
-            console.log("all good");
-        }
 
         var empty = "";
         $('#userID').val(empty);
