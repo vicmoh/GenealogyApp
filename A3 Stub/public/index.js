@@ -424,7 +424,7 @@ $(document).ready(function() {
         var pass = $('#passID').val();
         var dbase = $('#dbaseID').val();
         console.log("user = " + user + ", passID = " + pass + ", dbase = " + dbase);
-        var connectionStatus = false;
+        var connectionFail = true;
         $.ajax({
             type: 'get',
             dataType: 'json',
@@ -432,16 +432,16 @@ $(document).ready(function() {
             data: {user: user, pass: pass, dbase: dbase},
             success: function (data) {
                 console.log("ajax pass returned = " + data);
-                connectionStatus = isEmptyObject(data);
+                connectionFail = isEmptyObject(data);
             },
             fail: function(error) {
                 // Non-200 return, do something with error
                 console.log("ajax error returned = " + error); 
-                connectionStatus = isEmptyObject(error);
+                connectionFail = isEmptyObject(error);
             }
         });//end ajax
 
-        if(connectionStatus == false){
+        if(connectionFail == true){
             console.log("error handle here");
         }
 
