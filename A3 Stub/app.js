@@ -298,9 +298,9 @@ app.get('/login', function (req, res){
             console.log("login failed!");
         }else{
             console.log("login successfully!");
+            res.send(result);
         }
     });
-    res.send(result);
 });
 
 
