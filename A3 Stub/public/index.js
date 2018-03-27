@@ -436,3 +436,7 @@ function isEmptyObject(obj) {
     }//end for
     return true;
 }//end func
+
+function printDBstatus(numData, numIndi){
+    return "Database has " + numData + " files and " + numIndi + "individuals"
+}//end func
