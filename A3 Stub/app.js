@@ -291,15 +291,6 @@ app.get('/login', function (req, res){
        password :  pass,
        database :  dbase
     });
-    connection.connect(function(err) {
-        if (err) {
-            console.log("login error");
-            throw err;
-            var fail = "fail";
-            res.send(fail);
-        }else{
-        }//end if 
-    });
     var result = "pass";
     connection.connect();
     console.log("login successfully!");
