@@ -449,10 +449,10 @@ function printDBstatus(numData, numIndi){
     return "Database has " + numData + " files and " + numIndi + "individuals"
 }//end func
 
-var time;
 $(document).on('mousemove keyup keypress', function(){
+    var time;
     clearTimeout(time);
     time=setTimeout(function(){
         alert("Timed out, user has logged out");
-    }, 10000);
+    }, 50000);//10 sec is 4 zeros
 });
