@@ -432,12 +432,12 @@ $(document).ready(function() {
             data: {user: user, pass: pass, dbase: dbase},
             success: function (data) {
                 console.log("ajax pass returned = " + data);
-                connectionFail = isEmptyObject(data);
+                connectionFail = data;
             },
             fail: function(error) {
                 // Non-200 return, do something with error
                 console.log("ajax error returned = " + error); 
-                connectionFail = isEmptyObject(error);
+                connectionFail = error;
             }
         });//end ajax
 

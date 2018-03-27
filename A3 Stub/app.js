@@ -285,7 +285,7 @@ app.get('/login', function (req, res){
     var user = req.query.user;
     var pass = req.query.pass;
     var dbase = req.query.dbase;
-    var result = true;
+    var result = false;
     console.log("app.js user = " + user + ", passID = " + pass + ", dbase = " + dbase);
     const connection = mysql.createConnection({
        host     : 'dursley.socs.uoguelph.ca',
@@ -295,9 +295,12 @@ app.get('/login', function (req, res){
     });
     connection.connect(function(err) {
         if (err) {
+            result = true;
+            res.send(result);
             console.log("login failed!");
         }else{
             console.log("login successfully!");
+            result = false;
             res.send(result);
         }
     });
