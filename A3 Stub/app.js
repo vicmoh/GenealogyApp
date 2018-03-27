@@ -292,17 +292,17 @@ app.get('/login', function (req, res){
        password :  pass,
        database :  dbase
     });
-    var result = "pass";
     connection.connect(function(err) {
         if (err) throw err;
         console.log("Connected!");
         /*Create a database named "mydb":*/
         connection.on('error', function(err) {
             console.log("[mysql error]",err);
-            result = "fail";
-            res.send(result);
+            var failResult = "fail";
+            res.send(failResult);
         });
     });
+    var result = "pass";
     console.log("login successfully!");
     res.send(result);
 });
