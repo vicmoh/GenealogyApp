@@ -297,7 +297,7 @@ app.get('/login', function (req, res){
         if (err) throw err;
         console.log("Connected!");
         /*Create a database named "mydb":*/
-        con.on('error', function(err) {
+        connection.on('error', function(err) {
             console.log("[mysql error]",err);
             result = "fail";
             res.send(result);
