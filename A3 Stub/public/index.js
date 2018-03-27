@@ -420,16 +420,16 @@ $(document).ready(function() {
     //login
     $('#loginID').click(function(){
         console.log("calling loginID jquery");
-        var user = $('#userID').val();
-        var pass = $('#passID').val();
-        var dbase = $('#dbaseID').val();
+        var User = $('#userID').val();
+        var Pass = $('#passID').val();
+        var Dbase = $('#dbaseID').val();
         console.log("user = " + user + ", passID = " + pass + ", dbase = " + dbase);
         
         $.ajax({
             type: 'get',
             dataType: 'json',
             url: '/login',
-            data: {user: user, pass: pass, dbase: dbase},
+            data: {user: User, pass: Pass, dbase: Dbase},
             success: function (data) {
                 console.log(data);
             },
