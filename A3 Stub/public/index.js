@@ -434,7 +434,7 @@ $(document).ready(function() {
                 console.log("ajax pass returned = " + data);
                 connectionFail = data;
                 if(connectionFail == true){
-                    alert("Login failed");
+                    alert("Invalid login");
                 }else{
                     alert("Login successfull");
                 }//end if
@@ -444,7 +444,7 @@ $(document).ready(function() {
                 console.log("ajax error returned = " + error); 
             }
         });//end ajax
-
+        //empty the inputs
         var empty = "";
         $('#userID').val(empty);
         $('#passID').val(empty);
