@@ -418,7 +418,7 @@ $(document).ready(function() {
     });//end jquery
 
     //login
-    $('#loginID').click(function(){
+    $('#loginButtonID').click(function(){
         console.log("calling loginID jquery");
         var user = $('#userID').val();
         var pass = $('#passID').val();
