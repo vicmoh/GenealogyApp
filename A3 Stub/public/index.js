@@ -66,13 +66,13 @@ $(document).ready(function() {
         }
     });//end jquery
 
-    $(".indiTable tbody").remove();
     $.ajax({
         type: 'get',
         dataType: 'json',
         url: '/getIndiList',
         data: {fileSelected: fileSelected},
         success: function (data) {
+            $(".indiTable tbody").remove();
             console.log("getIndiList object = " + data);
             for(var x = 1; x<data.length; x++){
                 var tableSections  = "<tbody><tr>"
