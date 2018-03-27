@@ -443,6 +443,8 @@ $(document).ready(function() {
 
         if(connectionFail == true){
             console.log("error handle here");
+        }else{
+            console.log("all good");
         }
 
         var empty = "";
