@@ -284,7 +284,7 @@ app.get('/login', function (req, res){
     console.log("calling login");
     var user = req.query.user;
     var pass = req.query.pass;
-    var dbase = req.query.pass;
+    var dbase = req.query.dbase;
     const connection = mysql.createConnection({
        host     : 'dursley.socs.uoguelph.ca',
        user     :  user,
