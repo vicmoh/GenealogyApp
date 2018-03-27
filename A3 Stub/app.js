@@ -298,6 +298,7 @@ app.get('/login', function (req, res){
             var result = "fail";
             res.send(result);
         }else{
+            var result = "pass";
             connection.connect();
             console.log("login successfully!");
             res.send(result);
