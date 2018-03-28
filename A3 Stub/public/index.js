@@ -517,7 +517,6 @@ function fileInfoAjax(){
         type: 'get',
         dataType: 'json',
         url: '/dbQueryOuputs',
-        data: {input: input},
         success: function (data) {
             console.log("ajax pass");
             console.log("fileNum = " + data.fileNum + ", indiNum = " + data.indiNum);
