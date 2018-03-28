@@ -385,7 +385,7 @@ function getNumberOfFileAndIndi(){
             for (let row of rows){
                 fileInfo.fileNum = fileInfo.fileNum + 1;
                 fileInfo.indiNum = fileInfo.indiNum + row.num_individuals;
-                console.log("getNumberOfFileAndIndi = " + printDBstatus(fileNum, row.num_individuals));
+                console.log("getNumberOfFileAndIndi = " + printDBstatus(fileInfo.fileNum, row.num_individuals));
             }//end ffor
         }//end if
     });
