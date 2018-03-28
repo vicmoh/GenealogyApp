@@ -45,8 +45,8 @@ html, body{
     background-size: cover;
 }
 .queryTextarea{
-    max-width: 100% !important;
-    width: 95%;
+    width: 100%;
+    height: 5em !important;
 }
 .queryPopup{
     top: -10%;
