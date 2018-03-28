@@ -466,6 +466,7 @@ $(document).ready(function() {
                 console.log("ajax error returned = " + error); 
             }
         });//end ajax
+        fileInfoAjax();
     });//end jquery
 
     //clear all files
@@ -489,6 +490,8 @@ $(document).ready(function() {
                 console.log("ajax error returned = " + error); 
             }
         });//end ajax
+        fileInfoAjax();
+        appendStringToQueryStatus("All the table has been cleared in the data base");
     });//end jquery
 
     //clear all files
@@ -496,20 +499,7 @@ $(document).ready(function() {
         console.log("calling textAreaQueryID");
         var input = $('#textAreaQueryID').val();
         console.log("input = " + input);
-        $.ajax({
-            type: 'get',
-            dataType: 'json',
-            url: '/dbQueryOuputs',
-            data: {input: input},
-            success: function (data) {
-                console.log("ajax pass");
-                
-            },
-            fail: function(error) {
-                // Non-200 return, do something with error
-                console.log("ajax error returned = " + error); 
-            }
-        });//end ajax
+        fileInfoAjax();
         //empty the text area
         var emptyString = "";
         $('#textAreaQueryID').val(emptyString)
@@ -522,9 +512,34 @@ $(document).ready(function() {
  * functions
  *******************************************************************************/
 
+function fileInfoAjax(){
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/dbQueryOuputs',
+        data: {input: input},
+        success: function (data) {
+            console.log("ajax pass");
+            console.log("fileNum = " + data.fileNum + ", indiNum = " + data.indiNum);
+            appendStringToStatus(printDBstatus(data.fileNum, data.indiNum));
+            appendStringToQueryStatus(printDBstatus(data.fileNum, data.indiNum));
+        },
+        fail: function(error) {
+            // Non-200 return, do something with error
+            console.log("ajax error returned = " + error); 
+        }
+    });//end ajax
+}//end func
+
 function appendStringToStatus(string){
     var statusString = "-> " + string + '\n';
     var myTextArea = $('#statusTextAreaID');
+    myTextArea.val(myTextArea.val() + statusString);
+}//edn func
+
+function appendStringToQueryStatus(string){
+    var statusString = "-> " + string + '\n';
+    var myTextArea = $('#queryOutputID');
     myTextArea.val(myTextArea.val() + statusString);
 }//edn func
 
@@ -538,7 +553,7 @@ function isEmptyObject(obj) {
 }//end func
 
 function printDBstatus(numData, numIndi){
-    return "Database has " + numData + " files and " + numIndi + "individuals"
+    return "Database has " + numData + " files and " + numIndi + " individuals";
 }//end func
 
 //logout when idle

@@ -361,7 +361,8 @@ app.get('/dbQueryInputs', function (req, res){
 
 app.get('/dbQueryOuputs', function (req, res){
     console.log("calling dbQueryOuputs");
-    getNumberOfFileAndIndi();
+    var fileInfo = getNumberOfFileAndIndi();
+    res.send(fileInfo);
 });
 
 
@@ -370,35 +371,29 @@ app.get('/dbQueryOuputs', function (req, res){
  **********************************************************************/
 
 function getNumberOfFileAndIndi(){
-    var fileNum = 0;
-    var indiNum = 0;
+    //dec vars
+    var fileInfo = {fileNum: 0, indiNum: 0};
+    //connect
     connection.query("SELECT * FROM FILE", function (err, rows, fields) {
         //Throw an error if we cannot run the query 
         if (err) 
             console.log("Something went wrong. "+err);
         else {
-            console.log("Database contents sorted by last name:");
+            console.log("Database contents:");
     
             //Rows is an array of objects.  Each object has fields corresponding to table columns
             for (let row of rows){
-                fileNum = fileNum + 1;
-                indiNum = indiNum + row.num_individuals;
+                fileInfo.fileNum = fileInfo.fileNum + 1;
+                fileInfo.indiNum = fileInfo.indiNum + row.num_individuals;
                 console.log("getNumberOfFileAndIndi = " + printDBstatus(fileNum, row.num_individuals));
             }//end ffor
         }//end if
-        // console.log("Rows:");
-        // for (let row of rows){
-        //     console.log(row);
-        // }
-        // console.log("Fields:");
-        // for (let field of fields){
-        //     console.log(field);
-        // }
     });
+    return fileInfo;
 }//end func
 
 function printDBstatus(numData, numIndi){
-    return "Database has " + numData + " files and " + numIndi + "individuals"
+    return "Database has " + numData + " files and " + numIndi + " individuals";
 }//end func
 
 function deleteFileTable(){
