@@ -505,7 +505,6 @@ $(document).ready(function() {
         $('#textAreaQueryID').val(emptyString)
     });//ennd  jquery
 
-
 });//end doc ready jq
 
 /*******************************************************************************
@@ -521,7 +520,6 @@ function fileInfoAjax(){
             console.log("ajax pass");
             console.log("fileNum = " + data.fileNum + ", indiNum = " + data.indiNum);
             appendStringToStatus(printDBstatus(data.fileNum, data.indiNum));
-            appendStringToQueryStatus(printDBstatus(data.fileNum, data.indiNum));
         },
         fail: function(error) {
             // Non-200 return, do something with error
@@ -533,12 +531,6 @@ function fileInfoAjax(){
 function appendStringToStatus(string){
     var statusString = "-> " + string + '\n';
     var myTextArea = $('#statusTextAreaID');
-    myTextArea.val(myTextArea.val() + statusString);
-}//edn func
-
-function appendStringToQueryStatus(string){
-    var statusString = "-> " + string + '\n';
-    var myTextArea = $('#queryOutputID');
     myTextArea.val(myTextArea.val() + statusString);
 }//edn func
 
