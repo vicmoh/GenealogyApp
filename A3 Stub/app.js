@@ -196,6 +196,7 @@ app.get('/getFileLogs', function(req , res){
         var tempFileLogObject = JSON.parse(jsonString);
         console.log(tempFileLogObject);
         listOfFileLogObjects.push(tempFileLogObject);
+        listOfFileLogObjects[x].push({fileName : fileNames[x]});
     }//end for
     res.send(listOfFileLogObjects);
     console.log(listOfFileLogObjects);
