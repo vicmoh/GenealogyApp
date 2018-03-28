@@ -63,6 +63,9 @@ function testParserLib(){
 // });
 // connection.connect();
 
+const connection;
+var listOfFileLogObjects = [];
+
 /**********************************************************************
  * stubs
  **********************************************************************/
@@ -182,7 +185,6 @@ app.get('/getFileList', function(req , res){
 });
 
 //get request for the web objects
-var listOfFileLogObjects = [];
 app.get('/getFileLogs', function(req , res){
     var fileNames = getListFileNames();
     var jsonString;
@@ -287,7 +289,7 @@ app.get('/login', function (req, res){
     var dbase = req.query.dbase;
     var result = false;
     console.log("app.js user = " + user + ", passID = " + pass + ", dbase = " + dbase);
-    const connection = mysql.createConnection({
+    connection = mysql.createConnection({
        host     : 'dursley.socs.uoguelph.ca',
        user     :  user,
        password :  pass,
@@ -333,9 +335,6 @@ app.get('/dbClearFile', function (req, res){
     console.log("calling dbClearFile");
     
 });
-
-
-
 
 /**********************************************************************
  * functions
