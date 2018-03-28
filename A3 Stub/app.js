@@ -324,6 +324,7 @@ app.get('/dbStoreFile', function (req, res){
     }//end for
 
     //create the table
+    createFileTable();
     connection.query(stringOfFileQuery, function (err, rows, fields) {
         if (err) {
             console.log("Something went wrong. "+err)
@@ -348,6 +349,21 @@ app.get('/dbClearFile', function (req, res){
 /**********************************************************************
  * functions
  **********************************************************************/
+
+function createFileTable(){
+    var createTable = "CREATE TABLE FILE (file_id INT AUTO_INCREMENT PRIMARY KEY, "
+                    + "file_Name VARCHAR(60) NOT NULL, "
+                    + "source VARCHAR(250) NOT NULL, "
+                    + "version VARCHAR(10) NOT NULL, "
+                    + "encoding VARCHAR(10) NOT NULL, "
+                    + "sub_name VARCHAR(62) NOT NULL, "
+                    + "sub_addr VARCHAR(256), "
+                    + "num_individuals INT, "
+                    + "num_families INT);";
+    var deleteTable = "DROP TABLE IF EXIST FILE;"
+    connection.query(deleteTable);
+    connection.query(createTable);
+}//end func
 
 function fileLogToSQL(data){
     var heading = "(file_Name, source, version, encoding, sub_name, sub_addr, num_individuals, num_families)";
