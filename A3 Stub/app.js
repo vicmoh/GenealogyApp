@@ -63,7 +63,7 @@ function testParserLib(){
 // });
 // connection.connect();
 
-const connection;
+var connection;
 var listOfFileLogObjects = [];
 
 /**********************************************************************
