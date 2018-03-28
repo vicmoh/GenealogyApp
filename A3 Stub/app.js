@@ -314,27 +314,30 @@ app.get('/dbStoreFile', function (req, res){
     var tempListOfFileNames = getListFileNames();
     for(var x=0; x<tempListOfFileNames.length; x++){
         //dec vars
-        var stringOfFileQuery = fileLogToSQL(tempListOfFileNames[x]); 
+        console.log("before SQL = " + tempListOfFileNames[x]);
+        var stringOfFileQuery =+ fileLogToSQL(tempListOfFileNames[x]); 
         var ifObjectEmpty = isEmptyObject(stringOfFileQuery);
         //error check
         if(ifObjectEmpty == true){
             break;
         }//end if
-        connection.query(stringOfFileQuery, function (err, rows, fields) {
-            if (err) {
-                console.log("Something went wrong. "+err)
-            }else{
-                console.log("Rows:");
-                for (let row of rows){
-                    console.log(row);
-                }//end for
-                console.log("Fields:");
-                for (let field of fields){
-                    console.log(field);
-                }//end for
-            }
-        });
     }//end for
+
+    //create the table
+    connection.query(stringOfFileQuery, function (err, rows, fields) {
+        if (err) {
+            console.log("Something went wrong. "+err)
+        }else{
+            console.log("Rows:");
+            for (let row of rows){
+                console.log(row);
+            }//end for
+            console.log("Fields:");
+            for (let field of fields){
+                console.log(field);
+            }//end for
+        }
+    });
 });
 
 app.get('/dbClearFile', function (req, res){
