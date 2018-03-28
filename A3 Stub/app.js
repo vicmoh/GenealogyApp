@@ -367,14 +367,14 @@ function createFileTable(){
 
 function fileLogToSQL(data){
     var heading = "(file_Name, source, version, encoding, sub_name, sub_addr, num_individuals, num_families)";
-    var values = "("+ data.fileName + ", "
-                    + data.source + ", "
-                    + data.gedcVersion + ", "
-                    + data.encoding + ", "
-                    + data.subName + ", "
-                    + data.subAddress + ", "
-                    + data.indiNum + ", "
-                    + data.famNum + ")";
+    var values = "('"+ data.fileName.slice(10) + "', '"
+                    + data.source + "', '"
+                    + data.gedcVersion + "', '"
+                    + data.encoding + "', '"
+                    + data.subName + "', '"
+                    + data.subAddress + "', '"
+                    + data.indiNum + "', '"
+                    + data.famNum + "')";
     var tableToBeInserted = "INSERT INTO FILE "+ heading +" VALUES "+ values +";";
     console.log(tableToBeInserted);
     return tableToBeInserted;
