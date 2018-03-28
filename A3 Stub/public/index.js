@@ -467,6 +467,51 @@ $(document).ready(function() {
             }
         });//end ajax
     });
+
+    //clear all files
+    $('#clearAllDataID').click(function(){
+        console.log("calling storeAllFilesID");
+        var queryFail = true;
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: '/dbClearFile',
+            success: function (data) {
+                console.log("ajax pass = " + data);
+                if(connectionFail == true){
+                    alert("Invalid query");
+                }else{
+                    alert("Query successfull");
+                }
+            },
+            fail: function(error) {
+                // Non-200 return, do something with error
+                console.log("ajax error returned = " + error); 
+            }
+        });//end ajax
+    });
+
+    //clear all files
+    $('#executeQueryID').click(function(){
+        console.log("calling textAreaQueryID");
+        var input = $('#textAreaQueryID').val();
+        console.log("input = " + input);
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: '/dbQueryInputs',
+            data: {input: input},
+            success: function (data) {
+                console.log("ajax pass");
+                
+            },
+            fail: function(error) {
+                // Non-200 return, do something with error
+                console.log("ajax error returned = " + error); 
+            }
+        });//end ajax
+    });
+
 });//end doc ready jq
 
 /*******************************************************************************

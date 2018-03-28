@@ -303,7 +303,7 @@ app.get('/login', function (req, res){
             console.log("login failed!");
         }else{
             console.log("login successfully!");
-            result = false;
+            result = true;
             res.send(result);
         }
     });
@@ -338,12 +338,34 @@ app.get('/dbStoreFile', function (req, res){
 
 app.get('/dbClearFile', function (req, res){
     console.log("calling dbClearFile");
-    
+    deleteFileTable();
+});
+
+app.get('/dbQueryInputs', function (req, res){
+    console.log("calling dbQueryInputs");
+    var queryInput = req.query.input;
+    var result = false;
+    connection.query(queryInput, function (err, rows, fields) {
+        if (err) {
+            console.log("Something went wrong. "+err);
+            result = true;
+            res.send(result);
+        }else{
+            console.log("successfully quried");
+            result = true;
+            res.send(result);
+        }//end if
+    });
 });
 
 /**********************************************************************
  * functions
  **********************************************************************/
+
+function deleteFileTable(){
+    var deleteTable = "DROP TABLE IF EXISTS FILE;"
+    connection.query(deleteTable);
+}//end func
 
 function createFileTable(){
     var createTable = "CREATE TABLE FILE (file_id INT AUTO_INCREMENT PRIMARY KEY, "
@@ -355,8 +377,7 @@ function createFileTable(){
                     + "sub_addr VARCHAR(256), "
                     + "num_individuals INT, "
                     + "num_families INT);";
-    var deleteTable = "DROP TABLE IF EXISTS FILE;"
-    connection.query(deleteTable);
+    deleteFileTable();
     connection.query(createTable);
 }//end func
 
