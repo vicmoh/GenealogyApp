@@ -311,34 +311,28 @@ app.get('/login', function (req, res){
 
 app.get('/dbStoreFile', function (req, res){
     console.log("calling dbStoreFile");
-    //dec vars
+    //create the table
+    createFileTable();
     for(var x=0; x<listOfFileLogObjects.length; x++){
         //dec vars
         console.log("before SQL = " + listOfFileLogObjects[x]);
-        var stringOfFileQuery =+ fileLogToSQL(listOfFileLogObjects[x]); 
-        var ifObjectEmpty = isEmptyObject(stringOfFileQuery);
-        //error check
-        if(ifObjectEmpty == true){
-            break;
-        }//end if
+        var stringOfFileQuery = fileLogToSQL(listOfFileLogObjects[x]);
+        console.log("stringOfFileQuery = ", stringOfFileQuery);
+        connection.query(stringOfFileQuery, function (err, rows, fields) {
+            if (err) {
+                console.log("Something went wrong. "+err)
+            }else{
+                console.log("Rows:");
+                for (let row of rows){
+                    console.log(row);
+                }//end for
+                console.log("Fields:");
+                for (let field of fields){
+                    console.log(field);
+                }//end for
+            }//end if
+        });
     }//end for
-
-    //create the table
-    createFileTable();
-    connection.query(stringOfFileQuery, function (err, rows, fields) {
-        if (err) {
-            console.log("Something went wrong. "+err)
-        }else{
-            console.log("Rows:");
-            for (let row of rows){
-                console.log(row);
-            }//end for
-            console.log("Fields:");
-            for (let field of fields){
-                console.log(field);
-            }//end for
-        }
-    });
 });
 
 app.get('/dbClearFile', function (req, res){
