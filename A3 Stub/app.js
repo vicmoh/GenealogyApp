@@ -311,11 +311,10 @@ app.get('/login', function (req, res){
 app.get('/dbStoreFile', function (req, res){
     console.log("calling dbStoreFile");
     //dec vars
-    var tempListOfFileNames = getListFileNames();
-    for(var x=0; x<tempListOfFileNames.length; x++){
+    for(var x=0; x<listOfFileLogObjects.length; x++){
         //dec vars
-        console.log("before SQL = " + tempListOfFileNames[x]);
-        var stringOfFileQuery =+ fileLogToSQL(tempListOfFileNames[x]); 
+        console.log("before SQL = " + listOfFileLogObjects[x]);
+        var stringOfFileQuery =+ fileLogToSQL(listOfFileLogObjects[x]); 
         var ifObjectEmpty = isEmptyObject(stringOfFileQuery);
         //error check
         if(ifObjectEmpty == true){
