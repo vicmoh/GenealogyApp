@@ -360,7 +360,7 @@ function createFileTable(){
                     + "sub_addr VARCHAR(256), "
                     + "num_individuals INT, "
                     + "num_families INT);";
-    var deleteTable = "DROP TABLE IF EXIST FILE;"
+    var deleteTable = "DROP TABLE IF EXISTS FILE;"
     connection.query(deleteTable);
     connection.query(createTable);
 }//end func
