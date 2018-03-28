@@ -363,7 +363,7 @@ app.get('/dbQueryInputs', function (req, res){
  **********************************************************************/
 
 function deleteFileTable(){
-    var deleteTable = "DROP TABLE IF EXISTS FILE;"
+    var deleteTable = "DROP TABLE IF EXISTS FILE;";
     connection.query(deleteTable);
 }//end func
 
