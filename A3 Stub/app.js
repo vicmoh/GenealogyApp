@@ -375,7 +375,7 @@ function fileLogToSQL(data){
                     + data.subAddress + ", "
                     + data.indiNum + ", "
                     + data.famNum + ")";
-    var tableToBeInserted = "INSERT INTO FILE "+ heading +" VALUES "+ values;
+    var tableToBeInserted = "INSERT INTO FILE "+ heading +" VALUES "+ values +";";
     console.log(tableToBeInserted);
     return tableToBeInserted;
 }
