@@ -359,9 +359,47 @@ app.get('/dbQueryInputs', function (req, res){
     });
 });
 
+app.get('/dbQueryOuputs', function (req, res){
+    console.log("calling dbQueryOuputs");
+    getNumberOfFileAndIndi();
+});
+
+
 /**********************************************************************
  * functions
  **********************************************************************/
+
+function getNumberOfFileAndIndi(){
+    var fileNum = 0;
+    var indiNum = 0;
+    connection.query("SELECT * FROM FILE", function (err, rows, fields) {
+        //Throw an error if we cannot run the query 
+        if (err) 
+            console.log("Something went wrong. "+err);
+        else {
+            console.log("Database contents sorted by last name:");
+    
+            //Rows is an array of objects.  Each object has fields corresponding to table columns
+            for (let row of rows){
+                fileNum = fileNum + 1;
+                indiNum = indiNum + row.num_individuals;
+                console.log("getNumberOfFileAndIndi = " + printDBstatus(fileNum, row.num_individuals));
+            }//end ffor
+        }//end if
+        // console.log("Rows:");
+        // for (let row of rows){
+        //     console.log(row);
+        // }
+        // console.log("Fields:");
+        // for (let field of fields){
+        //     console.log(field);
+        // }
+    });
+}//end func
+
+function printDBstatus(numData, numIndi){
+    return "Database has " + numData + " files and " + numIndi + "individuals"
+}//end func
 
 function deleteFileTable(){
     var deleteTable = "DROP TABLE IF EXISTS FILE;";

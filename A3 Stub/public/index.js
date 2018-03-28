@@ -499,7 +499,7 @@ $(document).ready(function() {
         $.ajax({
             type: 'get',
             dataType: 'json',
-            url: '/dbQueryInputs',
+            url: '/dbQueryOuputs',
             data: {input: input},
             success: function (data) {
                 console.log("ajax pass");
@@ -514,8 +514,7 @@ $(document).ready(function() {
         var emptyString = "";
         $('#textAreaQueryID').val(emptyString)
     });//ennd  jquery
-    
-    
+
 
 });//end doc ready jq
 
