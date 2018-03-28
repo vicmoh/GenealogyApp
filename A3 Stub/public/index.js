@@ -511,6 +511,77 @@ $(document).ready(function() {
  * functions
  *******************************************************************************/
 
+ function appendIndiTable(data, toBeAppend){
+    console.log("calling appendIndiTable");
+    //remove the items inside the table
+    var thead = toBeAppend + "thead";
+    var tbody = toBeAppend + "tbody";
+    $(thead).remove();
+    $(tbody).remove();
+    //append the header
+    var headerHtml = toBeAppend
+        + "<thead>"
+        + "<tr>"
+        + "<th>#</th>"
+        + "<th>Given Name</th>"
+        + "<th>Surname</th>"
+        + "<th>Sex</th>"
+        + "<th>Family Size</th>"
+        + "</tr>"
+        + "</thead>"
+    &(toBeAppend).append(headerHtml);
+    //append the body
+    for(var x = 1; x<data.length; x++){
+        var tableSections  = "<tbody><tr>"
+            +"<td>" + x + "</td>"
+            +"<td>" + data[x].givenName + "</td>"
+            +"<td>" + data[x].surname + "</td>"
+            +"<td>" + data[x].sex + "</td>"
+            +"<td>" + data[x].famNum + "</td>"
+            +"</tr></tbody>"
+        $(toBeAppend).append(tableSections);
+    }//end for
+ }//end func
+
+function appendFileTable(data, toBeAppend){
+    console.log("calling appendFileTable");
+    //remove the items inside the table
+    var thead = toBeAppend + "thead";
+    var tbody = toBeAppend + "tbody";
+    $(thead).remove();
+    $(tbody).remove();
+    //append the header
+    var headerHtml = toBeAppend
+        + "<thead>"
+        + "<tr>"
+        + "<th>File Name</th>"
+        + "<th>Source</th>"
+        + "<th>GEDCOM Version</th>"
+        + "<th>Encoding</th>"
+        + "<th>Submitter Name</th>"
+        + "<th>Submitter Address</th>"
+        + "<th>Number of Individuals</th>"
+        + "<th>Number of Families</th>"
+        + "</tr>"
+        + "</thead>";
+    $(toBeAppend).append(headerHtml);
+    //append the body
+    for(var x = 0; x<data.length; x++){
+        var gedFileNameStringOnly = data[x].fileName.substring(10, data[x].fileName.length);
+        var tableSections  = "<tbody><tr>"
+            +"<td><a class=\"setLightBlue\" href=\"" + data[x].fileName +"\">" + gedFileNameStringOnly + "</a></td>"
+            +"<td>" + data[x].source + "</td>"
+            +"<td>" + data[x].gedcVersion + "</td>"
+            +"<td>" + data[x].encoding + "</td>"
+            +"<td>" + data[x].subName + "</td>"
+            +"<td>" + data[x].subAddress + "</td>"
+            +"<td>" + data[x].indiNum + "</td>"
+            +"<td>" + data[x].famNum + "</td>"
+            +"</tr></tbody>";
+        $(toBeAppend).append(tableSections);
+    }//end for
+}//end func 
+
 function fileInfoAjax(){
     $.ajax({
         type: 'get',
