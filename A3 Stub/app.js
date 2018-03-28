@@ -182,10 +182,10 @@ app.get('/getFileList', function(req , res){
 });
 
 //get request for the web objects
+var listOfFileLogObjects = [];
 app.get('/getFileLogs', function(req , res){
     var fileNames = getListFileNames();
     var jsonString;
-    var listOfFileLogObjects = [];
     for(var x=0; x<fileNames.length; x++){
         var currentFileName = "./uploads/" + fileNames[x];
         console.log("getFileLogs = " + currentFileName);
@@ -306,10 +306,40 @@ app.get('/login', function (req, res){
     });
 });
 
+app.get('/dbStoreFile', function (req, res){
+    console.log("calling dbStoreFile");
+    //dec vars
+    var tempListOfFileNames = getListFileNames();
+    for(var x=0; x<tempListOfFileNames.length; x++){
+        parserLib.
+    }//end for
+});
+
+app.get('/dbClearFile', function (req, res){
+    console.log("calling dbClearFile");
+    
+});
+
+
+
 
 /**********************************************************************
  * functions
  **********************************************************************/
+
+function insertObject(data){
+    var heading = "(file_Name, source, version, encoding, sub_name, sub_addr, num_individuals, num_families)";
+    var values = "("+ data.fileaName + ", "
+                    + data.source + ", "
+                    + data.gedcVersion + ", "
+                    + data.encoding + ", "
+                    + data.subName + ", "
+                    + data.subAddress + ", "
+                    + data.indiNum + ", "
+                    + data.famNum + ")";
+    var tableToBeInserted = "INSERT INTO student "+ heading +" VALUES "+ values;
+    return tableToBeInserted;
+}
 
 function getListFileNames(){
     //dec vars

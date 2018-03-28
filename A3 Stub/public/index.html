@@ -302,14 +302,13 @@ Program: This will the main html source for the interface
                 <h2 class="titlePadding setBold ">DATABASE</h2>
                 <!--close button for popup-->
                 <a class="closePopup" href="#close">&times;</a>
-                <!-- select file drop down menu-->
-                <p>Choose file: <select class="" id="">
-                    <option disabled selected>Select File</option>
-                </select></p>
                 <!--popup info-->
                 <textarea class="queryTextarea" id="textAreaQuery" rows="5"></textarea>
+                <!-- button for database -->
                 <div class="standardPadding setWhite setTimesNewRomanFont">
-                    <a class="btn setButtonDarkRed " href="#">Query</a>
+                    <a class="btn setButtonDarkRed " href="#close" id="storeAllFilesID">Store All Files</a>
+                    <a class="btn setButtonDarkRed" href="#close" id="clearAllDataID">Clear All Data</a>
+                    <a class="btn setButtonDarkRed " href="#close" id="executeQueryID">Execute Query</a>
                     <a class="btn setButtonDarkRed" href="#close">Cancel</a>
                 </div>
             </div>
