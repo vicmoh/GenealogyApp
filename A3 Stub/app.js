@@ -399,3 +399,12 @@ function addIndividual(){
     var desc = parserLib.descToJSON(GEDFileName, "William", "Shakespeare", 0);
     parserLib.writeString(JSONFileName, desc);
 }//end func
+
+function isEmptyObject(obj) {
+    for(var prop in obj) {
+        if (Object.prototype.hasOwnProperty.call(obj, prop)) {
+            return false;
+        }//end if
+    }//end for
+    return true;
+}//end func
