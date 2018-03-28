@@ -361,17 +361,6 @@ app.get('/dbQueryInputs', function (req, res){
 
 app.get('/dbQueryOuputs', function (req, res){
     console.log("calling dbQueryOuputs");
-    var fileInfo = getNumberOfFileAndIndi();
-    console.log("dbaQueryOutputs: " + "fileNum = " + fileInfo.fileNum + " indiNum  = ", fileInfo.indiNum);
-    res.send(fileInfo);
-});
-
-
-/**********************************************************************
- * functions
- **********************************************************************/
-
-function getNumberOfFileAndIndi(){
     //dec vars
     var fileInfo = {fileNum: 0, indiNum: 0};
     //connect
@@ -388,11 +377,16 @@ function getNumberOfFileAndIndi(){
                 fileInfo.indiNum = fileInfo.indiNum + row.num_individuals;
                 console.log("getNumberOfFileAndIndi = " + printDBstatus(fileInfo.fileNum, row.num_individuals));
             }//end ffor
-            return fileInfo;
+            res.send(fileInfo);
         }//end if
     });
-    return fileInfo;
-}//end func
+    console.log("dbaQueryOutputs: " + "fileNum = " + fileInfo.fileNum + " indiNum  = ", fileInfo.indiNum);
+});
+
+
+/**********************************************************************
+ * functions
+ **********************************************************************/
 
 function printDBstatus(numData, numIndi){
     return "Database has " + numData + " files and " + numIndi + " individuals";
