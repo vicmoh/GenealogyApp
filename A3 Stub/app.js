@@ -362,6 +362,7 @@ app.get('/dbQueryInputs', function (req, res){
 app.get('/dbQueryOuputs', function (req, res){
     console.log("calling dbQueryOuputs");
     var fileInfo = getNumberOfFileAndIndi();
+    console.log("dbaQueryOutputs: " + "fileNum = " + fileInfo.fileNum + "indiNum  = ", fileInfo.indiNum);
     res.send(fileInfo);
 });
 
