@@ -311,7 +311,21 @@ app.get('/dbStoreFile', function (req, res){
     //dec vars
     var tempListOfFileNames = getListFileNames();
     for(var x=0; x<tempListOfFileNames.length; x++){
-        parserLib.
+        var stringOfFileQuery = fileLogToSQL(tempListOfFileNames[x]); 
+        connection.query(stringOfFileQuery, function (err, rows, fields) {
+            if (err) {
+                console.log("Something went wrong. "+err)
+            }else{
+                console.log("Rows:");
+                for (let row of rows){
+                    console.log(row);
+                }
+                console.log("Fields:");
+                for (let field of fields){
+                    console.log(field);
+                }
+            }
+        });
     }//end for
 });
 
@@ -327,7 +341,7 @@ app.get('/dbClearFile', function (req, res){
  * functions
  **********************************************************************/
 
-function insertObject(data){
+function fileLogToSQL(data){
     var heading = "(file_Name, source, version, encoding, sub_name, sub_addr, num_individuals, num_families)";
     var values = "("+ data.fileaName + ", "
                     + data.source + ", "

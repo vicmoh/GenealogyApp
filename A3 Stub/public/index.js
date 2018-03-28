@@ -450,6 +450,23 @@ $(document).ready(function() {
         $('#passID').val(empty);
         $('#dbaseID').val(empty);
     });
+
+    //store file logs to data base
+    $('#storeAllFilesID').click(function(){
+        console.log("calling storeAllFilesID");
+        $.ajax({
+            type: 'get',
+            dataType: 'json',
+            url: '/dbStoreFile',
+            success: function (data) {
+                console.log("ajax pass");
+            },
+            fail: function(error) {
+                // Non-200 return, do something with error
+                console.log("ajax error returned = " + error); 
+            }
+        });//end ajax
+    });
 });//end doc ready jq
 
 /*******************************************************************************
