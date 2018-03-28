@@ -320,16 +320,17 @@ app.get('/dbStoreFile', function (req, res){
         console.log("stringOfFileQuery = ", stringOfFileQuery);
         connection.query(stringOfFileQuery, function (err, rows, fields) {
             if (err) {
-                console.log("Something went wrong. "+err)
+                console.log("Something went wrong. "+err);
             }else{
-                console.log("Rows:");
-                for (let row of rows){
-                    console.log(row);
-                }//end for
-                console.log("Fields:");
-                for (let field of fields){
-                    console.log(field);
-                }//end for
+                // console.log("Rows:");
+                // for (let row of rows){
+                //     console.log(row);
+                // }//end for
+                // console.log("Fields:");
+                // for (let field of fields){
+                //     console.log(field);
+                // }//end for
+                console.log("file table created successfully");
             }//end if
         });
     }//end for
