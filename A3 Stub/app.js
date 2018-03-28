@@ -193,10 +193,10 @@ app.get('/getFileLogs', function(req , res){
         console.log("getFileLogs = " + currentFileName);
         var jsonString = parserLib.GEDCOMtoJSON(currentFileName);
         console.log("GEDCOMtoJSON did not crash");
-        var tempFileLogObject = JSON.parse(jsonString);
+        var tempFileLogObject = [];
+        tempFileLogObject = JSON.parse(jsonString);
         console.log(tempFileLogObject);
         listOfFileLogObjects.push(tempFileLogObject);
-        listOfFileLogObjects[x].push({fileName : fileNames[x]});
     }//end for
     res.send(listOfFileLogObjects);
     console.log(listOfFileLogObjects);
@@ -367,7 +367,7 @@ function createFileTable(){
 
 function fileLogToSQL(data){
     var heading = "(file_Name, source, version, encoding, sub_name, sub_addr, num_individuals, num_families)";
-    var values = "("+ data.fileaName + ", "
+    var values = "("+ data.fileName + ", "
                     + data.source + ", "
                     + data.gedcVersion + ", "
                     + data.encoding + ", "
