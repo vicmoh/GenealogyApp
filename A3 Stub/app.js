@@ -303,7 +303,7 @@ app.get('/login', function (req, res){
             console.log("login failed!");
         }else{
             console.log("login successfully!");
-            result = true;
+            result = false;
             res.send(result);
         }
     });
@@ -352,7 +352,7 @@ app.get('/dbQueryInputs', function (req, res){
             res.send(result);
         }else{
             console.log("successfully quried");
-            result = true;
+            result = false;
             res.send(result);
         }//end if
     });

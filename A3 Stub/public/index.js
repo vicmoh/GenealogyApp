@@ -466,7 +466,7 @@ $(document).ready(function() {
                 console.log("ajax error returned = " + error); 
             }
         });//end ajax
-    });
+    });//end jquery
 
     //clear all files
     $('#clearAllDataID').click(function(){
@@ -489,7 +489,7 @@ $(document).ready(function() {
                 console.log("ajax error returned = " + error); 
             }
         });//end ajax
-    });
+    });//end jquery
 
     //clear all files
     $('#executeQueryID').click(function(){
@@ -510,7 +510,10 @@ $(document).ready(function() {
                 console.log("ajax error returned = " + error); 
             }
         });//end ajax
-    });
+        //empty the text area
+        var emptyString = "";
+        $('#textAreaQueryID').val(emptyString)
+    });//ennd  jquery
 
 });//end doc ready jq
 
