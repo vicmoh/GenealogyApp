@@ -514,6 +514,8 @@ $(document).ready(function() {
         var emptyString = "";
         $('#textAreaQueryID').val(emptyString)
     });//ennd  jquery
+    
+    
 
 });//end doc ready jq
 
