@@ -338,7 +338,8 @@ app.get('/dbStoreFile', function (req, res){
 
 app.get('/dbClearFile', function (req, res){
     console.log("calling dbClearFile");
-    deleteFileTable();
+    var deleteTable = "DELETE FROM TABLE FILE;";
+    connection.query(deleteTable);
 });
 
 app.get('/dbQueryInputs', function (req, res){
