@@ -362,7 +362,7 @@ app.get('/dbQueryInputs', function (req, res){
 app.get('/dbQueryOuputs', function (req, res){
     console.log("calling dbQueryOuputs");
     var fileInfo = getNumberOfFileAndIndi();
-    console.log("dbaQueryOutputs: " + "fileNum = " + fileInfo.fileNum + "indiNum  = ", fileInfo.indiNum);
+    console.log("dbaQueryOutputs: " + "fileNum = " + fileInfo.fileNum + " indiNum  = ", fileInfo.indiNum);
     res.send(fileInfo);
 });
 
@@ -388,6 +388,7 @@ function getNumberOfFileAndIndi(){
                 fileInfo.indiNum = fileInfo.indiNum + row.num_individuals;
                 console.log("getNumberOfFileAndIndi = " + printDBstatus(fileInfo.fileNum, row.num_individuals));
             }//end ffor
+            return fileInfo;
         }//end if
     });
     return fileInfo;
