@@ -496,7 +496,7 @@ $(document).ready(function() {
     });//end jquery
 
     //clear all files
-    $('#executeQueryID').click(function(){
+    $('#executeQueryID').click(function(event){
         console.log("calling textAreaQueryID");
         var input = $('#textAreaQueryID').val();
         console.log("input = " + input);
@@ -505,6 +505,7 @@ $(document).ready(function() {
         //empty the text area
         var emptyString = "";
         $('#textAreaQueryID').val(emptyString);
+        event.preventDefault();
     });//ennd  jquery
 
     //clear all files
