@@ -517,7 +517,7 @@ $(document).ready(function() {
     
         //dec var
         console.log("calling selectQueryID");
-        var q1 = "SELECT * FROM INDIVIDUAL ORDER BY last_name;";
+        var q1 = "SELECT * FROM INDIVIDUAL ORDER BY surname;";
         var q2 = "SELECT * FROM INDIVIDUAL WHERE source_file = (SELECT file_id FROM FILE WHERE file_Name = \" \");";
         var id = document.getElementById('selectQuary');
 
