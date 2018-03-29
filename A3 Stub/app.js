@@ -436,8 +436,8 @@ function createFileTable(){
 
 function createIndiTable(){
     var createTable = "CREATE TABLE IF NOT EXISTS INDIVIDUAL (ind_id INT AUTO_INCREMENT PRIMARY KEY, "
-                    + "surname VARCHAR(256), NOT NULL, "
-                    + "given_name VARCHAR(256), NOT NULL, "
+                    + "surname VARCHAR(256) NOT NULL, "
+                    + "given_name VARCHAR(256) NOT NULL, "
                     + "sex VARCHAR(1), "
                     + "fam_size INT, "
                     + "source_file INT);";
