@@ -530,8 +530,6 @@ function appendToTable(data, toBeAppend){
     //dev vars
     var header = "";
     var headerList = "";
-    var body = "";
-    var bodyList = "";
 
     //create the keys 
     var keys = Object.keys(data[0]);
@@ -544,14 +542,16 @@ function appendToTable(data, toBeAppend){
 
     //create the value
     for(var x=0; x<data.length; x++){
+        var body = "";
+        var bodyList = "";
         var values = Object.values(data[x]);
         console.log("values = " + values);
         for(var y=0; y<values.length; y++){
-            var bodyList = "<th>" + values[y] + "</th>";
-            body = body + "<tbody><tr>"+ bodyList + "</tr></tbody>";
+            bodyList =+ "<th>" + values[y] + "</th>";
         }//end for
+        body = "<tbody><tr>"+ bodyList + "</tr></tbody>";
+        $(toBeAppend).append(body);
     }//end for
-    $(toBeAppend).append(body);
 }//end func
 
 function appendIndiTable(data, toBeAppend){
