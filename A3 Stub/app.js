@@ -399,8 +399,8 @@ function createIndiTable(){
                     + "sub_addr VARCHAR(256), "
                     + "num_individuals INT, "
                     + "num_families INT);";
-    deleteFileTable("INDIVIDUAL");
     connection.query(createTable);
+    deleteFileTable("INDIVIDUAL");
 }//end func
 
 function createFileTable(){
@@ -412,8 +412,8 @@ function createFileTable(){
                     + "sub_name VARCHAR(62) NOT NULL, "
                     + "sub_addr VARCHAR(256), "
                     + "source_file: INT);";
-    deleteFileTable("FILE");
     connection.query(createTable);
+    deleteFileTable("FILE");
 }//end func
 
 function indiLogToSQL(data, sourceFileID){
