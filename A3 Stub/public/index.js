@@ -449,6 +449,7 @@ $(document).ready(function() {
         $('#userID').val(empty);
         $('#passID').val(empty);
         $('#dbaseID').val(empty);
+        event.preventDefault();
     });
 
     //store file logs to data base
