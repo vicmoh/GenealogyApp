@@ -282,11 +282,12 @@ app.get('/login', function (req, res){
     var result = false;
     console.log("app.js user = " + user + ", passID = " + pass + ", dbase = " + dbase);
     connection = mysql.createConnection({
-       host     : 'dursley.socs.uoguelph.ca',
-       user     :  user,
-       password :  pass,
-       database :  dbase
+        host     : 'dursley.socs.uoguelph.ca',
+        user     :  user,
+        password :  pass,
+        database :  dbase
     });
+    connection.connect("CREATE TABLE FILE IF NOT EXISTS;");
     connection.connect(function(err) {
         if (err) {
             result = true;
