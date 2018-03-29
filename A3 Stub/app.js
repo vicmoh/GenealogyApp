@@ -344,7 +344,7 @@ app.get('/dbStoreFile', function (req, res){
                 console.log("inditable: fileName = "+fileName+" fileID = "+fileID);
                 console.log("numIndi = " + numIndi);
                 if(numIndi > 0 ){
-                    indiList = parserLib.getIndiListJSON(fileName);
+                    var indiList = parserLib.getIndiListJSON(fileName);
                     //inputing the indi table
                     for(var x; x<indiList.length; x++){
                         var inputIndiTableQuery = indiLogToSQL(indiList[x], fileID);
