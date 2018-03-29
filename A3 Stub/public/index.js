@@ -536,18 +536,18 @@ function appendToTable(data, toBeAppend){
     //create the keys 
     var keys = Object.keys(data[0]);
     console.log("keys = " + keys);
-    for(var x in keys){
+    for(var x=0; x<keys.length; x++){
         var headerList = headerList + "<th>"+ keys[x] +"</th>";
         header = "<thead><tr>" + headerList + "</tr></thead>";
     }//end for
     $(toBeAppend).append(header);
 
     //create the value
-    for(var x in data){
+    for(var x=0; x<data.length; x++){
         var values = Object.values(data[x]);
         console.log("values = " + values);
         var bodyList = bodyList + "<th>" + values[x] + "</th>";
-        for(var y in values){
+        for(var y=0; y<values.length; y++){
             body = "<tbody><tr>"+ bodyList + "</tr></tbody>";
         }//end for
     }//end for
