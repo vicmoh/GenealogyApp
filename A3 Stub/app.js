@@ -449,6 +449,7 @@ function createIndiTable(){
 }//end func
 
 function indiLogToSQL(data, sourceFileID){
+    console.log(data);
     var heading = "(surname, given_name, sex, fam_size, source_file)";
     var values = "('"+ data.surname + "', '"
                     + data.givenName + "', '"
