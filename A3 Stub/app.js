@@ -316,7 +316,7 @@ app.get('/dbStoreFile', function (req, res){
                 console.log("file table created successfully");
                 
                 //connect the 
-                fileName = listOfFileLogObjects.fileName;
+                var fileName = listOfFileLogObjects.fileName;
                 var selectQuery = "SELECT file_id FROM FILE WHERE file_Name = " + fileName;
                 
                 connection.query(selectQuery, function (err, rows, fields) {
