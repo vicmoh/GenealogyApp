@@ -384,13 +384,13 @@ function printDBstatus(numData, numIndi){
     return "Database has " + numData + " files and " + numIndi + " individuals";
 }//end func
 
-function deleteFileTable(){
-    var deleteTable = "DELETE FROM FILE;";
+function deleteFileTable(tableName){
+    var deleteTable = "DELETE FROM " + tableName +";";
     connection.query(deleteTable);
 }//end func
 
 function createIndiTable(){
-    var createTable = "CREATE TABLE FILE (ind_id: INT, AUTO_INCREMENT, PRIMARY KEY, "
+    var createTable = "CREATE TABLE IF NOT EXISTS INDIVIDUAL (ind_id: INT, AUTO_INCREMENT, PRIMARY KEY, "
                     + "file_Name VARCHAR(60) NOT NULL, "
                     + "source VARCHAR(250) NOT NULL, "
                     + "version VARCHAR(10) NOT NULL, "
@@ -399,13 +399,12 @@ function createIndiTable(){
                     + "sub_addr VARCHAR(256), "
                     + "num_individuals INT, "
                     + "num_families INT);";
-    connection.connect("CREATE TABLE FILE IF NOT EXISTS;");
-    deleteFileTable();
+    deleteFileTable("INDIVIDUAL");
     connection.query(createTable);
 }//end func
 
 function createFileTable(){
-    var createTable = "CREATE TABLE FILE (file_id INT AUTO_INCREMENT PRIMARY KEY, "
+    var createTable = "CREATE TABLE IF NOT EXISTS FILE (file_id INT AUTO_INCREMENT PRIMARY KEY, "
                     + "surname: VARCHAR(256), NOT NULL, "
                     + "given_name: VARCHAR(256), NOT NULL, "
                     + "sex: VARCHAR(1), "
@@ -413,7 +412,7 @@ function createFileTable(){
                     + "sub_name VARCHAR(62) NOT NULL, "
                     + "sub_addr VARCHAR(256), "
                     + "source_file: INT);";
-    deleteFileTable();
+    deleteFileTable("FILE");
     connection.query(createTable);
 }//end func
 
