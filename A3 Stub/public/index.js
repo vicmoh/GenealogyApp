@@ -522,8 +522,8 @@ $(document).ready(function() {
 function appendToTable(data, toBeAppend){
     console.log("calling appendToQueryTable");
     //remove the items inside the table
-    var thead = toBeAppend + "thead";
-    var tbody = toBeAppend + "tbody";
+    var thead = toBeAppend + " thead";
+    var tbody = toBeAppend + " tbody";
     $(thead).remove();
     $(tbody).remove();
 
@@ -546,9 +546,10 @@ function appendToTable(data, toBeAppend){
     //create the value
     for(var x in data){
         var values = Object.values(data[x]);
+        console.values("values = " + values);
         for(var y in values){
             var bodyList = bodyList + "<th>" + values + "</th>";
-            body = "<tbody><tr>"+ bodyList + "</tbody><tr>";
+            body = "<tbody><tr>"+ bodyList + "</tr></tbody>";
         }//end for
     }//end for
     $(toBeAppend).append(body);
