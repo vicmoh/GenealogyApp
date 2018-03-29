@@ -525,7 +525,7 @@ $(document).ready(function() {
         if(id = "sq1"){
             $(jqueryID).val(q1);
         }else if(id = "sq2"){
-            document.getElementById('queryPopupID').href;
+            window.location = document.getElementById('queryPopupID').href;
         }else if(id = "sq3"){
 
         }else if(id = "sq4"){
