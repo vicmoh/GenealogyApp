@@ -340,20 +340,21 @@ app.get('/dbStoreFile', function (req, res){
             for (let row of rows){
                 var fileName = row.file_Name;
                 var fileID = row.file_id;
-                console.log("inditable: fileName = "+fileName+"fileID = "+fileID);
+                console.log("inditable: fileName = "+fileName+" fileID = "+fileID);
                 indiList = parserLib.getIndiListJSON(fileName);
-
-                //inputing the indi table
-                for(var x; x<indiList.length; x++){
-                    var inputIndiTableQuery = indiLogToSQL(indiList[x], fileID);
-                    connection.query(inputIndiTableQuery, function (err, rows, fields) {
-                        if (err) {
-                            console.log("Something went wrong. "+err);
-                        }else{
-                            console.log("indi table created successfully");
-                        }//end if
-                    });
-                }//end for
+                if(isEmptyObject(indiList) == false){
+                    //inputing the indi table
+                    for(var x; x<indiList.length; x++){
+                        var inputIndiTableQuery = indiLogToSQL(indiList[x], fileID);
+                        connection.query(inputIndiTableQuery, function (err, rows, fields) {
+                            if (err) {
+                                console.log("Something went wrong. "+err);
+                            }else{
+                                console.log("indi table created successfully");
+                            }//end if
+                        });
+                    }//end for
+                }
             }//end for
         }//end if
     });
