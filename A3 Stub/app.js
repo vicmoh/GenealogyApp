@@ -320,7 +320,7 @@ app.get('/dbStoreFile', function (req, res){
                 var selectQuery = "SELECT file_id FROM FILE WHERE file_Name = " + fileName;
                 
                 connection.query(selectQuery, function (err, rows, fields) {
-                    console.log("testing the select query: \n" + rows);
+                    console.log("testing the select query: \n"+ err +" "+" "+ rows +" "+ fields);
                 });
 
             }//end if
