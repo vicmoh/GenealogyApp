@@ -541,19 +541,17 @@ function appendToTable(data, toBeAppend){
         header = "<thead><tr>" + headerList + "</tr></thead>";
     }//end for
     $(toBeAppend).append(header);
-    console.log("header = " + header);
 
     //create the value
     for(var x in data){
         var values = Object.values(data[x]);
         console.log("values = " + values);
+        var bodyList = bodyList + "<th>" + values[x] + "</th>";
         for(var y in values){
-            var bodyList = bodyList + "<th>" + values[x] + "</th>";
             body = "<tbody><tr>"+ bodyList + "</tr></tbody>";
         }//end for
     }//end for
     $(toBeAppend).append(body);
-    console.log("body = " + body);
 }//end func
 
 function appendIndiTable(data, toBeAppend){
