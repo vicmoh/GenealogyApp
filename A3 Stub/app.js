@@ -287,7 +287,6 @@ app.get('/login', function (req, res){
         password :  pass,
         database :  dbase
     });
-    connection.connect("CREATE TABLE FILE IF NOT EXISTS;");
     connection.connect(function(err) {
         if (err) {
             result = true;
@@ -297,6 +296,7 @@ app.get('/login', function (req, res){
             console.log("login successfully!");
             result = false;
             res.send(result);
+            connection.connect("CREATE TABLE FILE IF NOT EXISTS;");
         }
     });
 });
@@ -323,8 +323,6 @@ app.get('/dbStoreFile', function (req, res){
                 connection.query(selectQuery, function (err, rows, fields) {
                     console.log("testing the select query: \n" + rows);
                 });
-
-                
 
             }//end if
         });
