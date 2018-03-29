@@ -517,7 +517,7 @@ $(document).ready(function() {
  * functions
  *******************************************************************************/
 
-function appendToQueryTable(data, toBeAppend){
+function appendToTable(data, toBeAppend){
     console.log("calling appendToQueryTable");
     //remove the items inside the table
     var thead = toBeAppend + "thead";
@@ -632,6 +632,23 @@ function fileInfoAjax(){
             console.log("ajax pass");
             console.log("fileNum = " + data.fileNum + ", indiNum = " + data.indiNum);
             appendStringToStatus(printDBstatus(data.fileNum, data.indiNum));
+        },
+        fail: function(error) {
+            // Non-200 return, do something with error
+            console.log("ajax error returned = " + error); 
+        }
+    });//end ajax
+}//end func
+
+function executeQueryAjax(){
+    $.ajax({
+        type: 'get',
+        dataType: 'json',
+        url: '/dbQueryInputs',
+        success: function (data) {
+            console.log("ajax pass");
+            console.log("ajax data = " + data);
+            appendToTable(data, '#queryTableID');
         },
         fail: function(error) {
             // Non-200 return, do something with error
