@@ -192,8 +192,8 @@ Program: This will the main html source for the interface
                 <!-- select query -->
                 <div><select class="setWidthToMax" id="selectQueryID">
                     <option disabled selected>Select Query</option>
-                    <option id="sq1">ALL INDI BY LAST NAME</option>
-                    <option id="sq2">Query 2</option>
+                    <option id="sq1">Get all individuals sorted by last name</option>
+                    <option id="sq2">Get the individuals from a specific file</option>
                     <option id="sq3">Query 3</option>
                     <option id="sq4">Query 4</option>
                     <option id="sq5">Query 5</option>
@@ -356,6 +356,28 @@ Program: This will the main html source for the interface
                 </div>
                 <div class="standardPadding setWhite setTimesNewRomanFont">
                     <a class="btn setButtonDarkRed" href="#statusPanelID" id="loginButtonID">Login</a>
+                    <a class="btn setButtonDarkRed" href="#close">Cancel</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="queryPopupID" class="overlay">
+            <div class="popupDisplay centerContent">
+                <h2 class="titlePadding setBold ">CHOOSE QUERY</h2>
+                <!--close button for popup-->
+                <a id="closeID" class="closePopup" href="#close">&times;</a>
+                <!-- select file drop down menu-->
+                <p>Choose file:</p>
+                <select class="queryFileSelection" id="queryFileSelection">
+                    <option disabled selected>Select File</option>
+                </select>
+                <!--popup info-->
+                <!-- <div class="popupInfo standardPadding setBold">
+                    <p></p>
+                    <input id=""></input>
+                </div> -->
+                <div class="standardPadding setWhite setTimesNewRomanFont">
+                    <a class="btn setButtonDarkRed" href="#close" id="queryPopupButtonID">Okay</a>
                     <a class="btn setButtonDarkRed" href="#close">Cancel</a>
                 </div>
             </div>

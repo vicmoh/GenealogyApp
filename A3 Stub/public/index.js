@@ -510,21 +510,29 @@ $(document).ready(function() {
 
     //clear all files
     $('#selectQueryID').change('click', function(event){
+        //empty textare
+        var emptyString = "";
+        var jqueryID = '#textAreaQueryID';
+        $(jqueryID).val(emptyString);
+    
+        //dec var
         console.log("calling selectQueryID");
         var q1 = "SELECT * FROM INDIVIDUAL ORDER BY last_name;";
         var q2 = "SELECT * FROM INDIVIDUAL WHERE source_file = (SELECT file_id FROM FILE WHERE file_Name = \" \");";
         var id = document.getElementById('selectQuary');
+
+        //condition based on select query
         if(id = "sq1"){
-            
-        }else if(id = "sq1"){
+            $(jqueryID).val(q1);
+        }else if(id = "sq2"){
+            document.getElementById('queryPopupID').href;
+        }else if(id = "sq3"){
 
-        }else if(id = "sq1"){
+        }else if(id = "sq4"){
 
-        }else if(id = "sq1"){
+        }else if(id = "sq5"){
 
-        }else if(id = "sq1"){
-
-        }
+        }//end if
     });//ennd  jquery
 
 });//end doc ready jq
