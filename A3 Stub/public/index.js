@@ -501,7 +501,7 @@ $(document).ready(function() {
         var input = $('#textAreaQueryID').val();
         console.log("input = " + input);
         fileInfoAjax();
-        executeQueryAjax();
+        executeQueryAjax(input);
         //empty the text area
         var emptyString = "";
         $('#textAreaQueryID').val(emptyString)
@@ -641,11 +641,12 @@ function fileInfoAjax(){
     });//end ajax
 }//end func
 
-function executeQueryAjax(){
+function executeQueryAjax(input){
     $.ajax({
         type: 'get',
         dataType: 'json',
         url: '/dbQueryInputs',
+        data: {input: input},
         success: function (data) {
             console.log("ajax pass");
             console.log("ajax data = " + data);
