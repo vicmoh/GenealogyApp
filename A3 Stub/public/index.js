@@ -520,18 +520,18 @@ $(document).ready(function() {
         var id = document.getElementById('selectQuary');
 
         //condition based on select query
-        if(id = "sq1"){
+        if(id.val == "sq1"){
             var q1 = "SELECT * FROM INDIVIDUAL ORDER BY surname;";
             $(jqueryID).val(q1);
-        }else if(id = "sq2"){
+        }else if(id.val == "sq2"){
             window.location = document.getElementById('#queryPopupID').href;
             var q2 = "SELECT * FROM INDIVIDUAL WHERE source_file = (SELECT file_id FROM FILE WHERE file_Name = \"./uploads/shakespeare.ged\");";
             $(jqueryID).val(q2);
-        }else if(id = "sq3"){
+        }else if(id.val == "sq3"){
 
-        }else if(id = "sq4"){
+        }else if(id.val == "sq4"){
 
-        }else if(id = "sq5"){
+        }else if(id.val == "sq5"){
 
         }//end if
     });//ennd  jquery
