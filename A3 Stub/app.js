@@ -51,17 +51,8 @@ function testParserLib(){
 }//end func
 
 /**********************************************************************
- * sql
+ * global variables
  **********************************************************************/
-
-// const mysql = require('mysql');
-// const connection = mysql.createConnection({
-//     host     : 'dursley.socs.uoguelph.ca',
-//     user     : 'mohammav',
-//     password : '0895381',
-//     database : 'mohammav'
-// });
-// connection.connect();
 
 var connection;
 var listOfFileLogObjects = [];
@@ -322,15 +313,18 @@ app.get('/dbStoreFile', function (req, res){
             if (err) {
                 console.log("Something went wrong. "+err);
             }else{
-                // console.log("Rows:");
-                // for (let row of rows){
-                //     console.log(row);
-                // }//end for
-                // console.log("Fields:");
-                // for (let field of fields){
-                //     console.log(field);
-                // }//end for
                 console.log("file table created successfully");
+                
+                //connect the 
+                fileName = listOfFileLogObjects.fileName;
+                var selectQuery = "SELECT file_id FROM FILE WHERE file_Name = " + fileName;
+                
+                connection.query(selectQuery, function (err, rows, fields) {
+                    console.log("testing the select query: \n" + rows);
+                });
+
+                
+
             }//end if
         });
     }//end for
@@ -397,8 +391,8 @@ function deleteFileTable(){
     connection.query(deleteTable);
 }//end func
 
-function createFileTable(){
-    var createTable = "CREATE TABLE FILE (file_id INT AUTO_INCREMENT PRIMARY KEY, "
+function createIndiTable(){
+    var createTable = "CREATE TABLE FILE (ind_id: INT, AUTO_INCREMENT, PRIMARY KEY, "
                     + "file_Name VARCHAR(60) NOT NULL, "
                     + "source VARCHAR(250) NOT NULL, "
                     + "version VARCHAR(10) NOT NULL, "
@@ -409,6 +403,32 @@ function createFileTable(){
                     + "num_families INT);";
     deleteFileTable();
     connection.query(createTable);
+}//end func
+
+function createFileTable(){
+    var createTable = "CREATE TABLE FILE (file_id INT AUTO_INCREMENT PRIMARY KEY, "
+                    + "surname: VARCHAR(256), NOT NULL, "
+                    + "given_name: VARCHAR(256), NOT NULL, "
+                    + "sex: VARCHAR(1), "
+                    + "fam_size: INT, "
+                    + "sub_name VARCHAR(62) NOT NULL, "
+                    + "sub_addr VARCHAR(256), "
+                    + "source_file: INT);";
+    deleteFileTable();
+    connection.query(createTable);
+}//end func
+
+function indiLogToSQL(data, sourceFileID){
+    var heading = "(surname, given_name, sex, fam_size, source_file)";
+    var values = "('"+ data.fileName.slice(10) + "', '"
+                    + data.surname + "', '"
+                    + data.givenName + "', '"
+                    + data.sex + "', '"
+                    + data.famNum + "', '"
+                    + sourceFileID + "')";
+    var tableToBeInserted = "INSERT INTO FILE "+ heading +" VALUES "+ values +";";
+    console.log(tableToBeInserted);
+    return tableToBeInserted;
 }//end func
 
 function fileLogToSQL(data){
@@ -424,7 +444,7 @@ function fileLogToSQL(data){
     var tableToBeInserted = "INSERT INTO FILE "+ heading +" VALUES "+ values +";";
     console.log(tableToBeInserted);
     return tableToBeInserted;
-}
+}//end func
 
 function getListFileNames(){
     //dec vars
@@ -453,7 +473,7 @@ function writeJSONObjects(fileName, object){
     });
 }//end func
 
-function addFileNameToList(fileaName, list){
+function addFileNameToList(fileName, list){
     console.log("calling addFileName = " + fileName);
     lsit.push(fileName);
     writeJSONObjects(JSONfileName, listOfFileName);
