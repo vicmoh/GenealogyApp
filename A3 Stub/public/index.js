@@ -551,6 +551,7 @@ function appendToTable(data, toBeAppend){
         }//end for
     }//end for
     body = "<tbody><tr>"+ bodyList + "</tr></tbody>";
+    console.log("body = " + body);
     $(toBeAppend).append(body);
 }//end func
 
