@@ -501,6 +501,7 @@ $(document).ready(function() {
         var input = $('#textAreaQueryID').val();
         console.log("input = " + input);
         fileInfoAjax();
+        executeQueryAjax();
         //empty the text area
         var emptyString = "";
         $('#textAreaQueryID').val(emptyString)
