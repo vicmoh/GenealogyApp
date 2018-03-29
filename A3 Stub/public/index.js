@@ -418,7 +418,7 @@ $(document).ready(function() {
     });//end jquery
 
     //login
-    $('#loginButtonID').click(function(){
+    $('#loginButtonID').click(function(event){
         console.log("calling loginID jquery");
         var user = $('#userID').val();
         var pass = $('#passID').val();
@@ -449,11 +449,11 @@ $(document).ready(function() {
         $('#userID').val(empty);
         $('#passID').val(empty);
         $('#dbaseID').val(empty);
-        //event.preventDefault();
+        event.preventDefault();
     });
 
     //store file logs to data base
-    $('#storeAllFilesID').click(function(){
+    $('#storeAllFilesID').click(function(event){
         console.log("calling storeAllFilesID");
         $.ajax({
             type: 'get',
@@ -468,10 +468,11 @@ $(document).ready(function() {
             }
         });//end ajax
         fileInfoAjax();
+        event.preventDefault();
     });//end jquery
 
     //clear all files
-    $('#clearAllDataID').click(function(){
+    $('#clearAllDataID').click(function(event){
         console.log("calling storeAllFilesID");
         var queryFail = true;
         $.ajax({
@@ -493,6 +494,7 @@ $(document).ready(function() {
         });//end ajax
         fileInfoAjax();
         appendStringToQueryStatus("All the table has been cleared in the data base");
+        event.preventDefault();
     });//end jquery
 
     //clear all files
@@ -510,7 +512,7 @@ $(document).ready(function() {
 
     //clear all files
     $('#selectQueryID').change('click', function(event){
-         
+        
     });//ennd  jquery
 
 });//end doc ready jq
