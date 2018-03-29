@@ -644,6 +644,7 @@ function fileInfoAjax(){
 }//end func
 
 function executeQueryAjax(input){
+    console.log("calling executeQueryAjax");
     $.ajax({
         type: 'get',
         dataType: 'json',
