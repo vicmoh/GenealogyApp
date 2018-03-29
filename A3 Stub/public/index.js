@@ -506,7 +506,6 @@ $(document).ready(function() {
         //empty the text area
         var emptyString = "";
         $('#textAreaQueryID').val(emptyString);
-        event.preventDefault();
     });//ennd  jquery
 
     //clear all files
@@ -536,6 +535,7 @@ function appendToTable(data, toBeAppend){
 
     //create the keys 
     var key = Object(data[0]).key;
+    console.log("key = " + key);
     for(var x in key){
         var headerList = "<th>"+ key[x] +"</th>";
         header = "<thead><tr>" + headerList + "</tr></thead>";
