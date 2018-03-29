@@ -504,7 +504,7 @@ $(document).ready(function() {
         executeQueryAjax(input);
         //empty the text area
         var emptyString = "";
-        $('#textAreaQueryID').val(emptyString)
+        $('#textAreaQueryID').val(emptyString);
     });//ennd  jquery
 
     //clear all files
