@@ -342,10 +342,9 @@ app.get('/dbStoreFile', function (req, res){
                 var fileID = row.file_id;
                 var numIndi = row.num_individuals
                 console.log("inditable: fileName = "+fileName+" fileID = "+fileID);
-                indiList = parserLib.getIndiListJSON(fileName);
-                console.log("parsing indi list result = " + indiList);
                 console.log("numIndi = " + numIndi);
                 if(numIndi > 0 ){
+                    indiList = parserLib.getIndiListJSON(fileName);
                     //inputing the indi table
                     for(var x; x<indiList.length; x++){
                         var inputIndiTableQuery = indiLogToSQL(indiList[x], fileID);
