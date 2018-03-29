@@ -374,16 +374,20 @@ app.get('/dbClearFile', function (req, res){
 app.get('/dbQueryInputs', function (req, res){
     console.log("calling dbQueryInputs");
     var queryInput = req.query.input;
-    var result = false;
+    console.log("queryInput = " + queryInput);
+    var data = [];
     connection.query(queryInput, function (err, rows, fields) {
-        if (err) {
+        //Throw an error if we cannot run the query 
+        if (err) 
             console.log("Something went wrong. "+err);
-            result = true;
-            res.send(result);
-        }else{
-            console.log("successfully quried");
-            result = false;
-            res.send(result);
+        else {
+            console.log("Database contents:");
+            
+            //Rows is an array of objects.  Each object has fields corresponding to table columns
+            for (let row of rows){
+                data.push(row);
+            }//end ffor
+            res.send(data);
         }//end if
     });
 });

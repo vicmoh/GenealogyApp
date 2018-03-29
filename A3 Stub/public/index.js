@@ -506,13 +506,53 @@ $(document).ready(function() {
         $('#textAreaQueryID').val(emptyString)
     });//ennd  jquery
 
+    //clear all files
+    $('#selectQueryID').change('click', function(event){
+         
+    });//ennd  jquery
+
 });//end doc ready jq
 
 /*******************************************************************************
  * functions
  *******************************************************************************/
 
- function appendIndiTable(data, toBeAppend){
+function appendToQueryTable(data, toBeAppend){
+    console.log("calling appendToQueryTable");
+    //remove the items inside the table
+    var thead = toBeAppend + "thead";
+    var tbody = toBeAppend + "tbody";
+    $(thead).remove();
+    $(tbody).remove();
+
+    //dev vars
+    var header = "";
+    var headerList = "";
+    var body = "";
+    var bodyList = "";
+
+    //create the keys 
+    var key = Object(data[0]).key;
+    for(var x in key){
+        var headerList = "<th>"+ key[x] +"</th>";
+        header = "<thead><tr>" + headerList + "</tr></thead>";
+    }//end for
+    $(toBeAppend).append(header);
+    console.log("header = " + header);
+
+    //create the value
+    for(var x in data){
+        var value = Object(data[x]).value;
+        for(var y in value){
+            var bodyList = "<th>" + value + "</th>"
+            body = "<tbody><tr>"+ bodyList + "</tbody><tr>";
+        }//end for
+    }//end for
+    $(toBeAppend).append(body);
+    console.log("body = " + body);
+}//end func
+
+function appendIndiTable(data, toBeAppend){
     console.log("calling appendIndiTable");
     //remove the items inside the table
     var thead = toBeAppend + "thead";
@@ -542,7 +582,7 @@ $(document).ready(function() {
             +"</tr></tbody>"
         $(toBeAppend).append(tableSections);
     }//end for
- }//end func
+}//end func
 
 function appendFileTable(data, toBeAppend){
     console.log("calling appendFileTable");
