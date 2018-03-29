@@ -296,7 +296,6 @@ app.get('/login', function (req, res){
             console.log("login successfully!");
             result = false;
             res.send(result);
-            connection.connect("CREATE TABLE FILE IF NOT EXISTS;");
         }
     });
 });
@@ -386,7 +385,7 @@ function printDBstatus(numData, numIndi){
 }//end func
 
 function deleteFileTable(){
-    var deleteTable = "DROP TABLE IF EXISTS FILE;";
+    var deleteTable = "DELETE FROM FILE;";
     connection.query(deleteTable);
 }//end func
 
@@ -400,6 +399,7 @@ function createIndiTable(){
                     + "sub_addr VARCHAR(256), "
                     + "num_individuals INT, "
                     + "num_families INT);";
+    connection.connect("CREATE TABLE FILE IF NOT EXISTS;");
     deleteFileTable();
     connection.query(createTable);
 }//end func
