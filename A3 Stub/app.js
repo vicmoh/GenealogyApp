@@ -345,11 +345,12 @@ app.get('/dbStoreFile', function (req, res){
                 console.log("numIndi = " + numIndi);
                 if(numIndi > 0){
                     var indiList = parserLib.getIndiListJSON(fileName);
+                    var indiListObject = JSON.parse(indiList);
                     console.log("indiList = " + indiList);
-                    console.log("indiList.length = " + indiList.length);
+                    console.log("indiList.length = " + indiListObject.length);
                     //inputing the indi table
-                    for(var x; x<numIndi; x++){
-                        var inputIndiTableQuery = indiLogToSQL(indiList[x], fileID);
+                    for(var x; x<indiListObject.length; x++){
+                        var inputIndiTableQuery = indiLogToSQL(indiListObject[x], fileID);
                         connection.query(inputIndiTableQuery, function (err, rows, fields) {
                             if (err) {
                                 console.log("Something went wrong. "+err);
@@ -358,7 +359,7 @@ app.get('/dbStoreFile', function (req, res){
                             }//end if
                         });
                     }//end for
-                }
+                }//end if
             }//end for
         }//end if
     });
