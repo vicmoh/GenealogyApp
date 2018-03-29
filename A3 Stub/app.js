@@ -374,9 +374,9 @@ app.get('/dbClearFile', function (req, res){
 app.get('/dbQueryInputs', function (req, res){
     console.log("calling dbQueryInputs");
     var queryInput = req.query.input;
-    console.log("queryInput = " + queryInput);
+    console.log("**queryInput = " + queryInput);
     var data = [];
-    connection.query("SELECT * FROM FILE;", function (err, rows, fields) {
+    connection.query(queryInput, function (err, rows, fields) {
         //Throw an error if we cannot run the query 
         if (err) 
             console.log("Something went wrong. "+err);
