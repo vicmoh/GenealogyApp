@@ -338,7 +338,7 @@ app.get('/dbStoreFile', function (req, res){
     
             //Rows is an array of objects.  Each object has fields corresponding to table columns
             for (let row of rows){
-                var fileName = row.fileName;
+                var fileName = row.file_Name;
                 var fileID = row.file_id;
                 console.log("inditable: fileName = "+fileName+"fileID = "+fileID);
                 indiList = parserLib.getIndiListJSON(fileName);
