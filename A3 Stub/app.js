@@ -389,8 +389,8 @@ function deleteFileTable(tableName){
     connection.query(deleteTable);
 }//end func
 
-function createIndiTable(){
-    var createTable = "CREATE TABLE IF NOT EXISTS INDIVIDUAL (ind_id: INT, AUTO_INCREMENT, PRIMARY KEY, "
+function createFileTable(){
+    var createTable = "CREATE TABLE IF NOT EXISTS FILE (ind_id: INT, AUTO_INCREMENT, PRIMARY KEY, "
                     + "file_Name VARCHAR(60) NOT NULL, "
                     + "source VARCHAR(250) NOT NULL, "
                     + "version VARCHAR(10) NOT NULL, "
@@ -400,11 +400,11 @@ function createIndiTable(){
                     + "num_individuals INT, "
                     + "num_families INT);";
     connection.query(createTable);
-    deleteFileTable("INDIVIDUAL");
+    deleteFileTable("FILE");
 }//end func
 
-function createFileTable(){
-    var createTable = "CREATE TABLE IF NOT EXISTS FILE (file_id INT AUTO_INCREMENT PRIMARY KEY, "
+function createIndiTable(){
+    var createTable = "CREATE TABLE IF NOT EXISTS INDIVIDUAL (file_id INT AUTO_INCREMENT PRIMARY KEY, "
                     + "surname: VARCHAR(256), NOT NULL, "
                     + "given_name: VARCHAR(256), NOT NULL, "
                     + "sex: VARCHAR(1), "
@@ -413,7 +413,7 @@ function createFileTable(){
                     + "sub_addr VARCHAR(256), "
                     + "source_file: INT);";
     connection.query(createTable);
-    deleteFileTable("FILE");
+    deleteFileTable("INDIVIDUAL");
 }//end func
 
 function indiLogToSQL(data, sourceFileID){
@@ -424,7 +424,7 @@ function indiLogToSQL(data, sourceFileID){
                     + data.sex + "', '"
                     + data.famNum + "', '"
                     + sourceFileID + "')";
-    var tableToBeInserted = "INSERT INTO FILE "+ heading +" VALUES "+ values +";";
+    var tableToBeInserted = "INSERT INTO INDIVIDUAL "+ heading +" VALUES "+ values +";";
     console.log(tableToBeInserted);
     return tableToBeInserted;
 }//end func
