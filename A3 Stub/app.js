@@ -390,7 +390,7 @@ function deleteFileTable(tableName){
 }//end func
 
 function createFileTable(){
-    var createTable = "CREATE TABLE IF NOT EXISTS FILE (ind_id: INT, AUTO_INCREMENT, PRIMARY KEY, "
+    var createTable = "CREATE TABLE IF NOT EXISTS FILE (file_id: INT, AUTO_INCREMENT PRIMARY KEY, "
                     + "file_Name VARCHAR(60) NOT NULL, "
                     + "source VARCHAR(250) NOT NULL, "
                     + "version VARCHAR(10) NOT NULL, "
@@ -404,7 +404,7 @@ function createFileTable(){
 }//end func
 
 function createIndiTable(){
-    var createTable = "CREATE TABLE IF NOT EXISTS INDIVIDUAL (file_id INT AUTO_INCREMENT PRIMARY KEY, "
+    var createTable = "CREATE TABLE IF NOT EXISTS INDIVIDUAL (ind_id: INT, AUTO_INCREMENT, PRIMARY KEY, "
                     + "surname: VARCHAR(256), NOT NULL, "
                     + "given_name: VARCHAR(256), NOT NULL, "
                     + "sex: VARCHAR(1), "
