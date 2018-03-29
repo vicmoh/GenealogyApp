@@ -49,10 +49,6 @@ html, body{
     height: 5em !important;
     border-color: darkred;
 }
-.queryContent{
-    width: 100%;
-    height: 10em !important;
-}
 .queryPopup{
     top: -10%;
     z-index: 21;
@@ -257,6 +253,12 @@ html, body{
 .setWidthToMax{
     min-width: 100%;
 }
+.setBottomPadding{
+    padding-bottom: 3em;
+}
+.setTopPadding{
+    padding-top: 3em;
+}
 
 /***********************************************************
  * buttons
@@ -388,10 +390,6 @@ html, body{
 }
 .gedcomButtons{
     padding-top: 2em;
-    padding-bottom: 3em;
-}
-.fileUploadButton{
-    padding-bottom: 4em;
 }
 
 /*output panel*/

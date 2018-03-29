@@ -510,7 +510,21 @@ $(document).ready(function() {
 
     //clear all files
     $('#selectQueryID').change('click', function(event){
-        
+        console.log("calling selectQueryID");
+        var q1 = "SELECT * FROM INDIVIDUAL ORDER BY last_name;";
+        var q2 = "SELECT * FROM INDIVIDUAL WHERE source_file = (SELECT file_id FROM FILE WHERE file_Name = \" \");";
+        var id = document.getElementById('selectQuary');
+        if(id = "sq1"){
+            
+        }else if(id = "sq1"){
+
+        }else if(id = "sq1"){
+
+        }else if(id = "sq1"){
+
+        }else if(id = "sq1"){
+
+        }
     });//ennd  jquery
 
 });//end doc ready jq
