@@ -538,8 +538,8 @@ function appendToTable(data, toBeAppend){
     console.log("keys = " + keys);
     for(var x=0; x<keys.length; x++){
         var headerList = headerList + "<th>"+ keys[x] +"</th>";
-        header = "<thead><tr>" + headerList + "</tr></thead>";
     }//end for
+    header = "<thead><tr>" + headerList + "</tr></thead>";
     $(toBeAppend).append(header);
 
     //create the value
@@ -548,9 +548,9 @@ function appendToTable(data, toBeAppend){
         console.log("values = " + values);
         for(var y=0; y<values.length; y++){
             var bodyList = bodyList + "<th>" + values[y] + "</th>";
-            body =+ "<tbody><tr>"+ bodyList + "</tr></tbody>";
         }//end for
     }//end for
+    body = "<tbody><tr>"+ bodyList + "</tr></tbody>";
     $(toBeAppend).append(body);
 }//end func
 
