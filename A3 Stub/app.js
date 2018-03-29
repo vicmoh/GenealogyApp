@@ -436,21 +436,18 @@ function createFileTable(){
 
 function createIndiTable(){
     var createTable = "CREATE TABLE IF NOT EXISTS INDIVIDUAL (ind_id INT AUTO_INCREMENT PRIMARY KEY, "
-                    + "surname: VARCHAR(256), NOT NULL, "
-                    + "given_name: VARCHAR(256), NOT NULL, "
-                    + "sex: VARCHAR(1), "
-                    + "fam_size: INT, "
-                    + "sub_name VARCHAR(62) NOT NULL, "
-                    + "sub_addr VARCHAR(256), "
-                    + "source_file: INT);";
+                    + "surname VARCHAR(256), NOT NULL, "
+                    + "given_name VARCHAR(256), NOT NULL, "
+                    + "sex VARCHAR(1), "
+                    + "fam_size INT, "
+                    + "source_file INT);";
     connection.query(createTable);
     deleteFileTable("INDIVIDUAL");
 }//end func
 
 function indiLogToSQL(data, sourceFileID){
     var heading = "(surname, given_name, sex, fam_size, source_file)";
-    var values = "('"+ data.fileName.slice(10) + "', '"
-                    + data.surname + "', '"
+    var values = "('"+ data.surname + "', '"
                     + data.givenName + "', '"
                     + data.sex + "', '"
                     + data.famNum + "', '"
