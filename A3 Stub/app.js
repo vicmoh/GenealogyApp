@@ -343,20 +343,19 @@ app.get('/dbStoreFile', function (req, res){
                 var numIndi = row.num_individuals
                 console.log("inditable: fileName = "+fileName+" fileID = "+fileID);
                 console.log("numIndi = " + numIndi);
-                if(numIndi > 0 ){
-                    var indiList = parserLib.getIndiListJSON(fileName);
-                    //inputing the indi table
-                    for(var x; x<indiList.length; x++){
-                        var inputIndiTableQuery = indiLogToSQL(indiList[x], fileID);
-                        connection.query(inputIndiTableQuery, function (err, rows, fields) {
-                            if (err) {
-                                console.log("Something went wrong. "+err);
-                            }else{
-                                console.log("indi table created successfully");
-                            }//end if
-                        });
-                    }//end for
-                }//end if
+                
+                var indiList = parserLib.getIndiListJSON(fileName);
+                //inputing the indi table
+                for(var x; x<indiList.length; x++){
+                    var inputIndiTableQuery = indiLogToSQL(indiList[x], fileID);
+                    connection.query(inputIndiTableQuery, function (err, rows, fields) {
+                        if (err) {
+                            console.log("Something went wrong. "+err);
+                        }else{
+                            console.log("indi table created successfully");
+                        }//end if
+                    });
+                }//end for
             }//end for
         }//end if
     });
