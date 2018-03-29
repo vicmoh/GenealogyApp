@@ -315,17 +315,48 @@ app.get('/dbStoreFile', function (req, res){
             }else{
                 console.log("file table created successfully");
                 
-                //connect the 
-                var fileName = listOfFileLogObjects.fileName;
-                var selectQuery = "SELECT file_id FROM FILE WHERE file_Name = " + fileName;
+                // //connect the 
+                // var fileName = listOfFileLogObjects.fileName;
+                // var selectQuery = "SELECT file_id FROM FILE WHERE file_Name = " + fileName;
                 
-                connection.query(selectQuery, function (err, rows, fields) {
-                    console.log("testing the select query: \n"+ err +" "+" "+ rows +" "+ fields);
-                });
+                // connection.query(selectQuery, function (err, rows, fields) {
+                //     console.log("testing the select query: \n"+ err +" "+" "+ rows +" "+ fields);
+                // });
 
             }//end if
         });
     }//end for
+
+    //for indi
+    createIndiTable();
+    connection.query("SELECT * FROM FILE", function (err, rows, fields) {
+        //Throw an error if we cannot run the query 
+        if (err) 
+            console.log("Something went wrong. "+err);
+        else {
+            console.log("Database contents:");
+    
+            //Rows is an array of objects.  Each object has fields corresponding to table columns
+            for (let row of rows){
+                var fileName = row.fileName;
+                var fileID = row.file_id;
+                console.log("inditable: fileName = "+fileName+"fileID = "+fileID);
+                indiList = parserLib.getIndiListJSON(fileName);
+
+                //inputing the indi table
+                for(var x; x<indiList.length; x++){
+                    var inputIndiTableQuery = indiLogToSQL(indiList[x], fileID);
+                    connection.query(inputIndiTableQuery, function (err, rows, fields) {
+                        if (err) {
+                            console.log("Something went wrong. "+err);
+                        }else{
+                            console.log("indi table created successfully");
+                        }//end if
+                    });
+                }//end for
+            }//end for
+        }//end if
+    });
 });
 
 app.get('/dbClearFile', function (req, res){
