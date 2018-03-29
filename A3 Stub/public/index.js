@@ -545,9 +545,9 @@ function appendToTable(data, toBeAppend){
 
     //create the value
     for(var x in data){
-        var value = Object.value(data[x]);
-        for(var y in value){
-            var bodyList = "<th>" + value + "</th>"
+        var values = Object.values(data[x]);
+        for(var y in values){
+            var bodyList = "<th>" + values + "</th>"
             body = "<tbody><tr>"+ bodyList + "</tbody><tr>";
         }//end for
     }//end for
