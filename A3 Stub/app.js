@@ -376,7 +376,7 @@ app.get('/dbQueryInputs', function (req, res){
     var queryInput = req.query.input;
     console.log("queryInput = " + queryInput);
     var data = [];
-    connection.query(queryInput, function (err, rows, fields) {
+    connection.query("FILE * FROM FILE", function (err, rows, fields) {
         //Throw an error if we cannot run the query 
         if (err) 
             console.log("Something went wrong. "+err);
