@@ -529,7 +529,7 @@ $(document).ready(function() {
             var href = "#queryPopupID";
             window.location = href;
             //when ok is pressed
-            $('#queryPopupButtonID').change('click', function(){
+            $('#queryPopupButtonID').on('click', function(){
                 console.log("calling query ok button");
                 var fileElement = document.getElementById('queryFileSelection');
                 //input form
