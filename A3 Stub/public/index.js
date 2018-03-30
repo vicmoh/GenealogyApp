@@ -517,24 +517,26 @@ $(document).ready(function() {
         //dec var
         console.log("calling selectQueryID");
         var element = document.getElementById('selectQueryID');
-        var fileSelected = element.options[element.selectedIndex].text;
-        console.log("file selected text = " + fileSelected);
+        var querySelected = element.options[element.selectedIndex].text;
+        console.log("file selected text = " + querySelected);
         
         //condition based on select query
-        if(fileSelected == "Get all individuals sorted by last name"){    
+        if(querySelected == "Get all individuals sorted by last name"){    
             var command = "SELECT * FROM INDIVIDUAL ORDER BY surname;";
             $(jqueryID).val(command);
-        }else if(fileSelected == "Get the individuals from a specific file"){
-            var href = "#queryPopupID"
+        }else if(querySelected == "Get the individuals from a specific file"){
+            var fileSelected = "";
+            var href = "#queryPopupID";
             window.location = href;
-            var fileName;
-            var command = "SELECT * FROM INDIVIDUAL WHERE source_file = (SELECT file_id FROM FILE WHERE file_Name = \"shakespeare.ged\");";
+            var fileElement = document.getElementById('queryPopupID');
+            fileSelected = fileElement.options[fileElement.selectedIndex].text;
+            var command = "SELECT * FROM INDIVIDUAL WHERE source_file = (SELECT file_id FROM FILE WHERE file_Name = \""+fileSelected +"\");";
             $(jqueryID).val(command);
-        }else if(fileSelected == "sq3"){
+        }else if(querySelected == "sq3"){
 
-        }else if(fileSelected == "sq4"){
+        }else if(querySelected == "sq4"){
 
-        }else if(fileSelectedid == "sq5"){
+        }else if(querySelected == "sq5"){
 
         }//end if
     });//ennd  jquery
