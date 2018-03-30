@@ -517,7 +517,7 @@ $(document).ready(function() {
     
         //dec var
         console.log("calling selectQueryID");
-        var id = $('#selectQuary').val();
+        var id = $('#selectQuaryID').val();
         console.log("**id = " + id);
         //condition based on select query
         if(id == "sq1"){    
