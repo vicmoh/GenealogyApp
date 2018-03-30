@@ -539,10 +539,11 @@ $(document).ready(function() {
                 $(jqueryID).val(command);
             });
         }else if(querySelected == "Get the total number of female"){
-            var command = "SELECT COUNT(*) FROM INDIVIDUAL WHERE sex = 'f':";
+            var command = "SELECT COUNT(*) FROM INDIVIDUAL WHERE sex = 'f';";
             $(jqueryID).val(command);
-        }else if(querySelected == "sq4"){
+        }else if(querySelected == "Get all individuals and all files"){
             var command = "SELECT INDIVIDUAL.given_name, FILE.sub_name FROM INDIVIDUAL JOIN FILE WHERE INDIVIDUAL.source_file = FILE.file_id;";
+            $(jqueryID).val(command);
         }else if(querySelected == "sq5"){
 
         }//end if
