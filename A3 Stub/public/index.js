@@ -525,7 +525,7 @@ $(document).ready(function() {
             var command = "SELECT * FROM INDIVIDUAL ORDER BY surname;";
             $(jqueryID)(command);
         }else if(fileSelected == "Get the individuals from a specific file"){
-            window.location = document.getElementById('#queryPopupID').href;
+            window.location = document.getElementById('queryPopupID').href;
             var command = "SELECT * FROM INDIVIDUAL WHERE source_file = (SELECT file_id FROM FILE WHERE file_Name = \"./uploads/shakespeare.ged\");";
             $(jqueryID)(command);
         }else if(fileSelected == "sq3"){
