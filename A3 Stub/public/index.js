@@ -525,10 +525,12 @@ $(document).ready(function() {
             var command = "SELECT * FROM INDIVIDUAL ORDER BY surname;";
             $(jqueryID).val(command);
         }else if(querySelected == "Get the individuals from a specific file"){
-            var fileSelected = "";
+            //open popup
             var href = "#queryPopupID";
             window.location = href;
-            var fileElement = document.getElementById('queryPopupID');
+            var fileElement = document.getElementById('queryFileSelection');
+            //input form
+            var fileSelected = "";
             fileSelected = fileElement.options[fileElement.selectedIndex].text;
             var command = "SELECT * FROM INDIVIDUAL WHERE source_file = (SELECT file_id FROM FILE WHERE file_Name = \""+fileSelected +"\");";
             $(jqueryID).val(command);
