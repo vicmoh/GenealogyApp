@@ -516,7 +516,7 @@ $(document).ready(function() {
         
         //dec var
         console.log("calling selectQueryID");
-        var element = document.getElementById('gedcomFileSelection');
+        var element = document.getElementById('selectQueryID');
         var fileSelected = element.options[element.selectedIndex].text;
         
         //condition based on select query
