@@ -539,10 +539,10 @@ $(document).ready(function() {
                 $(jqueryID).val(command);
             });
         }else if(querySelected == "Query 3"){
-                var command = "SELECT INDIVIDUAL.given_name, FILE.subName FROM INDIVUDUAL JOIN FILE INDIVIDUAL.source_file = FILE.file_id;";
-                $(jqueryID).val(command);
+            var command = "SELECT COUNT(*) FROM INDIVIDUAL sex = 'f':";
+            $(jqueryID).val(command);
         }else if(querySelected == "sq4"){
-
+            var command = "SELECT INDIVIDUAL.given_name, FILE.sub_name FROM INDIVIDUAL JOIN FILE INDIVIDUAL.source_file = FILE.file_id;";
         }else if(querySelected == "sq5"){
 
         }//end if
