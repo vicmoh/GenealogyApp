@@ -523,11 +523,11 @@ $(document).ready(function() {
         //condition based on select query
         if(fileSelected == "Get all individuals sorted by last name"){    
             var command = "SELECT * FROM INDIVIDUAL ORDER BY surname;";
-            $(jqueryID)(command);
+            $(jqueryID).val(command);
         }else if(fileSelected == "Get the individuals from a specific file"){
             window.location = document.getElementById('queryPopupID').href;
             var command = "SELECT * FROM INDIVIDUAL WHERE source_file = (SELECT file_id FROM FILE WHERE file_Name = \"./uploads/shakespeare.ged\");";
-            $(jqueryID)(command);
+            $(jqueryID).val(command);
         }else if(fileSelected == "sq3"){
 
         }else if(fileSelected == "sq4"){
