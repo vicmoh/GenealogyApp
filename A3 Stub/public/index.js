@@ -539,7 +539,7 @@ $(document).ready(function() {
                 $(jqueryID).val(command);
             });
         }else if(querySelected == "Query 3"){
-            var command = "SELECT COUNT(*) FROM INDIVIDUAL sex = 'f':";
+            var command = "SELECT COUNT(*) FROM INDIVIDUAL WHERE sex = 'f':";
             $(jqueryID).val(command);
         }else if(querySelected == "sq4"){
             var command = "SELECT INDIVIDUAL.given_name, FILE.sub_name FROM INDIVIDUAL JOIN FILE INDIVIDUAL.source_file = FILE.file_id;";
