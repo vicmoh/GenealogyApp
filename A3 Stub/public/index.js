@@ -538,11 +538,11 @@ $(document).ready(function() {
                 var command = "SELECT * FROM INDIVIDUAL WHERE source_file = (SELECT file_id FROM FILE WHERE file_Name = \""+fileSelected +"\");";
                 $(jqueryID).val(command);
             });
-        }else if(querySelected == "Query 3"){
+        }else if(querySelected == "Get the total number of female"){
             var command = "SELECT COUNT(*) FROM INDIVIDUAL WHERE sex = 'f':";
             $(jqueryID).val(command);
         }else if(querySelected == "sq4"){
-            var command = "SELECT INDIVIDUAL.given_name, FILE.sub_name FROM INDIVIDUAL JOIN FILE INDIVIDUAL.source_file = FILE.file_id;";
+            var command = "SELECT INDIVIDUAL.given_name, FILE.sub_name FROM INDIVIDUAL JOIN FILE WHERE INDIVIDUAL.source_file = FILE.file_id;";
         }else if(querySelected == "sq5"){
 
         }//end if
