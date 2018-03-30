@@ -528,12 +528,15 @@ $(document).ready(function() {
             //open popup
             var href = "#queryPopupID";
             window.location = href;
-            var fileElement = document.getElementById('queryFileSelection');
-            //input form
-            var fileSelected = "";
-            fileSelected = fileElement.options[fileElement.selectedIndex].text;
-            var command = "SELECT * FROM INDIVIDUAL WHERE source_file = (SELECT file_id FROM FILE WHERE file_Name = \""+fileSelected +"\");";
-            $(jqueryID).val(command);
+            //when ok is pressed
+            $('#queryPopupButtonID').change('click', function(){
+                var fileElement = document.getElementById('queryFileSelection');
+                //input form
+                var fileSelected = "";
+                fileSelected = fileElement.options[fileElement.selectedIndex].text;
+                var command = "SELECT * FROM INDIVIDUAL WHERE source_file = (SELECT file_id FROM FILE WHERE file_Name = \""+fileSelected +"\");";
+                $(jqueryID).val(command);
+            });
         }else if(querySelected == "sq3"){
 
         }else if(querySelected == "sq4"){
