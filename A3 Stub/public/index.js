@@ -517,9 +517,10 @@ $(document).ready(function() {
     
         //dec var
         console.log("calling selectQueryID");
-        var id = document.getElementById('selectQuary').val();
+        var id = $('#selectQuary').val();
+        console.log("**id = " + id);
         //condition based on select query
-        if(id == "sq1"){
+        if(id == "sq1"){    
             var q1 = "SELECT * FROM INDIVIDUAL ORDER BY surname;";
             $(jqueryID)(q1);
         }else if(id == "sq2"){
