@@ -518,6 +518,7 @@ $(document).ready(function() {
         console.log("calling selectQueryID");
         var element = document.getElementById('selectQueryID');
         var fileSelected = element.options[element.selectedIndex].text;
+        console.log("file selected text = " + fileSelected);
         
         //condition based on select query
         if(fileSelected == "Get all individuals sorted by last name"){    
