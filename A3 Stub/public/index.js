@@ -513,25 +513,25 @@ $(document).ready(function() {
         //empty textare
         var emptyString = "";
         var jqueryID = '#textAreaQueryID';
-        $(jqueryID).val(emptyString);
-    
+        
         //dec var
         console.log("calling selectQueryID");
-        var id = $('#selectQuaryID').val();
-        console.log("**id = " + id);
+        var element = document.getElementById('gedcomFileSelection');
+        var fileSelected = element.options[element.selectedIndex].text;
+        
         //condition based on select query
-        if(id == "sq1"){    
-            var q1 = "SELECT * FROM INDIVIDUAL ORDER BY surname;";
-            $(jqueryID)(q1);
-        }else if(id == "sq2"){
+        if(fileSelected == "Get all individuals sorted by last name"){    
+            var command = "SELECT * FROM INDIVIDUAL ORDER BY surname;";
+            $(jqueryID)(command);
+        }else if(fileSelected == "Get the individuals from a specific file"){
             window.location = document.getElementById('#queryPopupID').href;
-            var q2 = "SELECT * FROM INDIVIDUAL WHERE source_file = (SELECT file_id FROM FILE WHERE file_Name = \"./uploads/shakespeare.ged\");";
-            $(jqueryID)(q2);
-        }else if(id == "sq3"){
+            var command = "SELECT * FROM INDIVIDUAL WHERE source_file = (SELECT file_id FROM FILE WHERE file_Name = \"./uploads/shakespeare.ged\");";
+            $(jqueryID)(command);
+        }else if(fileSelected == "sq3"){
 
-        }else if(id == "sq4"){
+        }else if(fileSelected == "sq4"){
 
-        }else if(id == "sq5"){
+        }else if(fileSelectedid == "sq5"){
 
         }//end if
     });//ennd  jquery
