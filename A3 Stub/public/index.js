@@ -538,8 +538,9 @@ $(document).ready(function() {
                 var command = "SELECT * FROM INDIVIDUAL WHERE source_file = (SELECT file_id FROM FILE WHERE file_Name = \""+fileSelected +"\");";
                 $(jqueryID).val(command);
             });
-        }else if(querySelected == "sq3"){
-            var commad = "SELECT INDIVIDUAL.given_name, FILE.subName FROM INDIVUDUAL JOIN FILE INDIVIDUAL.source_id = FILE.file_id;"
+        }else if(querySelected == "Query 3"){
+                var command = "SELECT INDIVIDUAL.given_name, FILE.subName FROM INDIVUDUAL JOIN FILE INDIVIDUAL.source_id = FILE.file_id;";
+                $(jqueryID).val(command);
         }else if(querySelected == "sq4"){
 
         }else if(querySelected == "sq5"){
