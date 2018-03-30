@@ -539,7 +539,7 @@ $(document).ready(function() {
                 $(jqueryID).val(command);
             });
         }else if(querySelected == "sq3"){
-
+            var commad = "SELECT INDIVIDUAL.given_name, FILE.subName FROM INDIVUDUAL JOIN FILE INDIVIDUAL.source_id = FILE.file_id;"
         }else if(querySelected == "sq4"){
 
         }else if(querySelected == "sq5"){
