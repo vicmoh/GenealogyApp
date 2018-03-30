@@ -24,7 +24,7 @@ $(document).ready(function() {
             //add file names to the selected
             for(x = 0; x<listOfFileNames.length; x++){
                 var currentFileName = "<option >"+listOfFileNames[x]+"</option>";
-                $("select").append(currentFileName);
+                $("select").not("#selectQueryID").append(currentFileName);
             }//end for
         },
         fail: function(error) {
