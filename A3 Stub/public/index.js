@@ -541,11 +541,23 @@ $(document).ready(function() {
         }else if(querySelected == "Get the total number of female"){
             var command = "SELECT COUNT(*) FROM INDIVIDUAL WHERE sex = 'f';";
             $(jqueryID).val(command);
-        }else if(querySelected == "Get all individuals and all files"){
-            var command = "SELECT INDIVIDUAL.given_name, FILE.sub_name FROM INDIVIDUAL JOIN FILE WHERE INDIVIDUAL.source_file = FILE.file_id;";
+        }else if(querySelected == "Get the submitter of all individuals"){
+            var command = "SELECT FILE.sub_name, INDIVIDUAL.given_name, INDIVIDUAL.surname FROM INDIVIDUAL JOIN FILE WHERE INDIVIDUAL.source_file = FILE.file_id;";
             $(jqueryID).val(command);
-        }else if(querySelected == "sq5"){
-
+        }else if(querySelected == "Get the number of individuals of a specific file"){
+            //open popup
+            var href = "#queryPopupID";
+            window.location = href;
+            //when ok is pressed
+            $('#queryPopupButtonID').on('click', function(){
+                console.log("calling query ok button");
+                var fileElement = document.getElementById('queryFileSelection');
+                //input form
+                var fileSelected = "";
+                fileSelected = fileElement.options[fileElement.selectedIndex].text;
+                var command = "SELECT COUNT(*) FROM INDIVIDUAL WHERE source_file = (SELECT file_id FROM FILE WHERE file_Name = \""+fileSelected +"\");";
+                $(jqueryID).val(command);
+            });
         }//end if
     });//ennd  jquery
 
