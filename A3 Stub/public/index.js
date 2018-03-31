@@ -438,7 +438,11 @@ $(document).ready(function() {
                 }else{
                     alert("Login successfull");
                     //unlock data base
-                    
+                    appendStringToStatus("Successfull login as '"+ user+ "'");
+                    //disable the login button
+                    $('#loginButtonID').val(user);
+                    var loginElement = document.getElementById('#loginButtonID');
+                    loginElement.href = "#";
                 }//end if
             },
             fail: function(error) {
@@ -463,6 +467,8 @@ $(document).ready(function() {
             success: function (data) {
                 console.log("ajax pass");
                 alert("FILE table has been updated");
+                appendStringToQueryStatus("FILE table has been upadted");
+
             },
             fail: function(error) {
                 // Non-200 return, do something with error
