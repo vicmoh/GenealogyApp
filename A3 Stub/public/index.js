@@ -437,6 +437,8 @@ $(document).ready(function() {
                     alert("Invalid login");
                 }else{
                     alert("Login successfull");
+                    //unlock data base
+                    
                 }//end if
             },
             fail: function(error) {
@@ -460,6 +462,7 @@ $(document).ready(function() {
             url: '/dbStoreFile',
             success: function (data) {
                 console.log("ajax pass");
+                alert("FILE table has been updated");
             },
             fail: function(error) {
                 // Non-200 return, do something with error
@@ -479,12 +482,8 @@ $(document).ready(function() {
             dataType: 'json',
             url: '/dbClearFile',
             success: function (data) {
-                console.log("ajax pass = " + data);
-                if(connectionFail == true){
-                    alert("Invalid query");
-                }else{
-                    alert("Query successfull");
-                }
+                console.log("ajax pass");
+                alert("All data has been cleared");
             },
             fail: function(error) {
                 // Non-200 return, do something with error
