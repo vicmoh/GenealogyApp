@@ -440,7 +440,7 @@ $(document).ready(function() {
                     //unlock data base
                     appendStringToStatus("Successfull login as '"+ user+ "'");
                     //disable the login button
-                    $('#loginButtonID').val(user);
+                    document.getElementById('#loginButtonID').innerText = user;
                     var loginElement = document.getElementById('#loginButtonID');
                     loginElement.href = "#";
                 }//end if
