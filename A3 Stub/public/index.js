@@ -542,7 +542,7 @@ $(document).ready(function() {
             var command = "SELECT COUNT(*) FROM INDIVIDUAL WHERE sex = 'f';";
             $(jqueryID).val(command);
         }else if(querySelected == "Get the submitter of all individuals"){
-            var command = "SELECT FILE.sub_name, INDIVIDUAL.given_name, INDIVIDUAL.surname FROM INDIVIDUAL JOIN FILE ORDER BY FILE.sub_name WHERE INDIVIDUAL.source_file = FILE.file_id;";
+            var command = "SELECT FILE.sub_name, INDIVIDUAL.given_name, INDIVIDUAL.surname FROM INDIVIDUAL JOIN FILE WHERE INDIVIDUAL.source_file = FILE.file_id ORDER BY FILE.sub_name;";
             $(jqueryID).val(command);
         }else if(querySelected == "Get the number of individuals of a specific file"){
             //open popup
