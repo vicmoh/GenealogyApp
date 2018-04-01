@@ -220,10 +220,12 @@ Program: This will the main html source for the interface
                 <!-- button for database -->
                 <div class="standardPadding setWhite setTimesNewRomanFont">
                     <div class="standardPadding">
-                        <a class="btn setButtonDarkRed" id="helpButtonID">Help</a>
-                        <a class="btn setButtonDarkRed" id="storeAllFilesID">Store All Files</a>
-                        <a class="btn setButtonDarkRed" id="clearAllDataID">Clear All Data</a>
-                        <a class="btn setButtonDarkRed" id="executeQueryID">Execute Query</a>
+                        <!-- help button -->
+                        <a class="btn setButtonDarkRed setTimesNewRomanFont" id="helpButtonID" href="#popupHelpID">Help</a>
+                        <!-- other button -->
+                        <a class="btn setButtonDarkRed setTimesNewRomanFont" id="storeAllFilesID">Store All Files</a>
+                        <a class="btn setButtonDarkRed setTimesNewRomanFont" id="clearAllDataID">Clear All Data</a>
+                        <a class="btn setButtonDarkRed setTimesNewRomanFont" id="executeQueryID">Execute Query</a>
                     </div>
                 </div>
             </section>
@@ -376,6 +378,21 @@ Program: This will the main html source for the interface
                 </div> -->
                 <div class="standardPadding setWhite setTimesNewRomanFont">
                     <a class="btn setButtonDarkRed" href="#close" id="queryPopupButtonID">Okay</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="popupHelpID" class="overlay">
+            <div class="popupDisplay centerContent">
+                <h2 class="titlePadding setBold ">HELP</h2>
+                <!--close button for popup-->
+                <a class="closePopup" href="#close">&times;</a>
+                <!-- select file drop down menu-->
+                <p>CHOOSE THE TABLE YOU WANT TO SHOW:</p>
+                <!-- help button -->
+                <div class="standardPadding">
+                    <a class="btn setButtonDarkRed" id="describeIndiID" href="#closeID">DESCRIBE FILE;</a>
+                    <a class="btn setButtonDarkRed" id="describeFileID" href="#closeID">DESCRIBE INDIVIDUAL;</a>
                 </div>
             </div>
         </section>

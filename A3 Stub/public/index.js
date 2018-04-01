@@ -567,13 +567,19 @@ $(document).ready(function() {
         }//end if
     });//ennd  jquery
 
-    $('#helpButtonID').click(function(){
+    $('#describeIndiID').click(function(){
         //dec vars
-        var helpCommand = "DESCRIBE FILE; DESCRIBE INDIVIDUAL;";
+        var helpCommand = "DESCRIBE INDIVIDUAL;";
         var jqueryID = '#textAreaQueryID';
         $(jqueryID).val(helpCommand);
     });
 
+    $('#describeFileID').click(function(){
+        //dec vars
+        var helpCommand = "DESCRIBE FILE;";
+        var jqueryID = '#textAreaQueryID';
+        $(jqueryID).val(helpCommand);
+    });
 });//end doc ready jq
 
 /*******************************************************************************
