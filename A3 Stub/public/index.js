@@ -489,7 +489,8 @@ $(document).ready(function() {
             url: '/dbClearFile',
             success: function (data) {
                 console.log("ajax pass");
-                alert("All data has been cleared");
+                alert("All FILE and INDIVIDUAL data has been cleared");
+                appendStringToQueryStatus("All FILE and INDIVIDUAL data has been cleared");
             },
             fail: function(error) {
                 // Non-200 return, do something with error
