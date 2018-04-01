@@ -467,7 +467,7 @@ $(document).ready(function() {
             success: function (data) {
                 console.log("ajax pass");
                 alert("FILE table has been updated");
-                appendStringToQueryStatus("FILE table has been upadted");
+                appendStringToStatus("FILE table has been upadted");
 
             },
             fail: function(error) {
@@ -490,7 +490,7 @@ $(document).ready(function() {
             success: function (data) {
                 console.log("ajax pass");
                 alert("All FILE and INDIVIDUAL data has been cleared");
-                appendStringToQueryStatus("All FILE and INDIVIDUAL data has been cleared");
+                appendStringToStatus("All FILE and INDIVIDUAL data has been cleared");
             },
             fail: function(error) {
                 // Non-200 return, do something with error
@@ -498,7 +498,7 @@ $(document).ready(function() {
             }
         });//end ajax
         fileInfoAjax();
-        appendStringToQueryStatus("All the table has been cleared in the data base");
+        appendStringToStatus("All the table has been cleared in the data base");
         event.preventDefault();
     });//end jquery
 
