@@ -511,7 +511,7 @@ $(document).ready(function() {
         var emptyString = "";
         $('#textAreaQueryID').val(emptyString);
         appendStringToStatus("Query has been executed");
-        alert("Query has been executed");
+        //alert("Query has been executed");
     });//ennd  jquery
 
     //clear all files

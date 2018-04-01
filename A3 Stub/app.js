@@ -340,7 +340,7 @@ app.get('/dbStoreFile', function (req, res){
             for (let row of rows){
                 var fileName = "./uploads/" + row.file_Name;
                 var fileID = row.file_id;
-                var numIndi = row.num_individuals
+                var numIndi = row.num_individials
                 console.log("inditable: fileName = "+fileName+" fileID = "+fileID);
                 console.log("numIndi = " + numIndi);
                 if(numIndi > 0){
@@ -423,8 +423,8 @@ app.get('/dbQueryOuputs', function (req, res){
             //Rows is an array of objects.  Each object has fields corresponding to table columns
             for (let row of rows){
                 fileInfo.fileNum = fileInfo.fileNum + 1;
-                fileInfo.indiNum = fileInfo.indiNum + row.num_individuals;
-                console.log("getNumberOfFileAndIndi = " + printDBstatus(fileInfo.fileNum, row.num_individuals));
+                fileInfo.indiNum = fileInfo.indiNum + row.num_individials;
+                console.log("getNumberOfFileAndIndi = " + printDBstatus(fileInfo.fileNum, row.num_individials));
             }//end ffor
             res.send(fileInfo);
         }//end if
@@ -454,7 +454,7 @@ function createFileTable(){
                     + "encoding VARCHAR(10) NOT NULL, "
                     + "sub_name VARCHAR(62) NOT NULL, "
                     + "sub_addr VARCHAR(256), "
-                    + "num_individuals INT, "
+                    + "num_individials INT, "
                     + "num_families INT);";
     connection.query(createTable);
     deleteFileTable("FILE");
@@ -485,7 +485,7 @@ function indiLogToSQL(data, sourceFileID){
 }//end func
 
 function fileLogToSQL(data){
-    var heading = "(file_Name, source, version, encoding, sub_name, sub_addr, num_individuals, num_families)";
+    var heading = "(file_Name, source, version, encoding, sub_name, sub_addr, num_individials, num_families)";
     var values = "('"+ data.fileName.slice(10) + "', '"
                     + data.source + "', '"
                     + data.gedcVersion + "', '"
