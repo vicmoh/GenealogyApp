@@ -466,9 +466,6 @@ $(document).ready(function() {
             url: '/dbStoreFile',
             success: function (data) {
                 console.log("ajax pass");
-                alert("FILE table has been updated");
-                appendStringToStatus("FILE table has been upadted");
-
             },
             fail: function(error) {
                 // Non-200 return, do something with error
@@ -476,6 +473,8 @@ $(document).ready(function() {
             }
         });//end ajax
         fileInfoAjax();
+        alert("FILE and INDIVIDUAL table has been updated");
+        appendStringToStatus("FILE and INDIVIDUAL table has been upadted");
         event.preventDefault();
     });//end jquery
 
@@ -489,8 +488,6 @@ $(document).ready(function() {
             url: '/dbClearFile',
             success: function (data) {
                 console.log("ajax pass");
-                alert("All FILE and INDIVIDUAL data has been cleared");
-                appendStringToStatus("All FILE and INDIVIDUAL data has been cleared");
             },
             fail: function(error) {
                 // Non-200 return, do something with error
@@ -498,7 +495,8 @@ $(document).ready(function() {
             }
         });//end ajax
         fileInfoAjax();
-        appendStringToStatus("All the table has been cleared in the data base");
+        appendStringToStatus("All FILE and INDIVIDUAL data has been cleared");
+        alert("All FILE and INDIVIDUAL data has been cleared");
         event.preventDefault();
     });//end jquery
 
@@ -512,6 +510,8 @@ $(document).ready(function() {
         //empty the text area
         var emptyString = "";
         $('#textAreaQueryID').val(emptyString);
+        appendStringToStatus("Query has been executed");
+        alert("Query has been executed");
     });//ennd  jquery
 
     //clear all files
