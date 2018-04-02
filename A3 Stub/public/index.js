@@ -466,6 +466,17 @@ $(document).ready(function() {
 
     //store file logs to data base
     $('#storeAllFilesID').click(function(event){
+        //error check
+        if(loginStatus == false){
+            alert("Please login before using the database");
+            appendStringToStatus("Please login before using the database");
+            return;
+        }else{
+            alert("FILE and INDIVIDUAL table has been updated");
+            appendStringToStatus("FILE and INDIVIDUAL table has been upadted");
+        }//end if
+        
+        //store
         if(DEBUG)console.log("calling storeAllFilesID");
         $.ajax({
             type: 'get',
@@ -480,18 +491,22 @@ $(document).ready(function() {
             }
         });//end ajax
         fileInfoAjax();
-        if(loginStatus == false){
-            alert("Please login before using the database");
-            appendStringToStatus("Please login before using the database");
-        }else{
-            alert("FILE and INDIVIDUAL table has been updated");
-            appendStringToStatus("FILE and INDIVIDUAL table has been upadted");
-        }//end if
         event.preventDefault();
     });//end jquery
 
     //clear all files
     $('#clearAllDataID').click(function(event){
+        //error check
+        if(loginStatus == false){
+            alert("Please login before using the database");
+            appendStringToStatus("Please login before using the database");
+            return;
+        }else{
+            appendStringToStatus("All FILE and INDIVIDUAL data has been cleared");
+            alert("All FILE and INDIVIDUAL data has been cleared");
+        }//end if
+
+        //clear
         if(DEBUG)console.log("calling storeAllFilesID");
         var queryFail = true;
         $.ajax({
@@ -507,18 +522,21 @@ $(document).ready(function() {
             }
         });//end ajax
         fileInfoAjax();
-        if(loginStatus == false){
-            alert("Please login before using the database");
-            appendStringToStatus("Please login before using the database");
-        }else{
-            appendStringToStatus("All FILE and INDIVIDUAL data has been cleared");
-            alert("All FILE and INDIVIDUAL data has been cleared");
-        }//end if
         event.preventDefault();
     });//end jquery
 
     //execute query
     $('#executeQueryID').click(function(event){
+        //error check
+        if(loginStatus == false){
+            alert("Please login before using the database");
+            return;
+        }else{
+            appendStringToStatus("Query has been executed");
+            //alert("Query has been executed");
+        }//end if
+
+        //exec query
         if(DEBUG)console.log("calling textAreaQueryID");
         var input = $('#textAreaQueryID').val();
         if(DEBUG)console.log("**input = " + input);
@@ -527,12 +545,6 @@ $(document).ready(function() {
         //empty the text area
         var emptyString = "";
         $('#textAreaQueryID').val(emptyString);
-        if(loginStatus == false){
-            alert("Please login before using the database");
-        }else{
-            appendStringToStatus("Query has been executed");
-            //alert("Query has been executed");
-        }//end if
     });//end  jquery
 
     //select query
@@ -604,12 +616,12 @@ $(document).ready(function() {
         $(jqueryID).val(helpCommand);
     });//end  jquery
 
-    //help button
-    $('#helpButtonID').click(function(event){
-        if(loginStatus == false){
-            alert("Please login before using the database");
-        }//end if
-    });//end  jquery
+    // //help button
+    // $('#helpButtonID').click(function(event){
+    //     if(loginStatus == false){
+    //         alert("Please login before using the database");
+    //     }//end if
+    // });//end  jquery
 });//end doc ready jq
 
 /*******************************************************************************
