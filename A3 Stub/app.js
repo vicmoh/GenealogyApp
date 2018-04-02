@@ -38,7 +38,7 @@ let parserLib = ffi.Library("./parser/bin/parser.so", {
 
 var connection;
 var listOfFileLogObjects = [];
-const DEBUG = false;
+const DEBUG = true;
 
 //testing the parser lib
 function testParserLib(){
