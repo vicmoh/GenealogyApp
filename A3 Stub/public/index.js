@@ -10,7 +10,7 @@ const DEBUG = true;
 
 // Put all onload AJAX calls here, and event listeners
 $(document).ready(function() {
-    if(DEBUG)console.log("page has been loaded");
+    console.log("page has been loaded");
     var listOfFileNames = [];
 
     /******************************************************************************* 
@@ -23,7 +23,7 @@ $(document).ready(function() {
         dataType: 'json',
         url: '/getFileList',
         success: function (data) {
-            if(DEBUG)console.log("file name = " + data);
+            console.log("file name = " + data);
             listOfFileNames = data;
             //add file names to the selected
             for(x = 0; x<listOfFileNames.length; x++){
@@ -33,7 +33,7 @@ $(document).ready(function() {
         },
         fail: function(error) {
             // Non-200 return, do something with error
-            if(DEBUG)console.log(error); 
+            console.log(error); 
         }
     });//end jquery
 
@@ -43,7 +43,7 @@ $(document).ready(function() {
         dataType: 'json',
         url: '/getFileLogs',
         success: function (data) {
-            if(DEBUG)console.log("file logs = " + data);
+            console.log("file logs = " + data);
             $(".fileLogTable tbody").remove();
             for(var x = 0; x<data.length; x++){
                 var gedFileNameStringOnly = data[x].fileName.substring(10, data[x].fileName.length);
@@ -66,7 +66,7 @@ $(document).ready(function() {
         },
         fail: function(error) {
             // Non-200 return, do something with error
-            if(DEBUG)console.log(error); 
+            console.log(error); 
         }
     });//end jquery
 
@@ -90,7 +90,7 @@ $(document).ready(function() {
             }, 1000, function(){
                 // when done scrolling (default click behavior) add hash (#)
                 window.location.hash = hash;
-                if(DEBUG)console.log("calling animate scroll");
+                console.log("calling animate scroll");
             });
         } // End if
     });//end jquery
@@ -98,11 +98,11 @@ $(document).ready(function() {
     //creat a gedcom
     $('.createGedcom').on('click', function(event) {
         //get value
-        if(DEBUG)console.log("createGedcom");
+        console.log("createGedcom");
         var fileName = $(".fileNameCreateGed").val();
         var subName = $(".subNameCreateGed").val();
         var subAddress = $(".subAddressCreateGed").val();
-        if(DEBUG)console.log("create ged form: " + fileName + subName + subAddress);
+        console.log("create ged form: " + fileName + subName + subAddress);
         appendStringToStatus("Creating a GEDCOM file...");
         //ajax get file logs
         $.ajax({
@@ -111,7 +111,7 @@ $(document).ready(function() {
             url: '/createGedcom',
             data: {fileName: fileName, subName: subName, subAddress: subAddress},
             success: function (data) {
-                if(DEBUG)console.log("file logs = " + data);
+                console.log("file logs = " + data);
                 var tableSections  = "<tbody><tr>"
                     +"<td><a class=\"setLightBlue\" href=\"./uploads/" + fileName +".ged\">" + fileName + ".ged</a></td>"
                     +"<td>" + "Ancestry.com" + "</td>"
@@ -126,7 +126,7 @@ $(document).ready(function() {
             },
             fail: function(error) {
                 // Non-200 return, do something with error
-                if(DEBUG)console.log(error); 
+                console.log(error); 
             }
         });//end jquery
         //clear the form
@@ -141,7 +141,7 @@ $(document).ready(function() {
             dataType: 'json',
             url: '/getFileList',
             success: function (data) {
-                if(DEBUG)console.log("file name = " + data);
+                console.log("file name = " + data);
                 listOfFileNames = data;
                 //add file names to the selected
                 for(x = 0; x<listOfFileNames.length; x++){
@@ -151,7 +151,7 @@ $(document).ready(function() {
             },
             fail: function(error) {
                 // Non-200 return, do something with error
-                if(DEBUG)console.log(error); 
+                console.log(error); 
             }
         });//end jquery
         appendStringToStatus("GEDCOM \"" + fileName +"\" has been created.");
@@ -160,10 +160,10 @@ $(document).ready(function() {
     //jquery for adding individual
     $('.addIndividual').on('click', function(event){
         //get element for the selected file menu
-        if(DEBUG)console.log("calling ajax selection menu");
+        console.log("calling ajax selection menu");
         var element = document.getElementById('indiFileSelection');
         var fileSelected = element.options[element.selectedIndex].text;
-        if(DEBUG)console.log("file selected: " + fileSelected);
+        console.log("file selected: " + fileSelected);
         //dec vars
         var emptyString = "";
         var firstName = "";
@@ -172,8 +172,8 @@ $(document).ready(function() {
         lastName = $(".addIndiLastname").val();
         // var sex = $('#addIndiSex').val();
         // var famSize = $('#addIndiFamSize').val();
-        if(DEBUG)console.log("firstName = " + firstName);
-        if(DEBUG)console.log("lastName = " + lastName);
+        console.log("firstName = " + firstName);
+        console.log("lastName = " + lastName);
 
         //error check of first name or last name is empty
         if(firstName.length > 0 && lastName.length > 0){
@@ -184,13 +184,13 @@ $(document).ready(function() {
                 url: '/addIndiToList',
                 data: {fileSelected: fileSelected, givenName: firstName, surname: lastName},
                 success: function (data) {
-                    if(DEBUG)console.log("addIndiToList = (void?) " + data);
+                    console.log("addIndiToList = (void?) " + data);
                     //not getting data right now but i may needed
                     appendStringToStatus("Adding " + givenName + " " + surname + " to the list of individual in " + fileSelected + ".");
                 },
                 fail: function(error) {
                     // Non-200 return, do something with error
-                    if(DEBUG)console.log(error); 
+                    console.log(error); 
                 }
             });//end ajax
             
@@ -201,10 +201,10 @@ $(document).ready(function() {
             // $('#addIndiFamSize').val(emptyString);
 
             //refresh the indi table
-            if(DEBUG)console.log("calling ajax selection menu");
+            console.log("calling ajax selection menu");
             var element = document.getElementById('gedcomFileSelection');
             var fileSelected = element.options[element.selectedIndex].text;
-            if(DEBUG)console.log("file selected: " + fileSelected);
+            console.log("file selected: " + fileSelected);
             $(".indiTable tbody").remove();
             $.ajax({
                 type: 'get',
@@ -212,7 +212,7 @@ $(document).ready(function() {
                 url: '/getIndiList',
                 data: {fileSelected: fileSelected},
                 success: function (data) {
-                    if(DEBUG)console.log("getIndiList object = " + data);
+                    console.log("getIndiList object = " + data);
                     for(var x = 1; x<data.length; x++){
                         var tableSections  = "<tbody><tr>"
                             +"<td>" + x + "</td>"
@@ -226,7 +226,7 @@ $(document).ready(function() {
                 },
                 fail: function(error) {
                     // Non-200 return, do something with error
-                    if(DEBUG)console.log(error); 
+                    console.log(error); 
                 }
             });//end ajax
         }else{
@@ -237,10 +237,10 @@ $(document).ready(function() {
 
     //jquery for showing the indi
     $('.gedcomFileSelection').change('click', function(event){
-        if(DEBUG)console.log("calling ajax selection menu");
+        console.log("calling ajax selection menu");
         var element = document.getElementById('gedcomFileSelection');
         var fileSelected = element.options[element.selectedIndex].text;
-        if(DEBUG)console.log("file selected: " + fileSelected);
+        console.log("file selected: " + fileSelected);
         $(".indiTable tbody").remove();
         $.ajax({
             type: 'get',
@@ -248,7 +248,7 @@ $(document).ready(function() {
             url: '/getIndiList',
             data: {fileSelected: fileSelected},
             success: function (data) {
-                if(DEBUG)console.log("getIndiList object = " + data);
+                console.log("getIndiList object = " + data);
                 for(var x = 0; x<data.length; x++){
                     var tableSections  = "<tbody><tr>"
                         +"<td>" + x + "</td>"
@@ -262,7 +262,7 @@ $(document).ready(function() {
             },
             fail: function(error) {
                 // Non-200 return, do something with error
-                if(DEBUG)console.log(error); 
+                console.log(error); 
             }
         });//end ajax
     });//end jquery
@@ -270,10 +270,10 @@ $(document).ready(function() {
     //jquery for showing the indi
     $('.searchDesc').on('click', function(event){
         //selection menu
-        if(DEBUG)console.log("calling ajax selection menu");
+        console.log("calling ajax selection menu");
         var element = document.getElementById('descFileSelection');
         var fileSelected = element.options[element.selectedIndex].text;
-        if(DEBUG)console.log("file selected: " + fileSelected);
+        console.log("file selected: " + fileSelected);
         //get value
         var givenName = $(".firstNameInputDesc").val();
         var surname = $(".lastNameInputDesc").val();
@@ -298,7 +298,7 @@ $(document).ready(function() {
             url: '/getDescList',
             data: {fileSelected: fileSelected, givenName: givenName, surname: surname, numGen: numGen},
             success: function (data) {
-                if(DEBUG)console.log("get gen list object = " + data);
+                console.log("get gen list object = " + data);
                 for(var x = 0; x<data.length; x++){
                     var indiListString = "";
                     for(y = 0; y<data[x].length; y++){
@@ -310,7 +310,7 @@ $(document).ready(function() {
                         }//end if
                         indiListString = indiListString + data[x][y].givenName + " " + data[x][y].surname + commaOrPeriod;
                     }//end for
-                    if(DEBUG)console.log("indi list = " + indiListString);
+                    console.log("indi list = " + indiListString);
                     //append to the table
                     var genNum = x + 1;
                     var tableSections  = "<tbody><tr>"
@@ -333,7 +333,7 @@ $(document).ready(function() {
             },
             fail: function(error) {
                 // Non-200 return, do something with error
-                if(DEBUG)console.log(error); 
+                console.log(error); 
             }
         });//end ajax
         appendStringToStatus("Searching " + numGen +" generation of " + givenName + " " + surname + "'s descendants.");
@@ -347,10 +347,10 @@ $(document).ready(function() {
     //jquery for showing the indi
     $('.searchAnce').on('click', function(event){
         //selection menu
-        if(DEBUG)console.log("calling ajax selection menu");
+        console.log("calling ajax selection menu");
         var element = document.getElementById('anceFileSelection');
         var fileSelected = element.options[element.selectedIndex].text;
-        if(DEBUG)console.log("file selected: " + fileSelected);
+        console.log("file selected: " + fileSelected);
         //get value
         var givenName = $(".firstNameInputAnce").val();
         var surname = $(".lastNameInputAnce").val();
@@ -375,7 +375,7 @@ $(document).ready(function() {
             url: '/getAnceList',
             data: {fileSelected: fileSelected, givenName: givenName, surname: surname, numGen: numGen},
             success: function (data) {
-                if(DEBUG)console.log("get gen list object = " + data);
+                console.log("get gen list object = " + data);
                 for(var x = 0; x<data.length; x++){
                     var indiListString = "";
                     for(y = 0; y<data[x].length; y++){
@@ -387,7 +387,7 @@ $(document).ready(function() {
                         }//end if
                         indiListString = indiListString + data[x][y].givenName + " " + data[x][y].surname + commaOrPeriod;
                     }//end for
-                    if(DEBUG)console.log("indi list = " + indiListString);
+                    console.log("indi list = " + indiListString);
                     //append to the table
                     var genNum = x + 1;
                     var tableSections  = "<tbody><tr>"
@@ -410,7 +410,7 @@ $(document).ready(function() {
             },
             fail: function(error) {
                 // Non-200 return, do something with error
-                if(DEBUG)console.log(error); 
+                console.log(error); 
             }
         });//end ajax
         //reset the form to empty string
@@ -423,11 +423,11 @@ $(document).ready(function() {
 
     //login
     $('#loginButtonID').click(function(event){
-        if(DEBUG)console.log("calling loginID jquery");
+        console.log("calling loginID jquery");
         var user = $('#userID').val();
         var pass = $('#passID').val();
         var dbase = $('#dbaseID').val();
-        if(DEBUG)console.log("user = " + user + ", passID = " + pass + ", dbase = " + dbase);
+        console.log("user = " + user + ", passID = " + pass + ", dbase = " + dbase);
         var connectionFail = true;
         $.ajax({
             type: 'get',
@@ -435,7 +435,7 @@ $(document).ready(function() {
             url: '/login',
             data: {user: user, pass: pass, dbase: dbase},
             success: function (data) {
-                if(DEBUG)console.log("ajax pass returned = " + data);
+                console.log("ajax pass returned = " + data);
                 connectionFail = data;
                 if(connectionFail == true){
                     alert("Invalid login");
@@ -452,7 +452,7 @@ $(document).ready(function() {
             },
             fail: function(error) {
                 // Non-200 return, do something with error
-                if(DEBUG)console.log("ajax error returned = " + error); 
+                console.log("ajax error returned = " + error); 
             }
         });//end ajax
         //empty the inputs
@@ -476,17 +476,17 @@ $(document).ready(function() {
         // }//end if
 
         //store
-        if(DEBUG)console.log("calling storeAllFilesID");
+        console.log("calling storeAllFilesID");
         $.ajax({
             type: 'get',
             dataType: 'json',
             url: '/dbStoreFile',
             success: function (data) {
-                if(DEBUG)console.log("ajax pass");
+                console.log("ajax pass");
             },
             fail: function(error) {
                 // Non-200 return, do something with error
-                if(DEBUG)console.log("ajax error returned = " + error); 
+                console.log("ajax error returned = " + error); 
             }
         });//end ajax
         fileInfoAjax();
@@ -505,18 +505,18 @@ $(document).ready(function() {
         // }//end if
 
         //clear
-        if(DEBUG)console.log("calling storeAllFilesID");
+        console.log("calling storeAllFilesID");
         var queryFail = true;
         $.ajax({
             type: 'get',
             dataType: 'json',
             url: '/dbClearFile',
             success: function (data) {
-                if(DEBUG)console.log("ajax pass");
+                console.log("ajax pass");
             },
             fail: function(error) {
                 // Non-200 return, do something with error
-                if(DEBUG)console.log("ajax error returned = " + error); 
+                console.log("ajax error returned = " + error); 
             }
         });//end ajax
         fileInfoAjax();
@@ -534,9 +534,9 @@ $(document).ready(function() {
         // }//end if
 
         //exec query
-        if(DEBUG)console.log("calling textAreaQueryID");
+        console.log("calling textAreaQueryID");
         var input = $('#textAreaQueryID').val();
-        if(DEBUG)console.log("**input = " + input);
+        console.log("**input = " + input);
         fileInfoAjax();
         executeQueryAjax(input);
         //empty the text area
@@ -551,10 +551,10 @@ $(document).ready(function() {
         var jqueryID = '#textAreaQueryID';
         
         //dec var
-        if(DEBUG)console.log("calling selectQueryID");
+        console.log("calling selectQueryID");
         var element = document.getElementById('selectQueryID');
         var querySelected = element.options[element.selectedIndex].text;
-        if(DEBUG)console.log("file selected text = " + querySelected);
+        console.log("file selected text = " + querySelected);
         
         //condition based on select query
         if(querySelected == "Get all individuals sorted by last name"){    
@@ -566,7 +566,7 @@ $(document).ready(function() {
             window.location = href;
             //when ok is pressed
             $('#queryPopupButtonID').on('click', function(){
-                if(DEBUG)console.log("calling query ok button");
+                console.log("calling query ok button");
                 var fileElement = document.getElementById('queryFileSelection');
                 //input form
                 var fileSelected = "";
@@ -586,7 +586,7 @@ $(document).ready(function() {
             window.location = href;
             //when ok is pressed
             $('#queryPopupButtonID').on('click', function(){
-                if(DEBUG)console.log("calling query ok button");
+                console.log("calling query ok button");
                 var fileElement = document.getElementById('queryFileSelection');
                 //input form
                 var fileSelected = "";
@@ -629,7 +629,7 @@ function appendToTable(data, toBeAppend){
 
     //a func to create dynamic table for sql
 
-    if(DEBUG)console.log("calling appendToQueryTable");
+    console.log("calling appendToQueryTable");
     //remove the items inside the table
     var thead = toBeAppend + " thead";
     var tbody = toBeAppend + " tbody";
@@ -642,7 +642,7 @@ function appendToTable(data, toBeAppend){
 
     //create the keys 
     var keys = Object.keys(data[0]);
-    if(DEBUG)console.log("keys = " + keys);
+    console.log("keys = " + keys);
     for(var x=0; x<keys.length; x++){
         var headerList = headerList + "<th>"+ keys[x] +"</th>";
     }//end for
@@ -654,7 +654,7 @@ function appendToTable(data, toBeAppend){
         var body = "";
         var bodyList = "";
         var values = Object.values(data[x]);
-        if(DEBUG)console.log("values = " + values);
+        console.log("values = " + values);
         for(var y=0; y<values.length; y++){
             bodyList = bodyList + "<th>" + values[y] + "</th>";
         }//end for
@@ -664,7 +664,7 @@ function appendToTable(data, toBeAppend){
 }//end func
 
 function appendIndiTable(data, toBeAppend){
-    if(DEBUG)console.log("calling appendIndiTable");
+    console.log("calling appendIndiTable");
     //remove the items inside the table
     var thead = toBeAppend + "thead";
     var tbody = toBeAppend + "tbody";
@@ -696,7 +696,7 @@ function appendIndiTable(data, toBeAppend){
 }//end func
 
 function appendFileTable(data, toBeAppend){
-    if(DEBUG)console.log("calling appendFileTable");
+    console.log("calling appendFileTable");
     //remove the items inside the table
     var thead = toBeAppend + "thead";
     var tbody = toBeAppend + "tbody";
@@ -740,32 +740,32 @@ function fileInfoAjax(){
         dataType: 'json',
         url: '/dbQueryOuputs',
         success: function (data) {
-            if(DEBUG)console.log("ajax pass");
-            if(DEBUG)console.log("fileNum = " + data.fileNum + ", indiNum = " + data.indiNum);
+            console.log("ajax pass");
+            console.log("fileNum = " + data.fileNum + ", indiNum = " + data.indiNum);
             appendStringToStatus(printDBstatus(data.fileNum, data.indiNum));
         },
         fail: function(error) {
             // Non-200 return, do something with error
-            if(DEBUG)console.log("ajax error returned = " + error); 
+            console.log("ajax error returned = " + error); 
         }
     });//end ajax
 }//end func
 
 function executeQueryAjax(input){
-    if(DEBUG)console.log("calling executeQueryAjax");
+    console.log("calling executeQueryAjax");
     $.ajax({
         type: 'get',
         dataType: 'json',
         url: '/dbQueryInputs',
         data: {input: input},
         success: function (data) {
-            if(DEBUG)console.log("ajax pass");
-            if(DEBUG)console.log("ajax data = " + data);
+            console.log("ajax pass");
+            console.log("ajax data = " + data);
             appendToTable(data, '#queryTableID');
         },
         fail: function(error) {
             // Non-200 return, do something with error
-            if(DEBUG)console.log("ajax error returned = " + error); 
+            console.log("ajax error returned = " + error); 
         }
     });//end ajax
 }//end func
