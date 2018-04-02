@@ -470,7 +470,6 @@ $(document).ready(function() {
         if(loginStatus == false){
             alert("Please login before using the database");
             appendStringToStatus("Please login before using the database");
-            return false;
         }else{
             alert("FILE and INDIVIDUAL table has been updated");
             appendStringToStatus("FILE and INDIVIDUAL table has been upadted");
@@ -492,7 +491,6 @@ $(document).ready(function() {
         });//end ajax
         fileInfoAjax();
         event.preventDefault();
-        return true;
     });//end jquery
 
     //clear all files
@@ -501,7 +499,6 @@ $(document).ready(function() {
         if(loginStatus == false){
             alert("Please login before using the database");
             appendStringToStatus("Please login before using the database");
-            return false;
         }else{
             appendStringToStatus("All FILE and INDIVIDUAL data has been cleared");
             alert("All FILE and INDIVIDUAL data has been cleared");
@@ -524,7 +521,6 @@ $(document).ready(function() {
         });//end ajax
         fileInfoAjax();
         event.preventDefault();
-        return true;
     });//end jquery
 
     //execute query
@@ -532,7 +528,6 @@ $(document).ready(function() {
         //error check
         if(loginStatus == false){
             alert("Please login before using the database");
-            return false;
         }else{
             appendStringToStatus("Query has been executed");
             //alert("Query has been executed");
@@ -547,7 +542,6 @@ $(document).ready(function() {
         //empty the text area
         var emptyString = "";
         $('#textAreaQueryID').val(emptyString);
-        return true;
     });//end  jquery
 
     //select query
@@ -785,7 +779,6 @@ function appendStringToStatus(string){
 function isEmptyObject(obj) {
     for(var prop in obj) {
         if (Object.prototype.hasOwnProperty.call(obj, prop)) {
-            return false;
         }//end if
     }//end for
     return true;
