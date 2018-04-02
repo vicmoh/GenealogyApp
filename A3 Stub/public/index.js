@@ -460,8 +460,8 @@ $(document).ready(function() {
         $('#userID').val(empty);
         $('#passID').val(empty);
         $('#dbaseID').val(empty);
-    });
-
+    });//end  jquery
+    
     /*******************************************************************/
 
     //store file logs to data base
@@ -517,7 +517,7 @@ $(document).ready(function() {
         event.preventDefault();
     });//end jquery
 
-    //clear all files
+    //execute query
     $('#executeQueryID').click(function(event){
         if(DEBUG)console.log("calling textAreaQueryID");
         var input = $('#textAreaQueryID').val();
@@ -533,9 +533,9 @@ $(document).ready(function() {
             appendStringToStatus("Query has been executed");
             //alert("Query has been executed");
         }//end if
-    });//ennd  jquery
+    });//end  jquery
 
-    //clear all files
+    //select query
     $('#selectQueryID').change('click', function(event){
         //empty textare
         var emptyString = "";
@@ -586,21 +586,30 @@ $(document).ready(function() {
                 $(jqueryID).val(command);
             });
         }//end if
-    });//ennd  jquery
+    });//end  jquery
 
+    //help for indi
     $('#describeIndiID').click(function(){
         //dec vars
         var helpCommand = "DESCRIBE INDIVIDUAL;";
         var jqueryID = '#textAreaQueryID';
         $(jqueryID).val(helpCommand);
-    });
+    });//end  jquery
 
+    //help for file
     $('#describeFileID').click(function(){
         //dec vars
         var helpCommand = "DESCRIBE FILE;";
         var jqueryID = '#textAreaQueryID';
         $(jqueryID).val(helpCommand);
-    });
+    });//end  jquery
+
+    //help button
+    $('#helpButtonID').click(function(event){
+        if(loginStatus == false){
+            alert("Please login before using the database");
+        }//end if
+    });//end  jquery
 });//end doc ready jq
 
 /*******************************************************************************
