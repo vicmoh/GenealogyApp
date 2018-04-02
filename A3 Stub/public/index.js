@@ -4,6 +4,8 @@ Date: March 4, 2018
 Program: ajax and jquery
 ************************************************************/
 
+var loginStatus = false;
+
 // Put all onload AJAX calls here, and event listeners
 $(document).ready(function() {
     console.log("page has been loaded");
@@ -443,6 +445,7 @@ $(document).ready(function() {
                     var loginElement = document.getElementById('loginNavBarID');
                     loginElement.innerText = user;
                     loginElement.href = "#";
+                    loginStatus = true;
                 }//end if
             },
             fail: function(error) {
@@ -456,6 +459,8 @@ $(document).ready(function() {
         $('#passID').val(empty);
         $('#dbaseID').val(empty);
     });
+
+    /*******************************************************************/
 
     //store file logs to data base
     $('#storeAllFilesID').click(function(event){
@@ -473,8 +478,13 @@ $(document).ready(function() {
             }
         });//end ajax
         fileInfoAjax();
-        alert("FILE and INDIVIDUAL table has been updated");
-        appendStringToStatus("FILE and INDIVIDUAL table has been upadted");
+        if(loginStatus == false){
+            alert("Please login before using the database");
+            appendStringToStatus("Please login before using the database");
+        }else{
+            alert("FILE and INDIVIDUAL table has been updated");
+            appendStringToStatus("FILE and INDIVIDUAL table has been upadted");
+        }//end if
         event.preventDefault();
     });//end jquery
 
@@ -495,8 +505,13 @@ $(document).ready(function() {
             }
         });//end ajax
         fileInfoAjax();
-        appendStringToStatus("All FILE and INDIVIDUAL data has been cleared");
-        alert("All FILE and INDIVIDUAL data has been cleared");
+        if(loginStatus == false){
+            alert("Please login before using the database");
+            appendStringToStatus("Please login before using the database");
+        }else{
+            appendStringToStatus("All FILE and INDIVIDUAL data has been cleared");
+            alert("All FILE and INDIVIDUAL data has been cleared");
+        }//end if
         event.preventDefault();
     });//end jquery
 
@@ -510,7 +525,11 @@ $(document).ready(function() {
         //empty the text area
         var emptyString = "";
         $('#textAreaQueryID').val(emptyString);
-        appendStringToStatus("Query has been executed");
+        if(login == false){
+            alert("Please login before using the database");
+        }else{
+            appendStringToStatus("Query has been executed");
+        }//end if
         //alert("Query has been executed");
     });//ennd  jquery
 
