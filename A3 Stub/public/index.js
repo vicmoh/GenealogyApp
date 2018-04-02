@@ -470,9 +470,6 @@ $(document).ready(function() {
         if(loginStatus == false){
             alert("Please login before using the database");
             appendStringToStatus("Please login before using the database");
-        }else if(listOfFileNames.length < 1){
-            alert("There is no files in the 'uploads' folder");
-            appendStringToStatus("There is no files in the 'uploads' folder");
         }else{
             alert("FILE and INDIVIDUAL table has been updated");
             appendStringToStatus("FILE and INDIVIDUAL table has been upadted");
