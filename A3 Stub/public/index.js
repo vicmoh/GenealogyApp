@@ -466,14 +466,14 @@ $(document).ready(function() {
 
     //store file logs to data base
     $('#storeAllFilesID').click(function(event){
-        //error check
-        if(loginStatus == false){
-            alert("Please login before using the database");
-            appendStringToStatus("Please login before using the database");
-        }else{
-            alert("FILE and INDIVIDUAL table has been updated");
-            appendStringToStatus("FILE and INDIVIDUAL table has been upadted");
-        }//end if
+        // //error check
+        // if(loginStatus == false){
+        //     alert("Please login before using the database");
+        //     appendStringToStatus("Please login before using the database");
+        // }else{
+        //     alert("FILE and INDIVIDUAL table has been updated");
+        //     appendStringToStatus("FILE and INDIVIDUAL table has been upadted");
+        // }//end if
 
         //store
         if(DEBUG)console.log("calling storeAllFilesID");
@@ -495,14 +495,14 @@ $(document).ready(function() {
 
     //clear all files
     $('#clearAllDataID').click(function(event){
-        //error check
-        if(loginStatus == false){
-            alert("Please login before using the database");
-            appendStringToStatus("Please login before using the database");
-        }else{
-            appendStringToStatus("All FILE and INDIVIDUAL data has been cleared");
-            alert("All FILE and INDIVIDUAL data has been cleared");
-        }//end if
+        // //error check
+        // if(loginStatus == false){
+        //     alert("Please login before using the database");
+        //     appendStringToStatus("Please login before using the database");
+        // }else{
+        //     appendStringToStatus("All FILE and INDIVIDUAL data has been cleared");
+        //     alert("All FILE and INDIVIDUAL data has been cleared");
+        // }//end if
 
         //clear
         if(DEBUG)console.log("calling storeAllFilesID");
@@ -525,13 +525,13 @@ $(document).ready(function() {
 
     //execute query
     $('#executeQueryID').click(function(event){
-        //error check
-        if(loginStatus == false){
-            alert("Please login before using the database");
-        }else{
-            appendStringToStatus("Query has been executed");
-            //alert("Query has been executed");
-        }//end if
+        // //error check
+        // if(loginStatus == false){
+        //     alert("Please login before using the database");
+        // }else{
+        //     appendStringToStatus("Query has been executed");
+        //     //alert("Query has been executed");
+        // }//end if
 
         //exec query
         if(DEBUG)console.log("calling textAreaQueryID");
