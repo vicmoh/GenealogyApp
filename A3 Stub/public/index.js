@@ -543,8 +543,11 @@ $(document).ready(function() {
         var emptyString = "";
         $('#textAreaQueryID').val(emptyString);
 <<<<<<< HEAD
+<<<<<<< HEAD
     });//end  jquery
 =======
+=======
+>>>>>>> parent of 1c5a0ce... asd
         if(login == false){
             alert("Please login before using the database");
         }else{
