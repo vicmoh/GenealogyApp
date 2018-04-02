@@ -330,7 +330,7 @@ app.get('/dbStoreFile', function (req, res){
 
     //for indi
     createIndiTable();
-    connection.query("SELECT * FROM FILE", function (err, rows, fields) {
+    connection.query("SELECT * FROM FILE;", function (err, rows, fields) {
         //Throw an error if we cannot run the query 
         if (err) 
             if(DEBUG)console.log("Something went wrong. "+err);
