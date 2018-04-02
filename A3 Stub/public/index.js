@@ -542,20 +542,7 @@ $(document).ready(function() {
         //empty the text area
         var emptyString = "";
         $('#textAreaQueryID').val(emptyString);
-<<<<<<< HEAD
-<<<<<<< HEAD
     });//end  jquery
-=======
-=======
->>>>>>> parent of 1c5a0ce... asd
-        if(login == false){
-            alert("Please login before using the database");
-        }else{
-            appendStringToStatus("Query has been executed");
-        }//end if
-        //alert("Query has been executed");
-    });//ennd  jquery
->>>>>>> parent of 1c5a0ce... asd
 
     //select query
     $('#selectQueryID').change('click', function(event){
