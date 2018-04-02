@@ -43,19 +43,19 @@ const DEBUG = true;
 //testing the parser lib
 function testParserLib(){
     var uploadNameTest = "./uploads/writeTest.ged";
-    if(DEBUG)console.log("before calling parser lib");
+    console.log("before calling parser lib");
     var fileNameTest = "./uploads/shakespeare.ged";
     var objectTest = parserLib.createGEDCOMWrapper(fileNameTest);
-    if(DEBUG)console.log("middle calling parser lib");
+    console.log("middle calling parser lib");
     var stringTest = parserLib.descToJSON(fileNameTest, "William", "Shakespeare", 3);
-    if(DEBUG)console.log(stringTest);
+    console.log(stringTest);
     parserLib.writeGEDCOMWrapper(uploadNameTest, objectTest);
-    if(DEBUG)console.log("after calling parser lib");
-    if(DEBUG)console.log("calling the create gedcom part 2");
-    if(DEBUG)console.log("testing to read the uploaded file");
+    console.log("after calling parser lib");
+    console.log("calling the create gedcom part 2");
+    console.log("testing to read the uploaded file");
     var stringTest2 = parserLib.descToJSON(uploadNameTest, "William", "Shakespeare", 3);
-    if(DEBUG)console.log(stringTest2);
-    if(DEBUG)console.log("calling the parser PASSED");
+    console.log(stringTest2);
+    console.log("calling the parser PASSED");
 }//end func
 
 /**********************************************************************
@@ -106,8 +106,8 @@ app.post('/upload', function(req, res) {
  
     // Use the mv() method to place the file somewhere on your server
     uploadFile.mv('uploads/' + uploadFile.name, function(err) {
-        if(DEBUG)console.log(uploadFile.name);
-        if(DEBUG)console.log("uploading file");
+        console.log(uploadFile.name);
+        console.log("uploading file");
     if(err) {
         return res.status(500).send(err);
     }
@@ -118,7 +118,7 @@ app.post('/upload', function(req, res) {
 //Respond to GET requests for files in the uploads/ directory
 app.get('/uploads/:name', function(req , res){
     fs.stat('uploads/' + req.params.name, function(err, stat) {
-        if(DEBUG)console.log(err);
+        console.log(err);
         if(err == null) {
             res.sendFile(path.join(__dirname+'/uploads/' + req.params.name));
         } else {
@@ -137,7 +137,7 @@ app.get('/someendpoint', function(req , res){
 });
 
 app.listen(portNum);
-if(DEBUG)console.log('Running app at localhost: ' + portNum);
+console.log('Running app at localhost: ' + portNum);
 
 /**********************************************************************
  * my custom codes
@@ -160,7 +160,7 @@ app.post('/assets', function(req, res) {
 //get request for the web assets just incase
 app.get('/assets/:name', function(req , res){
     fs.stat('assets/' + req.params.name, function(err, stat) {
-        if(DEBUG)console.log(err);
+        console.log(err);
         if(err == null) {
             res.sendFile(path.join(__dirname+'/assets/' + req.params.name));
         } else {
@@ -182,38 +182,38 @@ app.get('/getFileLogs', function(req , res){
     var jsonString;
     for(var x=0; x<fileNames.length; x++){
         var currentFileName = "./uploads/" + fileNames[x];
-        if(DEBUG)console.log("getFileLogs = " + currentFileName);
+        console.log("getFileLogs = " + currentFileName);
         var jsonString = parserLib.GEDCOMtoJSON(currentFileName);
-        if(DEBUG)console.log("GEDCOMtoJSON did not crash");
+        console.log("GEDCOMtoJSON did not crash");
         var tempFileLogObject = [];
         tempFileLogObject = JSON.parse(jsonString);
-        if(DEBUG)console.log(tempFileLogObject);
+        console.log(tempFileLogObject);
         listOfFileLogObjects.push(tempFileLogObject);
     }//end for
     res.send(listOfFileLogObjects);
-    if(DEBUG)console.log(listOfFileLogObjects);
+    console.log(listOfFileLogObjects);
 });
 
 //get request for the web objects
 app.get('/getIndiList', function(req , res){
     var selectedString = req.query.fileSelected;
     var filePath = "./uploads/" + selectedString;
-    if(DEBUG)console.log("getIndiList file path = " + filePath);
+    console.log("getIndiList file path = " + filePath);
     var jsonString = parserLib.getIndiListJSON(filePath);
-    if(DEBUG)console.log("bonus string = " + jsonString);
+    console.log("bonus string = " + jsonString);
     var jsonObject = JSON.parse(jsonString);
     res.send(jsonObject);
 });
 
 //get request for the web objects
 app.get('/addIndiToList', function(req , res){
-    if(DEBUG)console.log("calling addIndiToList");
+    console.log("calling addIndiToList");
     var file = req.query.fileSelected;
     var filePath = "./uploads/" + file;
-    if(DEBUG)console.log("file path = " + filePath);
+    console.log("file path = " + filePath);
     var givenName = req.query.givenName;
     var surname = req.query.surname;
-    if(DEBUG)console.log("given name: " + givenName + ", surname: " + surname);
+    console.log("given name: " + givenName + ", surname: " + surname);
     parserLib.addIndiJSON(filePath, givenName, surname);
     //using app.get instead of post just in case i might need something
     var dummy = [];
@@ -222,52 +222,52 @@ app.get('/addIndiToList', function(req , res){
 
 //get request for the web objects
 app.get('/getDescList', function(req , res){
-    if(DEBUG)console.log("calling getDescList");
+    console.log("calling getDescList");
     var file = req.query.fileSelected;
     var filePath = "./uploads/" + file;
-    if(DEBUG)console.log("filePath = " + filePath);
+    console.log("filePath = " + filePath);
     var givenName = req.query.givenName;
     var surname = req.query.surname;
     var numGen = req.query.numGen;
-    if(DEBUG)console.log("given name: " + givenName + ", surname: " + surname + ", numGen: " + numGen);
+    console.log("given name: " + givenName + ", surname: " + surname + ", numGen: " + numGen);
     var jsonString = parserLib.descToJSON(filePath, givenName, surname, numGen);
-    if(DEBUG)console.log("jsonString = " + jsonString);
+    console.log("jsonString = " + jsonString);
     var jsonObject = JSON.parse(jsonString);
-    if(DEBUG)console.log("desc object:" + jsonObject);
+    console.log("desc object:" + jsonObject);
     res.send(jsonObject);
 });
 
 //get request for the web objects
 app.get('/getAnceList', function(req , res){
-    if(DEBUG)console.log("calling getAnceList");
+    console.log("calling getAnceList");
     var file = req.query.fileSelected;
     var filePath = "./uploads/" + file;
-    if(DEBUG)console.log("filePath = " + filePath);
+    console.log("filePath = " + filePath);
     var givenName = req.query.givenName;
     var surname = req.query.surname;
     var numGen = req.query.numGen;
-    if(DEBUG)console.log("given name: " + givenName + ", surname: " + surname + ", numGen: " + numGen);
+    console.log("given name: " + givenName + ", surname: " + surname + ", numGen: " + numGen);
     var jsonString = parserLib.anceToJSON(filePath, givenName, surname, numGen);
-    if(DEBUG)console.log("jsonString = " + jsonString);
+    console.log("jsonString = " + jsonString);
     var jsonObject = JSON.parse(jsonString);
-    if(DEBUG)console.log("ance object:" + jsonObject);
+    console.log("ance object:" + jsonObject);
     res.send(jsonObject);
 });
 
 //get request for the web objects
 app.get('/createGedcom', function(req , res){
-    if(DEBUG)console.log("calling createGEDCOM");
+    console.log("calling createGEDCOM");
     var file = req.query.fileName;
     var filePath = "./uploads/" + file + ".ged";
-    if(DEBUG)console.log("filePath = " + filePath);
+    console.log("filePath = " + filePath);
     var subName = req.query.subName;
     var subAddress = req.query.subAddress;
     var source = "Ancestry.com"
-    if(DEBUG)console.log("sub name: " + subName + ", sub address: " + subAddress);
+    console.log("sub name: " + subName + ", sub address: " + subAddress);
     var gedcomObject = parserLib.newGEDCOM(source, subName, subAddress);
     parserLib.writeGEDCOMWrapper(filePath, gedcomObject);
     // var jsonString = parseLib.GEDCOMtoJSON(filePath);
-    // if(DEBUG)console.log("json string of new gedcom: " + jsonString);
+    // console.log("json string of new gedcom: " + jsonString);
     // var jsonObject = JSON.parse(jsonString);
     // res.send(jsonObject);
     var dummy = [];
@@ -276,12 +276,12 @@ app.get('/createGedcom', function(req , res){
 
 
 app.get('/login', function (req, res){
-    if(DEBUG)console.log("calling login");
+    console.log("calling login");
     var user = req.query.user;
     var pass = req.query.pass;
     var dbase = req.query.dbase;
     var result = false;
-    if(DEBUG)console.log("app.js user = " + user + ", passID = " + pass + ", dbase = " + dbase);
+    console.log("app.js user = " + user + ", passID = " + pass + ", dbase = " + dbase);
     connection = mysql.createConnection({
         host     : 'dursley.socs.uoguelph.ca',
         user     :  user,
@@ -292,9 +292,9 @@ app.get('/login', function (req, res){
         if (err) {
             result = true;
             res.send(result);
-            if(DEBUG)console.log("login failed!");
+            console.log("login failed!");
         }else{
-            if(DEBUG)console.log("login successfully!");
+            console.log("login successfully!");
             result = false;
             res.send(result);
         }
@@ -302,26 +302,26 @@ app.get('/login', function (req, res){
 });
 
 app.get('/dbStoreFile', function (req, res){
-    if(DEBUG)console.log("calling dbStoreFile");
+    console.log("calling dbStoreFile");
     //create the table
     createFileTable();
     for(var x=0; x<listOfFileLogObjects.length; x++){
         //dec vars
-        if(DEBUG)console.log("before SQL = " + listOfFileLogObjects[x]);
+        console.log("before SQL = " + listOfFileLogObjects[x]);
         var stringOfFileQuery = fileLogToSQL(listOfFileLogObjects[x]);
-        if(DEBUG)console.log("stringOfFileQuery = ", stringOfFileQuery);
+        console.log("stringOfFileQuery = ", stringOfFileQuery);
         connection.query(stringOfFileQuery, function (err, rows, fields) {
             if (err) {
-                if(DEBUG)console.log("Something went wrong. "+err);
+                console.log("Something went wrong. "+err);
             }else{
-                if(DEBUG)console.log("file table created successfully");
+                console.log("file table created successfully");
                 
                 // //connect the 
                 // var fileName = listOfFileLogObjects.fileName;
                 // var selectQuery = "SELECT file_id FROM FILE WHERE file_Name = " + fileName;
                 
                 // connection.query(selectQuery, function (err, rows, fields) {
-                //     if(DEBUG)console.log("testing the select query: \n"+ err +" "+" "+ rows +" "+ fields);
+                //     console.log("testing the select query: \n"+ err +" "+" "+ rows +" "+ fields);
                 // });
 
             }//end if
@@ -333,30 +333,30 @@ app.get('/dbStoreFile', function (req, res){
     connection.query("SELECT * FROM FILE;", function (err, rows, fields) {
         //Throw an error if we cannot run the query 
         if (err) 
-            if(DEBUG)console.log("Something went wrong. "+err);
+            console.log("Something went wrong. "+err);
         else {
-            if(DEBUG)console.log("Database contents:");
+            console.log("Database contents:");
     
             //Rows is an array of objects.  Each object has fields corresponding to table columns
             for (let row of rows){
                 var fileName = "./uploads/" + row.file_Name;
                 var fileID = row.file_id;
                 var numIndi = row.num_individials
-                if(DEBUG)console.log("inditable: fileName = "+fileName+" fileID = "+fileID);
-                if(DEBUG)console.log("numIndi = " + numIndi);
+                console.log("inditable: fileName = "+fileName+" fileID = "+fileID);
+                console.log("numIndi = " + numIndi);
                 if(numIndi > 0){
                     var indiList = parserLib.getIndiListJSON(fileName);
                     var indiListObject = JSON.parse(indiList);
-                    if(DEBUG)console.log("indiList = " + indiList);
-                    if(DEBUG)console.log("indiList.length = " + indiListObject.length);
+                    console.log("indiList = " + indiList);
+                    console.log("indiList.length = " + indiListObject.length);
                     //inputing the indi table
                     for(var x=0; x<indiListObject.length; x++){
                         var inputIndiTableQuery = indiLogToSQL(indiListObject[x], fileID);
                         connection.query(inputIndiTableQuery, function (err, rows, fields) {
                             if (err) {
-                                if(DEBUG)console.log("Something went wrong. "+err);
+                                console.log("Something went wrong. "+err);
                             }else{
-                                if(DEBUG)console.log("indi table created successfully");
+                                console.log("indi table created successfully");
                             }//end if
                         });
                     }//end for
@@ -367,38 +367,38 @@ app.get('/dbStoreFile', function (req, res){
 });
 
 app.get('/dbClearFile', function (req, res){
-    if(DEBUG)console.log("calling dbClearFile");
+    console.log("calling dbClearFile");
     //clear file
     var deleteTable = "DELETE FROM FILE;";
     connection.query(deleteTable, function (err, rows, fields) {
         if (err) {
-            if(DEBUG)console.log("Something went wrong. "+err);
+            console.log("Something went wrong. "+err);
         }else{
-            if(DEBUG)console.log("clear data successfully");
+            console.log("clear data successfully");
         }//end if
     });
     //clear individual
     var deleteTable = "DELETE FROM INDIVIDUAL;";
     connection.query(deleteTable, function (err, rows, fields) {
         if (err) {
-            if(DEBUG)console.log("Something went wrong. "+err);
+            console.log("Something went wrong. "+err);
         }else{
-            if(DEBUG)console.log("clear data successfully");
+            console.log("clear data successfully");
         }//end if
     });
 });
 
 app.get('/dbQueryInputs', function (req, res){
-    if(DEBUG)console.log("calling dbQueryInputs");
+    console.log("calling dbQueryInputs");
     var queryInput = req.query.input;
-    if(DEBUG)console.log("**queryInput = " + queryInput);
+    console.log("**queryInput = " + queryInput);
     var data = [];
     connection.query(queryInput, function (err, rows, fields) {
         //Throw an error if we cannot run the query 
         if (err) 
-            if(DEBUG)console.log("Something went wrong. "+err);
+            console.log("Something went wrong. "+err);
         else {
-            if(DEBUG)console.log("Database contents:");
+            console.log("Database contents:");
             
             //Rows is an array of objects.  Each object has fields corresponding to table columns
             for (let row of rows){
@@ -410,27 +410,27 @@ app.get('/dbQueryInputs', function (req, res){
 });
 
 app.get('/dbQueryOuputs', function (req, res){
-    if(DEBUG)console.log("calling dbQueryOuputs");
+    console.log("calling dbQueryOuputs");
     //dec vars
     var fileInfo = {fileNum: 0, indiNum: 0};
     //connect
     connection.query("SELECT * FROM FILE", function (err, rows, fields) {
         //Throw an error if we cannot run the query 
         if (err) 
-            if(DEBUG)console.log("Something went wrong. "+err);
+            console.log("Something went wrong. "+err);
         else {
-            if(DEBUG)console.log("Database contents:");
+            console.log("Database contents:");
     
             //Rows is an array of objects.  Each object has fields corresponding to table columns
             for (let row of rows){
                 fileInfo.fileNum = fileInfo.fileNum + 1;
                 fileInfo.indiNum = fileInfo.indiNum + row.num_individials;
-                if(DEBUG)console.log("getNumberOfFileAndIndi = " + printDBstatus(fileInfo.fileNum, row.num_individials));
+                console.log("getNumberOfFileAndIndi = " + printDBstatus(fileInfo.fileNum, row.num_individials));
             }//end ffor
             res.send(fileInfo);
         }//end if
     });
-    if(DEBUG)console.log("dbaQueryOutputs: " + "fileNum = " + fileInfo.fileNum + " indiNum  = ", fileInfo.indiNum);
+    console.log("dbaQueryOutputs: " + "fileNum = " + fileInfo.fileNum + " indiNum  = ", fileInfo.indiNum);
 });
 
 
@@ -473,7 +473,7 @@ function createIndiTable(){
 }//end func
 
 function indiLogToSQL(data, sourceFileID){
-    if(DEBUG)console.log(data);
+    console.log(data);
     var heading = "(surname, given_name, sex, fam_size, source_file)";
     var values = "('"+ data.surname + "', '"
                     + data.givenName + "', '"
@@ -481,7 +481,7 @@ function indiLogToSQL(data, sourceFileID){
                     + data.famNum + "', '"
                     + sourceFileID + "')";
     var tableToBeInserted = "INSERT INTO INDIVIDUAL "+ heading +" VALUES "+ values +";";
-    if(DEBUG)console.log(tableToBeInserted);
+    console.log(tableToBeInserted);
     return tableToBeInserted;
 }//end func
 
@@ -496,7 +496,7 @@ function fileLogToSQL(data){
                     + data.indiNum + "', '"
                     + data.famNum + "')";
     var tableToBeInserted = "INSERT INTO FILE "+ heading +" VALUES "+ values +";";
-    if(DEBUG)console.log(tableToBeInserted);
+    console.log(tableToBeInserted);
     return tableToBeInserted;
 }//end func
 
@@ -517,24 +517,24 @@ function getListFileNames(){
 }//end func
 
 function writeJSONObjects(fileName, object){
-    if(DEBUG)console.log("calling writeJSONObjects");
+    console.log("calling writeJSONObjects");
     fs.writeFile(fileName, JSON.stringify(object), (err) =>{
         if(err){
-            if(DEBUG)console.log(err);
-            if(DEBUG)console.log("error writing JSON objects");
+            console.log(err);
+            console.log("error writing JSON objects");
             return;
         }//end if
     });
 }//end func
 
 function addFileNameToList(fileName, list){
-    if(DEBUG)console.log("calling addFileName = " + fileName);
+    console.log("calling addFileName = " + fileName);
     lsit.push(fileName);
     writeJSONObjects(JSONfileName, listOfFileName);
 }//end func
 
 function addIndividual(){
-    if(DEBUG)console.log("calling addIndividual()");
+    console.log("calling addIndividual()");
     var GEDFileName = "./uploads/shakespeare.ged"
     var desc = parserLib.descToJSON(GEDFileName, "William", "Shakespeare", 0);
     parserLib.writeString(JSONFileName, desc);
