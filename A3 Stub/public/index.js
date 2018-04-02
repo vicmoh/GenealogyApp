@@ -6,7 +6,7 @@ Program: ajax and jquery
 
 //global var
 var loginStatus = false;
-const DEBUG = false; 
+const DEBUG = true; 
 
 // Put all onload AJAX calls here, and event listeners
 $(document).ready(function() {
