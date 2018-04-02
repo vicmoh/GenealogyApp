@@ -401,12 +401,10 @@ app.get('/dbQueryInputs', function (req, res){
             if(DEBUG)console.log("Database contents:");
             
             //Rows is an array of objects.  Each object has fields corresponding to table columns
-            if(isEmptyObject(rows) == false){
-                for (let row of rows){
-                    data.push(row);
-                }//end ffor
-                res.send(data);
-            }//end if
+            for (let row of rows){
+                data.push(row);
+            }//end ffor
+            res.send(data);
         }//end if
     });
 });

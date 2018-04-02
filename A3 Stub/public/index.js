@@ -466,6 +466,20 @@ $(document).ready(function() {
 
     //store file logs to data base
     $('#storeAllFilesID').click(function(event){
+        //error check
+        if(loginStatus == false){
+            alert("Please login before using the database");
+            appendStringToStatus("Please login before using the database");
+            return false;
+        }else if(listOfFileNames.length < 1){
+            alert("There is no files in the 'uploads' folder");
+            appendStringToStatus("There is no files in the 'uploads' folder");
+            return false;
+        }else{
+            alert("FILE and INDIVIDUAL table has been updated");
+            appendStringToStatus("FILE and INDIVIDUAL table has been upadted");
+        }//end if
+
         //store
         if(DEBUG)console.log("calling storeAllFilesID");
         $.ajax({
@@ -482,22 +496,21 @@ $(document).ready(function() {
         });//end ajax
         fileInfoAjax();
         event.preventDefault();
-        
-        //error check
-        if(loginStatus == false){
-            alert("Please login before using the database");
-            appendStringToStatus("Please login before using the database");
-        }else if(listOfFileNames.length < 1){
-            alert("There is no files in the 'uploads' folder");
-            appendStringToStatus("There is no files in the 'uploads' folder");
-        }else{
-            alert("FILE and INDIVIDUAL table has been updated");
-            appendStringToStatus("FILE and INDIVIDUAL table has been upadted");
-        }//end if
+        return true;
     });//end jquery
 
     //clear all files
     $('#clearAllDataID').click(function(event){
+        //error check
+        if(loginStatus == false){
+            alert("Please login before using the database");
+            appendStringToStatus("Please login before using the database");
+            return false;
+        }else{
+            appendStringToStatus("All FILE and INDIVIDUAL data has been cleared");
+            alert("All FILE and INDIVIDUAL data has been cleared");
+        }//end if
+
         //clear
         if(DEBUG)console.log("calling storeAllFilesID");
         var queryFail = true;
@@ -515,19 +528,20 @@ $(document).ready(function() {
         });//end ajax
         fileInfoAjax();
         event.preventDefault();
-        
-        //error check
-        if(loginStatus == false){
-            alert("Please login before using the database");
-            appendStringToStatus("Please login before using the database");
-        }else{
-            appendStringToStatus("All FILE and INDIVIDUAL data has been cleared");
-            alert("All FILE and INDIVIDUAL data has been cleared");
-        }//end if
+        return true;
     });//end jquery
 
     //execute query
     $('#executeQueryID').click(function(event){
+        //error check
+        if(loginStatus == false){
+            alert("Please login before using the database");
+            return false;
+        }else{
+            appendStringToStatus("Query has been executed");
+            //alert("Query has been executed");
+        }//end if
+
         //exec query
         if(DEBUG)console.log("calling textAreaQueryID");
         var input = $('#textAreaQueryID').val();
@@ -537,14 +551,7 @@ $(document).ready(function() {
         //empty the text area
         var emptyString = "";
         $('#textAreaQueryID').val(emptyString);
-        
-        //error check
-        if(loginStatus == false){
-            alert("Please login before using the database");
-        }else{
-            appendStringToStatus("Query has been executed");
-            //alert("Query has been executed");
-        }//end if
+        return true;
     });//end  jquery
 
     //select query
