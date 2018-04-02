@@ -22,8 +22,8 @@ Program: This will the main html source for the interface
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
         <!--aos snik-->
-        <link rel="stylesheet" href="../assets/aos/dist/aos.css">
-        <script src="../assets/aos/dist/aos.js"></script>
+        <!-- <link rel="stylesheet" href="../assets/aos/dist/aos.css">
+        <script src="../assets/aos/dist/aos.js"></script> -->
 
         <!--google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Bungee|Rozha+One" rel="stylesheet">
@@ -32,12 +32,6 @@ Program: This will the main html source for the interface
 
     <!--html body-->
     <body>
-        <!-- need to this for the animation -->
-        <script>
-            AOS.init({
-                duration: 1200,
-            })
-        </script>
         <!--mathML.js libs
         <script type="text/javascript" src="/d2l/common/math/MathML.js?v=10.7.10.10022-168 "></script>-->
         <!--mathjax.js libs
@@ -201,7 +195,7 @@ Program: This will the main html source for the interface
                 <textarea class="queryTextarea form-control setBold setRalewayFont thickBorder" id="textAreaQueryID" rows="5"></textarea>
                 <!-- result -->
                 <p class="setTopPadding">Display DB status</p>
-                <!-- <textarea class="queryTextarea form-control setBold setRalewayFont thickBorder" id="statusTextAreaID" rows="5"></textarea> -->
+                <textarea class="queryTextarea form-control setBold setRalewayFont thickBorder" id="statusTextAreaID" rows="5"></textarea>
                 <p class="setTopPadding">Query Table Result</p>
                 <div id="queryOutputID">
                     <div class="table-responsive bg-dark fileLogScroll">
