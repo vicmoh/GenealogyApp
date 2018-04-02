@@ -525,7 +525,7 @@ $(document).ready(function() {
         //empty the text area
         var emptyString = "";
         $('#textAreaQueryID').val(emptyString);
-        if(login == false){
+        if(loginStatus == false){
             alert("Please login before using the database");
         }else{
             appendStringToStatus("Query has been executed");
