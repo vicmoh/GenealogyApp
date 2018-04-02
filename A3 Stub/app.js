@@ -6,6 +6,10 @@ Program: node and server
 
 'use strict';
 
+/**********************************************************************
+ * global variables
+ **********************************************************************/
+
 //dec vars
 const ffi = require('ffi');//for the c lib
 const ref = require("ref");//for the c pointer
@@ -32,6 +36,10 @@ let parserLib = ffi.Library("./parser/bin/parser.so", {
     "getJSONString": ["string", ["string"]]
 });
 
+var connection;
+var listOfFileLogObjects = [];
+const DEBUG = false;
+
 //testing the parser lib
 function testParserLib(){
     var uploadNameTest = "./uploads/writeTest.ged";
@@ -51,14 +59,6 @@ function testParserLib(){
 }//end func
 
 /**********************************************************************
- * global variables
- **********************************************************************/
-
-var connection;
-var listOfFileLogObjects = [];
-const DEBUG = false;
-
-/**********************************************************************
  * stubs
  **********************************************************************/
 
@@ -68,7 +68,7 @@ const app     = express();
 const path    = require("path");
 const fileUpload = require('express-fileupload');
 
-app.use(fileUpload());if(DEBUG)
+app.use(fileUpload());
 
 // Minimization
 const fs = require('fs');
